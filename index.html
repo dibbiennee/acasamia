@@ -200,7 +200,7 @@ p{margin:0 0 15px;max-width:62ch}
 
 /* ---------- dove siamo / pratiche ---------- */
 .pratiche{background:var(--carta);border-top:1px solid var(--linea)}
-.dove-foto{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:3px;margin:16px 0 32px}
+.dove-foto{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:3px;margin:16px 0 32px}
 .orari{margin:18px 0 0;padding:0;list-style:none;max-width:420px}
 .orari li{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px dotted var(--linea);font-size:15.5px}
 .orari li.oggi-riga{color:var(--carminio)}
@@ -237,8 +237,7 @@ p{margin:0 0 15px;max-width:62ch}
 .lightbox button{position:absolute;top:16px;right:16px;width:40px;height:40px;color:var(--carta);font-size:28px;line-height:1}
 
 /* ---------- banner riga ---------- */
-.banner-riga{display:grid;gap:14px;margin-top:40px;position:relative}
-@media (min-width:760px){.banner-riga::before{content:"";position:absolute;top:12%;bottom:12%;left:50%;width:1px;background:var(--linea);transform:translateX(-50%)}}
+.banner-riga{display:grid;gap:14px;margin-top:0;padding-top:40px;border-top:1px solid var(--linea)}
 .banner{position:relative;border-radius:3px;overflow:hidden;min-height:150px;display:flex;align-items:flex-end;padding:20px;color:var(--carta);text-decoration:none}
 .banner img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;margin:0;z-index:0}
 .banner .vel{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,32,28,.1) 0%,rgba(20,32,28,.75) 100%);z-index:1}
@@ -427,7 +426,7 @@ footer .firma{margin-top:24px;padding-top:16px;border-top:1px solid rgba(253,250
 <section class="pratiche" id="dove-siamo">
   <div class="wrap">
     <h2 data-it="Orari e contatti" data-en="Hours and contacts">Orari e contatti</h2>
-    <img class="dove-foto" src="public/img/dove.webp" width="1280" height="720" alt="L'insegna di A casa mia in Via XVI Settembre" loading="lazy">
+    <img class="dove-foto" src="public/img/dove.webp" width="1280" height="1600" alt="L'insegna di A casa mia in Via XVI Settembre" loading="lazy">
     <div class="dove-riga">
     <ul class="orari" id="orari"></ul>
     <div class="dove-contatti">
