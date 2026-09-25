@@ -202,7 +202,10 @@ p{margin:0 0 15px;max-width:62ch}
 /* ---------- dove siamo / pratiche ---------- */
 .pratiche{background:var(--carta);border-top:1px solid var(--linea)}
 .dove-foto{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:3px;margin:16px 0 32px}
-@media (min-width:760px){.chi-foto,.dove-foto{aspect-ratio:3/2}}
+@media (min-width:760px){
+  .chi-foto{max-width:640px}
+  .dove-foto{max-width:480px}
+}
 .orari{margin:18px 0 0;padding:0;list-style:none;max-width:420px}
 .orari li{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px dotted var(--linea);font-size:15.5px}
 .orari li.oggi-riga{color:var(--carminio)}
@@ -330,7 +333,7 @@ footer .firma{margin-top:24px;padding-top:16px;border-top:1px solid rgba(253,250
 <section class="chi-siamo" id="chi-siamo">
   <div class="wrap">
     <h2 class="chi-titolo-sopra" data-it="Chi siamo" data-en="About us">Chi siamo</h2>
-    <img class="chi-foto" src="public/img/sala.webp" srcset="public/img/sala-640.webp 640w, public/img/sala.webp 1280w" sizes="(min-width:900px) 1032px, 100vw" width="1280" height="960" alt="La sala di A casa mia" loading="lazy">
+    <img class="chi-foto" src="public/img/sala.webp" srcset="public/img/sala-640.webp 640w, public/img/sala.webp 1280w" sizes="(min-width:900px) 1032px, 100vw" width="1280" height="1600" alt="Il nostro barman prepara un cocktail da A casa mia" loading="lazy">
     <div class="chi-testo">
       <ul class="fatti">
         <li><svg viewBox="0 0 24 24"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><span data-it="Siamo nel cuore di Civitavecchia" data-en="We're in the heart of Civitavecchia">Siamo nel cuore di Civitavecchia</span></li>
@@ -503,7 +506,7 @@ footer .firma{margin-top:24px;padding-top:16px;border-top:1px solid rgba(253,250
 <!-- ================= PRODOTTI PARTNER ================= -->
 <section class="partner">
   <div class="wrap partner-in">
-    <img src="public/img/partner.webp" srcset="public/img/partner-640.webp 640w, public/img/partner.webp 1280w" sizes="260px" width="1280" height="1600" alt="Prodotti dei nostri produttori" loading="lazy">
+    <img src="public/img/partner.webp" srcset="public/img/partner-640.webp 640w, public/img/partner.webp 1280w" sizes="260px" width="1280" height="1600" alt="Pasta artigianale dei nostri piccoli produttori" loading="lazy">
     <div>
       <h2 data-it="Da noi... a casa tua" data-en="From us... to your home">Da noi... a casa tua</h2>
       <p data-it="Una selezione accurata di specialità dei nostri piccoli produttori, da acquistare e portare direttamente a casa tua." data-en="A carefully chosen selection of specialities from our small producers, to buy and take straight home with you.">Una selezione accurata di specialità dei nostri piccoli produttori, da acquistare e portare direttamente a casa tua.</p>
