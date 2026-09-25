@@ -76,11 +76,11 @@ button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
 /* ---------- header ---------- */
 header{position:sticky;top:0;z-index:50;background:rgba(247,239,221,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--linea)}
 .bar{display:flex;flex-wrap:wrap;align-items:center;column-gap:12px;min-height:54px}
-.marchio{order:1;display:flex;align-items:center;gap:8px;text-decoration:none;min-width:0;min-height:40px}
+.marchio{order:1;display:flex;align-items:center;gap:8px;text-decoration:none;min-width:0;min-height:44px}
 .marchio svg{width:23px;height:23px;flex:none}
 .marchio b{font-family:var(--display);font-weight:600;font-size:20px;color:var(--verde);white-space:nowrap}
 .lang{order:2;margin-left:auto;flex:none;display:flex;border:1px solid var(--linea);border-radius:999px;overflow:hidden}
-.lang button{padding:12px 16px;font-size:12px;letter-spacing:.08em;opacity:.78;line-height:1.3;min-height:40px;min-width:40px}
+.lang button{padding:14px 18px;font-size:12px;letter-spacing:.08em;opacity:.78;line-height:1.3;min-height:44px;min-width:44px}
 .lang button.on{background:var(--verde);color:var(--crema);opacity:1}
 header nav{order:3;flex:0 0 100%;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--linea)}
 header nav a{padding:12px 4px;font-size:13.5px;color:var(--verde);opacity:.78;border-bottom:2px solid transparent;text-align:center;text-decoration:none;display:block}
@@ -189,7 +189,7 @@ p{margin:0 0 15px;max-width:62ch}
 .rec p{font-family:var(--display);font-style:italic;font-size:17px;line-height:1.4;color:var(--carta);margin:0 0 12px;max-width:none}
 .rec-nome{font-size:13px;color:rgba(253,250,242,.68)}
 @media (min-width:760px){.rec{flex:0 0 300px}}
-.vedi-tutte{display:inline-flex;align-items:center;gap:6px;margin-top:6px;font-size:14px;color:var(--carta);opacity:.85;text-decoration:underline;text-underline-offset:3px;min-height:40px}
+.vedi-tutte{display:inline-flex;align-items:center;gap:6px;margin-top:6px;font-size:14px;color:var(--carta);opacity:.85;text-decoration:underline;text-underline-offset:3px;min-height:44px}
 .rec-nota{margin:16px 0 0;font-size:12.5px;color:rgba(253,250,242,.6)}
 
 /* nastro: si attiva solo via JS (niente motion di serie senza conferma del browser) */
@@ -207,14 +207,14 @@ p{margin:0 0 15px;max-width:62ch}
 .orari li.oggi-riga{color:var(--carminio)}
 .orari li span:last-child{font-variant-numeric:tabular-nums}
 .contatti{margin-top:26px;display:grid;gap:10px}
-.contatti a{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:var(--verde);font-size:15.5px;padding:8px 0;min-height:40px}
+.contatti a{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:var(--verde);font-size:15.5px;padding:8px 0;min-height:44px}
 .contatti svg{width:17px;height:17px;stroke:var(--carminio);fill:none;stroke-width:1.6;flex:none}
 .social{margin-top:24px;display:flex;gap:14px}
 .social a{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border:1px solid var(--linea);border-radius:999px;text-decoration:none}
 .social svg{width:17px;height:17px;stroke:var(--verde);fill:none;stroke-width:1.6}
 .ig-fascia{margin-top:24px}
 .ig-testo{margin:0 0 10px;font-size:14.5px}
-.ig-testo a{color:var(--verde);text-decoration:underline;text-underline-offset:3px;padding:8px 4px;display:inline-block}
+.ig-testo a{color:var(--verde);text-decoration:underline;text-underline-offset:3px;padding:11px 4px;display:inline-block}
 .ig-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;border-radius:3px;overflow:hidden}
 .ig-grid img{width:100%;aspect-ratio:1/1;object-fit:cover;margin:0;transition:opacity .2s ease}
 @media (hover:hover){.ig-grid:hover img{opacity:.85}}
@@ -235,7 +235,7 @@ p{margin:0 0 15px;max-width:62ch}
 .lightbox{position:fixed;inset:0;background:rgba(20,32,28,.94);z-index:100;display:none;align-items:center;justify-content:center;padding:30px}
 .lightbox.on{display:flex}
 .lightbox img{max-width:100%;max-height:100%;border-radius:2px}
-.lightbox button{position:absolute;top:16px;right:16px;width:40px;height:40px;color:var(--carta);font-size:28px;line-height:1}
+.lightbox button{position:absolute;top:14px;right:14px;width:44px;height:44px;display:flex;align-items:center;justify-content:center;color:var(--carta);font-size:28px;line-height:1}
 
 /* ---------- banner riga ---------- */
 .banner-riga{display:grid;gap:14px;margin-top:0;padding-top:40px;border-top:1px solid var(--linea)}
@@ -256,7 +256,7 @@ p{margin:0 0 15px;max-width:62ch}
 .partner img{width:100%;max-width:260px;aspect-ratio:4/3;object-fit:cover;object-position:center 82%;border-radius:3px;box-shadow:0 4px 14px rgba(35,71,63,.18)}
 .partner h2{font-size:22px;font-weight:600;margin-bottom:8px}
 .partner p{font-size:15px;color:var(--sabbia);margin:0}
-.visita-negozio{display:inline-flex;align-items:center;margin-top:12px;font-size:14px;color:var(--carminio-sc);text-decoration:underline;text-underline-offset:3px;min-height:40px}
+.visita-negozio{display:inline-flex;align-items:center;margin-top:12px;font-size:14px;color:var(--carminio-sc);text-decoration:underline;text-underline-offset:3px;min-height:44px}
 @media (min-width:760px){.partner-in{flex-direction:row;align-items:center;gap:30px;padding:32px}.partner img{max-width:200px}}
 
 /* ---------- footer ---------- */
@@ -265,7 +265,7 @@ footer .marchio b{color:var(--carta)}
 footer .marchio svg rect,footer .marchio svg path{stroke:#D98A8D}
 footer .marchio svg path:nth-child(3),footer .marchio svg path:nth-child(4){fill:#D98A8D;stroke:none}
 footer p{margin:0 auto 8px;font-size:15px;color:rgba(253,250,242,.7)}
-footer p a{display:inline-block;padding:12px 8px}
+footer p a{display:inline-block;padding:15px 8px}
 footer .firma{margin-top:24px;padding-top:16px;border-top:1px solid rgba(253,250,242,.16);font-size:12px;color:rgba(253,250,242,.65);letter-spacing:.04em}
 .wrap.center{text-align:center}
 
