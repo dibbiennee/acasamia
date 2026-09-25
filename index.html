@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>A casa mia · caffé · brunch · aperitivo · Civitavecchia</title>
-<meta name="description" content="Bistrot nel cuore di Civitavecchia, a pochi passi dal porto. Colazione dalle 7:30, brunch, pranzo e aperitivo in Via XVI Settembre 4.">
+<meta name="description" content="Bistrot nel cuore di Civitavecchia, a pochi passi dal porto. Colazione dalle 7:00, brunch, pranzo e aperitivo in Via XVI Settembre 4.">
 <link rel="canonical" href="https://acasamia.satoshiweb.it/">
 <meta property="og:title" content="A casa mia · caffé · brunch · aperitivo · Civitavecchia">
-<meta property="og:description" content="Bistrot nel cuore di Civitavecchia, a pochi passi dal porto. Colazione dalle 7:30, brunch, pranzo e aperitivo in Via XVI Settembre 4.">
+<meta property="og:description" content="Bistrot nel cuore di Civitavecchia, a pochi passi dal porto. Colazione dalle 7:00, brunch, pranzo e aperitivo in Via XVI Settembre 4.">
 <meta property="og:image" content="https://acasamia.satoshiweb.it/public/img/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -38,8 +38,8 @@
   "geo": {"@type": "GeoCoordinates", "latitude": 42.0930, "longitude": 11.7955},
   "sameAs": ["https://www.instagram.com/acasamiacivitavecchia", "https://www.facebook.com/acasamiacivitavecchia"],
   "openingHoursSpecification": [
-    {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Sunday"], "opens": "07:30", "closes": "18:00"},
-    {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Friday","Saturday"], "opens": "07:30", "closes": "22:00"}
+    {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "07:00", "closes": "17:00"},
+    {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday","Sunday"], "opens": "08:00", "closes": "15:00"}
   ]
 }
 </script>
@@ -67,7 +67,7 @@ body{
 img{display:block;max-width:100%;height:auto}
 a{color:inherit}
 button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
-.wrap{width:100%;max-width:1080px;margin:0 auto;padding:0 24px}
+.wrap{width:100%;max-width:1080px;margin:0 auto;padding:0 28px}
 .narrow{max-width:660px}
 
 /* ---------- strisce tovaglietta ---------- */
@@ -196,7 +196,7 @@ p{margin:0 0 15px;max-width:62ch}
 
 /* nastro: si attiva solo via JS (niente motion di serie senza conferma del browser) */
 .rec-riga.scorre{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 28px,#000 calc(100% - 28px),transparent);mask-image:linear-gradient(90deg,transparent,#000 28px,#000 calc(100% - 28px),transparent)}
-.rec-riga.scorre .rec-track{animation:scorri-rec 34s linear infinite}
+.rec-riga.scorre .rec-track{animation:scorri-rec 70s linear infinite}
 .rec-riga.scorre:hover .rec-track,.rec-riga.scorre:focus-within .rec-track,.rec-riga.scorre.in-pausa .rec-track,.rec-riga.scorre.fuori-vista .rec-track{animation-play-state:paused}
 @keyframes scorri-rec{to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion:reduce){.rec-riga.scorre .rec-track{animation:none}}
@@ -335,7 +335,7 @@ footer .firma{margin-top:24px;padding-top:16px;border-top:1px solid rgba(253,250
 <section class="chi-siamo" id="chi-siamo">
   <div class="wrap">
     <h2 class="chi-titolo-sopra" data-it="Chi siamo" data-en="About us">Chi siamo</h2>
-    <img class="chi-foto" src="public/img/sala.webp" srcset="public/img/sala-640.webp 640w, public/img/sala.webp 1280w" sizes="(min-width:900px) 1032px, 100vw" width="1280" height="1600" alt="Il nostro barman prepara un cocktail da A casa mia" loading="lazy">
+    <img class="chi-foto" src="public/img/sala.webp" srcset="public/img/sala-640.webp 640w, public/img/sala.webp 1280w" sizes="(min-width:900px) 1032px, 100vw" width="1280" height="1600" alt="Colazione al tavolo da A casa mia" loading="lazy">
     <div class="chi-testo">
       <ul class="fatti">
         <li><svg viewBox="0 0 24 24"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><span data-it="Siamo nel cuore di Civitavecchia" data-en="We're in the heart of Civitavecchia">Siamo nel cuore di Civitavecchia</span></li>
@@ -561,7 +561,7 @@ function setLang(l){
   orari();
 }
 
-var ORE = ['7:30 – 18:00','7:30 – 18:00','7:30 – 18:00','7:30 – 18:00','7:30 – 22:00','7:30 – 22:00','7:30 – 18:00'];
+var ORE = ['7:00 – 17:00','7:00 – 17:00','7:00 – 17:00','7:00 – 17:00','7:00 – 17:00','8:00 – 15:00','8:00 – 15:00'];
 var GIORNI_IT = ['Lunedì','Martedì','Mercoledì','Giovedì','Venerdì','Sabato','Domenica'];
 var GIORNI_EN = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
 
@@ -570,14 +570,15 @@ function fmtEN(h){ return (h>12?h-12:h) + (h>=12?' pm':' am'); }
 
 function stato(){
   var n = new Date(), g = (n.getDay()+6)%7, h = n.getHours()+n.getMinutes()/60;
-  var weekend = (g===4||g===5);
-  var apre = 7.5, chiude = weekend ? 22 : 18;
+  var weekend = (g===5||g===6);
+  var apre = weekend ? 8 : 7, chiude = weekend ? 15 : 17;
   var aperto = h>=apre && h<chiude;
   var txt;
   if(aperto){
     txt = LANG==='it' ? 'Siamo aperti fino alle '+pad(chiude)+':00' : "We're open until "+fmtEN(chiude);
   } else {
-    txt = LANG==='it' ? 'Chiuso per oggi, ci vediamo domani alle 7:30' : 'Closed for today, see you tomorrow at 7:30 am';
+    var domani = (g+1)%7, apreDomani = (domani===5||domani===6) ? 8 : 7;
+    txt = LANG==='it' ? 'Chiuso per oggi, ci vediamo domani alle '+pad(apreDomani)+':00' : 'Closed for today, see you tomorrow at '+fmtEN(apreDomani);
   }
   document.getElementById('stato-txt').textContent = txt;
   var pal = document.getElementById('pallino');

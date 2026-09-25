@@ -40,7 +40,7 @@ SITE_URL = "https://acasamia.satoshiweb.it"
 # il srcset — None per l'hero, che ha la sua gestione a parte)
 NAMED_IMAGES = [
     ("Il bancone di A casa mia", "hero", True, None),
-    ("Il nostro barman prepara un cocktail da A casa mia", "sala", False, "(min-width:900px) 1032px, 100vw"),
+    ("Colazione al tavolo da A casa mia", "sala", False, "(min-width:900px) 1032px, 100vw"),
     ("Colazione dolce e salata", "colazione", False, "(min-width:760px) 340px, 46vw"),
     ("Brunch da A casa mia", "brunch", False, "(min-width:760px) 340px, 46vw"),
     ("Aperitivo da A casa mia", "aperitivo", False, "(min-width:760px) 340px, 46vw"),
