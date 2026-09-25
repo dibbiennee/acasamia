@@ -44,9 +44,10 @@ NAMED_IMAGES = [
     ("Brunch da A casa mia", "brunch", False),
     ("Aperitivo da A casa mia", "aperitivo", False),
     ("Pranzo da A casa mia", "pranzo", False),
-    ("Pancake ai frutti di bosco per la merenda da A casa mia", "merende", False),
-    ("Tavolo apparecchiato per i gruppi da A casa mia", "gruppi", False),
+    ("Yogurt e frutta fresca per la merenda da A casa mia", "merende", False),
+    ("Il nostro staff serve un piatto per i gruppi da A casa mia", "gruppi", False),
     ("Prodotti dei nostri produttori", "partner", False),
+    ("L'insegna di A casa mia in Via XVI Settembre", "dove", False),
 ]
 
 # le due immagini banner non hanno alt (decorative, il testo è nel markup
