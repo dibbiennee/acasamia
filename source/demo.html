@@ -98,10 +98,10 @@ header nav a.on{opacity:1;color:var(--carminio-sc);border-bottom-color:var(--car
 /* ---------- hero ---------- */
 .hero{position:relative;background:var(--verde);overflow:hidden}
 .hero img{width:100%;height:clamp(460px,68vh,640px);object-fit:cover;object-position:center 42%}
-.hero .vel{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,32,28,.30) 0%,rgba(20,32,28,0) 30%,rgba(20,32,28,.80) 100%)}
+.hero .vel{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,32,28,.45) 0%,rgba(20,32,28,.32) 40%,rgba(20,32,28,.92) 100%)}
 .hero .txt{position:absolute;left:0;right:0;bottom:0;padding:0 24px 32px;color:var(--carta);text-align:center}
-.hero h1{font-family:var(--display);font-weight:500;font-size:clamp(46px,13vw,76px);line-height:.95;margin:0}
-.hero .sub{font-size:13px;letter-spacing:.34em;text-transform:lowercase;opacity:.88;margin-top:12px}
+.hero h1{font-family:var(--display);font-weight:500;font-size:clamp(46px,13vw,76px);line-height:.95;margin:0;text-shadow:0 2px 20px rgba(0,0,0,.5)}
+.hero .sub{font-size:13px;letter-spacing:.34em;text-transform:lowercase;opacity:.92;margin-top:12px;text-shadow:0 1px 10px rgba(0,0,0,.55)}
 .hero .claim{font-family:var(--display);font-size:clamp(20px,5.2vw,27px);font-style:italic;margin-top:16px;opacity:.97}
 .cl{display:block}
 .hero .dove{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:var(--crema);opacity:.86;margin-top:12px}
@@ -133,6 +133,13 @@ a,button{transition:background-color .2s ease,color .2s ease,opacity .2s ease,bo
   .hero .sub{opacity:.88;letter-spacing:.34em}
 }
 
+/* ---------- rivelo il contenuto mentre si scorre ---------- */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1)}
+.reveal.mostra{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+}
+
 /* ---------- azioni rapide ---------- */
 .azioni{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--linea);border-bottom:1px solid var(--linea);border-left:1px solid var(--linea);border-right:1px solid var(--linea);max-width:660px;margin:0 auto}
 .azioni a{background:var(--crema);padding:16px 8px;text-align:center;text-decoration:none;font-size:14px;color:var(--verde);display:flex;flex-direction:column;align-items:center;gap:8px}
@@ -150,7 +157,7 @@ p{margin:0 0 15px;max-width:62ch}
 /* ---------- chi siamo ---------- */
 .chi-siamo{background:var(--carta);border-top:1px solid var(--linea);border-bottom:1px solid var(--linea)}
 .chi-titolo-sopra{margin-bottom:16px}
-.chi-foto{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:3px;margin-bottom:30px}
+.chi-foto{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:3px;margin-bottom:32px}
 .fatti{list-style:none;margin:0 0 20px;padding:0;display:grid;gap:8px}
 .fatti li{display:flex;gap:10px;align-items:baseline;font-size:15px;color:var(--sabbia)}
 .fatti svg{width:14px;height:14px;flex:none;stroke:var(--carminio);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;position:relative;top:3px}
@@ -230,7 +237,8 @@ p{margin:0 0 15px;max-width:62ch}
 .lightbox button{position:absolute;top:16px;right:16px;width:40px;height:40px;color:var(--carta);font-size:28px;line-height:1}
 
 /* ---------- banner riga ---------- */
-.banner-riga{display:grid;gap:14px;margin-top:40px}
+.banner-riga{display:grid;gap:14px;margin-top:40px;position:relative}
+@media (min-width:760px){.banner-riga::before{content:"";position:absolute;top:12%;bottom:12%;left:50%;width:1px;background:var(--linea);transform:translateX(-50%)}}
 .banner{position:relative;border-radius:3px;overflow:hidden;min-height:150px;display:flex;align-items:flex-end;padding:20px;color:var(--carta);text-decoration:none}
 .banner img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;margin:0;z-index:0}
 .banner .vel{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,32,28,.1) 0%,rgba(20,32,28,.75) 100%);z-index:1}
@@ -246,7 +254,7 @@ p{margin:0 0 15px;max-width:62ch}
 .partner{background:var(--crema);border-top:1px solid var(--linea);padding:48px 0}
 .partner-in{display:flex;flex-direction:column;gap:18px;align-items:flex-start;background:var(--carta);border:1px solid var(--linea);border-radius:4px;padding:24px;box-shadow:0 8px 24px rgba(35,71,63,.08)}
 .partner img{width:100%;max-width:260px;aspect-ratio:4/3;object-fit:cover;object-position:center 82%;border-radius:3px;box-shadow:0 4px 14px rgba(35,71,63,.18)}
-.partner h3{font-size:19px;margin-bottom:8px}
+.partner h3{font-size:22px;margin-bottom:8px}
 .partner p{font-size:15px;color:var(--sabbia);margin:0}
 .visita-negozio{display:inline-flex;align-items:center;margin-top:12px;font-size:14px;color:var(--carminio-sc);text-decoration:underline;text-underline-offset:3px;min-height:40px}
 @media (min-width:760px){.partner-in{flex-direction:row;align-items:center;gap:30px;padding:32px}.partner img{max-width:200px}}
@@ -627,6 +635,31 @@ ACapo.avvia();
       entries.forEach(function(e){ riga.classList.toggle('fuori-vista', !e.isIntersecting); });
     }, {threshold:0}).observe(riga);
   }
+})();
+
+(function(){
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var bersagli = document.querySelectorAll(
+    '.chi-siamo h2, .chi-foto, .fatti li, .chi-testo p, ' +
+    '.giornata h2, .mom-foto, ' +
+    '.partner-in, ' +
+    '.pratiche h2, .dove-foto, .galleria h2, .gal-grid button, ' +
+    '.banner-riga a'
+  );
+  if(reduce || !('IntersectionObserver' in window)){
+    bersagli.forEach(function(el){ el.classList.add('mostra'); });
+    return;
+  }
+  bersagli.forEach(function(el){ el.classList.add('reveal'); });
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('mostra');
+        io.unobserve(entry.target);
+      }
+    });
+  }, {threshold:.14, rootMargin:'0px 0px -60px 0px'});
+  bersagli.forEach(function(el){ io.observe(el); });
 })();
 </script>
 

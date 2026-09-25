@@ -114,6 +114,10 @@ def main():
         save_webp(raw, os.path.join(OUT_IMG, fname))
         w, h = decode_dims(os.path.join(OUT_IMG, fname))
 
+        # gli attributi scritti a mano prima di src (es. class="chi-foto") vanno
+        # riportati sul tag nuovo, altrimenti si perde lo stile dell'immagine
+        attrs_before = m.group(1)
+
         if name == "hero":
             # unica immagine con srcset: genera anche una variante 640px
             import tempfile
@@ -124,11 +128,11 @@ def main():
                 run(["sips", "-Z", "640", full_png, "--out", small_png])
                 run(["cwebp", "-q", "82", "-m", "6", small_png, "-o", os.path.join(OUT_IMG, "hero-640.webp")])
             build_og_image(os.path.join(OUT_IMG, fname), os.path.join(OUT_IMG, "og-image.jpg"))
-            new_tag = (f'<img src="public/img/{fname}" srcset="public/img/hero-640.webp 640w, public/img/{fname} {w}w" '
+            new_tag = (f'<img{attrs_before}src="public/img/{fname}" srcset="public/img/hero-640.webp 640w, public/img/{fname} {w}w" '
                        f'sizes="100vw" width="{w}" height="{h}" alt="{alt}" loading="eager" fetchpriority="high">')
         else:
             loading = "eager" if eager else "lazy"
-            new_tag = f'<img src="public/img/{fname}" width="{w}" height="{h}" alt="{alt}" loading="{loading}">'
+            new_tag = f'<img{attrs_before}src="public/img/{fname}" width="{w}" height="{h}" alt="{alt}" loading="{loading}">'
 
         out = out[:m.start()] + new_tag + out[m.end():]
         print(f"  {name}: {w}x{h}" + (" (+ variante 640px + og-image.jpg)" if name == "hero" else ""))
