@@ -604,8 +604,10 @@ document.querySelectorAll('#gal-grid button').forEach(function(b){
     lb.classList.add('on');
   });
 });
-document.getElementById('lightbox-close').addEventListener('click', function(){ lb.classList.remove('on'); lbImg.removeAttribute('src'); });
-lb.addEventListener('click', function(e){ if(e.target===lb){ lb.classList.remove('on'); lbImg.removeAttribute('src'); } });
+function chiudiLightbox(){ lb.classList.remove('on'); lbImg.removeAttribute('src'); }
+document.getElementById('lightbox-close').addEventListener('click', chiudiLightbox);
+lb.addEventListener('click', function(e){ if(e.target===lb){ chiudiLightbox(); } });
+document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && lb.classList.contains('on')){ chiudiLightbox(); } });
 
 stato();
 orari();
