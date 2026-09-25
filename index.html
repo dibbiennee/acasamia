@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>A casa mia · caffé · brunch · aperitivo · Civitavecchia</title>
+<meta name="description" content="Bistrot nel cuore di Civitavecchia, a pochi passi dal porto. Colazione dalle 7:00, brunch, pranzo e aperitivo in Via XVI Settembre 4.">
+<link rel="canonical" href="https://acasamia.satoshiweb.it/">
+<meta property="og:title" content="A casa mia · caffé · brunch · aperitivo · Civitavecchia">
+<meta property="og:description" content="Bistrot nel cuore di Civitavecchia, a pochi passi dal porto. Colazione dalle 7:00, brunch, pranzo e aperitivo in Via XVI Settembre 4.">
+<meta property="og:image" content="https://acasamia.satoshiweb.it/public/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://acasamia.satoshiweb.it/">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#F7EFDD">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='8' fill='%23F7EFDD'/%3E%3Crect x='8' y='8' width='24' height='24' fill='none' stroke='%23A8383C' stroke-width='2.6'/%3E%3Cpath d='M20 8v24M8 20h24' stroke='%23A8383C' stroke-width='2.6'/%3E%3Cpath d='M20 9.5h11v7z' fill='%23A8383C'/%3E%3Cpath d='M11 32v-6a4.5 4.5 0 0 1 9 0v6z' fill='%23A8383C'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["CafeOrCoffeeShop", "Restaurant"],
+  "name": "A casa mia",
+  "description": "Bistrot nel cuore di Civitavecchia, a pochi passi dal porto.",
+  "servesCuisine": ["Italiana", "Brunch", "Caffetteria"],
+  "priceRange": "€€",
+  "telephone": "+39 0766 526232",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Via XVI Settembre, 4",
+    "addressLocality": "Civitavecchia",
+    "postalCode": "00053",
+    "addressRegion": "RM",
+    "addressCountry": "IT"
+  },
+  "geo": {"@type": "GeoCoordinates", "latitude": 42.0930, "longitude": 11.7955},
+  "sameAs": ["https://www.instagram.com/acasamiacivitavecchia", "https://www.facebook.com/acasamiacivitavecchia"],
+  "openingHoursSpecification": [
+    {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Sunday"], "opens": "07:00", "closes": "17:00"},
+    {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Friday","Saturday"], "opens": "08:00", "closes": "15:00"}
+  ]
+}
+</script>
+<style>
+:root{
+  --crema:#F7EFDD;
+  --carta:#FDFAF2;
+  --carminio:#A8383C;
+  --carminio-sc:#8E2E32;
+  --verde:#23473F;
+  --inchiostro:#31403A;
+  --sabbia:#6B645B;
+  --linea:rgba(35,71,63,.14);
+  --display:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+  --ui:"Jost",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;overflow-x:hidden;scroll-behavior:smooth}
+body{
+  margin:0;background:var(--crema);color:var(--inchiostro);
+  font-family:var(--ui);font-weight:300;font-size:17px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
+.wrap{width:100%;max-width:1080px;margin:0 auto;padding:0 24px}
+.narrow{max-width:660px}
+
+/* ---------- strisce tovaglietta ---------- */
+.strisce{height:14px;background:repeating-linear-gradient(90deg,var(--carminio) 0 22px,#FDFAF2 22px 44px);opacity:.9}
+
+/* ---------- header ---------- */
+header{position:sticky;top:0;z-index:50;background:rgba(247,239,221,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--linea)}
+.bar{display:flex;flex-wrap:wrap;align-items:center;column-gap:12px;min-height:54px}
+.marchio{order:1;display:flex;align-items:center;gap:8px;text-decoration:none;min-width:0;min-height:40px}
+.marchio svg{width:23px;height:23px;flex:none}
+.marchio b{font-family:var(--display);font-weight:600;font-size:20px;color:var(--verde);white-space:nowrap}
+.lang{order:2;margin-left:auto;flex:none;display:flex;border:1px solid var(--linea);border-radius:999px;overflow:hidden}
+.lang button{padding:12px 16px;font-size:12px;letter-spacing:.08em;opacity:.78;line-height:1.3;min-height:40px;min-width:40px}
+.lang button.on{background:var(--verde);color:var(--crema);opacity:1}
+header nav{order:3;flex:0 0 100%;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--linea)}
+header nav a{padding:12px 4px;font-size:13.5px;color:var(--verde);opacity:.78;border-bottom:2px solid transparent;text-align:center;text-decoration:none;display:block}
+header nav a.on{opacity:1;color:var(--carminio-sc);border-bottom-color:var(--carminio)}
+@media (min-width:900px){
+  .wrap{padding:0 40px}
+  .bar{height:74px;gap:0}
+  header nav{order:2;flex:1 1 auto;border-top:0;display:flex;gap:6px;margin-left:40px;grid-template-columns:none}
+  header nav a{padding:8px 16px;border-bottom:0;border-radius:999px;font-size:15px}
+  header nav a.on{background:rgba(168,56,60,.09);border-bottom:0}
+  .marchio b{font-size:23px}
+  .marchio svg{width:27px;height:27px}
+  .lang{order:3;margin-left:auto}
+}
+
+/* ---------- hero ---------- */
+.hero{position:relative;background:var(--verde);overflow:hidden}
+.hero img{width:100%;height:clamp(460px,68vh,640px);object-fit:cover;object-position:center 42%}
+.hero .vel{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,32,28,.30) 0%,rgba(20,32,28,0) 30%,rgba(20,32,28,.80) 100%)}
+.hero .txt{position:absolute;left:0;right:0;bottom:0;padding:0 24px 32px;color:var(--carta);text-align:center}
+.hero h1{font-family:var(--display);font-weight:500;font-size:clamp(46px,13vw,76px);line-height:.95;margin:0}
+.hero .sub{font-size:13px;letter-spacing:.34em;text-transform:lowercase;opacity:.88;margin-top:12px}
+.hero .claim{font-family:var(--display);font-size:clamp(20px,5.2vw,27px);font-style:italic;margin-top:16px;opacity:.97}
+.cl{display:block}
+.hero .dove{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:var(--crema);opacity:.86;margin-top:12px}
+.hero .dove svg{width:14px;height:14px;flex:none}
+.stato{display:inline-flex;align-items:center;gap:8px;margin-top:20px;padding:7px 15px;border-radius:999px;background:rgba(253,250,242,.16);border:1px solid rgba(253,250,242,.3);font-size:14px}
+.pallino{width:7px;height:7px;border-radius:50%;background:#8FD18A}
+
+/* ---------- movimento (hero, un solo momento orchestrato) ---------- */
+@keyframes sali{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes apri{from{opacity:0;letter-spacing:.62em}to{opacity:.88;letter-spacing:.34em}}
+@keyframes respiro{from{transform:scale(1.07)}to{transform:scale(1)}}
+@keyframes battito{0%{box-shadow:0 0 0 0 rgba(143,209,138,.45)}70%{box-shadow:0 0 0 9px rgba(143,209,138,0)}100%{box-shadow:0 0 0 0 rgba(143,209,138,0)}}
+.hero img{animation:respiro 16s cubic-bezier(.2,.6,.2,1) forwards}
+.hero h1{animation:sali .9s cubic-bezier(.2,.7,.3,1) .1s both}
+.hero .sub{animation:apri 1.2s cubic-bezier(.2,.7,.3,1) .45s both}
+.hero .claim{animation:sali .8s cubic-bezier(.2,.7,.3,1) .7s both}
+.hero .dove{animation:sali .8s cubic-bezier(.2,.7,.3,1) .85s both}
+.stato{animation:sali .8s cubic-bezier(.2,.7,.3,1) 1s both}
+.pallino.vivo{animation:battito 2.6s ease-out 2s infinite}
+a,button{transition:background-color .2s ease,color .2s ease,opacity .2s ease,border-color .2s ease,transform .12s ease}
+.btn:active,.azioni a:active,header nav a:active{transform:scale(.975)}
+.btn:hover{background:var(--carminio-sc)}
+.btn.chiaro:hover{background:#fff}
+.btn.vuoto:hover{background:rgba(253,250,242,.12)}
+.azioni a:hover{background:var(--carta)}
+.vedi-tutte:hover{opacity:1}
+@media (prefers-reduced-motion:reduce){
+  .hero img,.hero h1,.hero .sub,.hero .claim,.hero .dove,.stato,.pallino.vivo{animation:none}
+  .hero .sub{opacity:.88;letter-spacing:.34em}
+}
+
+/* ---------- azioni rapide ---------- */
+.azioni{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--linea);border-bottom:1px solid var(--linea);border-left:1px solid var(--linea);border-right:1px solid var(--linea);max-width:660px;margin:0 auto}
+.azioni a{background:var(--crema);padding:16px 8px;text-align:center;text-decoration:none;font-size:14px;color:var(--verde);display:flex;flex-direction:column;align-items:center;gap:8px}
+.azioni svg{width:19px;height:19px;stroke:var(--carminio);fill:none;stroke-width:1.5}
+.azioni svg.ico-whatsapp,.contatti svg.ico-whatsapp{fill:#25D366;stroke:none}
+
+/* ---------- sezioni ---------- */
+section{padding:56px 0;scroll-margin-top:110px}
+.occhiello{font-family:var(--display);font-style:italic;font-size:19px;color:var(--carminio);margin:0 0 8px}
+h2{font-family:var(--display);font-weight:500;font-size:clamp(31px,7.5vw,42px);line-height:1.1;margin:0 0 18px;color:var(--verde)}
+h3{font-family:var(--display);font-weight:600;font-size:25px;margin:0 0 4px;color:var(--verde)}
+p{margin:0 0 15px;max-width:62ch}
+.smorz{color:var(--sabbia);font-size:15.5px}
+
+/* ---------- chi siamo ---------- */
+.chi-siamo{background:var(--carta);border-top:1px solid var(--linea);border-bottom:1px solid var(--linea)}
+.chi-foto{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:3px;margin-bottom:30px}
+.fatti{list-style:none;margin:0 0 20px;padding:0;display:grid;gap:8px}
+.fatti li{display:flex;gap:10px;align-items:baseline;font-size:16.5px;color:var(--verde)}
+.fatti svg{width:14px;height:14px;flex:none;stroke:var(--carminio);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;position:relative;top:3px}
+.chi-testo{max-width:640px;margin:0 auto}
+
+/* ---------- la giornata ---------- */
+.giornata{background:var(--crema)}
+.giorno-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:26px}
+.mom-foto{border-radius:3px;overflow:hidden;position:relative}
+.mom-foto img{width:100%;aspect-ratio:4/5;object-fit:cover;margin:0}
+.mom-foto span{position:absolute;left:0;right:0;bottom:0;padding:14px 12px;background:linear-gradient(180deg,rgba(35,71,63,0) 0%,rgba(20,32,28,.72) 100%);color:var(--carta);font-family:var(--display);font-size:18px}
+@media (min-width:760px){.giorno-grid{grid-template-columns:repeat(3,1fr)}}
+
+/* ---------- recensioni ---------- */
+.recensioni{background:var(--verde);color:var(--carta)}
+.recensioni h2,.recensioni .occhiello{color:var(--carta)}
+.recensioni .occhiello{color:#E9B9A0}
+.voto{display:flex;align-items:baseline;gap:10px;margin-bottom:26px}
+.voto b{font-family:var(--display);font-size:42px;color:var(--carta)}
+.voto span{color:rgba(253,250,242,.7);font-size:15px}
+.rec-riga{overflow-x:auto;padding-bottom:8px;-webkit-overflow-scrolling:touch;scrollbar-width:none;margin:0 -24px;padding-left:24px;padding-right:24px}
+.rec-riga::-webkit-scrollbar{display:none}
+.rec-track{display:flex;gap:16px;width:max-content}
+.rec{flex:0 0 260px;background:rgba(253,250,242,.06);border:1px solid rgba(253,250,242,.16);border-radius:3px;padding:20px}
+.rec-stelle{color:#E9B9A0;letter-spacing:.1em;font-size:14px;margin-bottom:10px}
+.rec p{font-family:var(--display);font-style:italic;font-size:17px;line-height:1.4;color:var(--carta);margin:0 0 12px;max-width:none}
+.rec-nome{font-size:13px;color:rgba(253,250,242,.68)}
+@media (min-width:760px){.rec{flex:0 0 300px}}
+.vedi-tutte{display:inline-flex;align-items:center;gap:6px;margin-top:6px;font-size:14px;color:var(--carta);opacity:.85;text-decoration:underline;text-underline-offset:3px;min-height:40px}
+.rec-nota{margin:24px 0 0;font-size:12.5px;color:rgba(253,250,242,.6)}
+
+/* nastro: si attiva solo via JS (niente motion di serie senza conferma del browser) */
+.rec-riga.scorre{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 28px,#000 calc(100% - 28px),transparent);mask-image:linear-gradient(90deg,transparent,#000 28px,#000 calc(100% - 28px),transparent)}
+.rec-riga.scorre .rec-track{animation:scorri-rec 34s linear infinite}
+.rec-riga.scorre:hover .rec-track,.rec-riga.scorre:focus-within .rec-track,.rec-riga.scorre.in-pausa .rec-track,.rec-riga.scorre.fuori-vista .rec-track{animation-play-state:paused}
+@keyframes scorri-rec{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.rec-riga.scorre .rec-track{animation:none}}
+
+/* ---------- dove siamo / pratiche ---------- */
+.pratiche{background:var(--carta);border-top:1px solid var(--linea)}
+.orari{margin:18px 0 0;padding:0;list-style:none;max-width:420px}
+.orari li{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px dotted var(--linea);font-size:15.5px}
+.orari li.oggi-riga{color:var(--carminio)}
+.orari li span:last-child{font-variant-numeric:tabular-nums}
+.contatti{margin-top:26px;display:grid;gap:10px}
+.contatti a{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:var(--verde);font-size:15.5px;padding:8px 0;min-height:40px}
+.contatti svg{width:17px;height:17px;stroke:var(--carminio);fill:none;stroke-width:1.6;flex:none}
+.social{margin-top:24px;display:flex;gap:14px}
+.social a{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border:1px solid var(--linea);border-radius:999px;text-decoration:none}
+.social svg{width:17px;height:17px;stroke:var(--verde);fill:none;stroke-width:1.6}
+@media (min-width:760px){
+  .dove-riga{display:flex;gap:64px;align-items:flex-start}
+  .dove-riga .orari{flex:0 0 380px}
+  .dove-contatti{flex:1;padding-top:18px}
+  .dove-contatti .contatti{margin-top:0}
+}
+
+/* ---------- galleria ---------- */
+.galleria{margin-top:40px}
+.gal-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-flow:row dense;gap:8px}
+.gal-grid button{padding:0;border-radius:2px;overflow:hidden;aspect-ratio:1/1;display:block}
+.gal-grid img{width:100%;height:100%;object-fit:cover;margin:0}
+.gal-grid .tall{aspect-ratio:1/1.4;grid-row:span 2}
+@media (min-width:760px){.gal-grid{grid-template-columns:repeat(4,1fr)}}
+.lightbox{position:fixed;inset:0;background:rgba(20,32,28,.94);z-index:100;display:none;align-items:center;justify-content:center;padding:30px}
+.lightbox.on{display:flex}
+.lightbox img{max-width:100%;max-height:100%;border-radius:2px}
+.lightbox button{position:absolute;top:16px;right:16px;width:40px;height:40px;color:var(--carta);font-size:28px;line-height:1}
+
+/* ---------- banner riga ---------- */
+.banner-riga{display:grid;gap:14px;margin-top:40px}
+.banner{position:relative;border-radius:3px;overflow:hidden;min-height:150px;display:flex;align-items:flex-end;padding:20px;color:var(--carta);text-decoration:none}
+.banner img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;margin:0;z-index:0}
+.banner .vel{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,32,28,.1) 0%,rgba(20,32,28,.75) 100%);z-index:1}
+.marchio-badge{position:absolute;top:14px;left:14px;z-index:2;width:34px;height:34px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 4px rgba(20,32,28,.25)}
+.marchio-badge svg{width:18px;height:18px;fill:#FFC244}
+.marchio-badge-wa svg{fill:#25D366}
+.banner .txt{position:relative;z-index:2}
+.banner .txt b{display:block;font-family:var(--display);font-size:21px;margin-bottom:4px}
+.banner .txt span{font-size:13.5px;opacity:.88}
+@media (min-width:760px){.banner-riga{grid-template-columns:1fr 1fr}}
+
+/* ---------- prodotti partner (fascia compatta) ---------- */
+.partner{background:var(--crema);border-top:1px solid var(--linea);padding:34px 0}
+.partner-in{display:flex;flex-direction:column;gap:18px;align-items:flex-start}
+.partner img{width:100%;max-width:260px;aspect-ratio:4/3;object-fit:cover;object-position:center 82%;border-radius:3px}
+.partner h3{font-size:19px;margin-bottom:6px}
+.partner p{font-size:15px;color:var(--sabbia);margin:0}
+.visita-negozio{display:inline-flex;align-items:center;margin-top:12px;font-size:14px;color:var(--carminio-sc);text-decoration:underline;text-underline-offset:3px;min-height:40px}
+@media (min-width:760px){.partner-in{flex-direction:row;align-items:center;gap:30px}.partner img{max-width:200px}}
+
+/* ---------- footer ---------- */
+footer{background:var(--verde);color:rgba(253,250,242,.82);padding:48px 0 32px;font-size:14px}
+footer .marchio b{color:var(--carta)}
+footer .marchio svg rect,footer .marchio svg path{stroke:#D98A8D}
+footer .marchio svg path:nth-child(3),footer .marchio svg path:nth-child(4){fill:#D98A8D;stroke:none}
+footer p{margin:0 auto 8px;font-size:15px;color:rgba(253,250,242,.7)}
+footer p a{display:inline-block;padding:12px 8px}
+footer .firma{margin-top:24px;padding-top:16px;border-top:1px solid rgba(253,250,242,.16);font-size:12px;color:rgba(253,250,242,.65);letter-spacing:.04em}
+.wrap.center{text-align:center}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="marchio" href="#top">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><rect x="2" y="2" width="36" height="36" fill="none" stroke="#A8383C" stroke-width="3"/><path d="M20 2v36M2 20h36" stroke="#A8383C" stroke-width="3"/><path d="M20 4h16v10z" fill="#A8383C"/><path d="M6 36v-8a6 6 0 0 1 12 0v8z" fill="#A8383C"/></svg>
+      <b>A casa mia</b>
+    </a>
+    <div class="lang">
+      <button id="l-it" class="on" onclick="setLang('it')">IT</button>
+      <button id="l-en" onclick="setLang('en')">EN</button>
+    </div>
+    <nav>
+      <a href="#chi-siamo" data-it="Chi siamo" data-en="About us">Chi siamo</a>
+      <a href="#giornata" data-it="La giornata" data-en="Your day">La giornata</a>
+      <a href="#recensioni" data-it="Recensioni" data-en="Reviews">Recensioni</a>
+      <a href="#dove-siamo" data-it="Dove siamo" data-en="Find us">Dove siamo</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="hero" id="top">
+  <img src="public/img/hero.webp" srcset="public/img/hero-640.webp 640w, public/img/hero.webp 1280w" sizes="100vw" width="1280" height="1600" alt="Il bancone di A casa mia" loading="eager" fetchpriority="high">
+  <div class="vel"></div>
+  <div class="txt">
+    <h1>A casa mia</h1>
+    <div class="sub">caffé · brunch · aperitivo</div>
+    <div class="claim" data-it-html="&lt;span class=&quot;cl&quot;&gt;Il punto di riferimento&lt;/span&gt;&lt;span class=&quot;cl&quot;&gt;per una pausa di gusto&lt;/span&gt;" data-en-html="&lt;span class=&quot;cl&quot;&gt;The go-to place&lt;/span&gt;&lt;span class=&quot;cl&quot;&gt;for a break worth savouring&lt;/span&gt;"><span class="cl">Il punto di riferimento</span><span class="cl">per una pausa di gusto</span></div>
+    <div class="dove">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-7.58 7-13A7 7 0 1 0 5 9c0 5.42 7 13 7 13z" stroke="currentColor" stroke-width="1.6" fill="none"/><circle cx="12" cy="9" r="2.4" stroke="currentColor" stroke-width="1.6" fill="none"/></svg>
+      <span data-it="Nel cuore di Civitavecchia, a pochi passi dal porto" data-en="In the heart of Civitavecchia, a few steps from the port">Nel cuore di Civitavecchia, a pochi passi dal porto</span>
+    </div>
+    <div class="stato" id="stato"><span class="pallino" id="pallino"></span><span id="stato-txt"></span></div>
+  </div>
+</section>
+
+<div class="azioni">
+  <a href="tel:+390766526232">
+    <svg viewBox="0 0 24 24"><path d="M6 3h4l2 6-3 2c1 3 3 5 6 6l2-3 6 2v4c0 1-1 2-2 2C10 22 2 14 2 5c0-1 1-2 2-2z"/></svg>
+    <span data-it="Chiama" data-en="Call">Chiama</span>
+  </a>
+  <a href="https://wa.me/393481897496" target="_blank" rel="noopener">
+    <svg class="ico-whatsapp" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    <span data-it="WhatsApp" data-en="WhatsApp">WhatsApp</span>
+  </a>
+  <a href="https://maps.google.com/?q=Via+XVI+Settembre+4+Civitavecchia" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24"><path d="M12 22s7-8 7-14a7 7 0 1 0-14 0c0 6 7 14 7 14z"/><circle cx="12" cy="8" r="2.6"/></svg>
+    <span data-it="Indicazioni" data-en="Directions">Indicazioni</span>
+  </a>
+</div>
+
+<!-- ================= CHI SIAMO ================= -->
+<section class="chi-siamo" id="chi-siamo">
+  <div class="wrap">
+    <img src="public/img/sala.webp" width="1280" height="960" alt="La sala di A casa mia" loading="lazy">
+    <div class="chi-testo">
+      <p class="occhiello" data-it="La nostra storia" data-en="Our story">La nostra storia</p>
+      <h2 data-it="Chi siamo" data-en="About us">Chi siamo</h2>
+      <ul class="fatti">
+        <li><svg viewBox="0 0 24 24"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><span data-it="Siamo nel cuore di Civitavecchia" data-en="We're in the heart of Civitavecchia">Siamo nel cuore di Civitavecchia</span></li>
+        <li><svg viewBox="0 0 24 24"><path d="M12 6v16"/><path d="m19 13 2-1a9 9 0 0 1-18 0l2 1"/><path d="M9 11h6"/><circle cx="12" cy="4" r="2"/></svg><span data-it="A pochi passi dal porto: meno di 300 m, circa 2 minuti a piedi" data-en="A short walk from the port: less than 300 m, about a 2-minute walk">A pochi passi dal porto: meno di 300 m, circa 2 minuti a piedi</span></li>
+        <li><svg viewBox="0 0 24 24"><path d="M8 3.1V7a4 4 0 0 0 8 0V3.1"/><path d="m9 15-1-1"/><path d="m15 15 1-1"/><path d="M9 19c-2.8 0-5-2.2-5-5v-4a8 8 0 0 1 16 0v4c0 2.8-2.2 5-5 5Z"/><path d="m8 19-2 3"/><path d="m16 19 2 3"/></svg><span data-it="A 10 minuti a piedi dalla stazione ferroviaria" data-en="A 10-minute walk from the train station">A 10 minuti a piedi dalla stazione ferroviaria</span></li>
+      </ul>
+      <p data-it="Siamo un ritrovo ideale per chi arriva a Civitavecchia via mare. Offriamo proposte cucinate al momento e della tradizione, con ingredienti freschi e ricette del territorio, pensate anche per comitive e gruppi su prenotazione." data-en="We're an ideal spot for anyone arriving in Civitavecchia by sea. We offer dishes cooked to order alongside traditional recipes, with fresh ingredients from the local area, also suited to parties and groups by reservation.">Siamo un ritrovo ideale per chi arriva a Civitavecchia via mare. Offriamo proposte cucinate al momento e della tradizione, con ingredienti freschi e ricette del territorio, pensate anche per comitive e gruppi su prenotazione.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LA GIORNATA ================= -->
+<section class="giornata" id="giornata">
+  <div class="wrap">
+    <p class="occhiello" data-it="Come vivere la giornata" data-en="How to spend your day">Come vivere la giornata</p>
+    <h2 data-it="La giornata a casa mia" data-en="A day at A casa mia">La giornata a casa mia</h2>
+    <div class="giorno-grid">
+      <div class="mom-foto">
+        <img src="public/img/colazione.webp" width="1280" height="1600" alt="Colazione dolce e salata" loading="lazy">
+        <span data-it="Colazioni dolci e salate" data-en="Sweet & savoury breakfast">Colazioni dolci e salate</span>
+      </div>
+      <div class="mom-foto">
+        <img src="public/img/brunch.webp" width="1280" height="1600" alt="Brunch da A casa mia" loading="lazy">
+        <span data-it="Brunch" data-en="Brunch">Brunch</span>
+      </div>
+      <div class="mom-foto">
+        <img src="public/img/aperitivo.webp" width="1280" height="1600" alt="Aperitivo da A casa mia" loading="lazy">
+        <span data-it="Aperitivi" data-en="Aperitivo">Aperitivi</span>
+      </div>
+      <div class="mom-foto">
+        <img src="public/img/pranzo.webp" width="1280" height="1600" alt="Pranzo da A casa mia" loading="lazy">
+        <span data-it="Pranzi" data-en="Lunch">Pranzi</span>
+      </div>
+      <div class="mom-foto">
+        <img src="public/img/merende.webp" width="1280" height="1600" alt="Pancake ai frutti di bosco per la merenda da A casa mia" loading="lazy">
+        <span data-it="Merende" data-en="Afternoon snacks">Merende</span>
+      </div>
+      <div class="mom-foto">
+        <img src="public/img/gruppi.webp" width="1280" height="1600" alt="Tavolo apparecchiato per i gruppi da A casa mia" loading="lazy">
+        <span data-it="Gruppi su prenotazione" data-en="Groups by reservation">Gruppi su prenotazione</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= RECENSIONI ================= -->
+<section class="recensioni" id="recensioni">
+  <div class="wrap">
+    <p class="occhiello" data-it="Quello che dicono di noi" data-en="What people say about us">Quello che dicono di noi</p>
+    <h2 data-it="Recensioni" data-en="Reviews">Recensioni</h2>
+    <div class="voto">
+      <b>4,7</b>
+      <span data-it="su Google · 42 recensioni" data-en="on Google · 42 reviews">su Google · 42 recensioni</span>
+    </div>
+    <div class="rec-riga" id="rec-riga">
+      <div class="rec-track" id="rec-track">
+        <div class="rec">
+          <div class="rec-stelle">★★★★★</div>
+          <p data-it="“Ambiente accogliente, proprio come se fossi a casa tua. Prodotti di eccellenza, servizio fantastico: consiglio vivamente di passare sia per un aperitivo che per una colazione.”" data-en="“A welcoming atmosphere, just like being at home. Excellent products, fantastic service: I highly recommend it for either an aperitivo or breakfast.”">"Ambiente accogliente, proprio come se fossi a casa tua. Prodotti di eccellenza, servizio fantastico: consiglio vivamente di passare sia per un aperitivo che per una colazione."</p>
+          <div class="rec-nome">Ilarietta 86 · Google</div>
+        </div>
+        <div class="rec">
+          <div class="rec-stelle">★★★★★</div>
+          <p data-it="“Carbonara PAZZESCA, personale e proprietario GENTILISSIMI!!! consigliamo 🥰”" data-en="“Amazing carbonara, staff and owner so kind!!! We highly recommend it 🥰”">"Carbonara PAZZESCA, personale e proprietario GENTILISSIMI!!! consigliamo 🥰"</p>
+          <div class="rec-nome">Serena Gagliano · Google</div>
+        </div>
+        <div class="rec">
+          <div class="rec-stelle">★★★★★</div>
+          <p data-it="“Bellissima location, servizio veloce e personale molto disponibile. Abbiamo fatto un ottimo aperitivo, pienamente soddisfatti sotto tutti i punti di vista. Consigliatissimo, ottimo rapporto qualità prezzo.”" data-en="“Beautiful venue, fast service and very helpful staff. We had a great aperitivo and were fully satisfied on every front. Highly recommended, great value for money.”">"Bellissima location, servizio veloce e personale molto disponibile. Abbiamo fatto un ottimo aperitivo, pienamente soddisfatti sotto tutti i punti di vista. Consigliatissimo, ottimo rapporto qualità prezzo."</p>
+          <div class="rec-nome">Famiglia frontino · Google</div>
+        </div>
+        <div class="rec">
+          <div class="rec-stelle">★★★★★</div>
+          <p data-it="“Sono stato da A Casa Mia a Civitavecchia e l'esperienza è stata davvero molto piacevole. Abbiamo consumato degli ottimi cocktail, preparati con cura e ben bilanciati, accompagnati da stuzzichini gustosi e di qualità.”" data-en="“I visited A Casa Mia in Civitavecchia and the experience was truly very pleasant. We had excellent cocktails, carefully made and well balanced, served with tasty, quality bites.”">"Sono stato da A Casa Mia a Civitavecchia e l'esperienza è stata davvero molto piacevole. Abbiamo consumato degli ottimi cocktail, preparati con cura e ben bilanciati, accompagnati da stuzzichini gustosi e di qualità."</p>
+          <div class="rec-nome">Giuliano Tarquini · Google</div>
+        </div>
+        <div class="rec">
+          <div class="rec-stelle">★★★★☆</div>
+          <p data-it="“Carbonara molto buona, cremosa e abbondante.”" data-en="“Very good carbonara, creamy and generous.”">"Carbonara molto buona, cremosa e abbondante."</p>
+          <div class="rec-nome">Fabiana Fio · Google</div>
+        </div>
+        <div class="rec">
+          <div class="rec-stelle">★★★★★</div>
+          <p data-it="“Sono stata a fare colazione in questo bar vicino al mio albergo. Il locale è bello e pulito. Le paste buone ma offre poca scelta.”" data-en="“I stopped for breakfast at this bar near my hotel. The place is nice and clean. The pastries are good, though the choice is limited.”">"Sono stata a fare colazione in questo bar vicino al mio albergo. Il locale è bello e pulito. Le paste buone ma offre poca scelta."</p>
+          <div class="rec-nome">Filomena Palomba · Google</div>
+        </div>
+      </div>
+    </div>
+    <p class="rec-nota" data-it="Recensioni selezionate dal profilo Google, aggiornate a settembre 2026." data-en="Reviews selected from our Google profile, updated September 2026.">Recensioni selezionate dal profilo Google, aggiornate a settembre 2026.</p>
+    <a class="vedi-tutte" href="https://www.google.com/maps/place/A+casa+mia/@42.0951638,11.7896898,17z/data=!4m6!3m5!1s0x1328a33fb90b8a7b:0xa3094ffb81d2520b!8m2!3d42.0951638!4d11.7896898!16s%2Fg%2F11yksnb6fd" target="_blank" rel="noopener" data-it="Leggi tutte le recensioni su Google" data-en="Read all reviews on Google">Leggi tutte le recensioni su Google</a>
+  </div>
+</section>
+
+<!-- ================= DOVE SIAMO / INFO PRATICHE ================= -->
+<section class="pratiche" id="dove-siamo">
+  <div class="wrap">
+    <p class="occhiello" data-it="Dove siamo" data-en="Find us">Dove siamo</p>
+    <h2 data-it="Orari e contatti" data-en="Hours and contacts">Orari e contatti</h2>
+    <div class="dove-riga">
+    <ul class="orari" id="orari"></ul>
+    <div class="dove-contatti">
+    <div class="contatti">
+      <a href="tel:+390766526232">
+        <svg viewBox="0 0 24 24"><path d="M6 3h4l2 6-3 2c1 3 3 5 6 6l2-3 6 2v4c0 1-1 2-2 2C10 22 2 14 2 5c0-1 1-2 2-2z"/></svg>
+        0766 526232
+      </a>
+      <a href="https://wa.me/393481897496" target="_blank" rel="noopener">
+        <svg class="ico-whatsapp" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        WhatsApp +39 348 189 7496
+      </a>
+      <a href="https://maps.google.com/?q=Via+XVI+Settembre+4+Civitavecchia" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M12 22s7-8 7-14a7 7 0 1 0-14 0c0 6 7 14 7 14z"/><circle cx="12" cy="8" r="2.6"/></svg>
+        <span data-it="Via XVI Settembre, 4 · Civitavecchia (RM)" data-en="Via XVI Settembre, 4 · Civitavecchia (RM)">Via XVI Settembre, 4 · Civitavecchia (RM)</span>
+      </a>
+    </div>
+    <div class="social">
+      <a href="https://www.instagram.com/acasamiacivitavecchia" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+      </a>
+      <a href="https://www.facebook.com/acasamiacivitavecchia" target="_blank" rel="noopener" aria-label="Facebook">
+        <svg viewBox="0 0 24 24"><path d="M14 9h3V6h-3c-2 0-3 1-3 3v2H8v3h3v6h3v-6h3l1-3h-4V9c0-1 0-1 1-1z"/></svg>
+      </a>
+    </div>
+    </div>
+    </div>
+
+    <div class="galleria">
+      <p class="occhiello" data-it="Un assaggio del locale" data-en="A taste of the place">Un assaggio del locale</p>
+      <h2 data-it="Galleria" data-en="Gallery">Galleria</h2>
+      <div class="gal-grid" id="gal-grid">
+        <button type="button" aria-label="Foto: l'angolo lettura" data-aria-it="Foto: l'angolo lettura" data-aria-en="Photo: the reading corner" data-full="public/img/gal-lettura-full.webp"><img src="public/img/gal-lettura-thumb.webp" alt="" width="400" height="500" loading="lazy"></button>
+        <button type="button" class="tall" aria-label="Foto: il bancone" data-aria-it="Foto: il bancone" data-aria-en="Photo: the counter" data-full="public/img/gal-hero-full.webp"><img src="public/img/gal-hero-thumb.webp" alt="" width="400" height="500" loading="lazy"></button>
+        <button type="button" aria-label="Foto: crostini con acciughe" data-aria-it="Foto: crostini con acciughe" data-aria-en="Photo: crostini with anchovies" data-full="public/img/gal-bruschetta-full.webp"><img src="public/img/gal-bruschetta-thumb.webp" alt="" width="400" height="500" loading="lazy"></button>
+        <button type="button" aria-label="Foto: prodotti in vendita" data-aria-it="Foto: prodotti in vendita" data-aria-en="Photo: products for sale" data-full="public/img/gal-prodotti-full.webp"><img src="public/img/gal-prodotti-thumb.webp" alt="" width="400" height="500" loading="lazy"></button>
+        <button type="button" class="tall" aria-label="Foto: aperitivo al tavolo" data-aria-it="Foto: aperitivo al tavolo" data-aria-en="Photo: aperitivo at the table" data-full="public/img/gal-aperitivo-full.webp"><img src="public/img/gal-aperitivo-thumb.webp" alt="" width="400" height="500" loading="lazy"></button>
+        <button type="button" aria-label="Foto: cocktail espresso martini" data-aria-it="Foto: cocktail espresso martini" data-aria-en="Photo: espresso martini cocktail" data-full="public/img/gal-cocktail-full.webp"><img src="public/img/gal-cocktail-thumb.webp" alt="" width="400" height="500" loading="lazy"></button>
+        <button type="button" aria-label="Foto: broccolo romanesco" data-aria-it="Foto: broccolo romanesco" data-aria-en="Photo: romanesco broccoli" data-full="public/img/gal-romanesco-full.webp"><img src="public/img/gal-romanesco-thumb.webp" alt="" width="400" height="500" loading="lazy"></button>
+        <button type="button" class="tall" aria-label="Foto: piatto di pasta" data-aria-it="Foto: piatto di pasta" data-aria-en="Photo: a pasta dish" data-full="public/img/gal-pranzo-full.webp"><img src="public/img/gal-pranzo-thumb.webp" alt="" width="400" height="500" loading="lazy"></button>
+        <button type="button" aria-label="Foto: calice di vino" data-aria-it="Foto: calice di vino" data-aria-en="Photo: a glass of wine" data-full="public/img/gal-vino-full.webp"><img src="public/img/gal-vino-thumb.webp" alt="" width="400" height="500" loading="lazy"></button>
+        <button type="button" aria-label="Foto: tramezzini" data-aria-it="Foto: tramezzini" data-aria-en="Photo: sandwiches" data-full="public/img/gal-brunch-full.webp"><img src="public/img/gal-brunch-thumb.webp" alt="" width="400" height="500" loading="lazy"></button>
+      </div>
+    </div>
+
+    <div class="banner-riga">
+      <a class="banner" href="https://glovoapp.com/it/it/civitavecchia/stores/a-casa-mia-cvt" target="_blank" rel="noopener">
+        <img src="public/img/banner-glovo.webp" alt="" width="1280" height="1600" loading="lazy">
+        <div class="vel"></div>
+        <span class="marchio-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12.012 0C7.847 0 4.459 3.388 4.459 7.553c0 1.576.494 3.106 1.412 4.4l.211.281 3.93 5.555s.47.775 1.529.775h.941c1.036 0 1.53-.775 1.53-.775l3.93-5.555.187-.28a7.43 7.43 0 0 0 1.412-4.401C19.564 3.388 16.176 0 12.011 0Zm0 3.693a3.837 3.837 0 0 1 3.836 3.836c0 .824-.26 1.578-.73 2.237l-.212.28-2.894 4.095-2.895-4.07-.21-.305a3.848 3.848 0 0 1-.731-2.237 3.837 3.837 0 0 1 3.836-3.836zm-2.117 18.26c0 1.106.893 2.023 2.07 2.047 1.223 0 2.117-.917 2.117-2.059 0-1.14-.894-2.058-2.094-2.058-1.2 0-2.093.917-2.093 2.07z"/></svg></span>
+        <div class="txt">
+          <b data-it="Ordina con Glovo" data-en="Order with Glovo">Ordina con Glovo</b>
+          <span data-it="Consegna a domicilio a Civitavecchia" data-en="Home delivery in Civitavecchia">Consegna a domicilio a Civitavecchia</span>
+        </div>
+      </a>
+      <a class="banner" href="https://wa.me/393481897496" target="_blank" rel="noopener">
+        <img src="public/img/banner-evento.webp" alt="" width="1280" height="1600" loading="lazy">
+        <div class="vel"></div>
+        <span class="marchio-badge marchio-badge-wa" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></span>
+        <div class="txt">
+          <b data-it="Festeggia con noi" data-en="Celebrate with us">Festeggia con noi</b>
+          <span data-it="Il tuo evento speciale, con menù su misura" data-en="Your special event, with a tailor-made menu">Il tuo evento speciale, con menù su misura</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRODOTTI PARTNER ================= -->
+<section class="partner">
+  <div class="wrap partner-in">
+    <img src="public/img/partner.webp" width="1280" height="1600" alt="Prodotti dei nostri produttori" loading="lazy">
+    <div>
+      <h3 data-it="Da noi... a casa tua" data-en="From us... to your home">Da noi... a casa tua</h3>
+      <p data-it="Una selezione accurata di specialità dei nostri piccoli produttori, da acquistare e portare direttamente a casa tua." data-en="A carefully chosen selection of specialities from our small producers, to buy and take straight home with you.">Una selezione accurata di specialità dei nostri piccoli produttori, da acquistare e portare direttamente a casa tua.</p>
+      <a class="visita-negozio" href="https://maps.google.com/?q=Via+XVI+Settembre+4+Civitavecchia" target="_blank" rel="noopener" data-it="Vieni a vederli da noi in negozio" data-en="Come see them in person at our shop">Vieni a vederli da noi in negozio</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<div class="lightbox" id="lightbox">
+  <button type="button" id="lightbox-close" aria-label="Chiudi">×</button>
+  <img id="lightbox-img" alt="">
+</div>
+
+<footer>
+  <div class="wrap center">
+    <a class="marchio" href="#top" style="justify-content:center;display:inline-flex">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><rect x="2" y="2" width="36" height="36" fill="none" stroke="#A8383C" stroke-width="3"/><path d="M20 2v36M2 20h36" stroke="#A8383C" stroke-width="3"/><path d="M20 4h16v10z" fill="#A8383C"/><path d="M6 36v-8a6 6 0 0 1 12 0v8z" fill="#A8383C"/></svg>
+      <b>A casa mia</b>
+    </a>
+    <p>Via XVI Settembre, 4 · 00053 Civitavecchia (RM)</p>
+    <p><a href="tel:+390766526232">0766 526232</a> · <a href="https://wa.me/393481897496" target="_blank" rel="noopener">WhatsApp</a></p>
+    <p><a href="https://www.instagram.com/acasamiacivitavecchia" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.facebook.com/acasamiacivitavecchia" target="_blank" rel="noopener">Facebook</a></p>
+    <p class="firma">Satoshi Web</p>
+  </div>
+</footer>
+
+<script src="a-capo.js"></script>
+<script>
+var LANG = 'it';
+function setLang(l){
+  LANG = l;
+  document.getElementById('l-it').classList.toggle('on', l==='it');
+  document.getElementById('l-en').classList.toggle('on', l==='en');
+  document.documentElement.lang = l;
+  document.querySelectorAll('[data-it]').forEach(function(el){
+    var v = el.getAttribute('data-'+l);
+    if(v!=null) el.textContent = v;
+  });
+  document.querySelectorAll('[data-it-html]').forEach(function(el){
+    var v = el.getAttribute('data-'+l+'-html');
+    if(v!=null) el.innerHTML = v;
+  });
+  document.querySelectorAll('[data-aria-it]').forEach(function(el){
+    var v = el.getAttribute('data-aria-'+l);
+    if(v!=null) el.setAttribute('aria-label', v);
+  });
+  stato();
+  orari();
+}
+
+var ORE = ['7:00 – 17:00','7:00 – 17:00','7:00 – 17:00','7:00 – 17:00','8:00 – 15:00','8:00 – 15:00','7:00 – 17:00'];
+var GIORNI_IT = ['Lunedì','Martedì','Mercoledì','Giovedì','Venerdì','Sabato','Domenica'];
+var GIORNI_EN = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
+
+function pad(n){return n<10?'0'+n:n}
+function fmtEN(h){ return (h>12?h-12:h) + (h>=12?' pm':' am'); }
+
+function stato(){
+  var n = new Date(), g = (n.getDay()+6)%7, h = n.getHours()+n.getMinutes()/60;
+  var weekend = (g===4||g===5);
+  var apre = weekend ? 8 : 7, chiude = weekend ? 15 : 17;
+  var aperto = h>=apre && h<chiude;
+  var txt;
+  if(aperto){
+    txt = LANG==='it' ? 'Siamo aperti fino alle '+pad(chiude)+':00' : "We're open until "+fmtEN(chiude);
+  } else {
+    var domani = (g+1)%7, apreDomani = (domani===4||domani===5) ? 8 : 7;
+    txt = LANG==='it' ? 'Chiuso per oggi, ci vediamo domani alle '+pad(apreDomani)+':00' : 'Closed for today, see you tomorrow at '+fmtEN(apreDomani);
+  }
+  document.getElementById('stato-txt').textContent = txt;
+  var pal = document.getElementById('pallino');
+  pal.classList.toggle('vivo', aperto);
+  pal.style.background = aperto ? '#8FD18A' : '#E0A45C';
+}
+
+function orari(){
+  var n = new Date(), oggi = (n.getDay()+6)%7;
+  var nomi = LANG==='it' ? GIORNI_IT : GIORNI_EN;
+  var out = '';
+  for(var i=0;i<7;i++){
+    out += '<li'+(i===oggi?' class="oggi-riga"':'')+'><span>'+nomi[i]+'</span><span>'+ORE[i]+'</span></li>';
+  }
+  document.getElementById('orari').innerHTML = out;
+}
+
+document.querySelectorAll('header nav a').forEach(function(a){
+  a.addEventListener('click', function(){
+    document.querySelectorAll('header nav a').forEach(function(x){x.classList.remove('on')});
+    a.classList.add('on');
+  });
+});
+
+var lb = document.getElementById('lightbox');
+var lbImg = document.getElementById('lightbox-img');
+document.querySelectorAll('#gal-grid button').forEach(function(b){
+  b.addEventListener('click', function(){
+    lbImg.src = b.getAttribute('data-full');
+    lb.classList.add('on');
+  });
+});
+document.getElementById('lightbox-close').addEventListener('click', function(){ lb.classList.remove('on'); lbImg.removeAttribute('src'); });
+lb.addEventListener('click', function(e){ if(e.target===lb){ lb.classList.remove('on'); lbImg.removeAttribute('src'); } });
+
+stato();
+orari();
+setInterval(stato, 60000);
+ACapo.avvia();
+
+(function(){
+  var riga = document.getElementById('rec-riga');
+  var track = document.getElementById('rec-track');
+  if(!riga || !track) return;
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce) return;
+  Array.prototype.slice.call(track.children).forEach(function(nodo){
+    var clone = nodo.cloneNode(true);
+    clone.setAttribute('aria-hidden', 'true');
+    track.appendChild(clone);
+  });
+  riga.classList.add('scorre');
+  var pausaTimer;
+  riga.addEventListener('touchstart', function(){
+    riga.classList.add('in-pausa');
+    clearTimeout(pausaTimer);
+    pausaTimer = setTimeout(function(){ riga.classList.remove('in-pausa'); }, 4000);
+  }, {passive:true});
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ riga.classList.toggle('fuori-vista', !e.isIntersecting); });
+    }, {threshold:0}).observe(riga);
+  }
+})();
+</script>
+
+</body>
+</html>
