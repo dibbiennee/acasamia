@@ -149,6 +149,7 @@ p{margin:0 0 15px;max-width:62ch}
 
 /* ---------- chi siamo ---------- */
 .chi-siamo{background:var(--carta);border-top:1px solid var(--linea);border-bottom:1px solid var(--linea)}
+.occhiello-sopra{margin-bottom:16px}
 .chi-foto{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:3px;margin-bottom:30px}
 .fatti{list-style:none;margin:0 0 20px;padding:0;display:grid;gap:8px}
 .fatti li{display:flex;gap:10px;align-items:baseline;font-size:16.5px;color:var(--verde)}
@@ -160,14 +161,14 @@ p{margin:0 0 15px;max-width:62ch}
 .giorno-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:26px}
 .mom-foto{border-radius:3px;overflow:hidden;position:relative}
 .mom-foto img{width:100%;aspect-ratio:4/5;object-fit:cover;margin:0}
-.mom-foto span{position:absolute;left:0;right:0;bottom:0;padding:14px 12px;background:linear-gradient(180deg,rgba(35,71,63,0) 0%,rgba(20,32,28,.72) 100%);color:var(--carta);font-family:var(--display);font-size:18px}
+.mom-foto span{position:absolute;left:0;right:0;bottom:0;padding:32px 12px 14px;background:linear-gradient(180deg,rgba(20,32,28,0) 0%,rgba(20,32,28,.55) 55%,rgba(20,32,28,.88) 100%);color:var(--carta);text-shadow:0 1px 6px rgba(0,0,0,.35);font-family:var(--display);font-size:18px}
 @media (min-width:760px){.giorno-grid{grid-template-columns:repeat(3,1fr)}}
 
 /* ---------- recensioni ---------- */
-.recensioni{background:var(--verde);color:var(--carta)}
+.recensioni{background:var(--verde);color:var(--carta);padding:40px 0}
 .recensioni h2,.recensioni .occhiello{color:var(--carta)}
 .recensioni .occhiello{color:#E9B9A0}
-.voto{display:flex;align-items:baseline;gap:10px;margin-bottom:26px}
+.voto{display:flex;align-items:baseline;gap:10px;margin-bottom:16px}
 .voto b{font-family:var(--display);font-size:42px;color:var(--carta)}
 .voto span{color:rgba(253,250,242,.7);font-size:15px}
 .rec-riga{overflow-x:auto;padding-bottom:8px;-webkit-overflow-scrolling:touch;scrollbar-width:none;margin:0 -24px;padding-left:24px;padding-right:24px}
@@ -179,7 +180,7 @@ p{margin:0 0 15px;max-width:62ch}
 .rec-nome{font-size:13px;color:rgba(253,250,242,.68)}
 @media (min-width:760px){.rec{flex:0 0 300px}}
 .vedi-tutte{display:inline-flex;align-items:center;gap:6px;margin-top:6px;font-size:14px;color:var(--carta);opacity:.85;text-decoration:underline;text-underline-offset:3px;min-height:40px}
-.rec-nota{margin:24px 0 0;font-size:12.5px;color:rgba(253,250,242,.6)}
+.rec-nota{margin:16px 0 0;font-size:12.5px;color:rgba(253,250,242,.6)}
 
 /* nastro: si attiva solo via JS (niente motion di serie senza conferma del browser) */
 .rec-riga.scorre{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 28px,#000 calc(100% - 28px),transparent);mask-image:linear-gradient(90deg,transparent,#000 28px,#000 calc(100% - 28px),transparent)}
@@ -200,6 +201,12 @@ p{margin:0 0 15px;max-width:62ch}
 .social{margin-top:24px;display:flex;gap:14px}
 .social a{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border:1px solid var(--linea);border-radius:999px;text-decoration:none}
 .social svg{width:17px;height:17px;stroke:var(--verde);fill:none;stroke-width:1.6}
+.ig-fascia{margin-top:24px}
+.ig-testo{margin:0 0 10px;font-size:14.5px}
+.ig-testo a{color:var(--verde);text-decoration:underline;text-underline-offset:3px;padding:8px 4px;display:inline-block}
+.ig-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;border-radius:3px;overflow:hidden}
+.ig-grid img{width:100%;aspect-ratio:1/1;object-fit:cover;margin:0;transition:opacity .2s ease}
+@media (hover:hover){.ig-grid:hover img{opacity:.85}}
 @media (min-width:760px){
   .dove-riga{display:flex;gap:64px;align-items:flex-start}
   .dove-riga .orari{flex:0 0 380px}
@@ -233,13 +240,13 @@ p{margin:0 0 15px;max-width:62ch}
 @media (min-width:760px){.banner-riga{grid-template-columns:1fr 1fr}}
 
 /* ---------- prodotti partner (fascia compatta) ---------- */
-.partner{background:var(--crema);border-top:1px solid var(--linea);padding:34px 0}
-.partner-in{display:flex;flex-direction:column;gap:18px;align-items:flex-start}
-.partner img{width:100%;max-width:260px;aspect-ratio:4/3;object-fit:cover;object-position:center 82%;border-radius:3px}
+.partner{background:var(--crema);border-top:1px solid var(--linea);padding:32px 0}
+.partner-in{display:flex;flex-direction:column;gap:18px;align-items:flex-start;background:var(--carta);border:1px solid var(--linea);border-radius:4px;padding:24px;box-shadow:0 8px 24px rgba(35,71,63,.08)}
+.partner img{width:100%;max-width:260px;aspect-ratio:4/3;object-fit:cover;object-position:center 82%;border-radius:3px;box-shadow:0 4px 14px rgba(35,71,63,.18)}
 .partner h3{font-size:19px;margin-bottom:6px}
 .partner p{font-size:15px;color:var(--sabbia);margin:0}
 .visita-negozio{display:inline-flex;align-items:center;margin-top:12px;font-size:14px;color:var(--carminio-sc);text-decoration:underline;text-underline-offset:3px;min-height:40px}
-@media (min-width:760px){.partner-in{flex-direction:row;align-items:center;gap:30px}.partner img{max-width:200px}}
+@media (min-width:760px){.partner-in{flex-direction:row;align-items:center;gap:30px;padding:32px}.partner img{max-width:200px}}
 
 /* ---------- footer ---------- */
 footer{background:var(--verde);color:rgba(253,250,242,.82);padding:48px 0 32px;font-size:14px}
@@ -310,16 +317,16 @@ footer .firma{margin-top:24px;padding-top:16px;border-top:1px solid rgba(253,250
 <!-- ================= CHI SIAMO ================= -->
 <section class="chi-siamo" id="chi-siamo">
   <div class="wrap">
+    <p class="occhiello occhiello-sopra" data-it="La nostra storia" data-en="Our story">La nostra storia</p>
     <img src="public/img/sala.webp" width="1280" height="960" alt="La sala di A casa mia" loading="lazy">
     <div class="chi-testo">
-      <p class="occhiello" data-it="La nostra storia" data-en="Our story">La nostra storia</p>
       <h2 data-it="Chi siamo" data-en="About us">Chi siamo</h2>
       <ul class="fatti">
         <li><svg viewBox="0 0 24 24"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><span data-it="Siamo nel cuore di Civitavecchia" data-en="We're in the heart of Civitavecchia">Siamo nel cuore di Civitavecchia</span></li>
         <li><svg viewBox="0 0 24 24"><path d="M12 6v16"/><path d="m19 13 2-1a9 9 0 0 1-18 0l2 1"/><path d="M9 11h6"/><circle cx="12" cy="4" r="2"/></svg><span data-it="A pochi passi dal porto: meno di 300 m, circa 2 minuti a piedi" data-en="A short walk from the port: less than 300 m, about a 2-minute walk">A pochi passi dal porto: meno di 300 m, circa 2 minuti a piedi</span></li>
         <li><svg viewBox="0 0 24 24"><path d="M8 3.1V7a4 4 0 0 0 8 0V3.1"/><path d="m9 15-1-1"/><path d="m15 15 1-1"/><path d="M9 19c-2.8 0-5-2.2-5-5v-4a8 8 0 0 1 16 0v4c0 2.8-2.2 5-5 5Z"/><path d="m8 19-2 3"/><path d="m16 19 2 3"/></svg><span data-it="A 10 minuti a piedi dalla stazione ferroviaria" data-en="A 10-minute walk from the train station">A 10 minuti a piedi dalla stazione ferroviaria</span></li>
       </ul>
-      <p data-it="Siamo un ritrovo ideale per chi arriva a Civitavecchia via mare. Offriamo proposte cucinate al momento e della tradizione, con ingredienti freschi e ricette del territorio, pensate anche per comitive e gruppi su prenotazione." data-en="We're an ideal spot for anyone arriving in Civitavecchia by sea. We offer dishes cooked to order alongside traditional recipes, with fresh ingredients from the local area, also suited to parties and groups by reservation.">Siamo un ritrovo ideale per chi arriva a Civitavecchia via mare. Offriamo proposte cucinate al momento e della tradizione, con ingredienti freschi e ricette del territorio, pensate anche per comitive e gruppi su prenotazione.</p>
+      <p data-it="Siamo un ritrovo ideale per chi arriva a&nbsp;Civitavecchia via mare. Offriamo proposte cucinate al momento e della tradizione, con&nbsp;ingredienti freschi e ricette del territorio, pensate anche per comitive e gruppi su&nbsp;prenotazione." data-en="We're an ideal spot for anyone arriving in&nbsp;Civitavecchia by&nbsp;sea. We offer dishes cooked to&nbsp;order alongside traditional recipes, with&nbsp;fresh ingredients from the local area, also suited to&nbsp;parties and groups by&nbsp;reservation.">Siamo un ritrovo ideale per chi arriva a&nbsp;Civitavecchia via mare. Offriamo proposte cucinate al momento e della tradizione, con&nbsp;ingredienti freschi e ricette del territorio, pensate anche per comitive e gruppi su&nbsp;prenotazione.</p>
     </div>
   </div>
 </section>
@@ -327,7 +334,6 @@ footer .firma{margin-top:24px;padding-top:16px;border-top:1px solid rgba(253,250
 <!-- ================= LA GIORNATA ================= -->
 <section class="giornata" id="giornata">
   <div class="wrap">
-    <p class="occhiello" data-it="Come vivere la giornata" data-en="How to spend your day">Come vivere la giornata</p>
     <h2 data-it="La giornata a casa mia" data-en="A day at A casa mia">La giornata a casa mia</h2>
     <div class="giorno-grid">
       <div class="mom-foto">
@@ -409,7 +415,7 @@ footer .firma{margin-top:24px;padding-top:16px;border-top:1px solid rgba(253,250
 <!-- ================= DOVE SIAMO / INFO PRATICHE ================= -->
 <section class="pratiche" id="dove-siamo">
   <div class="wrap">
-    <p class="occhiello" data-it="Dove siamo" data-en="Find us">Dove siamo</p>
+    <p class="occhiello" data-it="Quando e come trovarci" data-en="When and how to find us">Quando e come trovarci</p>
     <h2 data-it="Orari e contatti" data-en="Hours and contacts">Orari e contatti</h2>
     <div class="dove-riga">
     <ul class="orari" id="orari"></ul>
@@ -428,12 +434,16 @@ footer .firma{margin-top:24px;padding-top:16px;border-top:1px solid rgba(253,250
         <span data-it="Via XVI Settembre, 4 · Civitavecchia (RM)" data-en="Via XVI Settembre, 4 · Civitavecchia (RM)">Via XVI Settembre, 4 · Civitavecchia (RM)</span>
       </a>
     </div>
-    <div class="social">
-      <a href="https://www.instagram.com/acasamiacivitavecchia" target="_blank" rel="noopener" aria-label="Instagram">
-        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
-      </a>
-      <a href="https://www.facebook.com/acasamiacivitavecchia" target="_blank" rel="noopener" aria-label="Facebook">
-        <svg viewBox="0 0 24 24"><path d="M14 9h3V6h-3c-2 0-3 1-3 3v2H8v3h3v6h3v-6h3l1-3h-4V9c0-1 0-1 1-1z"/></svg>
+    <div class="ig-fascia">
+      <p class="ig-testo">
+        <a href="https://www.instagram.com/acasamiacivitavecchia" target="_blank" rel="noopener" data-it="Seguici su Instagram" data-en="Follow us on Instagram">Seguici su Instagram</a> ·
+        <a href="https://www.facebook.com/acasamiacivitavecchia" target="_blank" rel="noopener" data-it="Facebook" data-en="Facebook">Facebook</a>
+      </p>
+      <a class="ig-grid" href="https://www.instagram.com/acasamiacivitavecchia" target="_blank" rel="noopener" aria-label="Instagram di A casa mia">
+        <img src="public/img/gal-cocktail-thumb.webp" alt="" loading="lazy">
+        <img src="public/img/gal-aperitivo-thumb.webp" alt="" loading="lazy">
+        <img src="public/img/gal-romanesco-thumb.webp" alt="" loading="lazy">
+        <img src="public/img/gal-brunch-thumb.webp" alt="" loading="lazy">
       </a>
     </div>
     </div>
