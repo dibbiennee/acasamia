@@ -36,18 +36,19 @@ OFFLINE = os.path.join(ROOT, "demo-offline.html")
 # redirect 301 da acasamia.satoshiweb.it verso il nuovo dominio.
 SITE_URL = "https://acasamia.satoshiweb.it"
 
-# (alt text che identifica univocamente il tag, nome file, eager?)
+# (alt text che identifica univocamente il tag, nome file, eager?, sizes per
+# il srcset — None per l'hero, che ha la sua gestione a parte)
 NAMED_IMAGES = [
-    ("Il bancone di A casa mia", "hero", True),
-    ("La sala di A casa mia", "sala", False),
-    ("Colazione dolce e salata", "colazione", False),
-    ("Brunch da A casa mia", "brunch", False),
-    ("Aperitivo da A casa mia", "aperitivo", False),
-    ("Pranzo da A casa mia", "pranzo", False),
-    ("Yogurt e frutta fresca per la merenda da A casa mia", "merende", False),
-    ("Il nostro staff serve un piatto per i gruppi da A casa mia", "gruppi", False),
-    ("Prodotti dei nostri produttori", "partner", False),
-    ("L'insegna di A casa mia in Via XVI Settembre", "dove", False),
+    ("Il bancone di A casa mia", "hero", True, None),
+    ("La sala di A casa mia", "sala", False, "(min-width:900px) 1032px, 100vw"),
+    ("Colazione dolce e salata", "colazione", False, "(min-width:760px) 340px, 46vw"),
+    ("Brunch da A casa mia", "brunch", False, "(min-width:760px) 340px, 46vw"),
+    ("Aperitivo da A casa mia", "aperitivo", False, "(min-width:760px) 340px, 46vw"),
+    ("Pranzo da A casa mia", "pranzo", False, "(min-width:760px) 340px, 46vw"),
+    ("Yogurt e frutta fresca per la merenda da A casa mia", "merende", False, "(min-width:760px) 340px, 46vw"),
+    ("Il nostro staff serve un piatto per i gruppi da A casa mia", "gruppi", False, "(min-width:760px) 340px, 46vw"),
+    ("Prodotti dei nostri produttori", "partner", False, "260px"),
+    ("L'insegna di A casa mia in Via XVI Settembre", "dove", False, "(min-width:900px) 1032px, 100vw"),
 ]
 
 # le due immagini banner non hanno alt (decorative, il testo è nel markup
@@ -93,6 +94,17 @@ def save_webp(raw_bytes, out_path):
         f.write(raw_bytes)
 
 
+def build_small_variant(full_webp_path, small_webp_path, width=640):
+    """Variante più leggera per i telefoni: stessa immagine a metà risoluzione."""
+    import tempfile
+    with tempfile.TemporaryDirectory() as tmp:
+        full_png = os.path.join(tmp, "full.png")
+        run(["dwebp", full_webp_path, "-o", full_png])
+        small_png = os.path.join(tmp, "small.png")
+        run(["sips", "-Z", str(width), full_png, "--out", small_png])
+        run(["cwebp", "-q", "82", "-m", "6", small_png, "-o", small_webp_path])
+
+
 def main():
     data = open(SOURCE, encoding="utf-8").read()
     os.makedirs(OUT_IMG, exist_ok=True)
@@ -102,7 +114,7 @@ def main():
     out = data.replace("__SITE_URL__", SITE_URL)
 
     # ---------- 1. le foto con alt riconoscibile ----------
-    for alt, name, eager in NAMED_IMAGES:
+    for alt, name, eager, sizes in NAMED_IMAGES:
         pattern = re.compile(
             r'<img([^>]*?)src="data:image/webp;base64,([A-Za-z0-9+/=]+)"([^>]*?)alt="' + re.escape(alt) + r'"([^>]*)>'
         )
@@ -119,23 +131,21 @@ def main():
         attrs_before = m.group(1)
 
         if name == "hero":
-            # unica immagine con srcset: genera anche una variante 640px
-            import tempfile
-            with tempfile.TemporaryDirectory() as tmp:
-                full_png = os.path.join(tmp, "hero.png")
-                run(["dwebp", os.path.join(OUT_IMG, fname), "-o", full_png])
-                small_png = os.path.join(tmp, "hero_640.png")
-                run(["sips", "-Z", "640", full_png, "--out", small_png])
-                run(["cwebp", "-q", "82", "-m", "6", small_png, "-o", os.path.join(OUT_IMG, "hero-640.webp")])
+            build_small_variant(os.path.join(OUT_IMG, fname), os.path.join(OUT_IMG, "hero-640.webp"))
             build_og_image(os.path.join(OUT_IMG, fname), os.path.join(OUT_IMG, "og-image.jpg"))
             new_tag = (f'<img{attrs_before}src="public/img/{fname}" srcset="public/img/hero-640.webp 640w, public/img/{fname} {w}w" '
                        f'sizes="100vw" width="{w}" height="{h}" alt="{alt}" loading="eager" fetchpriority="high">')
+            print(f"  {name}: {w}x{h} (+ variante 640px + og-image.jpg)")
         else:
+            # variante più leggera per telefoni e tablet, in aggiunta alla foto piena
+            small_name = f"{name}-640.webp"
+            build_small_variant(os.path.join(OUT_IMG, fname), os.path.join(OUT_IMG, small_name))
             loading = "eager" if eager else "lazy"
-            new_tag = f'<img{attrs_before}src="public/img/{fname}" width="{w}" height="{h}" alt="{alt}" loading="{loading}">'
+            new_tag = (f'<img{attrs_before}src="public/img/{fname}" srcset="public/img/{small_name} 640w, public/img/{fname} {w}w" '
+                       f'sizes="{sizes}" width="{w}" height="{h}" alt="{alt}" loading="{loading}">')
+            print(f"  {name}: {w}x{h} (+ variante 640px)")
 
         out = out[:m.start()] + new_tag + out[m.end():]
-        print(f"  {name}: {w}x{h}" + (" (+ variante 640px + og-image.jpg)" if name == "hero" else ""))
 
     # ---------- 2. la galleria: <button data-full="B64"><img src="B64" ...></button> ----------
     # va prima dei banner: il tag <img> qui dentro ha la stessa forma esatta di
