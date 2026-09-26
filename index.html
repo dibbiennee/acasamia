@@ -205,8 +205,15 @@ p{margin:0 0 15px;max-width:62ch}
 .pratiche{background:var(--carta);border-top:1px solid var(--linea)}
 .dove-foto{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:3px;margin:16px 0 32px}
 @media (min-width:760px){
-  .chi-foto{max-width:640px}
-  .dove-foto{max-width:480px}
+  .chi-top{display:flex;gap:40px;align-items:flex-start}
+  .chi-top .chi-foto{flex:0 0 460px;max-width:460px;margin-bottom:0}
+  .chi-top .chi-testo{flex:1;min-width:0}
+  .dove-top{display:flex;gap:40px;align-items:flex-start}
+  .dove-top .dove-foto{flex:0 0 400px;max-width:400px;margin:0}
+  .dove-top .dove-riga{flex:1;min-width:0;display:block}
+  .dove-top .dove-riga .orari{flex:none;max-width:none}
+  .dove-top .dove-contatti{padding-top:0;margin-top:24px}
+  .dove-top .dove-contatti .contatti{margin-top:0}
 }
 .orari{margin:18px 0 0;padding:0;list-style:none;max-width:420px}
 .orari li{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px dotted var(--linea);font-size:15.5px}
@@ -335,16 +342,18 @@ footer .firma{margin-top:24px;padding-top:16px;border-top:1px solid rgba(253,250
 <section class="chi-siamo" id="chi-siamo">
   <div class="wrap">
     <h2 class="chi-titolo-sopra" data-it="Chi siamo" data-en="About us">Chi siamo</h2>
+    <div class="chi-top">
     <img class="chi-foto" src="public/img/sala.webp" srcset="public/img/sala-640.webp 640w, public/img/sala.webp 1280w" sizes="(min-width:900px) 1032px, 100vw" width="1280" height="1600" alt="Colazione al tavolo da A casa mia" loading="lazy">
     <div class="chi-testo">
       <ul class="fatti">
         <li><svg viewBox="0 0 24 24"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><span data-it="Siamo nel cuore di Civitavecchia" data-en="We're in the heart of Civitavecchia">Siamo nel cuore di Civitavecchia</span></li>
         <li><svg viewBox="0 0 24 24"><path d="M12 6v16"/><path d="m19 13 2-1a9 9 0 0 1-18 0l2 1"/><path d="M9 11h6"/><circle cx="12" cy="4" r="2"/></svg><span data-it="A pochi passi dal porto: meno di 300 m, circa 2 minuti a piedi" data-en="A short walk from the port: less than 300 m, about a 2-minute walk">A pochi passi dal porto: meno di 300 m, circa 2 minuti a piedi</span></li>
         <li><svg viewBox="0 0 24 24"><path d="M8 3.1V7a4 4 0 0 0 8 0V3.1"/><path d="m9 15-1-1"/><path d="m15 15 1-1"/><path d="M9 19c-2.8 0-5-2.2-5-5v-4a8 8 0 0 1 16 0v4c0 2.8-2.2 5-5 5Z"/><path d="m8 19-2 3"/><path d="m16 19 2 3"/></svg><span data-it="A 10 minuti a piedi dalla stazione ferroviaria" data-en="A 10-minute walk from the train station">A 10 minuti a piedi dalla stazione ferroviaria</span></li>
-        <li><svg viewBox="0 0 24 24"><path d="M12 20h.01"/><path d="M2 8.82a15 15 0 0 1 20 0"/><path d="M5 12.859a10 10 0 0 1 14 0"/><path d="M8.5 16.429a5 5 0 0 1 7 0"/></svg><span data-it="Terrazza all'aperto e Wi-Fi gratuito" data-en="Outdoor terrace and free Wi-Fi">Terrazza all'aperto e Wi-Fi gratuito</span></li>
+        <li><svg viewBox="0 0 24 24"><path d="M12 20h.01"/><path d="M2 8.82a15 15 0 0 1 20 0"/><path d="M5 12.859a10 10 0 0 1 14 0"/><path d="M8.5 16.429a5 5 0 0 1 7 0"/></svg><span data-it="Terrazza all&#39;aperto e Wi‑Fi&nbsp;gratuito" data-en="Outdoor terrace and free&nbsp;Wi‑Fi">Terrazza all'aperto e Wi‑Fi&nbsp;gratuito</span></li>
       </ul>
       <p data-it="A casa mia nasce da una scelta chiara: raccontare e valorizzare il patrimonio gastronomico del territorio attraverso ricette fatte a&nbsp;mano, ingredienti di&nbsp;stagione e il lavoro di piccoli produttori. Ogni piatto racconta una storia di autenticità: le stagioni guidano il menù, l'artigianalità definisce il metodo, il territorio è la nostra identità." data-en="A casa mia was born from a clear choice: to tell and celebrate the territory's gastronomic heritage through handmade recipes, seasonal ingredients and the work of small producers. Every dish tells a story of authenticity: the seasons guide the menu, craftsmanship defines the method, the territory is our identity.">A casa mia nasce da una scelta chiara: raccontare e valorizzare il patrimonio gastronomico del territorio attraverso ricette fatte a&nbsp;mano, ingredienti di&nbsp;stagione e il lavoro di piccoli produttori. Ogni piatto racconta una storia di autenticità: le stagioni guidano il menù, l'artigianalità definisce il metodo, il territorio è la nostra identità.</p>
       <p class="chi-enfasi" data-it="Per sapori unici che uniscono semplicità e unicità." data-en="For unique flavours that bring together simplicity and originality.">Per sapori unici che uniscono semplicità e unicità.</p>
+    </div>
     </div>
   </div>
 </section>
@@ -433,6 +442,7 @@ footer .firma{margin-top:24px;padding-top:16px;border-top:1px solid rgba(253,250
 <section class="pratiche" id="dove-siamo">
   <div class="wrap">
     <h2 data-it="Orari e contatti" data-en="Hours and contacts">Orari e contatti</h2>
+    <div class="dove-top">
     <img class="dove-foto" src="public/img/dove.webp" srcset="public/img/dove-640.webp 640w, public/img/dove.webp 1280w" sizes="(min-width:900px) 1032px, 100vw" width="1280" height="1600" alt="L'insegna di A casa mia in Via XVI Settembre" loading="lazy">
     <div class="dove-riga">
     <ul class="orari" id="orari"></ul>
@@ -462,6 +472,7 @@ footer .firma{margin-top:24px;padding-top:16px;border-top:1px solid rgba(253,250
         <img src="public/img/gal-romanesco-thumb.webp" alt="" width="400" height="500" loading="lazy">
         <img src="public/img/gal-brunch-thumb.webp" alt="" width="400" height="500" loading="lazy">
       </a>
+    </div>
     </div>
     </div>
     </div>
