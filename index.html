@@ -2,10 +2,10 @@
 <html lang="it">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>A casa mia · caffé · brunch · aperitivo · Civitavecchia</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>A casa mia · caffè · brunch · aperitivo · Civitavecchia</title>
 <meta name="description" content="Bistrot nel cuore di Civitavecchia, a pochi passi dal porto. Colazione dalle 7:00, brunch, pranzo e aperitivo in Via XVI Settembre 4.">
 <link rel="canonical" href="https://acasamia.satoshiweb.it/">
-<meta property="og:title" content="A casa mia · caffé · brunch · aperitivo · Civitavecchia">
+<meta property="og:title" content="A casa mia · caffè · brunch · aperitivo · Civitavecchia">
 <meta property="og:description" content="Bistrot nel cuore di Civitavecchia, a pochi passi dal porto. Colazione dalle 7:00, brunch, pranzo e aperitivo in Via XVI Settembre 4.">
 <meta property="og:image" content="https://acasamia.satoshiweb.it/public/img/og-image.jpg">
 <meta property="og:image:width" content="1200">
@@ -60,7 +60,7 @@
 html{-webkit-text-size-adjust:100%;overflow-x:hidden;scroll-behavior:smooth}
 body{
   margin:0;background:var(--crema);color:var(--inchiostro);
-  font-family:var(--ui);font-weight:300;font-size:17px;line-height:1.6;
+  font-family:var(--ui);font-weight:300;font-size:18px;line-height:1.6;
   -webkit-font-smoothing:antialiased;
   overflow-x:hidden;
 }
@@ -80,18 +80,18 @@ header{position:sticky;top:0;z-index:50;background:rgba(247,239,221,.96);backdro
 .marchio svg{width:23px;height:23px;flex:none}
 .marchio b{font-family:var(--display);font-weight:600;font-size:20px;color:var(--verde);white-space:nowrap}
 .lang{order:2;margin-left:auto;flex:none;display:flex;border:1px solid var(--linea);border-radius:999px}
-.lang button{padding:10px 16px;font-size:12px;letter-spacing:.08em;opacity:.78;line-height:1.3;min-height:38px;min-width:40px}
+.lang button{padding:10px 16px;font-size:13px;letter-spacing:.08em;opacity:.78;line-height:1.3;min-height:38px;min-width:40px}
 .lang button:first-child{border-radius:999px 0 0 999px}
 .lang button:last-child{border-radius:0 999px 999px 0}
 .lang button.on{background:var(--verde);color:var(--crema);opacity:1}
 header nav{order:3;flex:0 0 100%;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--linea)}
-header nav a{padding:12px 4px;font-size:13.5px;color:var(--verde);opacity:.78;border-bottom:2px solid transparent;text-align:center;text-decoration:none;display:block}
+header nav a{padding:12px 4px;font-size:14.5px;color:var(--verde);opacity:.78;border-bottom:2px solid transparent;text-align:center;text-decoration:none;display:block}
 header nav a.on{opacity:1;color:var(--carminio-sc);border-bottom-color:var(--carminio)}
 @media (min-width:900px){
   .wrap{padding:0 40px}
   .bar{height:74px;gap:0}
   header nav{order:2;flex:1 1 auto;border-top:0;display:flex;gap:6px;margin-left:40px;grid-template-columns:none}
-  header nav a{padding:8px 16px;border-bottom:0;border-radius:999px;font-size:15px}
+  header nav a{padding:8px 16px;border-bottom:0;border-radius:999px;font-size:16px}
   header nav a.on{background:rgba(168,56,60,.09);border-bottom:0}
   .marchio b{font-size:23px}
   .marchio svg{width:27px;height:27px}
@@ -100,16 +100,19 @@ header nav a.on{opacity:1;color:var(--carminio-sc);border-bottom-color:var(--car
 
 /* ---------- hero ---------- */
 .hero{position:relative;background:var(--verde);overflow:hidden;padding:0}
-.hero img{width:100%;height:clamp(460px,68vh,640px);object-fit:cover;object-position:center 42%}
+.hero img{width:100%;height:clamp(520px,74vh,700px);object-fit:cover;object-position:center 42%}
 .hero .vel{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,32,28,.45) 0%,rgba(20,32,28,.32) 40%,rgba(20,32,28,.92) 100%)}
 .hero .txt{position:absolute;left:0;right:0;bottom:0;padding:0 24px 32px;color:var(--carta);text-align:center}
 .hero h1{font-family:var(--display);font-weight:500;font-size:clamp(46px,13vw,76px);line-height:.95;margin:0;text-shadow:0 2px 20px rgba(0,0,0,.5)}
-.hero .sub{font-size:13px;letter-spacing:.34em;text-transform:lowercase;opacity:.92;margin-top:12px;text-shadow:0 1px 10px rgba(0,0,0,.55)}
-.hero .claim{font-family:var(--display);font-size:clamp(20px,5.2vw,27px);font-style:italic;margin-top:16px;opacity:.97;text-shadow:0 1px 14px rgba(0,0,0,.55)}
+.hero .sub{font-size:14.5px;letter-spacing:.34em;text-transform:lowercase;opacity:.92;margin-top:12px;text-shadow:0 1px 10px rgba(0,0,0,.55)}
+.hero .claim{font-family:var(--display);font-size:clamp(22px,5.8vw,32px);font-style:italic;margin-top:16px;opacity:.97;text-shadow:0 1px 14px rgba(0,0,0,.55)}
 .cl{display:block}
-.hero .dove{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:var(--crema);opacity:.86;margin-top:12px}
-.hero .dove svg{width:14px;height:14px;flex:none}
-.stato{display:inline-flex;align-items:center;gap:8px;margin-top:20px;padding:7px 15px;border-radius:999px;background:rgba(253,250,242,.16);border:1px solid rgba(253,250,242,.3);font-size:14px}
+.hero .dove{display:inline-flex;align-items:center;gap:8px;font-size:16px;color:var(--crema);opacity:.9;margin-top:12px}
+.hero .dove{align-items:flex-start;text-align:left;max-width:30ch}
+.hero .dove span{text-wrap:balance}
+@media (min-width:760px){.hero .dove{max-width:none;align-items:center}.hero .dove svg{margin-top:0}}
+.hero .dove svg{width:16px;height:16px;flex:none;margin-top:5px}
+.stato{display:inline-flex;align-items:center;gap:8px;margin-top:20px;padding:8px 16px;border-radius:999px;background:rgba(253,250,242,.16);border:1px solid rgba(253,250,242,.3);font-size:16px}
 .pallino{width:7px;height:7px;border-radius:50%;background:#8FD18A}
 
 /* ---------- movimento (hero, un solo momento orchestrato) ---------- */
@@ -145,36 +148,39 @@ a,button{transition:background-color .2s ease,color .2s ease,opacity .2s ease,bo
 
 /* ---------- azioni rapide ---------- */
 .azioni{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--linea);border-bottom:1px solid var(--linea);border-left:1px solid var(--linea);border-right:1px solid var(--linea);max-width:660px;margin:0 auto}
-.azioni a{background:var(--crema);padding:16px 8px;text-align:center;text-decoration:none;font-size:14px;color:var(--verde);display:flex;flex-direction:column;align-items:center;gap:8px}
+.azioni a{background:var(--crema);padding:16px 8px;text-align:center;text-decoration:none;font-size:15.5px;color:var(--verde);display:flex;flex-direction:column;align-items:center;gap:8px}
 .azioni svg{width:19px;height:19px;stroke:var(--carminio);fill:none;stroke-width:1.5}
 .azioni svg.ico-whatsapp,.contatti svg.ico-whatsapp{fill:#25D366;stroke:none}
 
 /* ---------- sezioni ---------- */
 section{padding:56px 0;scroll-margin-top:110px}
-.occhiello{font-family:var(--display);font-style:italic;font-size:19px;color:var(--carminio);margin:0 0 8px}
-h2{font-family:var(--display);font-weight:500;font-size:clamp(31px,7.5vw,42px);line-height:1.1;margin:0 0 18px;color:var(--verde)}
-h3{font-family:var(--display);font-weight:600;font-size:25px;margin:0 0 8px;color:var(--verde)}
+.occhiello{font-family:var(--display);font-style:italic;font-size:21px;color:var(--carminio);margin:0 0 8px}
+h2{font-family:var(--display);font-weight:500;font-size:clamp(34px,8.6vw,50px);line-height:1.1;margin:0 0 18px;color:var(--verde)}
+h3{font-family:var(--display);font-weight:600;font-size:28px;margin:0 0 8px;color:var(--verde)}
 p{margin:0 0 15px;max-width:62ch}
-.smorz{color:var(--sabbia);font-size:15.5px}
+.smorz{color:var(--sabbia);font-size:17px}
 
 /* ---------- chi siamo ---------- */
 .chi-siamo{background:var(--carta);border-top:1px solid var(--linea);border-bottom:1px solid var(--linea)}
 .chi-titolo-sopra{margin-bottom:16px}
 .chi-foto{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:3px;margin-bottom:32px}
 .fatti{list-style:none;margin:0 0 20px;padding:0;display:grid;gap:8px}
-.fatti li{display:flex;gap:10px;align-items:baseline;font-size:15px;color:var(--sabbia)}
-.fatti svg{width:14px;height:14px;flex:none;stroke:var(--carminio);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;position:relative;top:3px}
+.fatti li{display:flex;gap:10px;align-items:baseline;font-size:17px;color:var(--sabbia)}
+.fatti svg{width:16px;height:16px;flex:none;stroke:var(--carminio);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;position:relative;top:3px}
 .chi-testo{max-width:640px;margin:0 auto}
-.chi-testo p{font-size:18px;line-height:1.65;color:var(--inchiostro)}
+.chi-testo p{font-size:19px;line-height:1.65;color:var(--inchiostro)}
 .chi-enfasi{font-style:italic;color:var(--carminio-sc)}
 
 /* ---------- la giornata ---------- */
 .giornata{background:var(--crema)}
-.giorno-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:26px}
-.mom-foto{border-radius:3px;overflow:hidden;position:relative}
-.mom-foto img{width:100%;aspect-ratio:4/5;object-fit:cover;margin:0}
-.mom-foto span{position:absolute;left:0;right:0;bottom:0;padding:32px 12px 14px;background:linear-gradient(180deg,rgba(20,32,28,0) 0%,rgba(20,32,28,.55) 55%,rgba(20,32,28,.88) 100%);color:var(--carta);text-shadow:0 1px 6px rgba(0,0,0,.35);font-family:var(--display);font-size:18px}
-@media (min-width:760px){.giorno-grid{grid-template-columns:repeat(4,1fr)}}
+.giorno-grid{display:grid;grid-template-columns:1fr;gap:28px;margin-top:32px}
+.momento{display:flex;flex-direction:column}
+.momento img{width:100%;aspect-ratio:4/5;object-fit:cover;margin:0 0 18px;border-radius:3px}
+.momento-testo h3{font-size:30px;margin-bottom:6px}
+.momento-testo p{font-size:18px;line-height:1.5;color:var(--inchiostro);margin:0}
+.giornata-intro{font-size:19px;line-height:1.55;color:var(--sabbia);max-width:46ch;margin:0}
+@media (min-width:760px){.giorno-grid{grid-template-columns:repeat(2,1fr);gap:36px 28px}}
+@media (min-width:1000px){.giorno-grid{grid-template-columns:repeat(4,1fr);gap:28px 24px}}
 
 /* ---------- recensioni ---------- */
 .recensioni{background:var(--verde);color:var(--carta);padding:48px 0}
@@ -182,17 +188,17 @@ p{margin:0 0 15px;max-width:62ch}
 .recensioni .occhiello{color:#E9B9A0}
 .voto{display:flex;align-items:baseline;gap:10px;margin-bottom:16px}
 .voto b{font-family:var(--display);font-size:42px;color:var(--carta)}
-.voto span{color:rgba(253,250,242,.7);font-size:15px}
+.voto span{color:rgba(253,250,242,.75);font-size:16px}
 .rec-riga{overflow-x:auto;padding-bottom:8px;-webkit-overflow-scrolling:touch;scrollbar-width:none;margin:0 -24px;padding-left:24px;padding-right:24px}
 .rec-riga::-webkit-scrollbar{display:none}
 .rec-track{display:flex;gap:16px;width:max-content}
-.rec{flex:0 0 260px;background:rgba(253,250,242,.06);border:1px solid rgba(253,250,242,.16);border-radius:3px;padding:20px}
-.rec-stelle{color:#E9B9A0;letter-spacing:.1em;font-size:14px;margin-bottom:10px}
-.rec p{font-family:var(--display);font-style:italic;font-size:17px;line-height:1.4;color:var(--carta);margin:0 0 12px;max-width:none}
-.rec-nome{font-size:13px;color:rgba(253,250,242,.68)}
-@media (min-width:760px){.rec{flex:0 0 300px}}
-.vedi-tutte{display:inline-flex;align-items:center;gap:6px;margin-top:6px;font-size:14px;color:var(--carta);opacity:.85;text-decoration:underline;text-underline-offset:3px;min-height:44px}
-.rec-nota{margin:16px 0 0;font-size:12.5px;color:rgba(253,250,242,.6)}
+.rec{flex:0 0 290px;background:rgba(253,250,242,.06);border:1px solid rgba(253,250,242,.16);border-radius:3px;padding:20px}
+.rec-stelle{color:#E9B9A0;letter-spacing:.1em;font-size:16px;margin-bottom:10px}
+.rec p{font-family:var(--display);font-style:italic;font-size:19px;line-height:1.4;color:var(--carta);margin:0 0 12px;max-width:none}
+.rec-nome{font-size:15px;color:rgba(253,250,242,.75)}
+@media (min-width:760px){.rec{flex:0 0 330px}}
+.vedi-tutte{display:inline-flex;align-items:center;gap:6px;margin-top:6px;font-size:16px;color:var(--carta);opacity:.9;text-decoration:underline;text-underline-offset:3px;min-height:44px}
+.rec-nota{margin:16px 0 0;font-size:14px;color:rgba(253,250,242,.7)}
 
 /* nastro: si attiva solo via JS (niente motion di serie senza conferma del browser) */
 .rec-riga.scorre{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 28px,#000 calc(100% - 28px),transparent);mask-image:linear-gradient(90deg,transparent,#000 28px,#000 calc(100% - 28px),transparent)}
@@ -214,24 +220,24 @@ p{margin:0 0 15px;max-width:62ch}
   .dove-top .dove-riga .orari{flex:none;max-width:none}
   .dove-top .dove-contatti{padding-top:0;margin-top:24px}
   .dove-top .dove-contatti .contatti{margin-top:0}
-  .ig-fascia{text-align:center}
-  .ig-grid{max-width:640px;margin:0 auto}
+
+
 }
 .orari{margin:18px 0 0;padding:0;list-style:none;max-width:420px}
-.orari li{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px dotted var(--linea);font-size:15.5px}
+.orari li{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px dotted var(--linea);font-size:17px}
 .orari li.oggi-riga{color:var(--carminio)}
 .orari li span:last-child{font-variant-numeric:tabular-nums}
 .contatti{margin-top:26px;display:grid;gap:10px}
-.contatti a{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:var(--verde);font-size:15.5px;padding:8px 0;min-height:44px}
+.contatti a{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:var(--verde);font-size:17px;padding:8px 0;min-height:44px}
 .contatti svg{width:17px;height:17px;stroke:var(--carminio);fill:none;stroke-width:1.6;flex:none}
 .social{margin-top:24px;display:flex;gap:14px}
 .social a{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border:1px solid var(--linea);border-radius:999px;text-decoration:none}
 .social svg{width:17px;height:17px;stroke:var(--verde);fill:none;stroke-width:1.6}
-.ig-fascia{margin-top:24px}
-.ig-testo{margin:0 0 10px;font-size:14.5px}
-.ig-testo a{color:var(--verde);text-decoration:underline;text-underline-offset:3px;padding:11px 4px;display:inline-block}
-.ig-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;border-radius:3px;overflow:hidden}
-.ig-grid img{width:100%;aspect-ratio:1/1;object-fit:cover;margin:0;transition:opacity .2s ease}
+
+
+
+.ig-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;border-radius:3px;overflow:hidden;margin-top:28px}
+.ig-grid img{width:100%;aspect-ratio:4/5;object-fit:cover;margin:0;transition:opacity .2s ease}
 @media (hover:hover){.ig-grid:hover img{opacity:.85}}
 @media (min-width:760px){
   .dove-riga{display:flex;gap:64px;align-items:flex-start}
@@ -241,12 +247,15 @@ p{margin:0 0 15px;max-width:62ch}
 }
 
 /* ---------- galleria ---------- */
-.galleria{margin-top:48px}
-.gal-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-flow:row dense;gap:8px}
-.gal-grid button{padding:0;border-radius:2px;overflow:hidden;aspect-ratio:1/1;display:block}
-.gal-grid img{width:100%;height:100%;object-fit:cover;margin:0}
-.gal-grid .tall{aspect-ratio:1/1.4;grid-row:span 2}
-@media (min-width:760px){.gal-grid{grid-template-columns:repeat(4,1fr)}}
+.galleria-sez{background:var(--crema);border-top:1px solid var(--linea)}
+.gal-grid{display:grid;grid-template-columns:repeat(2,1fr);grid-auto-rows:clamp(150px,44vw,230px);grid-auto-flow:row dense;gap:10px;margin-top:28px}
+.gal-grid button{padding:0;border-radius:3px;overflow:hidden;display:block}
+.gal-grid img{width:100%;height:100%;object-fit:cover;margin:0;transition:transform .6s cubic-bezier(.2,.7,.3,1)}
+@media (hover:hover){.gal-grid button:hover img{transform:scale(1.04)}}
+.gal-grid .g-big{grid-column:span 2;grid-row:span 2}
+.gal-grid .g-wide{grid-column:span 2}
+.gal-grid .g-tall{grid-row:span 2}
+@media (min-width:760px){.gal-grid{grid-template-columns:repeat(4,1fr);grid-auto-rows:clamp(190px,19vw,250px);gap:12px}.gal-grid button:nth-child(1){grid-area:1/1/3/3}.gal-grid button:nth-child(2){grid-area:1/3/2/4}.gal-grid button:nth-child(3){grid-area:1/4/2/5}.gal-grid button:nth-child(4){grid-area:2/3/3/5}.gal-grid button:nth-child(5){grid-area:3/1/5/2}.gal-grid button:nth-child(6){grid-area:3/2/4/3}.gal-grid button:nth-child(7){grid-area:4/2/5/3}.gal-grid button:nth-child(8){grid-area:3/3/5/5}.gal-grid button:nth-child(9){grid-area:5/1/6/3}.gal-grid button:nth-child(10){grid-area:5/3/6/5}}
 .lightbox{position:fixed;inset:0;background:rgba(20,32,28,.94);z-index:100;display:none;align-items:center;justify-content:center;padding:30px}
 .lightbox.on{display:flex}
 .lightbox img{max-width:100%;max-height:100%;border-radius:2px}
@@ -254,34 +263,69 @@ p{margin:0 0 15px;max-width:62ch}
 
 /* ---------- banner riga ---------- */
 .banner-riga{display:grid;gap:14px;margin-top:0;padding-top:40px;border-top:1px solid var(--linea)}
-.banner{position:relative;border-radius:3px;overflow:hidden;min-height:150px;display:flex;align-items:flex-end;padding:20px;color:var(--carta);text-decoration:none}
+.banner{position:relative;border-radius:3px;overflow:hidden;min-height:180px;display:flex;align-items:flex-end;padding:20px;color:var(--carta);text-decoration:none}
 .banner img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;margin:0;z-index:0}
 .banner .vel{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,32,28,.1) 0%,rgba(20,32,28,.75) 100%);z-index:1}
 .marchio-badge{position:absolute;top:14px;left:14px;z-index:2;width:34px;height:34px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 4px rgba(20,32,28,.25)}
 .marchio-badge svg{width:18px;height:18px;fill:#FFC244}
 .marchio-badge-wa svg{fill:#25D366}
 .banner .txt{position:relative;z-index:2}
-.banner .txt b{display:block;font-family:var(--display);font-size:21px;margin-bottom:4px}
-.banner .txt span{font-size:13.5px;opacity:.88}
+.banner .txt b{display:block;font-family:var(--display);font-size:24px;margin-bottom:4px}
+.banner .txt span{font-size:15.5px;opacity:.92}
 @media (min-width:760px){.banner-riga{grid-template-columns:1fr 1fr}}
 
 /* ---------- prodotti partner (fascia compatta) ---------- */
 .partner{background:var(--crema);border-top:1px solid var(--linea);padding:48px 0}
 .partner-in{display:flex;flex-direction:column;gap:18px;align-items:flex-start;background:var(--carta);border:1px solid var(--linea);border-radius:4px;padding:24px;box-shadow:0 8px 24px rgba(35,71,63,.08)}
 .partner img{width:100%;max-width:260px;aspect-ratio:4/3;object-fit:cover;object-position:center 82%;border-radius:3px;box-shadow:0 4px 14px rgba(35,71,63,.18)}
-.partner h2{font-size:22px;font-weight:600;margin-bottom:8px}
-.partner p{font-size:15px;color:var(--sabbia);margin:0}
-.visita-negozio{display:inline-flex;align-items:center;margin-top:12px;font-size:14px;color:var(--carminio-sc);text-decoration:underline;text-underline-offset:3px;min-height:44px}
+.partner h2{font-size:25px;font-weight:600;margin-bottom:8px}
+.partner p{font-size:17px;color:var(--sabbia);margin:0}
+.visita-negozio{display:inline-flex;align-items:center;margin-top:12px;font-size:16px;color:var(--carminio-sc);text-decoration:underline;text-underline-offset:3px;min-height:44px}
 @media (min-width:760px){.partner-in{flex-direction:row;align-items:center;gap:30px;padding:32px}.partner img{max-width:200px}}
 
+
+/* ---------- call to action pieni ---------- */
+.cta-pieno{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:14px 28px;border-radius:999px;background:var(--carminio);color:var(--carta);font-size:17px;font-weight:400;text-decoration:none;letter-spacing:.01em}
+.cta-pieno svg{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.cta-pieno:hover{background:var(--carminio-sc)}
+.cta-pieno.cta-chiara{background:var(--carta);color:var(--verde)}
+.cta-pieno.cta-chiara svg{fill:#E9B9A0;stroke:#E9B9A0}
+.cta-pieno.cta-chiara:hover{background:#fff}
+.rec-cta{margin-top:36px;padding:28px 24px;border:1px solid rgba(253,250,242,.22);border-radius:4px;display:flex;flex-direction:column;gap:18px;align-items:flex-start}
+.rec-cta p{font-family:var(--display);font-style:italic;font-size:clamp(24px,6.4vw,32px);line-height:1.2;color:var(--carta);margin:0;max-width:28ch}
+@media (min-width:760px){.rec-cta{flex-direction:row;align-items:center;justify-content:space-between;padding:32px 40px}}
+
+/* ---------- social ---------- */
+.social-sez{background:var(--carta);border-top:1px solid var(--linea)}
+.social-sotto{font-size:19px;color:var(--sabbia);margin:0;max-width:40ch}
+.social-cta{display:grid;gap:14px;margin-top:28px}
+.btn-social{display:flex;align-items:center;gap:18px;padding:18px 22px;min-height:76px;background:var(--crema);border:1px solid var(--linea);border-radius:4px;text-decoration:none;color:var(--verde)}
+.btn-social svg{width:30px;height:30px;flex:none;fill:var(--verde)}
+.btn-social span{display:flex;flex-direction:column;line-height:1.25}
+.btn-social b{font-family:var(--display);font-weight:600;font-size:26px}
+.btn-social small{font-size:16px;color:var(--sabbia)}
+.btn-social:hover{background:#fff;border-color:var(--carminio)}
+@media (min-width:760px){.social-cta{grid-template-columns:1fr 1fr}}
+
+/* ---------- dove siamo (mappa disegnata) ---------- */
+.location{background:var(--crema);border-top:1px solid var(--linea)}
+.location-in{display:flex;flex-direction:column;gap:28px;margin-top:28px}
+.location-ind{font-size:20px;line-height:1.45;margin:0 0 18px}
+.location-ind b{font-family:var(--display);font-weight:600;font-size:28px;color:var(--verde)}
+.location .fatti{margin:0 0 26px}
+.mappa{display:block;border-radius:4px;overflow:hidden;border:1px solid var(--linea);aspect-ratio:4/3;box-shadow:0 8px 24px rgba(35,71,63,.08)}
+.mappa svg{width:100%;height:100%;display:block}
+@media (hover:hover){.mappa:hover{box-shadow:0 12px 30px rgba(35,71,63,.16)}}
+@media (min-width:760px){.location-in{flex-direction:row;align-items:stretch;gap:48px}.location-testo{flex:0 0 42%}.mappa{flex:1;aspect-ratio:auto;min-height:340px}}
+
 /* ---------- footer ---------- */
-footer{background:var(--verde);color:rgba(253,250,242,.82);padding:48px 0 32px;font-size:14px}
+footer{background:var(--verde);color:rgba(253,250,242,.82);padding:48px 0 32px;font-size:16px}
 footer .marchio b{color:var(--carta)}
 footer .marchio svg rect,footer .marchio svg path{stroke:#D98A8D}
 footer .marchio svg path:nth-child(3),footer .marchio svg path:nth-child(4){fill:#D98A8D;stroke:none}
-footer p{margin:0 auto 8px;font-size:15px;color:rgba(253,250,242,.7)}
+footer p{margin:0 auto 8px;font-size:16px;color:rgba(253,250,242,.7)}
 footer p a{display:inline-block;padding:15px 8px}
-footer .firma{margin-top:24px;padding-top:16px;border-top:1px solid rgba(253,250,242,.16);font-size:12px;color:rgba(253,250,242,.65);letter-spacing:.04em}
+footer .firma{margin-top:24px;padding-top:16px;border-top:1px solid rgba(253,250,242,.16);font-size:13.5px;color:rgba(253,250,242,.65);letter-spacing:.04em}
 .wrap.center{text-align:center}
 
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
@@ -315,7 +359,7 @@ footer .firma{margin-top:24px;padding-top:16px;border-top:1px solid rgba(253,250
   <div class="vel"></div>
   <div class="txt">
     <h1>A casa mia</h1>
-    <div class="sub">caffé · brunch · aperitivo</div>
+    <div class="sub">caffè · brunch · aperitivo</div>
     <div class="claim" data-it-html="&lt;span class=&quot;cl&quot;&gt;Il punto di riferimento&lt;/span&gt;&lt;span class=&quot;cl&quot;&gt;per una pausa di gusto&lt;/span&gt;" data-en-html="&lt;span class=&quot;cl&quot;&gt;The go-to place&lt;/span&gt;&lt;span class=&quot;cl&quot;&gt;for a break worth savouring&lt;/span&gt;"><span class="cl">Il punto di riferimento</span><span class="cl">per una pausa di gusto</span></div>
     <div class="dove">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-7.58 7-13A7 7 0 1 0 5 9c0 5.42 7 13 7 13z" stroke="currentColor" stroke-width="1.6" fill="none"/><circle cx="12" cy="9" r="2.4" stroke="currentColor" stroke-width="1.6" fill="none"/></svg>
@@ -362,24 +406,37 @@ footer .firma{margin-top:24px;padding-top:16px;border-top:1px solid rgba(253,250
 <!-- ================= LA GIORNATA ================= -->
 <section class="giornata" id="giornata">
   <div class="wrap">
-    <h2 data-it="La giornata a casa mia" data-en="A day at A casa mia">La giornata a casa mia</h2>
+    <h2 data-it="Una giornata a casa mia" data-en="A day at A casa mia">Una giornata a casa mia</h2>
+    <p class="giornata-intro" data-it="Dal primo cappuccino del mattino al brindisi della sera: ogni momento ha il suo posto qui." data-en="From the first cappuccino of the morning to the evening toast: every moment has its place here.">Dal primo cappuccino del mattino al brindisi della sera: ogni momento ha il suo posto qui.</p>
     <div class="giorno-grid">
-      <div class="mom-foto">
-        <img src="public/img/colazione.webp" srcset="public/img/colazione-640.webp 640w, public/img/colazione.webp 1280w" sizes="(min-width:760px) 25vw, 46vw" width="1280" height="1600" alt="Cornetto e cappuccino da A casa mia" loading="lazy">
-        <span data-it="Colazioni dolci" data-en="Sweet breakfast">Colazioni dolci</span>
-      </div>
-      <div class="mom-foto">
-        <img src="public/img/brunch.webp" srcset="public/img/brunch-640.webp 640w, public/img/brunch.webp 1280w" sizes="(min-width:760px) 25vw, 46vw" width="1280" height="1600" alt="Tramezzino e succo d'arancia da A casa mia" loading="lazy">
-        <span data-it="Brunch" data-en="Brunch">Brunch</span>
-      </div>
-      <div class="mom-foto">
-        <img src="public/img/pranzo.webp" srcset="public/img/pranzo-640.webp 640w, public/img/pranzo.webp 1280w" sizes="(min-width:760px) 25vw, 46vw" width="1280" height="1600" alt="Spaghetti del menu del giorno da A casa mia" loading="lazy">
-        <span data-it="Pranzo" data-en="Lunch">Pranzo</span>
-      </div>
-      <div class="mom-foto">
-        <img src="public/img/aperitivo.webp" srcset="public/img/aperitivo-640.webp 640w, public/img/aperitivo.webp 1280w" sizes="(min-width:760px) 25vw, 46vw" width="1280" height="1600" alt="Brindisi con vino bianco e tagliere da A casa mia" loading="lazy">
-        <span data-it="Aperitivo" data-en="Aperitivo">Aperitivo</span>
-      </div>
+      <article class="momento">
+        <img src="public/img/colazione.webp" srcset="public/img/colazione-640.webp 640w, public/img/colazione.webp 1280w" sizes="(min-width:1000px) 250px, (min-width:760px) 45vw, 92vw" width="1280" height="1600" alt="Cornetto e cappuccino da A casa mia" loading="lazy">
+        <div class="momento-testo">
+          <h3 data-it="Colazioni dolci" data-en="Sweet breakfast">Colazioni dolci</h3>
+          <p data-it="Cornetti e cappuccino per cominciare la giornata con calma." data-en="Croissants and cappuccino to start the day slowly.">Cornetti e cappuccino per cominciare la giornata con calma.</p>
+        </div>
+      </article>
+      <article class="momento">
+        <img src="public/img/brunch.webp" srcset="public/img/brunch-640.webp 640w, public/img/brunch.webp 1280w" sizes="(min-width:1000px) 250px, (min-width:760px) 45vw, 92vw" width="1280" height="1600" alt="Tramezzino e succo d'arancia da A casa mia" loading="lazy">
+        <div class="momento-testo">
+          <h3 data-it="Brunch" data-en="Brunch">Brunch</h3>
+          <p data-it="Un tavolo, un tramezzino, un succo d'arancia: il brunch a ritmo lento." data-en="A table, a sandwich, an orange juice: brunch at a slow pace.">Un tavolo, un tramezzino, un succo d'arancia: il brunch a ritmo lento.</p>
+        </div>
+      </article>
+      <article class="momento">
+        <img src="public/img/pranzo.webp" srcset="public/img/pranzo-640.webp 640w, public/img/pranzo.webp 1280w" sizes="(min-width:1000px) 250px, (min-width:760px) 45vw, 92vw" width="1280" height="1600" alt="Spaghetti del menu del giorno da A casa mia" loading="lazy">
+        <div class="momento-testo">
+          <h3 data-it="Pranzo" data-en="Lunch">Pranzo</h3>
+          <p data-it="Il menu del giorno, con ricette fatte a&nbsp;mano e ingredienti di&nbsp;stagione." data-en="The daily menu, with handmade recipes and seasonal&nbsp;ingredients.">Il menu del giorno, con ricette fatte a&nbsp;mano e ingredienti di&nbsp;stagione.</p>
+        </div>
+      </article>
+      <article class="momento">
+        <img src="public/img/aperitivo.webp" srcset="public/img/aperitivo-640.webp 640w, public/img/aperitivo.webp 1280w" sizes="(min-width:1000px) 250px, (min-width:760px) 45vw, 92vw" width="1280" height="1600" alt="Brindisi con vino bianco e tagliere da A casa mia" loading="lazy">
+        <div class="momento-testo">
+          <h3 data-it="Aperitivo" data-en="Aperitivo">Aperitivo</h3>
+          <p data-it="Calici, sapori del territorio e buona compagnia per chiudere la&nbsp;giornata." data-en="Glasses, local flavours and good company to end the&nbsp;day.">Calici, sapori del territorio e buona compagnia per chiudere la&nbsp;giornata.</p>
+        </div>
+      </article>
     </div>
   </div>
 </section>
@@ -426,13 +483,103 @@ footer .firma{margin-top:24px;padding-top:16px;border-top:1px solid rgba(253,250
         </div>
       </div>
     </div>
+    <div class="rec-cta">
+      <p data-it="Se sei stato da noi, raccontaci la tua esperienza." data-en="If you have been to see us, tell us about your experience.">Se sei stato da noi, raccontaci la tua esperienza.</p>
+      <a class="cta-pieno cta-chiara" href="https://www.google.com/maps/place/A+casa+mia/@42.0951638,11.7896898,17z/data=!4m6!3m5!1s0x1328a33fb90b8a7b:0xa3094ffb81d2520b!8m2!3d42.0951638!4d11.7896898!16s%2Fg%2F11yksnb6fd" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></svg>
+        <span data-it="Lascia una recensione" data-en="Leave a review">Lascia una recensione</span>
+      </a>
+    </div>
     <p class="rec-nota" data-it="Recensioni selezionate dal profilo Google, aggiornate a settembre 2026." data-en="Reviews selected from our Google profile, updated September 2026.">Recensioni selezionate dal profilo Google, aggiornate a settembre 2026.</p>
     <a class="vedi-tutte" href="https://www.google.com/maps/place/A+casa+mia/@42.0951638,11.7896898,17z/data=!4m6!3m5!1s0x1328a33fb90b8a7b:0xa3094ffb81d2520b!8m2!3d42.0951638!4d11.7896898!16s%2Fg%2F11yksnb6fd" target="_blank" rel="noopener" data-it="Leggi tutte le recensioni su Google" data-en="Read all reviews on Google">Leggi tutte le recensioni su Google</a>
   </div>
 </section>
 
+<!-- ================= GALLERIA ================= -->
+<section class="galleria-sez" id="galleria">
+  <div class="wrap">
+    <h2 data-it="Galleria" data-en="Gallery">Galleria</h2>
+    <div class="gal-grid" id="gal-grid">
+        <button type="button" class="g-big" aria-label="Foto: il bancone" data-aria-it="Foto: il bancone" data-aria-en="Photo: the counter" data-full="public/img/gal-hero-full.webp"><img src="public/img/gal-hero-thumb.webp" alt="" width="560" height="700" loading="lazy"></button>
+        <button type="button" aria-label="Foto: crostini con acciughe" data-aria-it="Foto: crostini con acciughe" data-aria-en="Photo: crostini with anchovies" data-full="public/img/gal-bruschetta-full.webp"><img src="public/img/gal-bruschetta-thumb.webp" alt="" width="560" height="700" loading="lazy"></button>
+        <button type="button" aria-label="Foto: cocktail espresso martini" data-aria-it="Foto: cocktail espresso martini" data-aria-en="Photo: espresso martini cocktail" data-full="public/img/gal-cocktail-full.webp"><img src="public/img/gal-cocktail-thumb.webp" alt="" width="560" height="700" loading="lazy"></button>
+        <button type="button" class="g-wide" aria-label="Foto: l'angolo lettura" data-aria-it="Foto: l'angolo lettura" data-aria-en="Photo: the reading corner" data-full="public/img/gal-lettura-full.webp"><img src="public/img/gal-lettura-thumb.webp" alt="" width="560" height="700" loading="lazy"></button>
+        <button type="button" class="g-tall" aria-label="Foto: broccolo romanesco" data-aria-it="Foto: broccolo romanesco" data-aria-en="Photo: romanesco broccoli" data-full="public/img/gal-romanesco-full.webp"><img src="public/img/gal-romanesco-thumb.webp" alt="" width="560" height="700" loading="lazy"></button>
+        <button type="button" aria-label="Foto: prodotti in vendita" data-aria-it="Foto: prodotti in vendita" data-aria-en="Photo: products for sale" data-full="public/img/gal-prodotti-full.webp"><img src="public/img/gal-prodotti-thumb.webp" alt="" width="560" height="700" loading="lazy"></button>
+        <button type="button" aria-label="Foto: calice di vino" data-aria-it="Foto: calice di vino" data-aria-en="Photo: a glass of wine" data-full="public/img/gal-vino-full.webp"><img src="public/img/gal-vino-thumb.webp" alt="" width="560" height="700" loading="lazy"></button>
+        <button type="button" class="g-big" aria-label="Foto: aperitivo al tavolo" data-aria-it="Foto: aperitivo al tavolo" data-aria-en="Photo: aperitivo at the table" data-full="public/img/gal-aperitivo-full.webp"><img src="public/img/gal-aperitivo-thumb.webp" alt="" width="560" height="700" loading="lazy"></button>
+        <button type="button" class="g-wide-d" aria-label="Foto: tramezzini" data-aria-it="Foto: tramezzini" data-aria-en="Photo: sandwiches" data-full="public/img/gal-brunch-full.webp"><img src="public/img/gal-brunch-thumb.webp" alt="" width="560" height="700" loading="lazy"></button>
+        <button type="button" class="g-wide-d" aria-label="Foto: piatto di pasta" data-aria-it="Foto: piatto di pasta" data-aria-en="Photo: a pasta dish" data-full="public/img/gal-pranzo-full.webp"><img src="public/img/gal-pranzo-thumb.webp" alt="" width="560" height="700" loading="lazy"></button>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SOCIAL ================= -->
+<section class="social-sez" id="social">
+  <div class="wrap">
+    <h2 data-it="Entra nel nostro mondo" data-en="Step into our world">Entra nel nostro mondo</h2>
+    <p class="social-sotto" data-it="Scopri cosa succede ogni giorno a casa mia." data-en="See what happens every day at A casa mia.">Scopri cosa succede ogni giorno a casa mia.</p>
+    <div class="social-cta">
+      <a class="btn-social" href="https://www.instagram.com/acasamiacivitavecchia" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg>
+        <span><b>Instagram</b><small>@acasamiacivitavecchia</small></span>
+      </a>
+      <a class="btn-social" href="https://www.facebook.com/acasamiacivitavecchia" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg>
+        <span><b>Facebook</b><small>A casa mia</small></span>
+      </a>
+    </div>
+    <a class="ig-grid" href="https://www.instagram.com/acasamiacivitavecchia" target="_blank" rel="noopener" aria-label="Instagram di A casa mia">
+          <img src="public/img/gal-cocktail-thumb.webp" alt="" width="560" height="700" loading="lazy">
+          <img src="public/img/gal-aperitivo-thumb.webp" alt="" width="560" height="700" loading="lazy">
+          <img src="public/img/gal-romanesco-thumb.webp" alt="" width="560" height="700" loading="lazy">
+          <img src="public/img/gal-brunch-thumb.webp" alt="" width="560" height="700" loading="lazy">
+    </a>
+  </div>
+</section>
+
+<!-- ================= DOVE SIAMO ================= -->
+<section class="location" id="dove-siamo">
+  <div class="wrap">
+    <h2 data-it="Ci trovi nel cuore di Civitavecchia" data-en="Find us in the heart of Civitavecchia">Ci trovi nel cuore di Civitavecchia</h2>
+    <div class="location-in">
+      <div class="location-testo">
+        <p class="location-ind"><b>Via XVI Settembre, 4</b><br>00053 Civitavecchia (RM)</p>
+        <ul class="fatti">
+          <li><svg viewBox="0 0 24 24"><path d="M12 6v16"/><path d="m19 13 2-1a9 9 0 0 1-18 0l2 1"/><path d="M9 11h6"/><circle cx="12" cy="4" r="2"/></svg><span data-it="A pochi passi dal porto: meno di 300 m, circa 2 minuti a piedi" data-en="A short walk from the port: less than 300 m, about a 2-minute walk">A pochi passi dal porto: meno di 300 m, circa 2 minuti a piedi</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M8 3.1V7a4 4 0 0 0 8 0V3.1"/><path d="m9 15-1-1"/><path d="m15 15 1-1"/><path d="M9 19c-2.8 0-5-2.2-5-5v-4a8 8 0 0 1 16 0v4c0 2.8-2.2 5-5 5Z"/><path d="m8 19-2 3"/><path d="m16 19 2 3"/></svg><span data-it="A 10 minuti a piedi dalla stazione ferroviaria" data-en="A 10-minute walk from the train station">A 10 minuti a piedi dalla stazione ferroviaria</span></li>
+        </ul>
+        <a class="cta-pieno" href="https://maps.google.com/?q=Via+XVI+Settembre+4+Civitavecchia" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+          <span data-it="Come arrivare" data-en="Get directions">Come arrivare</span>
+        </a>
+      </div>
+      <a class="mappa" href="https://maps.google.com/?q=Via+XVI+Settembre+4+Civitavecchia" target="_blank" rel="noopener" aria-label="Apri la posizione di A casa mia su Google Maps" data-aria-it="Apri la posizione di A casa mia su Google Maps" data-aria-en="Open A casa mia's location on Google Maps">
+        <svg viewBox="0 0 480 360" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <rect width="480" height="360" fill="#EFE5CE"/>
+          <g fill="#23473F" fill-opacity=".06">
+            <rect x="20" y="20" width="110" height="80" rx="6"/><rect x="150" y="20" width="120" height="70" rx="6"/><rect x="300" y="20" width="160" height="90" rx="6"/>
+            <rect x="20" y="130" width="90" height="100" rx="6"/><rect x="330" y="140" width="130" height="80" rx="6"/>
+            <rect x="20" y="260" width="140" height="80" rx="6"/><rect x="190" y="270" width="110" height="70" rx="6"/><rect x="330" y="250" width="130" height="90" rx="6"/>
+          </g>
+          <g fill="none" stroke="#FDFAF2" stroke-linecap="round">
+            <path d="M-10 115 L490 105" stroke-width="12"/><path d="M-10 245 L490 238" stroke-width="12"/>
+            <path d="M138 -10 L146 370" stroke-width="12"/><path d="M312 -10 L318 370" stroke-width="12"/>
+            <path d="M-10 60 L200 370" stroke-width="6"/><path d="M490 190 L250 -10" stroke-width="6"/>
+          </g>
+          <circle cx="240" cy="172" r="86" fill="#A8383C" fill-opacity=".07"/>
+          <circle cx="240" cy="172" r="52" fill="#A8383C" fill-opacity=".12"/>
+          <path d="M240 140c0 0-18 22-18 34a18 18 0 0 0 36 0c0-12-18-34-18-34z" fill="#A8383C" stroke="#FDFAF2" stroke-width="3" stroke-linejoin="round"/>
+          <circle cx="240" cy="174" r="6" fill="#FDFAF2"/>
+          <text x="240" y="232" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="26" font-weight="600" fill="#23473F">A casa mia</text>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- ================= DOVE SIAMO / INFO PRATICHE ================= -->
-<section class="pratiche" id="dove-siamo">
+<section class="pratiche" id="orari-contatti">
   <div class="wrap">
     <h2 data-it="Orari e contatti" data-en="Hours and contacts">Orari e contatti</h2>
     <div class="dove-top">
@@ -456,35 +603,6 @@ footer .firma{margin-top:24px;padding-top:16px;border-top:1px solid rgba(253,250
     </div>
     </div>
     </div>
-    </div>
-
-    <div class="ig-fascia">
-      <p class="ig-testo">
-        <a href="https://www.instagram.com/acasamiacivitavecchia" target="_blank" rel="noopener" data-it="Seguici su Instagram" data-en="Follow us on Instagram">Seguici su Instagram</a> ·
-        <a href="https://www.facebook.com/acasamiacivitavecchia" target="_blank" rel="noopener" data-it="Facebook" data-en="Facebook">Facebook</a>
-      </p>
-      <a class="ig-grid" href="https://www.instagram.com/acasamiacivitavecchia" target="_blank" rel="noopener" aria-label="Instagram di A casa mia">
-        <img src="public/img/gal-cocktail-thumb.webp" alt="" width="400" height="500" loading="lazy">
-        <img src="public/img/gal-aperitivo-thumb.webp" alt="" width="400" height="500" loading="lazy">
-        <img src="public/img/gal-romanesco-thumb.webp" alt="" width="400" height="500" loading="lazy">
-        <img src="public/img/gal-brunch-thumb.webp" alt="" width="400" height="500" loading="lazy">
-      </a>
-    </div>
-
-    <div class="galleria">
-      <h2 data-it="Galleria" data-en="Gallery">Galleria</h2>
-      <div class="gal-grid" id="gal-grid">
-        <button type="button" aria-label="Foto: l'angolo lettura" data-aria-it="Foto: l'angolo lettura" data-aria-en="Photo: the reading corner" data-full="public/img/gal-lettura-full.webp"><img src="public/img/gal-lettura-thumb.webp" alt="" width="400" height="500" loading="lazy"></button>
-        <button type="button" class="tall" aria-label="Foto: il bancone" data-aria-it="Foto: il bancone" data-aria-en="Photo: the counter" data-full="public/img/gal-hero-full.webp"><img src="public/img/gal-hero-thumb.webp" alt="" width="400" height="500" loading="lazy"></button>
-        <button type="button" aria-label="Foto: crostini con acciughe" data-aria-it="Foto: crostini con acciughe" data-aria-en="Photo: crostini with anchovies" data-full="public/img/gal-bruschetta-full.webp"><img src="public/img/gal-bruschetta-thumb.webp" alt="" width="400" height="500" loading="lazy"></button>
-        <button type="button" aria-label="Foto: prodotti in vendita" data-aria-it="Foto: prodotti in vendita" data-aria-en="Photo: products for sale" data-full="public/img/gal-prodotti-full.webp"><img src="public/img/gal-prodotti-thumb.webp" alt="" width="400" height="500" loading="lazy"></button>
-        <button type="button" class="tall" aria-label="Foto: aperitivo al tavolo" data-aria-it="Foto: aperitivo al tavolo" data-aria-en="Photo: aperitivo at the table" data-full="public/img/gal-aperitivo-full.webp"><img src="public/img/gal-aperitivo-thumb.webp" alt="" width="400" height="500" loading="lazy"></button>
-        <button type="button" aria-label="Foto: cocktail espresso martini" data-aria-it="Foto: cocktail espresso martini" data-aria-en="Photo: espresso martini cocktail" data-full="public/img/gal-cocktail-full.webp"><img src="public/img/gal-cocktail-thumb.webp" alt="" width="400" height="500" loading="lazy"></button>
-        <button type="button" aria-label="Foto: broccolo romanesco" data-aria-it="Foto: broccolo romanesco" data-aria-en="Photo: romanesco broccoli" data-full="public/img/gal-romanesco-full.webp"><img src="public/img/gal-romanesco-thumb.webp" alt="" width="400" height="500" loading="lazy"></button>
-        <button type="button" class="tall" aria-label="Foto: piatto di pasta" data-aria-it="Foto: piatto di pasta" data-aria-en="Photo: a pasta dish" data-full="public/img/gal-pranzo-full.webp"><img src="public/img/gal-pranzo-thumb.webp" alt="" width="400" height="500" loading="lazy"></button>
-        <button type="button" aria-label="Foto: calice di vino" data-aria-it="Foto: calice di vino" data-aria-en="Photo: a glass of wine" data-full="public/img/gal-vino-full.webp"><img src="public/img/gal-vino-thumb.webp" alt="" width="400" height="500" loading="lazy"></button>
-        <button type="button" aria-label="Foto: tramezzini" data-aria-it="Foto: tramezzini" data-aria-en="Photo: sandwiches" data-full="public/img/gal-brunch-full.webp"><img src="public/img/gal-brunch-thumb.webp" alt="" width="400" height="500" loading="lazy"></button>
-      </div>
     </div>
 
     <div class="banner-riga">
@@ -654,10 +772,10 @@ ACapo.avvia();
 (function(){
   var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
   var bersagli = document.querySelectorAll(
-    '.chi-siamo h2, .chi-foto, .fatti li, .chi-testo p, ' +
-    '.giornata h2, .mom-foto, ' +
+    '.chi-siamo h2, .chi-foto, .fatti li, .chi-testo p, .giornata-intro, ' +
+    '.giornata h2, .momento, .rec-cta, ' +
     '.partner-in, ' +
-    '.pratiche h2, .dove-foto, .galleria h2, .gal-grid button, ' +
+    '.pratiche h2, .dove-foto, .galleria-sez h2, .gal-grid button, .social-sez .wrap > *, .location .wrap > *, ' +
     '.banner-riga a'
   );
   if(reduce || !('IntersectionObserver' in window)){

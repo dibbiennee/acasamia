@@ -40,10 +40,10 @@ SITE_URL = "https://acasamia.satoshiweb.it"
 # il srcset — None per l'hero, che ha la sua gestione a parte)
 NAMED_IMAGES = [
     ("Cappuccino e cornetto sulla tovaglietta di A casa mia", "hero", True, None),
-    ("Cornetto e cappuccino da A casa mia", "colazione", False, "(min-width:760px) 25vw, 46vw"),
-    ("Tramezzino e succo d'arancia da A casa mia", "brunch", False, "(min-width:760px) 25vw, 46vw"),
-    ("Brindisi con vino bianco e tagliere da A casa mia", "aperitivo", False, "(min-width:760px) 25vw, 46vw"),
-    ("Spaghetti del menu del giorno da A casa mia", "pranzo", False, "(min-width:760px) 25vw, 46vw"),
+    ("Cornetto e cappuccino da A casa mia", "colazione", False, "(min-width:1000px) 250px, (min-width:760px) 45vw, 92vw"),
+    ("Tramezzino e succo d'arancia da A casa mia", "brunch", False, "(min-width:1000px) 250px, (min-width:760px) 45vw, 92vw"),
+    ("Brindisi con vino bianco e tagliere da A casa mia", "aperitivo", False, "(min-width:1000px) 250px, (min-width:760px) 45vw, 92vw"),
+    ("Spaghetti del menu del giorno da A casa mia", "pranzo", False, "(min-width:1000px) 250px, (min-width:760px) 45vw, 92vw"),
     ("Pasta artigianale dei nostri piccoli produttori", "partner", False, "260px"),
     ("L'insegna di A casa mia in Via XVI Settembre", "dove", False, "(min-width:900px) 1032px, 100vw"),
 ]
@@ -53,8 +53,8 @@ NAMED_IMAGES = [
 BANNER_NAMES = ["banner-glovo", "banner-evento"]
 
 # le 10 miniature di galleria: <button data-full="BASE64"><img src="BASE64">
-GALLERY_NAMES = ["lettura", "hero", "bruschetta", "prodotti", "aperitivo",
-                  "cocktail", "romanesco", "pranzo", "vino", "brunch"]
+GALLERY_NAMES = ["hero", "bruschetta", "cocktail", "lettura", "romanesco",
+                  "prodotti", "vino", "aperitivo", "brunch", "pranzo"]
 
 
 def run(cmd):
