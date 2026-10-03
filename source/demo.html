@@ -404,6 +404,14 @@ h2{margin-bottom:24px}
 @media (min-width:760px){.gal-grid{margin-top:40px}}
 footer{padding:64px 0 40px}
 @media (min-width:900px){footer{padding:80px 0 48px}}
+/* micro-polish QA: inquadratura hero, nav a 44px, 320px */
+header nav a{min-height:44px;display:flex;align-items:center;justify-content:center}
+@media (min-width:900px){.hero img{height:clamp(620px,84vh,820px)}}
+@media (max-width:359px){
+  .hero img{object-position:center 30%;height:600px}
+  .hero .sub{letter-spacing:.2em;font-size:13.5px;white-space:nowrap}
+  header nav a{font-size:13.5px;padding:12px 2px;white-space:nowrap}
+}
 </style>
 </head>
 <body>
