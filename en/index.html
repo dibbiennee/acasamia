@@ -51,8 +51,8 @@
   "geo": {"@type": "GeoCoordinates", "latitude": 42.0930, "longitude": 11.7955},
   "sameAs": ["https://www.instagram.com/acasamiacivitavecchia", "https://www.facebook.com/acasamiacivitavecchia"],
   "openingHoursSpecification": [
-    {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "07:00", "closes": "17:00"},
-    {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday","Sunday"], "opens": "08:00", "closes": "15:00"}
+    {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "07:00", "closes": "17:00"},
+    {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday", "Sunday"], "opens": "08:00", "closes": "15:00"}
   ]
 }
 </script>
@@ -535,7 +535,7 @@ footer small{display:block;margin-top:1.6rem;opacity:.7;font-size:.875rem;letter
 <script>
 (function(){
   var lang='en';
-  var H={0:[8,15],1:[7,17],2:[7,17],3:[7,17],4:[7,17],5:[7,17],6:[8,15]};
+  var H={"1":[7,17],"2":[7,17],"3":[7,17],"4":[7,17],"5":[7,17],"6":[8,15],"0":[8,15]};
   var DAYS={Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6};
   var T={
     it:{open:function(h){return 'Siamo aperti fino alle '+h+':00'},closed:function(h,tomorrow){return 'Chiuso · riapriamo '+(tomorrow?'domani':'oggi')+' alle '+h+':00'}},

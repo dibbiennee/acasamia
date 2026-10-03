@@ -255,6 +255,23 @@ def build_vestito():
     open(OUT_EN, "w", encoding="utf-8").write(en_page)
     open(OUT_HTML, "w", encoding="utf-8").write(strip_lang_attrs(page))
     print(f"scritto {OUT_HTML} e {OUT_EN}")
+    build_pannello()
+
+
+def build_pannello():
+    """pannello statistiche: template + tracciati del logo ufficiale (stessi del sito)"""
+    src = os.path.join(ROOT, "source", "pannello.html")
+    if not os.path.exists(src):
+        return
+    logo = json.load(open(os.path.join(ROOT, "source", "logo-marchio.json"), encoding="utf-8"))
+    html = open(src, encoding="utf-8").read()
+    html = html.replace("__MARK__", logo["mark"]).replace("__WORD__", logo["word"]).replace("__DOT__", logo["dot"])
+    # in produzione i dati di prova non esistono: via la funzione demo e il suo interruttore
+    html = re.sub(r"/\*DEMO-INIZIO\*/.*?/\*DEMO-FINE\*/\n", "", html, flags=re.S)
+    html = re.sub(r"var DEMO=[^;]*;", "var DEMO=false;", html, count=1)
+    os.makedirs(os.path.join(ROOT, "pannello"), exist_ok=True)
+    open(os.path.join(ROOT, "pannello", "index.html"), "w", encoding="utf-8").write(html)
+    print(f"scritto pannello/index.html ({len(html.encode()) // 1024} KB)")
 
 
 def main():

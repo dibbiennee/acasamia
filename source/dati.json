@@ -34,5 +34,38 @@
   "whatsapp_festa": {
     "it": "Ciao! Vorrei festeggiare un’occasione speciale da voi. Mi dite come possiamo organizzarci? Grazie mille!",
     "en": "Hi! I’d love to celebrate a special occasion at A casa mia. Could you tell me how we can arrange it? Thank you!"
+  },
+  "orari": {
+    "nota": "Lun, Mar, Mer, Gio, Ven, Sab, Dom. Ora di apertura e di chiusura (ore intere). Confermati dal titolare il 3 ottobre 2026.",
+    "giorni": [
+      [
+        7,
+        17
+      ],
+      [
+        7,
+        17
+      ],
+      [
+        7,
+        17
+      ],
+      [
+        7,
+        17
+      ],
+      [
+        7,
+        17
+      ],
+      [
+        8,
+        15
+      ],
+      [
+        8,
+        15
+      ]
+    ]
   }
 }
