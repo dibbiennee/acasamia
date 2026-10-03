@@ -39,14 +39,11 @@ SITE_URL = "https://acasamia.satoshiweb.it"
 # (alt text che identifica univocamente il tag, nome file, eager?, sizes per
 # il srcset — None per l'hero, che ha la sua gestione a parte)
 NAMED_IMAGES = [
-    ("Il bancone di A casa mia", "hero", True, None),
-    ("Colazione al tavolo da A casa mia", "sala", False, "(min-width:900px) 1032px, 100vw"),
-    ("Colazione dolce e salata", "colazione", False, "(min-width:760px) 340px, 46vw"),
-    ("Brunch da A casa mia", "brunch", False, "(min-width:760px) 340px, 46vw"),
-    ("Aperitivo da A casa mia", "aperitivo", False, "(min-width:760px) 340px, 46vw"),
-    ("Pranzo da A casa mia", "pranzo", False, "(min-width:760px) 340px, 46vw"),
-    ("Yogurt e frutta fresca per la merenda da A casa mia", "merende", False, "(min-width:760px) 340px, 46vw"),
-    ("Il nostro staff serve un piatto per i gruppi da A casa mia", "gruppi", False, "(min-width:760px) 340px, 46vw"),
+    ("Cappuccino e cornetto sulla tovaglietta di A casa mia", "hero", True, None),
+    ("Cornetto e cappuccino da A casa mia", "colazione", False, "(min-width:760px) 25vw, 46vw"),
+    ("Tramezzino e succo d'arancia da A casa mia", "brunch", False, "(min-width:760px) 25vw, 46vw"),
+    ("Brindisi con vino bianco e tagliere da A casa mia", "aperitivo", False, "(min-width:760px) 25vw, 46vw"),
+    ("Spaghetti del menu del giorno da A casa mia", "pranzo", False, "(min-width:760px) 25vw, 46vw"),
     ("Pasta artigianale dei nostri piccoli produttori", "partner", False, "260px"),
     ("L'insegna di A casa mia in Via XVI Settembre", "dove", False, "(min-width:900px) 1032px, 100vw"),
 ]

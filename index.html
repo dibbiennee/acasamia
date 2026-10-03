@@ -174,7 +174,7 @@ p{margin:0 0 15px;max-width:62ch}
 .mom-foto{border-radius:3px;overflow:hidden;position:relative}
 .mom-foto img{width:100%;aspect-ratio:4/5;object-fit:cover;margin:0}
 .mom-foto span{position:absolute;left:0;right:0;bottom:0;padding:32px 12px 14px;background:linear-gradient(180deg,rgba(20,32,28,0) 0%,rgba(20,32,28,.55) 55%,rgba(20,32,28,.88) 100%);color:var(--carta);text-shadow:0 1px 6px rgba(0,0,0,.35);font-family:var(--display);font-size:18px}
-@media (min-width:760px){.giorno-grid{grid-template-columns:repeat(3,1fr)}}
+@media (min-width:760px){.giorno-grid{grid-template-columns:repeat(4,1fr)}}
 
 /* ---------- recensioni ---------- */
 .recensioni{background:var(--verde);color:var(--carta);padding:48px 0}
@@ -207,7 +207,7 @@ p{margin:0 0 15px;max-width:62ch}
 @media (min-width:760px){
   .chi-top{display:flex;gap:40px;align-items:flex-start}
   .chi-top .chi-foto{flex:0 0 460px;max-width:460px;margin-bottom:0}
-  .chi-top .chi-testo{flex:1;min-width:0}
+  .chi-top .chi-testo{flex:1;min-width:0;margin:0}
   .dove-top{display:flex;gap:40px;align-items:flex-start}
   .dove-top .dove-foto{flex:0 0 400px;max-width:400px;margin:0}
   .dove-top .dove-riga{flex:1;min-width:0;display:block}
@@ -311,7 +311,7 @@ footer .firma{margin-top:24px;padding-top:16px;border-top:1px solid rgba(253,250
 <main>
 
 <section class="hero" id="top">
-  <img src="public/img/hero.webp" srcset="public/img/hero-640.webp 640w, public/img/hero.webp 1280w" sizes="100vw" width="1280" height="1600" alt="Il bancone di A casa mia" loading="eager" fetchpriority="high">
+  <img src="public/img/hero.webp" srcset="public/img/hero-640.webp 640w, public/img/hero.webp 1280w" sizes="100vw" width="1280" height="1600" alt="Cappuccino e cornetto sulla tovaglietta di A casa mia" loading="eager" fetchpriority="high">
   <div class="vel"></div>
   <div class="txt">
     <h1>A casa mia</h1>
@@ -345,7 +345,6 @@ footer .firma{margin-top:24px;padding-top:16px;border-top:1px solid rgba(253,250
   <div class="wrap">
     <h2 class="chi-titolo-sopra" data-it="Chi siamo" data-en="About us">Chi siamo</h2>
     <div class="chi-top">
-    <img class="chi-foto" src="public/img/sala.webp" srcset="public/img/sala-640.webp 640w, public/img/sala.webp 1280w" sizes="(min-width:900px) 1032px, 100vw" width="1280" height="1600" alt="Colazione al tavolo da A casa mia" loading="lazy">
     <div class="chi-testo">
       <ul class="fatti">
         <li><svg viewBox="0 0 24 24"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><span data-it="Siamo nel cuore di Civitavecchia" data-en="We're in the heart of Civitavecchia">Siamo nel cuore di Civitavecchia</span></li>
@@ -366,28 +365,20 @@ footer .firma{margin-top:24px;padding-top:16px;border-top:1px solid rgba(253,250
     <h2 data-it="La giornata a casa mia" data-en="A day at A casa mia">La giornata a casa mia</h2>
     <div class="giorno-grid">
       <div class="mom-foto">
-        <img src="public/img/colazione.webp" srcset="public/img/colazione-640.webp 640w, public/img/colazione.webp 1280w" sizes="(min-width:760px) 340px, 46vw" width="1280" height="1600" alt="Colazione dolce e salata" loading="lazy">
-        <span data-it="Colazioni dolci e salate" data-en="Sweet & savoury breakfast">Colazioni dolci e salate</span>
+        <img src="public/img/colazione.webp" srcset="public/img/colazione-640.webp 640w, public/img/colazione.webp 1280w" sizes="(min-width:760px) 25vw, 46vw" width="1280" height="1600" alt="Cornetto e cappuccino da A casa mia" loading="lazy">
+        <span data-it="Colazioni dolci" data-en="Sweet breakfast">Colazioni dolci</span>
       </div>
       <div class="mom-foto">
-        <img src="public/img/brunch.webp" srcset="public/img/brunch-640.webp 640w, public/img/brunch.webp 1280w" sizes="(min-width:760px) 340px, 46vw" width="1280" height="1600" alt="Brunch da A casa mia" loading="lazy">
+        <img src="public/img/brunch.webp" srcset="public/img/brunch-640.webp 640w, public/img/brunch.webp 1280w" sizes="(min-width:760px) 25vw, 46vw" width="1280" height="1600" alt="Tramezzino e succo d'arancia da A casa mia" loading="lazy">
         <span data-it="Brunch" data-en="Brunch">Brunch</span>
       </div>
       <div class="mom-foto">
-        <img src="public/img/aperitivo.webp" srcset="public/img/aperitivo-640.webp 640w, public/img/aperitivo.webp 1280w" sizes="(min-width:760px) 340px, 46vw" width="1280" height="1600" alt="Aperitivo da A casa mia" loading="lazy">
-        <span data-it="Aperitivi" data-en="Aperitivo">Aperitivi</span>
+        <img src="public/img/pranzo.webp" srcset="public/img/pranzo-640.webp 640w, public/img/pranzo.webp 1280w" sizes="(min-width:760px) 25vw, 46vw" width="1280" height="1600" alt="Spaghetti del menu del giorno da A casa mia" loading="lazy">
+        <span data-it="Pranzo" data-en="Lunch">Pranzo</span>
       </div>
       <div class="mom-foto">
-        <img src="public/img/pranzo.webp" srcset="public/img/pranzo-640.webp 640w, public/img/pranzo.webp 1280w" sizes="(min-width:760px) 340px, 46vw" width="1280" height="1600" alt="Pranzo da A casa mia" loading="lazy">
-        <span data-it="Pranzi" data-en="Lunch">Pranzi</span>
-      </div>
-      <div class="mom-foto">
-        <img src="public/img/merende.webp" srcset="public/img/merende-640.webp 640w, public/img/merende.webp 1280w" sizes="(min-width:760px) 340px, 46vw" width="1280" height="1600" alt="Yogurt e frutta fresca per la merenda da A casa mia" loading="lazy">
-        <span data-it="Merende" data-en="Afternoon snacks">Merende</span>
-      </div>
-      <div class="mom-foto">
-        <img src="public/img/gruppi.webp" srcset="public/img/gruppi-640.webp 640w, public/img/gruppi.webp 1280w" sizes="(min-width:760px) 340px, 46vw" width="1280" height="1600" alt="Il nostro staff serve un piatto per i gruppi da A casa mia" loading="lazy">
-        <span data-it="Gruppi su prenotazione" data-en="Groups by reservation">Gruppi su prenotazione</span>
+        <img src="public/img/aperitivo.webp" srcset="public/img/aperitivo-640.webp 640w, public/img/aperitivo.webp 1280w" sizes="(min-width:760px) 25vw, 46vw" width="1280" height="1600" alt="Brindisi con vino bianco e tagliere da A casa mia" loading="lazy">
+        <span data-it="Aperitivo" data-en="Aperitivo">Aperitivo</span>
       </div>
     </div>
   </div>
