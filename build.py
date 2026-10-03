@@ -29,6 +29,7 @@ SOURCE = os.path.join(ROOT, "source", "demo.html")
 OUT_HTML = os.path.join(ROOT, "index.html")
 OUT_IMG = os.path.join(ROOT, "public", "img")
 OFFLINE = os.path.join(ROOT, "demo-offline.html")
+OUT_EN = os.path.join(ROOT, "en", "index.html")
 
 # unico punto da cambiare al go-live del dominio finale: sostituisce
 # __SITE_URL__ in canonical/og:url/og:image. Quando acasamiacivitavecchia.it
@@ -100,6 +101,89 @@ def build_small_variant(full_webp_path, small_webp_path, width=640):
         small_png = os.path.join(tmp, "small.png")
         run(["sips", "-Z", str(width), full_png, "--out", small_png])
         run(["cwebp", "-q", "82", "-m", "6", small_png, "-o", small_webp_path])
+
+
+# ---------------------------------------------------------------------------
+# versione inglese: /en/index.html generata dalla stessa sorgente.
+# i testi inglesi stanno negli attributi data-en della sorgente (unica fonte).
+# ---------------------------------------------------------------------------
+import html as _html
+
+# alt delle immagini con alt descrittivo (italiano -> inglese)
+ALT_EN = {
+    "Cappuccino e cornetto sulla tovaglietta di A casa mia": "Cappuccino and cornetto on the A casa mia placemat",
+    "Cornetto e cappuccino da A casa mia": "Cornetto and cappuccino at A casa mia",
+    "Tramezzino e succo d'arancia da A casa mia": "Tramezzino sandwich and orange juice at A casa mia",
+    "Brindisi con vino bianco e tagliere da A casa mia": "A toast with white wine and a sharing board at A casa mia",
+    "Spaghetti del menu del giorno da A casa mia": "Spaghetti from the daily menu at A casa mia",
+    "Pasta artigianale dei nostri piccoli produttori": "Artisan pasta from our small producers",
+    "L'insegna di A casa mia in Via XVI Settembre": "The A casa mia sign on Via XVI Settembre",
+}
+EN_TITLE = "A casa mia · Café, brunch and aperitivo in Civitavecchia"
+EN_DESC = ("A bistrot in the heart of Civitavecchia, a few steps from the port. "
+           "Breakfast from 7:00, brunch, lunch and aperitivo at Via XVI Settembre 4.")
+GIORNI = ["Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato", "Domenica"]
+GIORNI_EN = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+ORE_RIGHE = ["7:00 – 17:00"] * 5 + ["8:00 – 15:00"] * 2
+
+
+def seed_orari(page, nomi):
+    """scrive nel sorgente l'elenco orari (prima lo generava solo il JS)"""
+    righe = "".join(f"<li><span>{n}</span><span>{o}</span></li>" for n, o in zip(nomi, ORE_RIGHE))
+    return page.replace('<ul class="orari" id="orari"></ul>', f'<ul class="orari" id="orari">{righe}</ul>', 1)
+
+
+def strip_lang_attrs(page, keep=None):
+    """toglie dalle pagine finali tutti gli attributi di traduzione: il testo giusto e' gia' nel markup"""
+    for pat in (r' data-it="[^"]*"', r' data-en="[^"]*"', r' data-it-html="[^"]*"', r' data-en-html="[^"]*"',
+                r' data-aria-it="[^"]*"', r' data-aria-en="[^"]*"'):
+        page = re.sub(pat, "", page)
+    return page
+
+
+def make_en(it_page):
+    page = it_page
+    # testi semplici (le recensioni reali restano nell'originale)
+    page = re.sub(r'(<(\w+)[^>]*?data-en="([^"]*)"[^>]*>)(.*?)(</\2>)',
+                  lambda m: (m.group(1) + m.group(3) + m.group(5)) if 'data-orig="it"' not in m.group(1) and "<" not in m.group(4) else m.group(0),
+                  page, flags=re.S)
+    # le recensioni originali: lingua dichiarata
+    page = page.replace('<p data-orig="it"', '<p lang="it" data-orig="it"')
+    # hero claim con markup
+    page = re.sub(r'(<(\w+)[^>]*?)data-it-html="[^"]*"([^>]*?)data-en-html="([^"]*)"([^>]*>)(.*?)(</\2>)',
+                  lambda m: m.group(1) + m.group(3) + m.group(5) + _html.unescape(m.group(4)) + m.group(7), page, count=1, flags=re.S)
+    # aria-label
+    page = re.sub(r'aria-label="[^"]*"([^>]*?)data-aria-en="([^"]*)"', r'aria-label="\2"\1data-aria-en="\2"', page)
+    page = re.sub(r'(<[^>]*?)aria-label="[^"]*"([^>]*?)data-aria-it="[^"]*"([^>]*?)data-aria-en="([^"]*)"',
+                  r'\1aria-label="\4"\2\3', page)
+    for it_alt, en_alt in ALT_EN.items():
+        page = page.replace('alt="%s"' % it_alt, 'alt="%s"' % en_alt)
+    # head
+    page = page.replace('<html lang="it">', '<html lang="en">', 1)
+    page = re.sub(r"<title>.*?</title>", "<title>%s</title>" % EN_TITLE, page, count=1)
+    desc_it = re.search(r'<meta name="description" content="([^"]*)"', page).group(1)
+    page = page.replace(desc_it, EN_DESC)  # description, og:description, twitter:description
+    page = page.replace("A casa mia · caffè · brunch · aperitivo · Civitavecchia", EN_TITLE)  # og:title, twitter:title
+    page = page.replace('<link rel="canonical" href="%s/">' % SITE_URL, '<link rel="canonical" href="%s/en/">' % SITE_URL)
+    page = page.replace('<meta property="og:url" content="%s/">' % SITE_URL, '<meta property="og:url" content="%s/en/">' % SITE_URL)
+    page = page.replace('<meta property="og:locale" content="it_IT">',
+                        '<meta property="og:locale" content="en_GB">\n<meta property="og:locale:alternate" content="it_IT">')
+    # json-ld
+    page = page.replace('"description": "Bistrot nel cuore di Civitavecchia, a pochi passi dal porto."',
+                        '"description": "A bistrot in the heart of Civitavecchia, a few steps from the port."')
+    page = page.replace('"servesCuisine": ["Italiana", "Brunch", "Caffetteria"]', '"servesCuisine": ["Italian", "Brunch", "Coffee"]')
+    page = page.replace('"url": "%s/"' % SITE_URL, '"url": "%s/en/"' % SITE_URL)
+    # toggle: l'inglese e' la pagina corrente
+    page = page.replace('<a id="l-it" class="on" href="/" hreflang="it" lang="it" aria-current="page">IT</a>',
+                        '<a id="l-it" href="/" hreflang="it" lang="it">IT</a>')
+    page = page.replace('<a id="l-en" href="/en/" hreflang="en" lang="en">EN</a>',
+                        '<a id="l-en" class="on" href="/en/" hreflang="en" lang="en" aria-current="page">EN</a>')
+    page = page.replace("var LANG = 'it';", "var LANG = 'en';")
+    page = seed_orari(page, GIORNI_EN)
+    # percorsi assoluti: la pagina vive in /en/
+    page = re.sub(r'(?<=["(, ])public/', '/public/', page)
+    page = page.replace('src="a-capo.js"', 'src="/a-capo.js"')
+    return strip_lang_attrs(page, "en")
 
 
 def main():
@@ -192,6 +276,12 @@ def main():
     if "data:image/webp;base64," in out:
         raise SystemExit("sono rimasti dei data URI non sostituiti, controllare a mano")
 
+    en_page = make_en(out)
+    out = strip_lang_attrs(seed_orari(out, GIORNI), "it")
+    os.makedirs(os.path.dirname(OUT_EN), exist_ok=True)
+    with open(OUT_EN, "w", encoding="utf-8") as f:
+        f.write(en_page)
+    print(f"scritto {OUT_EN}")
     with open(OUT_HTML, "w", encoding="utf-8") as f:
         f.write(out)
     print(f"scritto {OUT_HTML} ({len(out)} byte, era {len(data)})")
