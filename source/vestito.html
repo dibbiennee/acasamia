@@ -96,8 +96,9 @@ h2{font-size:2.35rem;margin-bottom:.9rem}
 .hero-panel{background:var(--green);color:var(--on-green);margin-top:-1.75rem;border-radius:1.75rem 1.75rem 0 0;position:relative;padding-block:1.5rem 1.75rem}
 .hero-panel h1{font-size:clamp(3.4rem,17vw,5.5rem);font-weight:500;letter-spacing:-.01em}
 .sub{font-size:.875rem;letter-spacing:.28em;text-transform:uppercase;margin:.9rem 0 1.1rem;color:var(--blush)}
-.status{display:inline-flex;align-items:center;gap:.6rem;border:1px solid color-mix(in srgb,var(--on-green) 28%,transparent);border-radius:99px;padding:.5rem 1rem;font-size:.95rem;min-height:2.5rem}
+.status{text-decoration:none;color:inherit;display:inline-flex;align-items:center;gap:.6rem;border:1px solid color-mix(in srgb,var(--on-green) 28%,transparent);border-radius:99px;padding:.5rem 1rem;font-size:.95rem;min-height:2.5rem}
 .dot{width:.6rem;height:.6rem;border-radius:50%;background:var(--closed)}
+.status::after{content:"›";font-size:1.25rem;line-height:1;opacity:.7;margin-left:.1rem}
 .status[data-open="true"] .dot{background:var(--open);box-shadow:0 0 0 .3rem color-mix(in srgb,var(--open) 25%,transparent)}
 .sr{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 .tag{margin:0;font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(1.9rem,8.2vw,2.2rem);line-height:1.12;max-width:none}
@@ -190,7 +191,8 @@ h2{font-size:2.35rem;margin-bottom:.9rem}
 .grid .t{grid-row:span 2}
 
 /* orari + dove */
-.hours{list-style:none;padding:0;margin:1.5rem 0 0;font-variant-numeric:tabular-nums}
+.hours{scroll-margin-top:5.5rem;list-style:none;padding:0;margin:1.5rem 0 0;font-variant-numeric:tabular-nums}
+.hours-note{margin-top:.9rem;color:var(--ink-soft);font-size:1rem}
 .hours li{display:flex;justify-content:space-between;padding:.8rem 0;border-bottom:1px dotted var(--line)}
 .hours li.today{color:var(--red-ink);font-weight:500}
 .hours li.today span:first-child::after{content:" · oggi";font-weight:400;font-size:.85rem}
@@ -363,8 +365,8 @@ footer small{display:block;margin-top:1.6rem;opacity:.7;font-size:.875rem;letter
     </nav>
     <div class="top-r">
       <div class="lang" role="group" aria-label="Lingua / Language">
-        <a id="l-it" href="/" hreflang="it" lang="it" aria-current="page">IT</a>
-        <a id="l-en" href="/en/" hreflang="en" lang="en">EN</a>
+        <a id="l-it" href="/" hreflang="it" lang="it" aria-current="page" data-evento="lingua">IT</a>
+        <a id="l-en" href="/en/" hreflang="en" lang="en" data-evento="lingua">EN</a>
       </div>
       <a class="cta-top" href="https://www.google.com/maps/search/?api=1&amp;query=A+casa+mia+Via+XVI+Settembre+4+Civitavecchia&amp;query_place_id=ChIJe4oLuT-jKBMRC1LSgftPCaM" target="_blank" rel="noopener" data-evento="indicazioni"><svg aria-hidden="true"><use href="#i-pin"/></svg><span data-it="Indicazioni" data-en="Directions">Indicazioni</span></a>
     </div>
@@ -379,14 +381,14 @@ footer small{display:block;margin-top:1.6rem;opacity:.7;font-size:.875rem;letter
       <h1 class="sr">A casa mia</h1>
       <p class="tag" data-it="Il punto di riferimento<br>per una pausa di&nbsp;gusto." data-en="The go-to place<br>for a break worth&nbsp;savouring.">Il punto di riferimento<br>per una pausa di&nbsp;gusto.</p>
       <p class="sub">caffè · brunch · aperitivo</p>
-      <div class="status" id="status" data-open="true" role="status"><span class="dot"></span><span id="status-text"></span></div>
+      <a class="status" id="status" href="#hours" data-open="true" aria-live="polite" data-evento="orari"><span class="dot"></span><span id="status-text"></span></a>
       <p class="where" data-it="Nel cuore di Civitavecchia, a pochi passi dal&nbsp;porto." data-en="In the heart of Civitavecchia, a few steps from the&nbsp;port.">Nel cuore di Civitavecchia, a pochi passi dal&nbsp;porto.</p>
       <div class="hero-cta">
         <a class="b-red" href="https://www.google.com/maps/search/?api=1&amp;query=A+casa+mia+Via+XVI+Settembre+4+Civitavecchia&amp;query_place_id=ChIJe4oLuT-jKBMRC1LSgftPCaM" target="_blank" rel="noopener" data-evento="indicazioni"><svg aria-hidden="true"><use href="#i-pin"/></svg><span data-it="Indicazioni" data-en="Directions">Indicazioni</span></a>
         <a class="b-out" href="tel:+390766526232" data-evento="telefono"><svg aria-hidden="true"><use href="#i-phone"/></svg><span>0766 526232</span></a>
         <a class="b-out" href="https://wa.me/393481897496" data-evento="whatsapp"><svg aria-hidden="true"><use href="#i-wa"/></svg><span>WhatsApp</span></a>
       </div>
-      <a class="scroll-cue" href="#giornata"><span data-it="Scopri la giornata" data-en="Discover your day">Scopri la giornata</span><svg aria-hidden="true"><use href="#i-down"/></svg></a>
+      <a class="scroll-cue" href="#giornata" data-evento="cue"><span data-it="Scopri la giornata" data-en="Discover your day">Scopri la giornata</span><svg aria-hidden="true"><use href="#i-down"/></svg></a>
     </div>
   </div>
   </div>
@@ -474,9 +476,10 @@ footer small{display:block;margin-top:1.6rem;opacity:.7;font-size:.875rem;letter
       <p class="eyebrow" data-it="Orari e dove siamo" data-en="Hours and location">Orari e dove siamo</p>
       <h2 data-it="Nel cuore di&nbsp;Civitavecchia." data-en="In the heart of&nbsp;Civitavecchia.">Nel cuore di&nbsp;Civitavecchia.</h2>
       <ul class="hours" id="hours"><li data-d="1"><span data-it="Lunedì" data-en="Monday">Lunedì</span><span>7:00 – 17:00</span></li><li data-d="2"><span data-it="Martedì" data-en="Tuesday">Martedì</span><span>7:00 – 17:00</span></li><li data-d="3"><span data-it="Mercoledì" data-en="Wednesday">Mercoledì</span><span>7:00 – 17:00</span></li><li data-d="4"><span data-it="Giovedì" data-en="Thursday">Giovedì</span><span>7:00 – 17:00</span></li><li data-d="5"><span data-it="Venerdì" data-en="Friday">Venerdì</span><span>7:00 – 17:00</span></li><li data-d="6"><span data-it="Sabato" data-en="Saturday">Sabato</span><span>8:00 – 15:00</span></li><li data-d="0"><span data-it="Domenica" data-en="Sunday">Domenica</span><span>8:00 – 15:00</span></li></ul>
+      <p class="hours-note" data-it="Non serve prenotare: ci si siede al&nbsp;volo." data-en="No booking needed: just walk in and take a&nbsp;seat.">Non serve prenotare: ci si siede al&nbsp;volo.</p>
       <div class="map">
         <a class="mapimg" href="https://www.google.com/maps/search/?api=1&amp;query=A+casa+mia+Via+XVI+Settembre+4+Civitavecchia&amp;query_place_id=ChIJe4oLuT-jKBMRC1LSgftPCaM" target="_blank" rel="noopener" data-evento="indicazioni" aria-label="Apri la mappa in Google Maps"><img src="public/img/mappa.webp" srcset="public/img/mappa-640.webp 640w, public/img/mappa.webp 720w" sizes="(min-width:68.75rem) 520px, 100vw" width="720" height="480" alt="Mappa: A casa mia in Via XVI Settembre, vicino al porto di Civitavecchia" loading="lazy"><span class="pin" aria-hidden="true"><svg aria-hidden="true"><use href="#i-pin"/></svg></span></a>
-        <div class="mapbtns"><a href="https://www.google.com/maps/search/?api=1&amp;query=A+casa+mia+Via+XVI+Settembre+4+Civitavecchia&amp;query_place_id=ChIJe4oLuT-jKBMRC1LSgftPCaM" target="_blank" rel="noopener" data-evento="indicazioni"><svg aria-hidden="true"><use href="#i-pin"/></svg>Google Maps</a><a href="https://maps.apple.com/?q=A%20casa%20mia&amp;ll=42.0951638,11.7896898" target="_blank" rel="noopener" data-evento="indicazioni"><svg aria-hidden="true"><use href="#i-pin"/></svg>Apple Maps</a></div>
+        <div class="mapbtns"><a href="https://www.google.com/maps/search/?api=1&amp;query=A+casa+mia+Via+XVI+Settembre+4+Civitavecchia&amp;query_place_id=ChIJe4oLuT-jKBMRC1LSgftPCaM" target="_blank" rel="noopener" data-evento="indicazioni"><svg aria-hidden="true"><use href="#i-pin"/></svg>Google Maps</a><a href="https://maps.apple.com/?q=A%20casa%20mia&amp;ll=42.0951638,11.7896898" target="_blank" rel="noopener" data-evento="indicazioni-apple"><svg aria-hidden="true"><use href="#i-pin"/></svg>Apple Maps</a></div>
         <small>Mappa © OpenStreetMap contributors</small>
       </div>
       <ul class="facts">
@@ -550,6 +553,42 @@ footer small{display:block;margin-top:1.6rem;opacity:.7;font-size:.875rem;letter
   function qmove(d){var c=qs.querySelector('.quote');qs.scrollBy({left:d*(c.getBoundingClientRect().width+20),behavior:'smooth'})}
   document.querySelector('.q-prev').onclick=function(){qmove(-1)};
   document.querySelector('.q-next').onclick=function(){qmove(1)};
+})();
+</script>
+<script>
+/* statistiche anonime, senza cookie e senza identificatori: conta visite, clic sui contatti e sezioni raggiunte.
+   Rispetta Do Not Track e Global Privacy Control. Niente viene scritto nel browser. */
+(function(){
+  if(navigator.doNotTrack==='1'||window.doNotTrack==='1'||navigator.globalPrivacyControl)return;
+  var H=location.hostname;if(H==='localhost'||H==='127.0.0.1'||H.slice(-6)==='.local')return;
+  var L=document.documentElement.lang==='en'?'en':'it',seen={},Q=[];
+  function post(ev){
+    var b=JSON.stringify({l:L,w:innerWidth,e:ev});
+    try{navigator.sendBeacon('/api/t',new Blob([b],{type:'text/plain'}))}catch(x){try{fetch('/api/t',{method:'POST',body:b,keepalive:true,headers:{'Content-Type':'text/plain'}})}catch(y){}}
+  }
+  var ref='';try{ref=document.referrer?new URL(document.referrer).hostname:''}catch(x){}
+  var u='';try{u=(new URLSearchParams(location.search).get('utm_source')||'').toLowerCase().replace(/[^a-z0-9_-]/g,'').slice(0,20)}catch(x){}
+  post([{t:'pv',r:ref.slice(0,60),u:u}]);
+  function pos(el){
+    if(el.closest('.bar'))return'barra';if(el.closest('.top'))return'header';if(el.closest('footer'))return'footer';if(el.closest('.hero'))return'hero';
+    var s=el.closest('section[id]');return s?s.id:'altro';
+  }
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('[data-evento]');if(!a)return;
+    var st=document.getElementById('status');
+    post([{t:'c',n:a.getAttribute('data-evento'),p:pos(a),o:st&&st.getAttribute('data-open')==='true'?1:0}]);
+  },true);
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting&&!seen[x.target.id]){seen[x.target.id]=1;Q.push({t:'s',n:x.target.id});io.unobserve(x.target)}})},{threshold:.35});
+    document.querySelectorAll('main section[id]').forEach(function(s){io.observe(s)});
+  }
+  [['giornata','.rail'],['recensioni','#quotes']].forEach(function(r){
+    var el=document.querySelector(r[1]);if(!el)return;
+    el.addEventListener('scroll',function(){if(!seen['sw'+r[0]]){seen['sw'+r[0]]=1;Q.push({t:'w',n:r[0]})}},{passive:true});
+  });
+  function flush(){if(Q.length){post(Q);Q=[]}}
+  document.addEventListener('visibilitychange',function(){if(document.visibilityState==='hidden')flush()});
+  addEventListener('pagehide',flush);
 })();
 </script>
 <script src="a-capo.js"></script>

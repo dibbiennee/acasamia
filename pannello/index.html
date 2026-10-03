@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Pannello · A casa mia</title>
+<style>
+:root{--paper:#F7F1E3;--paper-2:#EFE6D2;--ink:#1F3A34;--soft:#5B6B64;--green:#234640;--red:#A8363C;--line:#DCD0B6}
+@media (prefers-color-scheme:dark){:root{--paper:#131E1B;--paper-2:#1A2824;--ink:#F1EADB;--soft:#A9B5AE;--green:#0D1614;--red:#B8434A;--line:#2A3A35}}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:400 1.0625rem/1.5 "Jost",system-ui,sans-serif;padding:1.5rem 1.25rem 4rem}
+main{max-width:44rem;margin:0 auto}h1{font:500 2rem/1.1 "Cormorant Garamond",Georgia,serif;margin:0 0 .5rem}
+p{margin:0 0 1rem;color:var(--soft)}input,button{font:inherit;min-height:2.75rem;border-radius:99px;border:1.5px solid var(--ink);padding:.4rem 1rem;background:none;color:inherit}
+button{background:var(--red);border-color:var(--red);color:#fff;font-weight:500;cursor:pointer}
+.kpi{display:grid;grid-template-columns:repeat(2,1fr);gap:.7rem;margin:1.2rem 0}.kpi div{background:var(--paper-2);border-radius:1rem;padding:1rem}
+.kpi b{display:block;font:500 2.4rem/1 "Cormorant Garamond",Georgia,serif}.kpi small{color:var(--soft)}
+table{width:100%;border-collapse:collapse;margin:.5rem 0 1.5rem}td,th{text-align:left;padding:.5rem 0;border-bottom:1px dotted var(--line)}td:last-child,th:last-child{text-align:right}
+h2{font:500 1.5rem/1.1 "Cormorant Garamond",Georgia,serif;margin:1.5rem 0 .2rem}.err{color:var(--red)}
+.nota{font-size:.875rem}
+</style>
+</head>
+<body>
+<main>
+  <h1>Pannello</h1>
+  <p>Versione provvisoria, in attesa del disegno. Dati anonimi, senza cookie.</p>
+  <form id="f"><input id="pw" type="password" autocomplete="current-password" placeholder="Password" aria-label="Password"> <button>Entra</button></form>
+  <p id="msg" class="err" role="alert"></p>
+  <div id="dati" hidden></div>
+</main>
+<script>
+(function(){
+  var f=document.getElementById('f'),pw=document.getElementById('pw'),msg=document.getElementById('msg'),box=document.getElementById('dati');
+  var NOMI={telefono:'Chiama',whatsapp:'WhatsApp',indicazioni:'Indicazioni','indicazioni-apple':'Apple Maps',recensione:'Lascia una recensione',glovo:'Glovo',instagram:'Instagram',facebook:'Facebook'};
+  function riga(a,b){return '<tr><td>'+a+'</td><td>'+b+'</td></tr>'}
+  function tab(t,o,nomi){var k=Object.keys(o).sort(function(x,y){return o[y]-o[x]});return '<h2>'+t+'</h2><table>'+(k.length?k.map(function(x){return riga((nomi&&nomi[x])||x,o[x])}).join(''):riga('Ancora niente','-'))+'</table>'}
+  function vai(){
+    msg.textContent='';
+    fetch('/api/stats?days=30',{headers:{Authorization:'Bearer '+pw.value}}).then(function(r){
+      if(r.status===429)return r.json().then(function(d){msg.textContent='Troppi tentativi. Riprova fra '+Math.ceil((d.attesa||600)/60)+' minuti.';throw 0});
+      if(r.status===401){msg.textContent='Password sbagliata.';throw 0}
+      if(r.status===503){msg.textContent='L’archivio dei dati non è ancora collegato.';throw 0}
+      if(!r.ok){msg.textContent='Errore, riprova.';throw 0}
+      return r.json();
+    }).then(function(d){
+      sessionStorage.setItem('pw',pw.value);f.hidden=true;box.hidden=false;var t=d.totali;
+      var ev={};Object.keys(d.eventi).forEach(function(k){ev[k]=d.eventi[k].totale});
+      box.innerHTML='<p>Ultimi '+d.periodo.giorni+' giorni ('+d.periodo.da+' / '+d.periodo.a+')</p><div class="kpi"><div><b>'+t.visite+'</b><small>Visite</small></div><div><b>'+t.visitatori+'</b><small>Visitatori</small></div><div><b>'+t.clic+'</b><small>Clic sui contatti</small></div><div><b>'+t.tasso_clic+'%</b><small>Clic ogni 100 visite</small></div></div>'
+        +tab('Clic',ev,NOMI)+tab('Sezioni raggiunte',d.sezioni)+tab('Dispositivi',d.dispositivi)+tab('Lingue',d.lingue)+tab('Provenienza',d.provenienza)
+        +'<p class="nota">Visitatori contati con un codice anonimo che cambia ogni giorno: niente cookie, niente indirizzi salvati.</p>';
+    }).catch(function(e){if(e!==0)msg.textContent='Errore di rete.'});
+  }
+  f.addEventListener('submit',function(e){e.preventDefault();vai()});
+  var s=sessionStorage.getItem('pw');if(s){pw.value=s;vai()}
+})();
+</script>
+</body>
+</html>
