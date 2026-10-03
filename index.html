@@ -97,7 +97,7 @@ h2{font-size:2.35rem;margin-bottom:.9rem}
 .status{display:inline-flex;align-items:center;gap:.6rem;border:1px solid color-mix(in srgb,var(--on-green) 28%,transparent);border-radius:99px;padding:.5rem 1rem;font-size:.95rem;min-height:2.5rem}
 .dot{width:.6rem;height:.6rem;border-radius:50%;background:var(--closed)}
 .status[data-open="true"] .dot{background:var(--open);box-shadow:0 0 0 .3rem color-mix(in srgb,var(--open) 25%,transparent)}
-.tag{margin-top:1.1rem;font-family:var(--serif);font-style:italic;font-size:1.5rem;line-height:1.2;max-width:22rem}
+.tag{margin-top:0;margin-bottom:1.1rem;font-family:var(--serif);font-style:italic;font-size:1.5rem;line-height:1.2;max-width:22rem}
 .where{margin-top:.8rem;color:color-mix(in srgb,var(--on-green) 75%,transparent);font-size:.95rem}
 
 /* fatti su dove siamo */
@@ -230,7 +230,7 @@ footer small{display:block;margin-top:1.6rem;opacity:.7;font-size:.875rem;letter
   .hero-panel h1{font-size:7.75rem;line-height:.98}
   .sub{font-size:.875rem;margin:1.125rem 0 1.75rem}
   .status{padding:.5625rem 1.125rem;font-size:1rem}
-  .tag{margin-top:1.75rem;font-size:2.25rem;line-height:1.15;max-width:32.5rem}
+  .tag{margin-top:0;margin-bottom:1.75rem;font-size:2.25rem;line-height:1.15;max-width:32.5rem}
   .where{margin-top:1rem;font-size:1.0625rem;max-width:30rem}
   .hero-cta{display:flex;gap:.75rem;margin-top:2.25rem;flex-wrap:wrap}
   .hero-cta a{display:inline-flex;align-items:center;gap:.625rem;padding:.9375rem 1.625rem;border-radius:99px;font-weight:500;text-decoration:none;min-height:3rem}
@@ -351,8 +351,8 @@ footer small{display:block;margin-top:1.6rem;opacity:.7;font-size:.875rem;letter
     <div class="wrap">
       <h1>A casa mia</h1>
       <p class="sub">caffè · brunch · aperitivo</p>
-      <div class="status" id="status" data-open="true" role="status"><span class="dot"></span><span id="status-text"></span></div>
       <p class="tag">Il punto di riferimento&nbsp;per una pausa di&nbsp;gusto.</p>
+      <div class="status" id="status" data-open="true" role="status"><span class="dot"></span><span id="status-text"></span></div>
       <p class="where">Nel cuore di Civitavecchia, a pochi passi dal&nbsp;porto.</p>
       <div class="hero-cta">
         <a class="b-red" href="https://www.google.com/maps/search/?api=1&amp;query=A+casa+mia+Via+XVI+Settembre+4+Civitavecchia&amp;query_place_id=ChIJe4oLuT-jKBMRC1LSgftPCaM" target="_blank" rel="noopener" data-evento="indicazioni"><svg aria-hidden="true"><use href="#i-pin"/></svg><span>Indicazioni</span></a>
