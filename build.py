@@ -140,6 +140,9 @@ ALT_EN.update({
 ALT_EN["Mappa: A casa mia in Via XVI Settembre, vicino al porto di Civitavecchia"] = "Map: A casa mia on Via XVI Settembre, near the port of Civitavecchia"
 ARIA_EN = {
     "Apri la mappa in Google Maps": "Open the map in Google Maps",
+    "Recensione precedente": "Previous review",
+    "Recensione successiva": "Next review",
+    "Recensioni di Google": "Google reviews",
     "Colazioni dolci, brunch, pranzo, aperitivo": "Sweet breakfasts, brunch, lunch, aperitivo",
 }
 EN_TITLE = "A casa mia · Café, brunch and aperitivo in Civitavecchia"
