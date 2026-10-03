@@ -315,6 +315,9 @@ p{margin:0 0 15px;max-width:62ch}
 .location .fatti{margin:0 0 26px}
 .mappa{display:block;border-radius:4px;overflow:hidden;border:1px solid var(--linea);aspect-ratio:4/3;box-shadow:0 8px 24px rgba(35,71,63,.08)}
 .mappa svg{width:100%;height:100%;display:block}
+.mappa{position:relative}.mappa-carica{position:absolute;left:50%;bottom:44px;transform:translateX(-50%);background:var(--carminio,#A8383C);color:#FDFAF2;border:0;border-radius:999px;padding:14px 24px;min-height:44px;font:600 16px/1 inherit;cursor:pointer;white-space:nowrap}
+.mappa-nota{position:absolute;left:12px;right:12px;bottom:10px;margin:0;font-size:13px;line-height:1.3;text-align:center;color:#23473F}
+.mappa iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 @media (hover:hover){.mappa:hover{box-shadow:0 12px 30px rgba(35,71,63,.16)}}
 @media (min-width:760px){.location-in{flex-direction:row;align-items:stretch;gap:48px}.location-testo{flex:0 0 42%}.mappa{flex:1;aspect-ratio:auto;min-height:340px}}
 
@@ -554,8 +557,7 @@ footer .firma{margin-top:24px;padding-top:16px;border-top:1px solid rgba(253,250
           <span data-it="Come arrivare" data-en="Get directions">Come arrivare</span>
         </a>
       </div>
-      <a class="mappa" href="https://maps.google.com/?q=Via+XVI+Settembre+4+Civitavecchia" target="_blank" rel="noopener" aria-label="Apri la posizione di A casa mia su Google Maps" data-aria-it="Apri la posizione di A casa mia su Google Maps" data-aria-en="Open A casa mia's location on Google Maps">
-        <svg viewBox="0 0 480 360" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <div class="mappa" id="mappa"><svg viewBox="0 0 480 360" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
           <rect width="480" height="360" fill="#EFE5CE"/>
           <g fill="#23473F" fill-opacity=".06">
             <rect x="20" y="20" width="110" height="80" rx="6"/><rect x="150" y="20" width="120" height="70" rx="6"/><rect x="300" y="20" width="160" height="90" rx="6"/>
@@ -572,8 +574,7 @@ footer .firma{margin-top:24px;padding-top:16px;border-top:1px solid rgba(253,250
           <path d="M240 140c0 0-18 22-18 34a18 18 0 0 0 36 0c0-12-18-34-18-34z" fill="#A8383C" stroke="#FDFAF2" stroke-width="3" stroke-linejoin="round"/>
           <circle cx="240" cy="174" r="6" fill="#FDFAF2"/>
           <text x="240" y="232" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="26" font-weight="600" fill="#23473F">A casa mia</text>
-        </svg>
-      </a>
+        </svg><button type="button" class="mappa-carica" id="mappa-carica"><span data-it="Mostra la mappa interattiva" data-en="Show the interactive map">Mostra la mappa interattiva</span></button><p class="mappa-nota" data-it="Caricando la mappa accetti che Google tratti i tuoi dati secondo la sua informativa." data-en="By loading the map you agree that Google processes your data under its own policy.">Caricando la mappa accetti che Google tratti i tuoi dati secondo la sua informativa.</p></div>
     </div>
   </div>
 </section>
@@ -793,6 +794,9 @@ ACapo.avvia();
   }, {threshold:.14, rootMargin:'0px 0px -60px 0px'});
   bersagli.forEach(function(el){ io.observe(el); });
 })();
+
+(function(){var b=document.getElementById('mappa-carica'),m=document.getElementById('mappa');if(!b||!m)return;
+b.addEventListener('click',function(){var f=document.createElement('iframe');f.src='https://www.google.com/maps?q=Via+XVI+Settembre+4,+00053+Civitavecchia+RM&hl='+(document.documentElement.lang||'it')+'&z=17&output=embed';f.title='Mappa: A casa mia, Via XVI Settembre 4, Civitavecchia';f.loading='lazy';f.referrerPolicy='no-referrer-when-downgrade';f.allowFullscreen=true;m.textContent='';m.appendChild(f);});})();
 </script>
 
 </body>
