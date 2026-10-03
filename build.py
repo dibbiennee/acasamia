@@ -212,10 +212,10 @@ def make_en(it_page):
     page = page.replace('"servesCuisine": ["Italiana", "Brunch", "Caffetteria"]', '"servesCuisine": ["Italian", "Brunch", "Coffee"]')
     page = page.replace('"url": "%s/"' % SITE_URL, '"url": "%s/en/"' % SITE_URL)
     # toggle: l'inglese e' la pagina corrente
-    page = page.replace('<a id="l-it" class="on" href="/" hreflang="it" lang="it" aria-current="page">IT</a>',
+    page = page.replace('<a id="l-it" href="/" hreflang="it" lang="it" aria-current="page">IT</a>',
                         '<a id="l-it" href="/" hreflang="it" lang="it">IT</a>')
     page = page.replace('<a id="l-en" href="/en/" hreflang="en" lang="en">EN</a>',
-                        '<a id="l-en" class="on" href="/en/" hreflang="en" lang="en" aria-current="page">EN</a>')
+                        '<a id="l-en" href="/en/" hreflang="en" lang="en" aria-current="page">EN</a>')
     page = page.replace("var LANG = 'it';", "var LANG = 'en';").replace("var lang='it';", "var lang='en';")
     page = seed_orari(page, GIORNI_EN)
     # percorsi assoluti: la pagina vive in /en/
