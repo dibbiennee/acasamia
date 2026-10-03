@@ -30,5 +30,9 @@
       "testo": "“I tried at least 10 tiramissu and suppli in Rome, and the best of both for me was on A casa mia.”",
       "lingua": "en"
     }
-  ]
+  ],
+  "whatsapp_festa": {
+    "it": "Ciao! Vorrei festeggiare un’occasione speciale da voi. Mi dite come possiamo organizzarci? Grazie mille!",
+    "en": "Hi! I’d love to celebrate a special occasion at A casa mia. Could you tell me how we can arrange it? Thank you!"
+  }
 }

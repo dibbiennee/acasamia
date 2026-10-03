@@ -19,6 +19,8 @@ Uso:
     python3 build.py
 """
 import re
+import json
+import urllib.parse
 import base64
 import subprocess
 import os
@@ -216,6 +218,8 @@ def make_en(it_page):
                         '<a id="l-it" href="/" hreflang="it" lang="it">IT</a>')
     page = page.replace('<a id="l-en" href="/en/" hreflang="en" lang="en">EN</a>',
                         '<a id="l-en" href="/en/" hreflang="en" lang="en" aria-current="page">EN</a>')
+    _d = json.load(open(os.path.join(ROOT, 'source', 'dati.json'), encoding='utf-8'))['whatsapp_festa']
+    page = page.replace(urllib.parse.quote(_d['it'], safe=''), urllib.parse.quote(_d['en'], safe=''))
     page = page.replace("var LANG = 'it';", "var LANG = 'en';").replace("var lang='it';", "var lang='en';")
     page = seed_orari(page, GIORNI_EN)
     # percorsi assoluti: la pagina vive in /en/
