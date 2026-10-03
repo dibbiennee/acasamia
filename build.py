@@ -30,6 +30,7 @@ OUT_HTML = os.path.join(ROOT, "index.html")
 OUT_IMG = os.path.join(ROOT, "public", "img")
 OFFLINE = os.path.join(ROOT, "demo-offline.html")
 OUT_EN = os.path.join(ROOT, "en", "index.html")
+VESTITO = os.path.join(ROOT, "source", "vestito.html")  # nuovo vestito grafico (le immagini arrivano comunque dalla sorgente base64)
 
 # unico punto da cambiare al go-live del dominio finale: sostituisce
 # __SITE_URL__ in canonical/og:url/og:image. Quando acasamiacivitavecchia.it
@@ -118,6 +119,26 @@ ALT_EN = {
     "Spaghetti del menu del giorno da A casa mia": "Spaghetti from the daily menu at A casa mia",
     "Pasta artigianale dei nostri piccoli produttori": "Artisan pasta from our small producers",
     "L'insegna di A casa mia in Via XVI Settembre": "The A casa mia sign on Via XVI Settembre",
+    "Il bancone in travertino e i tavoli del locale": "The travertine counter and the tables",
+    "Crostini con mozzarella e acciughe": "Crostini with mozzarella and anchovies",
+    "Espresso martini": "Espresso martini",
+    "Un cavolo romanesco tenuto tra le mani": "A romanesco broccoli held in both hands",
+    "Scaffale con i prodotti in vendita": "Shelf with the products for sale",
+    "Spritz con pizzette e olive": "Spritz with little pizzas and olives",
+}
+ALT_EN.update({
+    "Cappuccino e cornetto sul tovagliolo con il logo di A casa mia": "Cappuccino and cornetto on the placemat with the A casa mia logo",
+    "Cornetto con crema al pistacchio": "Cornetto with pistachio cream",
+    "Tramezzino e succo d'arancia": "Tramezzino sandwich and orange juice",
+    "Pasta servita sul tovagliolo a righe": "Pasta served on the striped placemat",
+    "Brindisi con due calici di vino e tagliere di salumi e formaggi": "A toast with two glasses of wine and a board of cured meats and cheese",
+    "Pasta artigianale Martelli sullo scaffale": "Martelli artisan pasta on the shelf",
+    "La facciata di A casa mia con insegna e tenda": "The A casa mia front with its sign and awning",
+    "Cinnamon roll con crema versata a cucchiaio": "Cinnamon roll with cream poured from a spoon",
+    "Grembiule di A casa mia con un piatto di polpette": "An A casa mia apron beside a plate of meatballs",
+})
+ARIA_EN = {
+    "Colazioni dolci, brunch, pranzo, aperitivo": "Sweet breakfasts, brunch, lunch, aperitivo",
 }
 EN_TITLE = "A casa mia · Café, brunch and aperitivo in Civitavecchia"
 EN_DESC = ("A bistrot in the heart of Civitavecchia, a few steps from the port. "
@@ -143,10 +164,20 @@ def strip_lang_attrs(page, keep=None):
 
 def make_en(it_page):
     page = it_page
-    # testi semplici (le recensioni reali restano nell'originale)
-    page = re.sub(r'(<(\w+)[^>]*?data-en="([^"]*)"[^>]*>)(.*?)(</\2>)',
-                  lambda m: (m.group(1) + m.group(3) + m.group(5)) if 'data-orig="it"' not in m.group(1) and "<" not in m.group(4) else m.group(0),
-                  page, flags=re.S)
+    # testi: ogni elemento con data-en riceve il testo inglese (anche con <b> dentro)
+    TAG = re.compile(r'<(\w+)((?:\s+[\w-]+(?:="[^"]*")?)*)\s*>')
+    pieces, pos = [], 0
+    for m in TAG.finditer(page):
+        if m.start() < pos:
+            continue
+        attrs = m.group(2)
+        en = re.search(r' data-en="([^"]*)"', attrs)
+        if not en or 'data-orig="it"' in attrs:
+            continue
+        close = page.index("</%s>" % m.group(1), m.end())
+        pieces.append(page[pos:m.end()] + en.group(1))
+        pos = close
+    page = "".join(pieces) + page[pos:]
     # le recensioni originali: lingua dichiarata
     page = page.replace('<p data-orig="it"', '<p lang="it" data-orig="it"')
     # hero claim con markup
@@ -156,6 +187,8 @@ def make_en(it_page):
     page = re.sub(r'aria-label="[^"]*"([^>]*?)data-aria-en="([^"]*)"', r'aria-label="\2"\1data-aria-en="\2"', page)
     page = re.sub(r'(<[^>]*?)aria-label="[^"]*"([^>]*?)data-aria-it="[^"]*"([^>]*?)data-aria-en="([^"]*)"',
                   r'\1aria-label="\4"\2\3', page)
+    for it_a, en_a in ARIA_EN.items():
+        page = page.replace('aria-label="%s"' % it_a, 'aria-label="%s"' % en_a)
     for it_alt, en_alt in ALT_EN.items():
         page = page.replace('alt="%s"' % it_alt, 'alt="%s"' % en_alt)
     # head
@@ -178,7 +211,7 @@ def make_en(it_page):
                         '<a id="l-it" href="/" hreflang="it" lang="it">IT</a>')
     page = page.replace('<a id="l-en" href="/en/" hreflang="en" lang="en">EN</a>',
                         '<a id="l-en" class="on" href="/en/" hreflang="en" lang="en" aria-current="page">EN</a>')
-    page = page.replace("var LANG = 'it';", "var LANG = 'en';")
+    page = page.replace("var LANG = 'it';", "var LANG = 'en';").replace("var lang='it';", "var lang='en';")
     page = seed_orari(page, GIORNI_EN)
     # percorsi assoluti: la pagina vive in /en/
     page = re.sub(r'(?<=["(, ])public/', '/public/', page)
@@ -186,7 +219,36 @@ def make_en(it_page):
     return strip_lang_attrs(page, "en")
 
 
+SRC_IMG = os.path.join(ROOT, "source", "img")
+
+
+def build_vestito():
+    """nuovo vestito: foto jpg in source/img -> webp 1280 e 640 in public/img, poi pagine IT e EN dal template"""
+    os.makedirs(OUT_IMG, exist_ok=True)
+    for f in os.listdir(OUT_IMG):
+        os.remove(os.path.join(OUT_IMG, f))
+    for f in sorted(os.listdir(SRC_IMG)):
+        name, ext = os.path.splitext(f)
+        if ext.lower() not in (".jpg", ".jpeg", ".png"):
+            continue
+        im = Image.open(os.path.join(SRC_IMG, f)).convert("RGB")
+        im.save(os.path.join(OUT_IMG, name + ".webp"), "WEBP", quality=80, method=6)
+        for w in (640, 960):
+            small = im.resize((w, round(im.height * w / im.width)), Image.LANCZOS)
+            small.save(os.path.join(OUT_IMG, "%s-%d.webp" % (name, w)), "WEBP", quality=78, method=6)
+        print(f"  {name}: {im.width}x{im.height}")
+    build_og_image(os.path.join(OUT_IMG, "hero.webp"), os.path.join(OUT_IMG, "og-image.jpg"))
+    page = open(VESTITO, encoding="utf-8").read().replace("__SITE_URL__", SITE_URL)
+    en_page = make_en(page)
+    os.makedirs(os.path.dirname(OUT_EN), exist_ok=True)
+    open(OUT_EN, "w", encoding="utf-8").write(en_page)
+    open(OUT_HTML, "w", encoding="utf-8").write(strip_lang_attrs(page))
+    print(f"scritto {OUT_HTML} e {OUT_EN}")
+
+
 def main():
+    if os.path.exists(VESTITO) and os.path.isdir(SRC_IMG):
+        return build_vestito()
     data = open(SOURCE, encoding="utf-8").read()
     os.makedirs(OUT_IMG, exist_ok=True)
     for f in os.listdir(OUT_IMG):
@@ -275,6 +337,10 @@ def main():
 
     if "data:image/webp;base64," in out:
         raise SystemExit("sono rimasti dei data URI non sostituiti, controllare a mano")
+
+    # nuovo vestito: la pagina vera e' il template, le immagini sono quelle appena estratte
+    if os.path.exists(VESTITO):
+        out = open(VESTITO, encoding="utf-8").read().replace("__SITE_URL__", SITE_URL)
 
     en_page = make_en(out)
     out = strip_lang_attrs(seed_orari(out, GIORNI), "it")

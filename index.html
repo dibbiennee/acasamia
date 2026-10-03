@@ -22,11 +22,12 @@
 <meta name="twitter:title" content="A casa mia · caffè · brunch · aperitivo · Civitavecchia">
 <meta name="twitter:description" content="Bistrot nel cuore di Civitavecchia, a pochi passi dal porto. Colazione dalle 7:00, brunch, pranzo e aperitivo in Via XVI Settembre 4.">
 <meta name="twitter:image" content="https://acasamia.satoshiweb.it/public/img/og-image.jpg">
-<meta name="theme-color" content="#F7EFDD">
+<meta name="theme-color" content="#F7F1E3">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='8' fill='%23F7EFDD'/%3E%3Crect x='8' y='8' width='24' height='24' fill='none' stroke='%23A8383C' stroke-width='2.6'/%3E%3Cpath d='M20 8v24M8 20h24' stroke='%23A8383C' stroke-width='2.6'/%3E%3Cpath d='M20 9.5h11v7z' fill='%23A8383C'/%3E%3Cpath d='M11 32v-6a4.5 4.5 0 0 1 9 0v6z' fill='%23A8383C'/%3E%3C/svg%3E">
 <link rel="apple-touch-icon" href="public/apple-touch-icon.png">
 <link rel="preload" href="public/fonts/cormorant-garamond-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="public/fonts/jost-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="public/fonts/cormorant-garamond-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -55,811 +56,303 @@
 </script>
 <style>
 @font-face{font-family:"Cormorant Garamond";font-style:normal;font-weight:400 600;font-display:swap;src:url(public/fonts/cormorant-garamond-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Cormorant Garamond";font-style:italic;font-weight:500;font-display:swap;src:url(public/fonts/cormorant-garamond-italic-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 @font-face{font-family:"Jost";font-style:normal;font-weight:300 500;font-display:swap;src:url(public/fonts/jost-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-
+/* Nuovo vestito (handoff grafico). Foto prima, poi pannello verde con nome, stato aperto/chiuso e tre azioni. Tema scuro, barra fissa e layout largo: da decidere. */
 :root{
-  --crema:#F7EFDD;
-  --carta:#FDFAF2;
-  --carminio:#A8383C;
-  --carminio-sc:#8E2E32;
-  --verde:#23473F;
-  --inchiostro:#31403A;
-  --sabbia:#6B645B;
-  --linea:rgba(35,71,63,.14);
-  --display:"Cormorant Garamond",Georgia,"Times New Roman",serif;
-  --ui:"Jost",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  --paper:#F7F1E3;--paper-2:#EFE6D2;--ink:#1F3A34;--ink-soft:#5B6B64;--green:#234640;--on-green:#F7F1E3;
+  --red:#A8363C;--red-ink:#A8363C;--blush:#E9B8A6;--line:#DCD0B6;--open:#7BD389;--closed:#F0A19B;
+  --serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+  --sans:"Jost","Helvetica Neue",Arial,sans-serif;
 }
+@media (prefers-color-scheme:dark){:root{--paper:#131E1B;--paper-2:#1A2824;--ink:#F1EADB;--ink-soft:#A9B5AE;--green:#0D1614;--on-green:#F1EADB;--red:#B8434A;--red-ink:#EE8A85;--blush:#E9B8A6;--line:#2A3A35;color-scheme:dark}}
 *{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%;overflow-x:hidden;scroll-behavior:smooth}
-body{
-  margin:0;background:var(--crema);color:var(--inchiostro);
-  font-family:var(--ui);font-weight:300;font-size:18px;line-height:1.6;
-  -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
-}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 1.125rem/1.55 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden;padding-bottom:6.5rem}
 img{display:block;max-width:100%;height:auto}
 a{color:inherit}
-button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
-.wrap{width:100%;max-width:1080px;margin:0 auto;padding:0 28px}
-.narrow{max-width:660px}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.05;margin:0;text-wrap:balance}
+p{margin:0}
+:focus-visible{outline:3px solid var(--blush);outline-offset:3px;border-radius:6px}
+.wrap{padding-inline:1.25rem;max-width:44rem;margin-inline:auto}
+section{padding-block:3.25rem;scroll-margin-top:4rem}
+.eyebrow{font-size:.875rem;letter-spacing:.16em;text-transform:uppercase;color:var(--red-ink);font-weight:500;margin-bottom:.75rem}
+h2{font-size:2.35rem;margin-bottom:.9rem}
+.lead{color:var(--ink-soft);max-width:34rem}
 
-/* ---------- strisce tovaglietta ---------- */
-.strisce{height:14px;background:repeating-linear-gradient(90deg,var(--carminio) 0 22px,#FDFAF2 22px 44px);opacity:.9}
+/* top bar */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--paper);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:3.5rem}
+.brand{display:flex;align-items:center;gap:.6rem;min-height:2.75rem;font-family:var(--serif);font-size:1.5rem;font-weight:600;text-decoration:none}
+.brand svg{width:1.6rem;height:1.6rem;color:var(--red-ink)}
+.lang{display:flex;border:1px solid var(--line);border-radius:99px;padding:.15rem}
+.lang a{display:flex;align-items:center;justify-content:center;font:500 .875rem var(--sans);text-decoration:none;color:var(--ink-soft);padding:.35rem .7rem;border-radius:99px;min-height:2.375rem;min-width:2.5rem}
+.lang a[aria-current]{background:var(--green);color:var(--on-green)}
 
-/* ---------- header ---------- */
-header{position:sticky;top:0;z-index:50;background:rgba(247,239,221,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--linea)}
-.bar{display:flex;flex-wrap:wrap;align-items:center;column-gap:12px;row-gap:8px;min-height:54px;padding-top:6px;padding-bottom:6px}
-.marchio{order:1;display:flex;align-items:center;gap:8px;text-decoration:none;min-width:0;min-height:44px}
-.marchio svg{width:23px;height:23px;flex:none}
-.marchio b{font-family:var(--display);font-weight:600;font-size:20px;color:var(--verde);white-space:nowrap}
-.lang{order:2;margin-left:auto;flex:none;display:flex;border:1px solid var(--linea);border-radius:999px}
-.lang a{display:flex;align-items:center;justify-content:center;text-decoration:none;padding:10px 16px;font-size:13px;letter-spacing:.08em;opacity:.78;line-height:1.3;min-height:38px;min-width:40px}
-.lang a:first-child{border-radius:999px 0 0 999px}
-.lang a:last-child{border-radius:0 999px 999px 0}
-.lang a.on{background:var(--verde);color:var(--crema);opacity:1}
-header nav{order:3;flex:0 0 100%;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--linea)}
-header nav a{padding:12px 4px;font-size:14.5px;color:var(--verde);opacity:.78;border-bottom:2px solid transparent;text-align:center;text-decoration:none;display:block}
-header nav a.on{opacity:1;color:var(--carminio-sc);border-bottom-color:var(--carminio)}
-@media (min-width:900px){
-  .wrap{padding:0 40px}
-  .bar{height:74px;gap:0}
-  header nav{order:2;flex:1 1 auto;border-top:0;display:flex;gap:6px;margin-left:40px;grid-template-columns:none}
-  header nav a{padding:8px 16px;border-bottom:0;border-radius:999px;font-size:16px}
-  header nav a.on{background:rgba(168,56,60,.09);border-bottom:0}
-  .marchio b{font-size:23px}
-  .marchio svg{width:27px;height:27px}
-  .lang{order:3;margin-left:auto}
+/* hero */
+.hero-photo{aspect-ratio:4/3.7;max-height:30rem;width:100%;object-fit:cover;object-position:50% 30%}
+.hero-panel{background:var(--green);color:var(--on-green);margin-top:-1.75rem;border-radius:1.75rem 1.75rem 0 0;position:relative;padding-block:2rem 2.25rem}
+.hero-panel h1{font-size:clamp(3.4rem,17vw,5.5rem);font-weight:500;letter-spacing:-.01em}
+.sub{font-size:.875rem;letter-spacing:.28em;text-transform:uppercase;margin:.6rem 0 1.25rem;color:var(--blush)}
+.status{display:inline-flex;align-items:center;gap:.6rem;border:1px solid color-mix(in srgb,var(--on-green) 28%,transparent);border-radius:99px;padding:.5rem 1rem;font-size:.95rem;min-height:2.5rem}
+.dot{width:.6rem;height:.6rem;border-radius:50%;background:var(--closed)}
+.status[data-open="true"] .dot{background:var(--open);box-shadow:0 0 0 .3rem color-mix(in srgb,var(--open) 25%,transparent)}
+.tag{margin-top:1.1rem;font-family:var(--serif);font-style:italic;font-size:1.5rem;line-height:1.2;max-width:22rem}
+.where{margin-top:.8rem;color:color-mix(in srgb,var(--on-green) 75%,transparent);font-size:.95rem}
+
+/* fatti su dove siamo */
+.facts{list-style:none;padding:0;margin:1.2rem 0 0;display:grid;gap:0}
+.facts li{display:flex;gap:.9rem;align-items:center;padding:.7rem 0;border-bottom:1px dotted var(--line)}
+.facts svg{flex:none;width:1.4rem;height:1.4rem;color:var(--red-ink)}
+.facts b{font-weight:500}
+
+/* giornata */
+.day{background:var(--paper-2)}
+.rail{display:flex;gap:1rem;overflow-x:auto;scroll-snap-type:x mandatory;padding:1.5rem 1.25rem .5rem;margin-inline:-1.25rem;scrollbar-width:none}
+.rail::-webkit-scrollbar{display:none}
+.card{flex:0 0 78%;max-width:20rem;scroll-snap-align:center;min-width:0}
+.card img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:1rem}
+.card h3{font-size:1.9rem;margin:.9rem 0 .25rem}
+.card p{color:var(--ink-soft);font-size:1rem}
+.hint{font-size:.875rem;color:var(--ink-soft);margin-top:.75rem;letter-spacing:.04em}
+
+/* servizi */
+.services{display:grid;gap:.9rem;margin-top:1.5rem}
+.svc{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.25rem;border-radius:1.1rem;background:var(--green);color:var(--on-green);text-decoration:none}
+.svc h3{font-size:1.7rem;margin-bottom:.2rem}
+.svc p{font-size:.95rem;opacity:.8}
+.svc svg{flex:none;width:1.6rem;height:1.6rem;color:var(--blush)}
+
+/* recensioni */
+.rating{display:flex;align-items:flex-end;gap:1rem;flex-wrap:wrap}
+.big{font-family:var(--serif);font-size:5.5rem;line-height:.85;font-weight:500}
+.stars{display:flex;gap:.2rem;color:var(--blush);margin-bottom:.35rem}
+.stars svg{width:1.3rem;height:1.3rem}
+.rating small{display:block;color:var(--ink-soft);font-size:.95rem}
+.btn{display:inline-flex;align-items:center;gap:.6rem;margin-top:1.6rem;padding:.95rem 1.4rem;border-radius:99px;background:var(--red);color:#fff;font-weight:500;text-decoration:none;min-height:3rem}
+.btn.ghost{background:none;border:1.5px solid var(--ink);color:var(--ink)}
+.btn svg{width:1.2rem;height:1.2rem}
+
+/* negozio */
+.shop{background:var(--green);color:var(--on-green)}
+.shop img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:50% 45%;border-radius:1rem;margin-bottom:1.6rem}
+.shop .lead{color:color-mix(in srgb,var(--on-green) 78%,transparent)}
+.shop .eyebrow{color:var(--blush)}
+.link{display:inline-flex;align-items:center;min-height:2.75rem;margin-top:.8rem;color:var(--blush);font-weight:500;text-underline-offset:.3em}
+
+/* galleria */
+.grid{display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:9.5rem;gap:.5rem;margin-top:1.5rem}
+.grid img{width:100%;height:100%;object-fit:cover;border-radius:.8rem}
+.grid .w{grid-column:span 2;grid-row:span 2}
+.grid .t{grid-row:span 2}
+
+/* orari + dove */
+.hours{list-style:none;padding:0;margin:1.5rem 0 0;font-variant-numeric:tabular-nums}
+.hours li{display:flex;justify-content:space-between;padding:.8rem 0;border-bottom:1px dotted var(--line)}
+.hours li.today{color:var(--red-ink);font-weight:500}
+.hours li.today span:first-child::after{content:" · oggi";font-weight:400;font-size:.85rem}
+html[lang="en"] .hours li.today span:first-child::after{content:" · today"}
+.sign{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:1rem;margin-bottom:1.5rem;object-position:50% 28%}
+.addr{font-family:var(--serif);font-size:2rem;line-height:1.1;margin:1.5rem 0 .3rem}
+.contacts{display:grid;gap:.4rem;margin-top:1.5rem}
+.contacts a{display:flex;align-items:center;gap:.8rem;padding:.55rem 0;text-decoration:none;min-height:2.75rem}
+.contacts svg{width:1.3rem;height:1.3rem;color:var(--red-ink);flex:none}
+
+footer{background:var(--green);color:var(--on-green);padding-block:2.5rem 2rem;text-align:center;font-size:.95rem}
+footer .brand{justify-content:center;font-size:1.7rem;margin-bottom:.8rem}
+footer .brand svg{color:var(--blush)}
+footer nav{display:flex;justify-content:center;gap:1.4rem;flex-wrap:wrap;margin-top:1rem}
+footer nav a{display:inline-flex;align-items:center;min-height:2.75rem}
+footer small{display:block;margin-top:1.6rem;opacity:.7;font-size:.875rem;letter-spacing:.06em}
+/* barra fissa in basso */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:30;padding:.6rem 1rem calc(.6rem + env(safe-area-inset-bottom,0px));pointer-events:none}
+.bar div{pointer-events:auto;max-width:28rem;margin-inline:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:.4rem;background:var(--green);border-radius:99px;padding:.35rem;box-shadow:0 .5rem 1.5rem rgb(0 0 0/.25)}
+.bar a{display:flex;align-items:center;justify-content:center;gap:.45rem;color:var(--on-green);text-decoration:none;font-weight:500;font-size:.9rem;min-height:2.9rem;border-radius:99px}
+.bar a.main{background:var(--red);color:#fff}
+.bar svg{width:1.15rem;height:1.15rem}
+@media (min-width:48rem){
+  .hero-photo{max-height:34rem}
+  .rail{margin-inline:0;padding-inline:0}
+  .grid{grid-auto-rows:12rem}
 }
-
-/* ---------- hero ---------- */
-.hero{position:relative;background:var(--verde);overflow:hidden;padding:0}
-.hero img{width:100%;height:clamp(520px,74vh,700px);object-fit:cover;object-position:center 42%}
-.hero .vel{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,32,28,.45) 0%,rgba(20,32,28,.32) 40%,rgba(20,32,28,.92) 100%)}
-.hero .txt{position:absolute;left:0;right:0;bottom:0;padding:0 24px 32px;color:var(--carta);text-align:center}
-.hero h1{font-family:var(--display);font-weight:500;font-size:clamp(46px,13vw,76px);line-height:.95;margin:0;text-shadow:0 2px 20px rgba(0,0,0,.5)}
-.hero .sub{font-size:14.5px;letter-spacing:.34em;text-transform:lowercase;opacity:.92;margin-top:12px;text-shadow:0 1px 10px rgba(0,0,0,.55)}
-.hero .claim{font-family:var(--display);font-size:clamp(22px,5.8vw,32px);font-style:italic;margin-top:16px;opacity:.97;text-shadow:0 1px 14px rgba(0,0,0,.55)}
-.cl{display:block}
-.hero .dove{display:inline-flex;align-items:center;gap:8px;font-size:16px;color:var(--crema);opacity:.9;margin-top:12px}
-.hero .dove{align-items:flex-start;text-align:left;max-width:30ch}
-.hero .dove span{text-wrap:balance}
-@media (min-width:760px){.hero .dove{max-width:none;align-items:center}.hero .dove svg{margin-top:0}}
-.hero .dove svg{width:16px;height:16px;flex:none;margin-top:5px}
-.stato{display:inline-flex;align-items:center;gap:8px;margin-top:20px;padding:8px 16px;border-radius:999px;background:rgba(253,250,242,.16);border:1px solid rgba(253,250,242,.3);font-size:16px}
-.pallino{width:7px;height:7px;border-radius:50%;background:#8FD18A}
-
-/* ---------- movimento (hero, un solo momento orchestrato) ---------- */
-@keyframes sali{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
-@keyframes apri{from{opacity:0;letter-spacing:.62em}to{opacity:.88;letter-spacing:.34em}}
-@keyframes respiro{from{transform:scale(1.07)}to{transform:scale(1)}}
-@keyframes battito{0%{box-shadow:0 0 0 0 rgba(143,209,138,.45)}70%{box-shadow:0 0 0 9px rgba(143,209,138,0)}100%{box-shadow:0 0 0 0 rgba(143,209,138,0)}}
-.hero img{animation:respiro 16s cubic-bezier(.2,.6,.2,1) forwards}
-.hero h1{animation:sali .9s cubic-bezier(.2,.7,.3,1) .1s both}
-.hero .sub{animation:apri 1.2s cubic-bezier(.2,.7,.3,1) .45s both}
-.hero .claim{animation:sali .8s cubic-bezier(.2,.7,.3,1) .7s both}
-.hero .dove{animation:sali .8s cubic-bezier(.2,.7,.3,1) .85s both}
-.stato{animation:sali .8s cubic-bezier(.2,.7,.3,1) 1s both}
-.pallino.vivo{animation:battito 2.6s ease-out 2s infinite}
-a,button{transition:background-color .2s ease,color .2s ease,opacity .2s ease,border-color .2s ease,transform .12s ease}
-.btn:active,.azioni a:active,header nav a:active{transform:scale(.975)}
-.btn:hover{background:var(--carminio-sc)}
-.btn.chiaro:hover{background:#fff}
-.btn.vuoto:hover{background:rgba(253,250,242,.12)}
-.azioni a:hover{background:var(--carta)}
-.vedi-tutte:hover{opacity:1}
-@media (prefers-reduced-motion:reduce){
-  .hero img,.hero h1,.hero .sub,.hero .claim,.hero .dove,.stato,.pallino.vivo{animation:none}
-  .hero .sub{opacity:.88;letter-spacing:.34em}
-}
-
-/* ---------- rivelo il contenuto mentre si scorre ---------- */
-.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1)}
-.reveal.mostra{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){
-  .reveal{opacity:1;transform:none;transition:none}
-}
-
-/* ---------- azioni rapide ---------- */
-.azioni{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--linea);border-bottom:1px solid var(--linea);border-left:1px solid var(--linea);border-right:1px solid var(--linea);max-width:660px;margin:0 auto}
-.azioni a{background:var(--crema);padding:16px 8px;text-align:center;text-decoration:none;font-size:15.5px;color:var(--verde);display:flex;flex-direction:column;align-items:center;gap:8px}
-.azioni svg{width:19px;height:19px;stroke:var(--carminio);fill:none;stroke-width:1.5}
-.azioni svg.ico-whatsapp,.contatti svg.ico-whatsapp{fill:#25D366;stroke:none}
-
-/* ---------- sezioni ---------- */
-section{padding:56px 0;scroll-margin-top:110px}
-.occhiello{font-family:var(--display);font-style:italic;font-size:21px;color:var(--carminio);margin:0 0 8px}
-h2{font-family:var(--display);font-weight:500;font-size:clamp(34px,8.6vw,50px);line-height:1.1;margin:0 0 18px;color:var(--verde)}
-h3{font-family:var(--display);font-weight:600;font-size:28px;margin:0 0 8px;color:var(--verde)}
-p{margin:0 0 15px;max-width:62ch}
-.smorz{color:var(--sabbia);font-size:17px}
-
-/* ---------- chi siamo ---------- */
-.chi-siamo{background:var(--carta);border-top:1px solid var(--linea);border-bottom:1px solid var(--linea)}
-.chi-titolo-sopra{margin-bottom:16px}
-.chi-foto{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:3px;margin-bottom:32px}
-.fatti{list-style:none;margin:0 0 20px;padding:0;display:grid;gap:8px}
-.fatti li{display:flex;gap:10px;align-items:baseline;font-size:17px;color:var(--sabbia)}
-.fatti svg{width:16px;height:16px;flex:none;stroke:var(--carminio);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;position:relative;top:3px}
-.chi-testo{max-width:640px;margin:0 auto}
-.chi-testo p{font-size:19px;line-height:1.65;color:var(--inchiostro)}
-.chi-enfasi{font-style:italic;color:var(--carminio-sc)}
-
-/* ---------- la giornata ---------- */
-.giornata{background:var(--crema)}
-.giorno-grid{display:grid;grid-template-columns:1fr;gap:28px;margin-top:32px}
-.momento{display:flex;flex-direction:column}
-.momento img{width:100%;aspect-ratio:4/5;object-fit:cover;margin:0 0 18px;border-radius:3px}
-.momento-testo h3{font-size:30px;margin-bottom:6px}
-.momento-testo p{font-size:18px;line-height:1.5;color:var(--inchiostro);margin:0}
-.giornata-intro{font-size:19px;line-height:1.55;color:var(--sabbia);max-width:46ch;margin:0}
-@media (min-width:760px){.giorno-grid{grid-template-columns:repeat(2,1fr);gap:36px 28px}}
-@media (min-width:1000px){.giorno-grid{grid-template-columns:repeat(4,1fr);gap:28px 24px}}
-
-/* ---------- recensioni ---------- */
-.recensioni{background:var(--verde);color:var(--carta);padding:48px 0}
-.recensioni h2,.recensioni .occhiello{color:var(--carta)}
-.recensioni .occhiello{color:#E9B9A0}
-.voto{display:flex;align-items:baseline;gap:10px;margin-bottom:16px}
-.voto b{font-family:var(--display);font-size:42px;color:var(--carta)}
-.voto span{color:rgba(253,250,242,.75);font-size:16px}
-.rec-riga{overflow-x:auto;padding-bottom:8px;-webkit-overflow-scrolling:touch;scrollbar-width:none;margin:0 -24px;padding-left:24px;padding-right:24px}
-.rec-riga::-webkit-scrollbar{display:none}
-.rec-track{display:flex;gap:16px;width:max-content}
-.rec{flex:0 0 290px;background:rgba(253,250,242,.06);border:1px solid rgba(253,250,242,.16);border-radius:3px;padding:20px}
-.rec-stelle{color:#E9B9A0;letter-spacing:.1em;font-size:16px;margin-bottom:10px}
-.rec p{font-family:var(--display);font-style:italic;font-size:19px;line-height:1.4;color:var(--carta);margin:0 0 12px;max-width:none}
-.rec-nome{font-size:15px;color:rgba(253,250,242,.75)}
-@media (min-width:760px){.rec{flex:0 0 330px}}
-.vedi-tutte{display:inline-flex;align-items:center;gap:6px;margin-top:6px;font-size:16px;color:var(--carta);opacity:.9;text-decoration:underline;text-underline-offset:3px;min-height:44px}
-.rec-nota{margin:16px 0 0;font-size:14px;color:rgba(253,250,242,.7)}
-
-/* nastro: si attiva solo via JS (niente motion di serie senza conferma del browser) */
-.rec-riga.scorre{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 28px,#000 calc(100% - 28px),transparent);mask-image:linear-gradient(90deg,transparent,#000 28px,#000 calc(100% - 28px),transparent)}
-.rec-riga.scorre .rec-track{animation:scorri-rec 70s linear infinite}
-.rec-riga.scorre:hover .rec-track,.rec-riga.scorre:focus-within .rec-track,.rec-riga.scorre.in-pausa .rec-track,.rec-riga.scorre.fuori-vista .rec-track{animation-play-state:paused}
-@keyframes scorri-rec{to{transform:translateX(-50%)}}
-@media (prefers-reduced-motion:reduce){.rec-riga.scorre .rec-track{animation:none}}
-
-/* ---------- dove siamo / pratiche ---------- */
-.pratiche{background:var(--carta);border-top:1px solid var(--linea)}
-.dove-foto{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:3px;margin:16px 0 32px}
-@media (min-width:760px){
-  .chi-top{display:flex;gap:40px;align-items:flex-start}
-  .chi-top .chi-foto{flex:0 0 460px;max-width:460px;margin-bottom:0}
-  .chi-top .chi-testo{flex:1;min-width:0;margin:0}
-  .dove-top{display:flex;gap:40px;align-items:flex-start}
-  .dove-top .dove-foto{flex:0 0 400px;max-width:400px;margin:0}
-  .dove-top .dove-riga{flex:1;min-width:0;display:block}
-  .dove-top .dove-riga .orari{flex:none;max-width:none}
-  .dove-top .dove-contatti{padding-top:0;margin-top:24px}
-  .dove-top .dove-contatti .contatti{margin-top:0}
-
-
-}
-.orari{margin:18px 0 0;padding:0;list-style:none;max-width:420px}
-.orari li{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px dotted var(--linea);font-size:17px}
-.orari li.oggi-riga{color:var(--carminio)}
-.orari li span:last-child{font-variant-numeric:tabular-nums}
-.contatti{margin-top:26px;display:grid;gap:10px}
-.contatti a{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:var(--verde);font-size:17px;padding:8px 0;min-height:44px}
-.contatti svg{width:17px;height:17px;stroke:var(--carminio);fill:none;stroke-width:1.6;flex:none}
-.social{margin-top:24px;display:flex;gap:14px}
-.social a{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border:1px solid var(--linea);border-radius:999px;text-decoration:none}
-.social svg{width:17px;height:17px;stroke:var(--verde);fill:none;stroke-width:1.6}
-
-
-
-.ig-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;border-radius:3px;overflow:hidden;margin-top:28px}
-.ig-grid img{width:100%;aspect-ratio:4/5;object-fit:cover;margin:0;transition:opacity .2s ease}
-@media (hover:hover){.ig-grid:hover img{opacity:.85}}
-@media (min-width:760px){
-  .dove-riga{display:flex;gap:64px;align-items:flex-start}
-  .dove-riga .orari{flex:0 0 380px}
-  .dove-contatti{flex:1;padding-top:18px}
-  .dove-contatti .contatti{margin-top:0}
-}
-
-/* ---------- galleria ---------- */
-.galleria-sez{background:var(--crema);border-top:1px solid var(--linea)}
-.gal-grid{display:grid;grid-template-columns:repeat(2,1fr);grid-auto-rows:clamp(150px,44vw,230px);grid-auto-flow:row dense;gap:10px;margin-top:28px}
-.gal-grid button{padding:0;border-radius:3px;overflow:hidden;display:block}
-.gal-grid img{width:100%;height:100%;object-fit:cover;margin:0;transition:transform .6s cubic-bezier(.2,.7,.3,1)}
-@media (hover:hover){.gal-grid button:hover img{transform:scale(1.04)}}
-.gal-grid .g-big{grid-column:span 2;grid-row:span 2}
-.gal-grid .g-wide{grid-column:span 2}
-.gal-grid .g-tall{grid-row:span 2}
-@media (min-width:760px){.gal-grid{grid-template-columns:repeat(4,1fr);grid-auto-rows:clamp(190px,19vw,250px);gap:12px}.gal-grid button:nth-child(1){grid-area:1/1/3/3}.gal-grid button:nth-child(2){grid-area:1/3/2/4}.gal-grid button:nth-child(3){grid-area:1/4/2/5}.gal-grid button:nth-child(4){grid-area:2/3/3/5}.gal-grid button:nth-child(5){grid-area:3/1/5/2}.gal-grid button:nth-child(6){grid-area:3/2/4/3}.gal-grid button:nth-child(7){grid-area:4/2/5/3}.gal-grid button:nth-child(8){grid-area:3/3/5/5}.gal-grid button:nth-child(9){grid-area:5/1/6/3}.gal-grid button:nth-child(10){grid-area:5/3/6/5}}
-.lightbox{position:fixed;inset:0;background:rgba(20,32,28,.94);z-index:100;display:none;align-items:center;justify-content:center;padding:30px}
-.lightbox.on{display:flex}
-.lightbox img{max-width:100%;max-height:100%;border-radius:2px}
-.lightbox button{position:absolute;top:14px;right:14px;width:44px;height:44px;display:flex;align-items:center;justify-content:center;color:var(--carta);font-size:28px;line-height:1}
-
-/* ---------- banner riga ---------- */
-.banner-riga{display:grid;gap:14px;margin-top:0;padding-top:40px;border-top:1px solid var(--linea)}
-.banner{position:relative;border-radius:3px;overflow:hidden;min-height:180px;display:flex;align-items:flex-end;padding:20px;color:var(--carta);text-decoration:none}
-.banner img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;margin:0;z-index:0}
-.banner .vel{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,32,28,.1) 0%,rgba(20,32,28,.75) 100%);z-index:1}
-.marchio-badge{position:absolute;top:14px;left:14px;z-index:2;width:34px;height:34px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 4px rgba(20,32,28,.25)}
-.marchio-badge svg{width:18px;height:18px;fill:#FFC244}
-.marchio-badge-wa svg{fill:#25D366}
-.banner .txt{position:relative;z-index:2}
-.banner .txt b{display:block;font-family:var(--display);font-size:24px;margin-bottom:4px}
-.banner .txt span{font-size:15.5px;opacity:.92}
-@media (min-width:760px){.banner-riga{grid-template-columns:1fr 1fr}}
-
-/* ---------- prodotti partner (fascia compatta) ---------- */
-.partner{background:var(--crema);border-top:1px solid var(--linea);padding:48px 0}
-.partner-in{display:flex;flex-direction:column;gap:18px;align-items:flex-start;background:var(--carta);border:1px solid var(--linea);border-radius:4px;padding:24px;box-shadow:0 8px 24px rgba(35,71,63,.08)}
-.partner img{width:100%;max-width:260px;aspect-ratio:4/3;object-fit:cover;object-position:center 82%;border-radius:3px;box-shadow:0 4px 14px rgba(35,71,63,.18)}
-.partner h2{font-size:25px;font-weight:600;margin-bottom:8px}
-.partner p{font-size:17px;color:var(--sabbia);margin:0}
-.visita-negozio{display:inline-flex;align-items:center;margin-top:12px;font-size:16px;color:var(--carminio-sc);text-decoration:underline;text-underline-offset:3px;min-height:44px}
-@media (min-width:760px){.partner-in{flex-direction:row;align-items:center;gap:30px;padding:32px}.partner img{max-width:200px}}
-
-
-/* ---------- call to action pieni ---------- */
-.cta-pieno{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:14px 28px;border-radius:999px;background:var(--carminio);color:var(--carta);font-size:17px;font-weight:400;text-decoration:none;letter-spacing:.01em}
-.cta-pieno svg{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.cta-pieno:hover{background:var(--carminio-sc)}
-.cta-pieno.cta-chiara{background:var(--carta);color:var(--verde)}
-.cta-pieno.cta-chiara svg{fill:#E9B9A0;stroke:#E9B9A0}
-.cta-pieno.cta-chiara:hover{background:#fff}
-.rec-cta{margin-top:36px;padding:28px 24px;border:1px solid rgba(253,250,242,.22);border-radius:4px;display:flex;flex-direction:column;gap:18px;align-items:flex-start}
-.rec-cta p{font-family:var(--display);font-style:italic;font-size:clamp(24px,6.4vw,32px);line-height:1.2;color:var(--carta);margin:0;max-width:28ch}
-@media (min-width:760px){.rec-cta{flex-direction:row;align-items:center;justify-content:space-between;padding:32px 40px}}
-
-/* ---------- social ---------- */
-.social-sez{background:var(--carta);border-top:1px solid var(--linea)}
-.social-sotto{font-size:19px;color:var(--sabbia);margin:0;max-width:40ch}
-.social-cta{display:grid;gap:14px;margin-top:28px}
-.btn-social{display:flex;align-items:center;gap:18px;padding:18px 22px;min-height:76px;background:var(--crema);border:1px solid var(--linea);border-radius:4px;text-decoration:none;color:var(--verde)}
-.btn-social svg{width:30px;height:30px;flex:none;fill:var(--verde)}
-.btn-social span{display:flex;flex-direction:column;line-height:1.25}
-.btn-social b{font-family:var(--display);font-weight:600;font-size:26px}
-.btn-social small{font-size:16px;color:var(--sabbia)}
-.btn-social:hover{background:#fff;border-color:var(--carminio)}
-@media (min-width:760px){.social-cta{grid-template-columns:1fr 1fr}}
-
-/* ---------- dove siamo (mappa disegnata) ---------- */
-.location{background:var(--crema);border-top:1px solid var(--linea)}
-.location-in{display:flex;flex-direction:column;gap:28px;margin-top:28px}
-.location-ind{font-size:20px;line-height:1.45;margin:0 0 18px}
-.location-ind b{font-family:var(--display);font-weight:600;font-size:28px;color:var(--verde)}
-.location .fatti{margin:0 0 26px}
-.mappa{display:block;border-radius:4px;overflow:hidden;border:1px solid var(--linea);aspect-ratio:4/3;box-shadow:0 8px 24px rgba(35,71,63,.08)}
-.mappa svg{width:100%;height:100%;display:block}
-.mappa{position:relative}.mappa-carica{position:absolute;left:50%;bottom:44px;transform:translateX(-50%);background:var(--carminio,#A8383C);color:#FDFAF2;border:0;border-radius:999px;padding:14px 24px;min-height:44px;font:600 16px/1 inherit;cursor:pointer;white-space:nowrap}
-.mappa-nota{position:absolute;left:12px;right:12px;bottom:10px;margin:0;font-size:13px;line-height:1.3;text-align:center;color:#23473F}
-.mappa iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-@media (hover:hover){.mappa:hover{box-shadow:0 12px 30px rgba(35,71,63,.16)}}
-@media (min-width:760px){.location-in{flex-direction:row;align-items:stretch;gap:48px}.location-testo{flex:0 0 42%}.mappa{flex:1;aspect-ratio:auto;min-height:340px}}
-
-/* ---------- footer ---------- */
-footer{background:var(--verde);color:rgba(253,250,242,.82);padding:48px 0 32px;font-size:16px}
-footer .marchio b{color:var(--carta)}
-footer .marchio svg rect,footer .marchio svg path{stroke:#D98A8D}
-footer .marchio svg path:nth-child(3),footer .marchio svg path:nth-child(4){fill:#D98A8D;stroke:none}
-footer p{margin:0 auto 8px;font-size:16px;color:rgba(253,250,242,.7)}
-footer p a{display:inline-block;padding:15px 8px}
-footer .firma{margin-top:24px;padding-top:16px;border-top:1px solid rgba(253,250,242,.16);font-size:13.5px;color:rgba(253,250,242,.65);letter-spacing:.04em}
-.wrap.center{text-align:center}
-
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
-
-/* ================= polish finale: ritmo, composizione ================= */
-/* scala: 8 12 16 24 32 48 64 96 128 */
-section{padding:64px 0}
-.recensioni,.partner{padding:64px 0}
-h2{margin-bottom:24px}
-@media (min-width:900px){
-  section{padding:96px 0}.recensioni,.partner{padding:88px 0}
-  h2{font-size:clamp(46px,4.2vw,58px);margin-bottom:32px}
-}
-@media (min-width:1280px){section{padding:112px 0}.recensioni,.partner{padding:96px 0}}
-/* hero: pila centrata, riga di posizione e stato su due righe */
-.hero .txt{display:flex;flex-direction:column;align-items:center}
-.hero .sub{font-size:clamp(14.5px,1.3vw,17px);letter-spacing:.3em}
-.hero .dove{margin-top:16px}
-.hero .txt .stato,.hero .txt .aperto{margin-top:16px}
-@media (min-width:900px){.hero h1{font-size:clamp(76px,6.4vw,96px)}.hero .txt{padding-bottom:48px}.hero .claim{font-size:clamp(32px,2.6vw,40px)}}
-/* chi siamo: titolo e fatti a sinistra, testo a destra */
-.chi-testo p{max-width:60ch}
-@media (min-width:900px){
-  .chi-siamo .wrap{display:grid;grid-template-columns:5fr 7fr;column-gap:80px;align-items:start}
-  .chi-siamo h2{grid-column:1;grid-row:1;margin:0 0 32px}
-  .chi-top,.chi-testo{display:contents}
-  .chi-testo .fatti{grid-column:1;grid-row:2;margin:0}
-  .chi-testo p:not(.chi-enfasi){grid-column:2;grid-row:1/3;margin:0;font-size:21px;line-height:1.7}
-  .chi-testo .chi-enfasi{grid-column:2;grid-row:3;margin:24px 0 0;font-size:24px;font-family:var(--display)}
-}
-/* la giornata: composizione asimmetrica 7/5 */
-.giornata-intro{margin-bottom:8px}
-@media (min-width:1000px){
-  .giorno-grid{grid-template-columns:repeat(12,1fr);gap:64px 32px;margin-top:48px}
-  .momento:nth-child(1){grid-column:1/8}.momento:nth-child(2){grid-column:8/13}
-  .momento:nth-child(3){grid-column:1/6}.momento:nth-child(4){grid-column:6/13}
-  .momento img{aspect-ratio:auto;height:clamp(400px,34vw,500px)}
-  .momento-testo h3{font-size:34px}.momento-testo p{font-size:19px;max-width:34ch}
-}
-/* recensioni: voto protagonista */
-.recensioni h2{margin-bottom:16px}.voto{margin-bottom:40px}.voto b{font-size:clamp(56px,9vw,84px);line-height:1}
-.voto span{font-size:17px}
-.rec{display:flex;flex-direction:column}.rec p{flex:1}
-.rec-cta{margin-top:48px}
-/* dove siamo: l'etichetta disegnata non copre il pulsante */
-.mappa svg text{display:none}
-@media (min-width:760px){.location-testo{align-self:center}}
-/* banner: testo sempre leggibile sulla foto */
-.banner .vel{background:linear-gradient(180deg,rgba(20,32,28,.18) 0%,rgba(20,32,28,.86) 100%)}
-.banner .txt b{text-shadow:0 1px 12px rgba(0,0,0,.45)}
-.banner{min-height:220px}
-@media (min-width:760px){.banner{min-height:260px;padding:28px}.banner .txt b{font-size:30px}.banner .txt span{font-size:17px}}
-.banner-riga{padding-top:48px}
-/* da noi a casa tua: dentro la griglia, senza scheda */
-.partner-in{background:none;border:0;box-shadow:none;border-radius:0;padding:0 28px;gap:24px}
-@media (min-width:900px){.partner-in{padding:0 40px!important}}
-.partner img{max-width:100%;aspect-ratio:4/3;box-shadow:none;border-radius:3px}
-.partner h2{font-size:clamp(34px,8.6vw,46px);font-weight:500}
-.partner p{font-size:19px;max-width:44ch}
-.partner .visita-negozio{display:inline-block;margin-top:16px;font-size:18px;padding:12px 0}
-@media (min-width:760px){.partner-in{flex-direction:row;gap:64px}.partner img{flex:0 0 46%;max-width:46%}}
-/* gallery e footer: più aria */
-@media (min-width:760px){.gal-grid{margin-top:40px}}
-footer{padding:64px 0 40px}
-@media (min-width:900px){footer{padding:80px 0 48px}}
-/* micro-polish QA: inquadratura hero, nav a 44px, 320px */
-header nav a{min-height:44px;display:flex;align-items:center;justify-content:center}
-@media (min-width:900px){.hero img{height:clamp(620px,84vh,820px)}}
-@media (max-width:359px){
-  .hero img{object-position:center 30%;height:600px}
-  .hero .sub{letter-spacing:.2em;font-size:13.5px;white-space:nowrap}
-  header nav a{font-size:13.5px;padding:12px 2px;white-space:nowrap}
-}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
 
-<header>
-  <div class="wrap bar">
-    <a class="marchio" href="#top">
-      <svg viewBox="0 0 40 40" aria-hidden="true"><rect x="2" y="2" width="36" height="36" fill="none" stroke="#A8383C" stroke-width="3"/><path d="M20 2v36M2 20h36" stroke="#A8383C" stroke-width="3"/><path d="M20 4h16v10z" fill="#A8383C"/><path d="M6 36v-8a6 6 0 0 1 12 0v8z" fill="#A8383C"/></svg>
-      <b>A casa mia</b>
-    </a>
-    <div class="lang">
-      <a id="l-it" class="on" href="/" hreflang="it" lang="it" aria-current="page">IT</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l1.6-4.7A9 9 0 1 1 8 19.6L3 21z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.6-2-1-1 .8a4 4 0 0 1-2-2l.8-1-1-2L9 8.5z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.2 7-11.5a7 7 0 0 0-14 0C5 14.800 12 21 12 21z"/><circle cx="12" cy="9.500" r="2.500"/></symbol>
+  <symbol id="i-anchor" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><path d="M12 7v14M7 11h10M4 14a8 8 0 0 0 16 0"/></symbol>
+  <symbol id="i-train" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="14" rx="3"/><path d="M5 11h14M8 21l2-4M16 21l-2-4"/><circle cx="9" cy="14" r=".6"/><circle cx="15" cy="14" r=".6"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.500 1.500M17.500 17.500L19 19M5 19l1.500-1.500M17.500 6.500L19 5"/></symbol>
+  <symbol id="i-wifi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9a15 15 0 0 1 20 0M5 12.500a10 10 0 0 1 14 0M8.500 16a5 5 0 0 1 7 0"/><circle cx="12" cy="19" r=".8"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.500l2.900 6 6.600.9-4.800 4.600 1.200 6.500L12 17.300 6.100 20.500l1.200-6.500L2.500 9.400l6.600-.9z"/></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.200" cy="6.800" r=".8" fill="currentColor"/></symbol>
+  <symbol id="i-logo" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.200"><rect x="3" y="3" width="26" height="26"/><path d="M16 3v26M3 16h26"/><path d="M7 29v-7a4 4 0 0 1 8 0v7" fill="currentColor"/><path d="M16 3l9 6.500H16" fill="currentColor"/></symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="A casa mia"><svg aria-hidden="true"><use href="#i-logo"/></svg>A casa mia</a>
+    <div class="lang" role="group" aria-label="Lingua / Language">
+      <a id="l-it" href="/" hreflang="it" lang="it" aria-current="page">IT</a>
       <a id="l-en" href="/en/" hreflang="en" lang="en">EN</a>
     </div>
-    <nav>
-      <a href="#chi-siamo">Chi siamo</a>
-      <a href="#giornata">La giornata</a>
-      <a href="#recensioni">Recensioni</a>
-      <a href="#dove-siamo">Dove siamo</a>
-    </nav>
   </div>
 </header>
 
-<main>
-
-<section class="hero" id="top">
-  <img src="public/img/hero.webp" srcset="public/img/hero-640.webp 640w, public/img/hero.webp 1280w" sizes="100vw" width="1280" height="1600" alt="Cappuccino e cornetto sulla tovaglietta di A casa mia" loading="eager" fetchpriority="high">
-  <div class="vel"></div>
-  <div class="txt">
-    <h1>A casa mia</h1>
-    <div class="sub">caffè · brunch · aperitivo</div>
-    <div class="claim"><span class="cl">Il punto di riferimento</span><span class="cl">per una pausa di gusto</span></div>
-    <div class="dove">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-7.58 7-13A7 7 0 1 0 5 9c0 5.42 7 13 7 13z" stroke="currentColor" stroke-width="1.6" fill="none"/><circle cx="12" cy="9" r="2.4" stroke="currentColor" stroke-width="1.6" fill="none"/></svg>
-      <span>Nel cuore di Civitavecchia, a pochi passi dal porto</span>
+<main id="top">
+  <img class="hero-photo" src="public/img/hero.webp" srcset="public/img/hero-640.webp 640w, public/img/hero-960.webp 960w, public/img/hero.webp 1280w" sizes="100vw" width="1280" height="1600" alt="Cappuccino e cornetto sul tovagliolo con il logo di A casa mia" fetchpriority="high">
+  <div class="hero-panel">
+    <div class="wrap">
+      <h1>A casa mia</h1>
+      <p class="sub">caffè · brunch · aperitivo</p>
+      <div class="status" id="status" data-open="true" role="status"><span class="dot"></span><span id="status-text"></span></div>
+      <p class="tag">Il punto di riferimento&nbsp;per una pausa di&nbsp;gusto.</p>
+      <p class="where">Nel cuore di Civitavecchia, a pochi passi dal&nbsp;porto.</p>
     </div>
-    <div class="stato" id="stato"><span class="pallino" id="pallino"></span><span id="stato-txt"></span></div>
   </div>
-</section>
 
-<div class="azioni">
-  <a href="tel:+390766526232" data-evento="telefono">
-    <svg viewBox="0 0 24 24"><path d="M6 3h4l2 6-3 2c1 3 3 5 6 6l2-3 6 2v4c0 1-1 2-2 2C10 22 2 14 2 5c0-1 1-2 2-2z"/></svg>
-    <span>Chiama</span>
-  </a>
-  <a href="https://wa.me/393481897496" target="_blank" rel="noopener" data-evento="whatsapp">
-    <svg class="ico-whatsapp" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-    <span>WhatsApp</span>
-  </a>
-  <a href="https://maps.google.com/?q=Via+XVI+Settembre+4+Civitavecchia" target="_blank" rel="noopener" data-evento="indicazioni">
-    <svg viewBox="0 0 24 24"><path d="M12 22s7-8 7-14a7 7 0 1 0-14 0c0 6 7 14 7 14z"/><circle cx="12" cy="8" r="2.6"/></svg>
-    <span>Indicazioni</span>
-  </a>
-</div>
+  <section class="day" id="giornata">
+    <div class="wrap">
+      <p class="eyebrow">Una giornata a casa mia</p>
+      <h2>Dal primo cappuccino al brindisi della&nbsp;sera.</h2>
+      <p class="lead">Ricette fatte a&nbsp;mano, ingredienti di&nbsp;stagione e il lavoro di piccoli produttori.</p>
+      <div class="rail" tabindex="0" role="group" aria-label="Colazioni dolci, brunch, pranzo, aperitivo">
+        <article class="card"><img src="public/img/colazione.webp" srcset="public/img/colazione-640.webp 640w, public/img/colazione-960.webp 960w, public/img/colazione.webp 1280w" sizes="(min-width:48rem) 320px, 78vw" width="1280" height="1600" alt="Cornetto con crema al pistacchio" loading="lazy"><h3>Colazioni dolci</h3><p>Cornetti e cappuccino per cominciare la giornata con&nbsp;calma.</p></article>
+        <article class="card"><img src="public/img/brunch.webp" srcset="public/img/brunch-640.webp 640w, public/img/brunch-960.webp 960w, public/img/brunch.webp 1280w" sizes="(min-width:48rem) 320px, 78vw" width="1280" height="1600" alt="Tramezzino e succo d'arancia" loading="lazy"><h3>Brunch</h3><p>Un tavolo, un tramezzino, un succo d'arancia: il brunch a ritmo&nbsp;lento.</p></article>
+        <article class="card"><img src="public/img/pranzo.webp" srcset="public/img/pranzo-640.webp 640w, public/img/pranzo-960.webp 960w, public/img/pranzo.webp 1280w" sizes="(min-width:48rem) 320px, 78vw" width="1280" height="1600" alt="Pasta servita sul tovagliolo a righe" loading="lazy"><h3>Pranzo</h3><p>Il menu del giorno, con ricette fatte a&nbsp;mano e ingredienti di&nbsp;stagione.</p></article>
+        <article class="card"><img src="public/img/aperitivo.webp" srcset="public/img/aperitivo-640.webp 640w, public/img/aperitivo-960.webp 960w, public/img/aperitivo.webp 1280w" sizes="(min-width:48rem) 320px, 78vw" width="1280" height="1600" alt="Brindisi con due calici di vino e tagliere di salumi e formaggi" loading="lazy"><h3>Aperitivo</h3><p>Calici, sapori del territorio e buona compagnia per chiudere la&nbsp;giornata.</p></article>
+      </div>
+      <p class="hint">Scorri per vedere tutto →</p>
+    </div>
+  </section>
 
-<!-- ================= CHI SIAMO ================= -->
-<section class="chi-siamo" id="chi-siamo">
-  <div class="wrap">
-    <h2 class="chi-titolo-sopra">Chi siamo</h2>
-    <div class="chi-top">
-    <div class="chi-testo">
-      <ul class="fatti">
-        <li><svg viewBox="0 0 24 24"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><span>Siamo nel cuore di Civitavecchia</span></li>
-        <li><svg viewBox="0 0 24 24"><path d="M12 6v16"/><path d="m19 13 2-1a9 9 0 0 1-18 0l2 1"/><path d="M9 11h6"/><circle cx="12" cy="4" r="2"/></svg><span>A pochi passi dal porto: meno di 300 m, circa 2 minuti a piedi</span></li>
-        <li><svg viewBox="0 0 24 24"><path d="M8 3.1V7a4 4 0 0 0 8 0V3.1"/><path d="m9 15-1-1"/><path d="m15 15 1-1"/><path d="M9 19c-2.8 0-5-2.2-5-5v-4a8 8 0 0 1 16 0v4c0 2.8-2.2 5-5 5Z"/><path d="m8 19-2 3"/><path d="m16 19 2 3"/></svg><span>A 10 minuti a piedi dalla stazione ferroviaria</span></li>
-        <li><svg viewBox="0 0 24 24"><path d="M12 20h.01"/><path d="M2 8.82a15 15 0 0 1 20 0"/><path d="M5 12.859a10 10 0 0 1 14 0"/><path d="M8.5 16.429a5 5 0 0 1 7 0"/></svg><span>Terrazza all'aperto e Wi‑Fi&nbsp;gratuito</span></li>
+  <section id="servizi">
+    <div class="wrap">
+      <p class="eyebrow">Anche fuori dal locale</p>
+      <h2>Ordina o festeggia con&nbsp;noi.</h2>
+      <div class="services">
+        <a class="svc" href="https://glovoapp.com/it/it/civitavecchia/stores/a-casa-mia-cvt" target="_blank" rel="noopener" data-evento="glovo"><div><h3>Ordina con Glovo</h3><p>Consegna a domicilio a Civitavecchia.</p></div><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="svc" href="https://wa.me/393481897496" data-evento="whatsapp"><div><h3>Festeggia con noi</h3><p>Il tuo evento speciale, con menù su&nbsp;misura.</p></div><svg aria-hidden="true"><use href="#i-wa"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="recensioni" style="background:var(--paper-2)">
+    <div class="wrap">
+      <p class="eyebrow">Recensioni</p>
+      <div class="rating">
+        <div class="big">4,7</div>
+        <div><div class="stars" aria-hidden="true"><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg></div><small>su Google · 42 recensioni</small></div>
+      </div>
+      <p class="lead" style="margin-top:1.2rem">Se sei stato da noi, raccontaci la tua&nbsp;esperienza.</p>
+      <a class="btn" href="https://www.google.com/maps/place/A+casa+mia/@42.0951638,11.7896898,17z/data=!4m6!3m5!1s0x1328a33fb90b8a7b:0xa3094ffb81d2520b!8m2!3d42.0951638!4d11.7896898!16s%2Fg%2F11yksnb6fd" target="_blank" rel="noopener" data-evento="recensione"><svg aria-hidden="true"><use href="#i-star"/></svg><span>Lascia una recensione</span></a>
+    </div>
+  </section>
+
+  <section class="shop" id="negozio">
+    <div class="wrap">
+      <img src="public/img/negozio.webp" srcset="public/img/negozio-640.webp 640w, public/img/negozio-960.webp 960w, public/img/negozio.webp 1280w" sizes="(min-width:48rem) 704px, 100vw" width="1280" height="1600" alt="Pasta artigianale Martelli sullo scaffale" loading="lazy">
+      <p class="eyebrow">Il piccolo negozio</p>
+      <h2>Da noi... a casa&nbsp;tua.</h2>
+      <p class="lead">Una selezione accurata di specialità dei nostri piccoli produttori, da acquistare e portare direttamente a casa&nbsp;tua.</p>
+      <a class="link" href="https://maps.google.com/?q=Via+XVI+Settembre+4+Civitavecchia" target="_blank" rel="noopener" data-evento="indicazioni">Vieni a vederli in&nbsp;negozio</a>
+    </div>
+  </section>
+
+  <section id="galleria">
+    <div class="wrap">
+      <p class="eyebrow">Galleria</p>
+      <h2>Uno sguardo&nbsp;dentro.</h2>
+      <div class="grid">
+        <img class="w" src="public/img/interno.webp" srcset="public/img/interno-640.webp 640w, public/img/interno-960.webp 960w, public/img/interno.webp 1280w" sizes="(min-width:48rem) 704px, 100vw" width="1280" height="1600" alt="Il bancone in travertino e i tavoli del locale" loading="lazy">
+        <img src="public/img/crostini.webp" srcset="public/img/crostini-640.webp 640w, public/img/crostini-960.webp 960w, public/img/crostini.webp 1280w" sizes="(min-width:48rem) 340px, 50vw" width="1280" height="1600" alt="Crostini con mozzarella e acciughe" loading="lazy">
+        <img src="public/img/martini.webp" srcset="public/img/martini-640.webp 640w, public/img/martini-960.webp 960w, public/img/martini.webp 1280w" sizes="(min-width:48rem) 340px, 50vw" width="1280" height="1600" alt="Espresso martini" loading="lazy">
+        <img class="t" src="public/img/romanesco.webp" srcset="public/img/romanesco-640.webp 640w, public/img/romanesco-960.webp 960w, public/img/romanesco.webp 1280w" sizes="(min-width:48rem) 340px, 50vw" width="1280" height="1600" alt="Un cavolo romanesco tenuto tra le mani" loading="lazy">
+        <img src="public/img/cinnamon.webp" srcset="public/img/cinnamon-640.webp 640w, public/img/cinnamon-960.webp 960w, public/img/cinnamon.webp 1280w" sizes="(min-width:48rem) 340px, 50vw" width="1280" height="1600" alt="Cinnamon roll con crema versata a cucchiaio" loading="lazy">
+        <img src="public/img/grembiule.webp" srcset="public/img/grembiule-640.webp 640w, public/img/grembiule-960.webp 960w, public/img/grembiule.webp 1280w" sizes="(min-width:48rem) 340px, 50vw" width="1280" height="1600" alt="Grembiule di A casa mia con un piatto di polpette" loading="lazy">
+      </div>
+      <a class="btn ghost" href="https://www.instagram.com/acasamiacivitavecchia" target="_blank" rel="noopener" data-evento="instagram"><svg aria-hidden="true"><use href="#i-ig"/></svg>@acasamiacivitavecchia</a>
+    </div>
+  </section>
+
+  <section id="dove" style="background:var(--paper-2)">
+    <div class="wrap">
+      <img class="sign" src="public/img/insegna.webp" srcset="public/img/insegna-640.webp 640w, public/img/insegna-960.webp 960w, public/img/insegna.webp 1280w" sizes="(min-width:48rem) 704px, 100vw" width="1280" height="1600" alt="La facciata di A casa mia con insegna e tenda" loading="lazy">
+      <p class="eyebrow">Orari e dove siamo</p>
+      <h2>Nel cuore di&nbsp;Civitavecchia.</h2>
+      <ul class="hours" id="hours"><li data-d="1"><span>Lunedì</span><span>7:00 – 17:00</span></li><li data-d="2"><span>Martedì</span><span>7:00 – 17:00</span></li><li data-d="3"><span>Mercoledì</span><span>7:00 – 17:00</span></li><li data-d="4"><span>Giovedì</span><span>7:00 – 17:00</span></li><li data-d="5"><span>Venerdì</span><span>7:00 – 17:00</span></li><li data-d="6"><span>Sabato</span><span>8:00 – 15:00</span></li><li data-d="0"><span>Domenica</span><span>8:00 – 15:00</span></li></ul>
+      <p class="addr">Via XVI Settembre, 4</p>
+      <p class="lead">00053 Civitavecchia (RM)</p>
+      <ul class="facts">
+        <li><svg aria-hidden="true"><use href="#i-anchor"/></svg><span><b>Meno di 300 m</b> dal porto, circa 2 minuti a&nbsp;piedi</span></li>
+        <li><svg aria-hidden="true"><use href="#i-train"/></svg><span><b>10 minuti</b> a piedi dalla stazione ferroviaria</span></li>
+        <li><svg aria-hidden="true"><use href="#i-sun"/></svg><span><b>Terrazza</b> all'aperto</span></li>
+        <li><svg aria-hidden="true"><use href="#i-wifi"/></svg><span><b>Wi&#8209;Fi</b> gratuito</span></li>
       </ul>
-      <p>A casa mia nasce da una scelta chiara: raccontare e valorizzare il patrimonio gastronomico del territorio attraverso ricette fatte a&nbsp;mano, ingredienti di&nbsp;stagione e il lavoro di piccoli produttori. Ogni piatto racconta una storia di autenticità: le stagioni guidano il menù, l'artigianalità definisce il metodo, il territorio è la nostra identità.</p>
-      <p class="chi-enfasi">Per sapori unici che uniscono semplicità e unicità.</p>
-    </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= LA GIORNATA ================= -->
-<section class="giornata" id="giornata">
-  <div class="wrap">
-    <h2>Una giornata a casa mia</h2>
-    <p class="giornata-intro">Dal primo cappuccino del mattino al brindisi della sera: ogni momento ha il suo posto qui.</p>
-    <div class="giorno-grid">
-      <article class="momento">
-        <img src="public/img/colazione.webp" srcset="public/img/colazione-640.webp 640w, public/img/colazione.webp 1280w" sizes="(min-width:1000px) 580px, (min-width:760px) 45vw, 92vw" width="1280" height="1600" alt="Cornetto e cappuccino da A casa mia" loading="lazy">
-        <div class="momento-testo">
-          <h3>Colazioni dolci</h3>
-          <p>Cornetti e cappuccino per cominciare la giornata con calma.</p>
-        </div>
-      </article>
-      <article class="momento">
-        <img src="public/img/brunch.webp" srcset="public/img/brunch-640.webp 640w, public/img/brunch.webp 1280w" sizes="(min-width:1000px) 580px, (min-width:760px) 45vw, 92vw" width="1280" height="1600" alt="Tramezzino e succo d'arancia da A casa mia" loading="lazy">
-        <div class="momento-testo">
-          <h3>Brunch</h3>
-          <p>Un tavolo, un tramezzino, un succo d'arancia: il brunch a ritmo lento.</p>
-        </div>
-      </article>
-      <article class="momento">
-        <img src="public/img/pranzo.webp" srcset="public/img/pranzo-640.webp 640w, public/img/pranzo.webp 1280w" sizes="(min-width:1000px) 580px, (min-width:760px) 45vw, 92vw" width="1280" height="1600" alt="Spaghetti del menu del giorno da A casa mia" loading="lazy">
-        <div class="momento-testo">
-          <h3>Pranzo</h3>
-          <p>Il menu del giorno, con ricette fatte a&nbsp;mano e ingredienti di&nbsp;stagione.</p>
-        </div>
-      </article>
-      <article class="momento">
-        <img src="public/img/aperitivo.webp" srcset="public/img/aperitivo-640.webp 640w, public/img/aperitivo.webp 1280w" sizes="(min-width:1000px) 580px, (min-width:760px) 45vw, 92vw" width="1280" height="1600" alt="Brindisi con vino bianco e tagliere da A casa mia" loading="lazy">
-        <div class="momento-testo">
-          <h3>Aperitivo</h3>
-          <p>Calici, sapori del territorio e buona compagnia per chiudere la&nbsp;giornata.</p>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ================= RECENSIONI ================= -->
-<section class="recensioni" id="recensioni">
-  <div class="wrap">
-    <h2>Recensioni</h2>
-    <div class="voto">
-      <b>4,7</b>
-      <span>su Google · 42 recensioni</span>
-    </div>
-    <div class="rec-riga" id="rec-riga">
-      <div class="rec-track" id="rec-track">
-        <div class="rec">
-          <div class="rec-stelle">★★★★★</div>
-          <p data-orig="it">"Ambiente accogliente, proprio come se fossi a casa tua. Prodotti di eccellenza, servizio fantastico: consiglio vivamente di passare sia per un aperitivo che per una colazione."</p>
-          <div class="rec-nome">Ilarietta 86 · Google</div>
-        </div>
-        <div class="rec">
-          <div class="rec-stelle">★★★★★</div>
-          <p data-orig="it">"Carbonara PAZZESCA, personale e proprietario GENTILISSIMI!!! consigliamo 🥰"</p>
-          <div class="rec-nome">Serena Gagliano · Google</div>
-        </div>
-        <div class="rec">
-          <div class="rec-stelle">★★★★★</div>
-          <p data-orig="it">"Bellissima location, servizio veloce e personale molto disponibile. Abbiamo fatto un ottimo aperitivo, pienamente soddisfatti sotto tutti i punti di vista. Consigliatissimo, ottimo rapporto qualità prezzo."</p>
-          <div class="rec-nome">Famiglia frontino · Google</div>
-        </div>
-        <div class="rec">
-          <div class="rec-stelle">★★★★★</div>
-          <p data-orig="it">"Sono stato da A Casa Mia a Civitavecchia e l'esperienza è stata davvero molto piacevole. Abbiamo consumato degli ottimi cocktail, preparati con cura e ben bilanciati, accompagnati da stuzzichini gustosi e di qualità."</p>
-          <div class="rec-nome">Giuliano Tarquini · Google</div>
-        </div>
-        <div class="rec">
-          <div class="rec-stelle">★★★★☆</div>
-          <p data-orig="it">"Carbonara molto buona, cremosa e abbondante."</p>
-          <div class="rec-nome">Fabiana Fio · Google</div>
-        </div>
-        <div class="rec">
-          <div class="rec-stelle">★★★★★</div>
-          <p data-orig="it">"Sono stata a fare colazione in questo bar vicino al mio albergo. Il locale è bello e pulito. Le paste buone ma offre poca scelta."</p>
-          <div class="rec-nome">Filomena Palomba · Google</div>
-        </div>
+      <div class="contacts">
+        <a href="tel:+390766526232" data-evento="telefono"><svg aria-hidden="true"><use href="#i-phone"/></svg>0766 526232</a>
+        <a href="https://wa.me/393481897496" data-evento="whatsapp"><svg aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp +39 348 189 7496</a>
       </div>
+      <a class="btn" href="https://maps.google.com/?q=Via+XVI+Settembre+4+Civitavecchia" target="_blank" rel="noopener" data-evento="indicazioni"><svg aria-hidden="true"><use href="#i-pin"/></svg><span>Come arrivare</span></a>
     </div>
-    <div class="rec-cta">
-      <p>Se sei stato da noi, raccontaci la tua esperienza.</p>
-      <a class="cta-pieno cta-chiara" href="https://www.google.com/maps/place/A+casa+mia/@42.0951638,11.7896898,17z/data=!4m6!3m5!1s0x1328a33fb90b8a7b:0xa3094ffb81d2520b!8m2!3d42.0951638!4d11.7896898!16s%2Fg%2F11yksnb6fd" target="_blank" rel="noopener" data-evento="recensione">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></svg>
-        <span>Lascia una recensione</span>
-      </a>
-    </div>
-    <p class="rec-nota">Recensioni selezionate dal profilo Google, aggiornate a settembre 2026.</p>
-    <a class="vedi-tutte" href="https://www.google.com/maps/place/A+casa+mia/@42.0951638,11.7896898,17z/data=!4m6!3m5!1s0x1328a33fb90b8a7b:0xa3094ffb81d2520b!8m2!3d42.0951638!4d11.7896898!16s%2Fg%2F11yksnb6fd" target="_blank" rel="noopener" data-evento="recensione">Leggi tutte le recensioni su Google</a>
-  </div>
-</section>
-
-<!-- ================= GALLERIA ================= -->
-<section class="galleria-sez" id="galleria">
-  <div class="wrap">
-    <h2>Galleria</h2>
-    <div class="gal-grid" id="gal-grid">
-        <button type="button" class="g-big" aria-label="Foto: il bancone" data-full="public/img/gal-hero-full.webp"><img src="public/img/gal-hero-thumb.webp" alt="" width="560" height="700" loading="lazy"></button>
-        <button type="button" aria-label="Foto: crostini con acciughe" data-full="public/img/gal-bruschetta-full.webp"><img src="public/img/gal-bruschetta-thumb.webp" alt="" width="560" height="700" loading="lazy"></button>
-        <button type="button" aria-label="Foto: cocktail espresso martini" data-full="public/img/gal-cocktail-full.webp"><img src="public/img/gal-cocktail-thumb.webp" alt="" width="560" height="700" loading="lazy"></button>
-        <button type="button" class="g-wide" aria-label="Foto: l'angolo lettura" data-full="public/img/gal-lettura-full.webp"><img src="public/img/gal-lettura-thumb.webp" alt="" width="560" height="700" loading="lazy"></button>
-        <button type="button" class="g-tall" aria-label="Foto: broccolo romanesco" data-full="public/img/gal-romanesco-full.webp"><img src="public/img/gal-romanesco-thumb.webp" alt="" width="560" height="700" loading="lazy"></button>
-        <button type="button" aria-label="Foto: prodotti in vendita" data-full="public/img/gal-prodotti-full.webp"><img src="public/img/gal-prodotti-thumb.webp" alt="" width="560" height="700" loading="lazy"></button>
-        <button type="button" aria-label="Foto: calice di vino" data-full="public/img/gal-vino-full.webp"><img src="public/img/gal-vino-thumb.webp" alt="" width="560" height="700" loading="lazy"></button>
-        <button type="button" class="g-big" aria-label="Foto: aperitivo al tavolo" data-full="public/img/gal-aperitivo-full.webp"><img src="public/img/gal-aperitivo-thumb.webp" alt="" width="560" height="700" loading="lazy"></button>
-        <button type="button" class="g-wide-d" aria-label="Foto: tramezzini" data-full="public/img/gal-brunch-full.webp"><img src="public/img/gal-brunch-thumb.webp" alt="" width="560" height="700" loading="lazy"></button>
-        <button type="button" class="g-wide-d" aria-label="Foto: piatto di pasta" data-full="public/img/gal-pranzo-full.webp"><img src="public/img/gal-pranzo-thumb.webp" alt="" width="560" height="700" loading="lazy"></button>
-    </div>
-  </div>
-</section>
-
-<!-- ================= SOCIAL ================= -->
-<section class="social-sez" id="social">
-  <div class="wrap">
-    <h2>Entra nel nostro mondo</h2>
-    <p class="social-sotto">Scopri cosa succede ogni giorno a casa mia.</p>
-    <div class="social-cta">
-      <a class="btn-social" href="https://www.instagram.com/acasamiacivitavecchia" target="_blank" rel="noopener" data-evento="instagram">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg>
-        <span><b>Instagram</b><small>@acasamiacivitavecchia</small></span>
-      </a>
-      <a class="btn-social" href="https://www.facebook.com/acasamiacivitavecchia" target="_blank" rel="noopener" data-evento="facebook">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg>
-        <span><b>Facebook</b><small>A casa mia</small></span>
-      </a>
-    </div>
-    <a class="ig-grid" href="https://www.instagram.com/acasamiacivitavecchia" target="_blank" rel="noopener" aria-label="Instagram di A casa mia" data-evento="instagram">
-          <img src="public/img/gal-cocktail-thumb.webp" alt="" width="560" height="700" loading="lazy">
-          <img src="public/img/gal-aperitivo-thumb.webp" alt="" width="560" height="700" loading="lazy">
-          <img src="public/img/gal-romanesco-thumb.webp" alt="" width="560" height="700" loading="lazy">
-          <img src="public/img/gal-brunch-thumb.webp" alt="" width="560" height="700" loading="lazy">
-    </a>
-  </div>
-</section>
-
-<!-- ================= DOVE SIAMO ================= -->
-<section class="location" id="dove-siamo">
-  <div class="wrap">
-    <h2>Ci trovi nel cuore di Civitavecchia</h2>
-    <div class="location-in">
-      <div class="location-testo">
-        <p class="location-ind"><b>Via XVI Settembre, 4</b><br>00053 Civitavecchia (RM)</p>
-        <ul class="fatti">
-          <li><svg viewBox="0 0 24 24"><path d="M12 6v16"/><path d="m19 13 2-1a9 9 0 0 1-18 0l2 1"/><path d="M9 11h6"/><circle cx="12" cy="4" r="2"/></svg><span>A pochi passi dal porto: meno di 300 m, circa 2 minuti a piedi</span></li>
-          <li><svg viewBox="0 0 24 24"><path d="M8 3.1V7a4 4 0 0 0 8 0V3.1"/><path d="m9 15-1-1"/><path d="m15 15 1-1"/><path d="M9 19c-2.8 0-5-2.2-5-5v-4a8 8 0 0 1 16 0v4c0 2.8-2.2 5-5 5Z"/><path d="m8 19-2 3"/><path d="m16 19 2 3"/></svg><span>A 10 minuti a piedi dalla stazione ferroviaria</span></li>
-        </ul>
-        <a class="cta-pieno" href="https://maps.google.com/?q=Via+XVI+Settembre+4+Civitavecchia" target="_blank" rel="noopener" data-evento="indicazioni">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
-          <span>Come arrivare</span>
-        </a>
-      </div>
-      <div class="mappa" id="mappa"><svg viewBox="0 0 480 360" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-          <rect width="480" height="360" fill="#EFE5CE"/>
-          <g fill="#23473F" fill-opacity=".06">
-            <rect x="20" y="20" width="110" height="80" rx="6"/><rect x="150" y="20" width="120" height="70" rx="6"/><rect x="300" y="20" width="160" height="90" rx="6"/>
-            <rect x="20" y="130" width="90" height="100" rx="6"/><rect x="330" y="140" width="130" height="80" rx="6"/>
-            <rect x="20" y="260" width="140" height="80" rx="6"/><rect x="190" y="270" width="110" height="70" rx="6"/><rect x="330" y="250" width="130" height="90" rx="6"/>
-          </g>
-          <g fill="none" stroke="#FDFAF2" stroke-linecap="round">
-            <path d="M-10 115 L490 105" stroke-width="12"/><path d="M-10 245 L490 238" stroke-width="12"/>
-            <path d="M138 -10 L146 370" stroke-width="12"/><path d="M312 -10 L318 370" stroke-width="12"/>
-            <path d="M-10 60 L200 370" stroke-width="6"/><path d="M490 190 L250 -10" stroke-width="6"/>
-          </g>
-          <circle cx="240" cy="172" r="86" fill="#A8383C" fill-opacity=".07"/>
-          <circle cx="240" cy="172" r="52" fill="#A8383C" fill-opacity=".12"/>
-          <path d="M240 140c0 0-18 22-18 34a18 18 0 0 0 36 0c0-12-18-34-18-34z" fill="#A8383C" stroke="#FDFAF2" stroke-width="3" stroke-linejoin="round"/>
-          <circle cx="240" cy="174" r="6" fill="#FDFAF2"/>
-          <text x="240" y="232" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="26" font-weight="600" fill="#23473F">A casa mia</text>
-        </svg><button type="button" class="mappa-carica" id="mappa-carica"><span>Mostra la mappa interattiva</span></button><p class="mappa-nota">Caricando la mappa accetti che Google tratti i tuoi dati secondo la sua informativa.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= DOVE SIAMO / INFO PRATICHE ================= -->
-<section class="pratiche" id="orari-contatti">
-  <div class="wrap">
-    <h2>Orari e contatti</h2>
-    <div class="dove-top">
-    <img class="dove-foto" src="public/img/dove.webp" srcset="public/img/dove-640.webp 640w, public/img/dove.webp 1280w" sizes="(min-width:900px) 1032px, 100vw" width="1280" height="1600" alt="L'insegna di A casa mia in Via XVI Settembre" loading="lazy">
-    <div class="dove-riga">
-    <ul class="orari" id="orari"><li><span>Lunedì</span><span>7:00 – 17:00</span></li><li><span>Martedì</span><span>7:00 – 17:00</span></li><li><span>Mercoledì</span><span>7:00 – 17:00</span></li><li><span>Giovedì</span><span>7:00 – 17:00</span></li><li><span>Venerdì</span><span>7:00 – 17:00</span></li><li><span>Sabato</span><span>8:00 – 15:00</span></li><li><span>Domenica</span><span>8:00 – 15:00</span></li></ul>
-    <div class="dove-contatti">
-    <div class="contatti">
-      <a href="tel:+390766526232" data-evento="telefono">
-        <svg viewBox="0 0 24 24"><path d="M6 3h4l2 6-3 2c1 3 3 5 6 6l2-3 6 2v4c0 1-1 2-2 2C10 22 2 14 2 5c0-1 1-2 2-2z"/></svg>
-        0766 526232
-      </a>
-      <a href="https://wa.me/393481897496" target="_blank" rel="noopener" data-evento="whatsapp">
-        <svg class="ico-whatsapp" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-        WhatsApp +39 348 189 7496
-      </a>
-      <a href="https://maps.google.com/?q=Via+XVI+Settembre+4+Civitavecchia" target="_blank" rel="noopener" data-evento="indicazioni">
-        <svg viewBox="0 0 24 24"><path d="M12 22s7-8 7-14a7 7 0 1 0-14 0c0 6 7 14 7 14z"/><circle cx="12" cy="8" r="2.6"/></svg>
-        <span>Via XVI Settembre, 4 · Civitavecchia (RM)</span>
-      </a>
-    </div>
-    </div>
-    </div>
-    </div>
-
-    <div class="banner-riga">
-      <a class="banner" href="https://glovoapp.com/it/it/civitavecchia/stores/a-casa-mia-cvt" target="_blank" rel="noopener" data-evento="glovo">
-        <img src="public/img/banner-glovo.webp" alt="" width="1280" height="1600" loading="lazy">
-        <div class="vel"></div>
-        <span class="marchio-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12.012 0C7.847 0 4.459 3.388 4.459 7.553c0 1.576.494 3.106 1.412 4.4l.211.281 3.93 5.555s.47.775 1.529.775h.941c1.036 0 1.53-.775 1.53-.775l3.93-5.555.187-.28a7.43 7.43 0 0 0 1.412-4.401C19.564 3.388 16.176 0 12.011 0Zm0 3.693a3.837 3.837 0 0 1 3.836 3.836c0 .824-.26 1.578-.73 2.237l-.212.28-2.894 4.095-2.895-4.07-.21-.305a3.848 3.848 0 0 1-.731-2.237 3.837 3.837 0 0 1 3.836-3.836zm-2.117 18.26c0 1.106.893 2.023 2.07 2.047 1.223 0 2.117-.917 2.117-2.059 0-1.14-.894-2.058-2.094-2.058-1.2 0-2.093.917-2.093 2.07z"/></svg></span>
-        <div class="txt">
-          <b>Ordina con Glovo</b>
-          <span>Consegna a domicilio a Civitavecchia</span>
-        </div>
-      </a>
-      <a class="banner" href="https://wa.me/393481897496" target="_blank" rel="noopener" data-evento="whatsapp">
-        <img src="public/img/banner-evento.webp" alt="" width="1280" height="1600" loading="lazy">
-        <div class="vel"></div>
-        <span class="marchio-badge marchio-badge-wa" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></span>
-        <div class="txt">
-          <b>Festeggia con noi</b>
-          <span>Il tuo evento speciale, con menù su misura</span>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ================= PRODOTTI PARTNER ================= -->
-<section class="partner">
-  <div class="wrap partner-in">
-    <img src="public/img/partner.webp" srcset="public/img/partner-640.webp 640w, public/img/partner.webp 1280w" sizes="260px" width="1280" height="1600" alt="Pasta artigianale dei nostri piccoli produttori" loading="lazy">
-    <div>
-      <h2>Da noi... a casa tua</h2>
-      <p>Una selezione accurata di specialità dei nostri piccoli produttori, da acquistare e portare direttamente a casa tua.</p>
-      <a class="visita-negozio" href="https://maps.google.com/?q=Via+XVI+Settembre+4+Civitavecchia" target="_blank" rel="noopener" data-evento="indicazioni">Vieni a vederli da noi in negozio</a>
-    </div>
-  </div>
-</section>
-
+  </section>
 </main>
 
-<div class="lightbox" id="lightbox">
-  <button type="button" id="lightbox-close" aria-label="Chiudi">×</button>
-  <img id="lightbox-img" alt="">
-</div>
-
 <footer>
-  <div class="wrap center">
-    <a class="marchio" href="#top" style="justify-content:center;display:inline-flex">
-      <svg viewBox="0 0 40 40" aria-hidden="true"><rect x="2" y="2" width="36" height="36" fill="none" stroke="#A8383C" stroke-width="3"/><path d="M20 2v36M2 20h36" stroke="#A8383C" stroke-width="3"/><path d="M20 4h16v10z" fill="#A8383C"/><path d="M6 36v-8a6 6 0 0 1 12 0v8z" fill="#A8383C"/></svg>
-      <b>A casa mia</b>
-    </a>
+  <div class="wrap">
+    <div class="brand"><svg aria-hidden="true"><use href="#i-logo"/></svg>A casa mia</div>
     <p>Via XVI Settembre, 4 · 00053 Civitavecchia (RM)</p>
-    <p><a href="tel:+390766526232" data-evento="telefono">0766 526232</a> · <a href="https://wa.me/393481897496" target="_blank" rel="noopener" data-evento="whatsapp">WhatsApp</a></p>
-    <p><a href="https://www.instagram.com/acasamiacivitavecchia" target="_blank" rel="noopener" data-evento="instagram">Instagram</a> · <a href="https://www.facebook.com/acasamiacivitavecchia" target="_blank" rel="noopener" data-evento="facebook">Facebook</a></p>
-    <p class="firma">Satoshi Web</p>
+    <nav>
+      <a href="https://www.instagram.com/acasamiacivitavecchia" target="_blank" rel="noopener" data-evento="instagram">Instagram</a>
+      <a href="https://www.facebook.com/acasamiacivitavecchia" target="_blank" rel="noopener" data-evento="facebook">Facebook</a>
+      <a href="https://wa.me/393481897496" data-evento="whatsapp">WhatsApp</a>
+    </nav>
+    <small>Satoshi Web</small>
   </div>
 </footer>
 
-<script src="a-capo.js"></script>
+<nav class="bar" aria-label="Contatti rapidi">
+  <div>
+    <a href="tel:+390766526232" data-evento="telefono"><svg aria-hidden="true"><use href="#i-phone"/></svg><span>Chiama</span></a>
+    <a href="https://wa.me/393481897496" data-evento="whatsapp"><svg aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
+    <a class="main" href="https://maps.google.com/?q=Via+XVI+Settembre+4+Civitavecchia" target="_blank" rel="noopener" data-evento="indicazioni"><svg aria-hidden="true"><use href="#i-pin"/></svg><span>Indicazioni</span></a>
+  </div>
+</nav>
+
 <script>
-var LANG = 'it';
-var ORE = ['7:00 – 17:00','7:00 – 17:00','7:00 – 17:00','7:00 – 17:00','7:00 – 17:00','8:00 – 15:00','8:00 – 15:00'];
-var GIORNI_IT = ['Lunedì','Martedì','Mercoledì','Giovedì','Venerdì','Sabato','Domenica'];
-var GIORNI_EN = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
-
-function pad(n){return n<10?'0'+n:n}
-function fmtEN(h){ return (h>12?h-12:h) + (h>=12?' pm':' am'); }
-
-function stato(){
-  var n = new Date(), g = (n.getDay()+6)%7, h = n.getHours()+n.getMinutes()/60;
-  var weekend = (g===5||g===6);
-  var apre = weekend ? 8 : 7, chiude = weekend ? 15 : 17;
-  var aperto = h>=apre && h<chiude;
-  var txt;
-  if(aperto){
-    txt = LANG==='it' ? 'Siamo aperti fino alle '+pad(chiude)+':00' : "We're open until "+fmtEN(chiude);
-  } else {
-    var domani = (g+1)%7, apreDomani = (domani===5||domani===6) ? 8 : 7;
-    txt = LANG==='it' ? 'Chiuso per oggi, ci vediamo domani alle '+pad(apreDomani)+':00' : 'Closed for today, see you tomorrow at '+fmtEN(apreDomani);
-  }
-  document.getElementById('stato-txt').textContent = txt;
-  var pal = document.getElementById('pallino');
-  pal.classList.toggle('vivo', aperto);
-  pal.style.background = aperto ? '#8FD18A' : '#E0A45C';
-}
-
-function orari(){
-  var n = new Date(), oggi = (n.getDay()+6)%7;
-  var nomi = LANG==='it' ? GIORNI_IT : GIORNI_EN;
-  var out = '';
-  for(var i=0;i<7;i++){
-    out += '<li'+(i===oggi?' class="oggi-riga"':'')+'><span>'+nomi[i]+'</span><span>'+ORE[i]+'</span></li>';
-  }
-  document.getElementById('orari').innerHTML = out;
-}
-
-document.querySelectorAll('header nav a').forEach(function(a){
-  a.addEventListener('click', function(){
-    document.querySelectorAll('header nav a').forEach(function(x){x.classList.remove('on')});
-    a.classList.add('on');
-  });
-});
-
-var lb = document.getElementById('lightbox');
-var lbImg = document.getElementById('lightbox-img');
-document.querySelectorAll('#gal-grid button').forEach(function(b){
-  b.addEventListener('click', function(){
-    lbImg.src = b.getAttribute('data-full');
-    lb.classList.add('on');
-  });
-});
-function chiudiLightbox(){ lb.classList.remove('on'); lbImg.removeAttribute('src'); }
-document.getElementById('lightbox-close').addEventListener('click', chiudiLightbox);
-lb.addEventListener('click', function(e){ if(e.target===lb){ chiudiLightbox(); } });
-document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && lb.classList.contains('on')){ chiudiLightbox(); } });
-
-stato();
-orari();
-setInterval(stato, 60000);
-ACapo.avvia();
-
 (function(){
-  var riga = document.getElementById('rec-riga');
-  var track = document.getElementById('rec-track');
-  if(!riga || !track) return;
-  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(reduce) return;
-  Array.prototype.slice.call(track.children).forEach(function(nodo){
-    var clone = nodo.cloneNode(true);
-    clone.setAttribute('aria-hidden', 'true');
-    track.appendChild(clone);
-  });
-  riga.classList.add('scorre');
-  var pausaTimer;
-  riga.addEventListener('touchstart', function(){
-    riga.classList.add('in-pausa');
-    clearTimeout(pausaTimer);
-    pausaTimer = setTimeout(function(){ riga.classList.remove('in-pausa'); }, 4000);
-  }, {passive:true});
-  if('IntersectionObserver' in window){
-    new IntersectionObserver(function(entries){
-      entries.forEach(function(e){ riga.classList.toggle('fuori-vista', !e.isIntersecting); });
-    }, {threshold:0}).observe(riga);
+  var lang='it';
+  var H={0:[8,15],1:[7,17],2:[7,17],3:[7,17],4:[7,17],5:[7,17],6:[8,15]};
+  var DAYS={Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6};
+  var T={
+    it:{open:function(h){return 'Siamo aperti fino alle '+h+':00'},closed:function(h,tomorrow){return 'Chiuso · riapriamo '+(tomorrow?'domani':'oggi')+' alle '+h+':00'}},
+    en:{open:function(h){return 'We are open until '+(h>12?h-12:h)+' pm'},closed:function(h,tomorrow){return 'Closed · opens '+(tomorrow?'tomorrow':'today')+' at '+h+(h<12?' am':' pm')}}
+  };
+  function rome(){
+    var p=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Rome',weekday:'short',hour:'numeric',minute:'numeric',hour12:false}).formatToParts(new Date());
+    var o={};p.forEach(function(x){o[x.type]=x.value});
+    return {d:DAYS[o.weekday],m:(parseInt(o.hour,10)%24)*60+parseInt(o.minute,10)};
   }
-})();
-
-(function(){
-  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var bersagli = document.querySelectorAll(
-    '.chi-siamo h2, .chi-foto, .fatti li, .chi-testo p, .giornata-intro, ' +
-    '.giornata h2, .momento, .rec-cta, ' +
-    '.partner-in, ' +
-    '.pratiche h2, .dove-foto, .galleria-sez h2, .gal-grid button, .social-sez .wrap > *, .location .wrap > *, ' +
-    '.banner-riga a'
-  );
-  if(reduce || !('IntersectionObserver' in window)){
-    bersagli.forEach(function(el){ el.classList.add('mostra'); });
-    return;
+  function render(){
+    var n=rome(),h=H[n.d],st=document.getElementById('status'),tx=document.getElementById('status-text'),t=T[lang],txt;
+    var isOpen=n.m>=h[0]*60&&n.m<h[1]*60;
+    st.setAttribute('data-open',isOpen);
+    if(isOpen){txt=t.open(h[1])}
+    else if(n.m<h[0]*60){txt=t.closed(h[0],false)}
+    else{txt=t.closed(H[(n.d+1)%7][0],true)}
+    tx.textContent=txt;
+    document.querySelectorAll('#hours li').forEach(function(li){li.classList.toggle('today',+li.dataset.d===n.d)});
   }
-  bersagli.forEach(function(el){ el.classList.add('reveal'); });
-  var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){
-      if(entry.isIntersecting){
-        entry.target.classList.add('mostra');
-        io.unobserve(entry.target);
-      }
-    });
-  }, {threshold:.14, rootMargin:'0px 0px -60px 0px'});
-  bersagli.forEach(function(el){ io.observe(el); });
+  render();setInterval(render,60000);
 })();
-
-(function(){var b=document.getElementById('mappa-carica'),m=document.getElementById('mappa');if(!b||!m)return;
-b.addEventListener('click',function(){var f=document.createElement('iframe');f.src='https://www.google.com/maps?q=Via+XVI+Settembre+4,+00053+Civitavecchia+RM&hl='+(document.documentElement.lang||'it')+'&z=17&output=embed';f.title=LANG==='en'?'Map: A casa mia, Via XVI Settembre 4, Civitavecchia':'Mappa: A casa mia, Via XVI Settembre 4, Civitavecchia';f.loading='lazy';f.referrerPolicy='no-referrer-when-downgrade';f.allowFullscreen=true;m.textContent='';m.appendChild(f);});})();
 </script>
+<script src="a-capo.js"></script>
+<script>ACapo.avvia();</script>
 
 </body>
 </html>
