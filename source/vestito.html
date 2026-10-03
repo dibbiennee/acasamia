@@ -133,6 +133,31 @@ h2{font-size:2.35rem;margin-bottom:.9rem}
 .btn.ghost{background:none;border:1.5px solid var(--ink);color:var(--ink)}
 .btn svg{width:1.2rem;height:1.2rem}
 
+.quotes{display:grid;gap:.9rem;margin-top:1.8rem}
+.quote{margin:0;padding:1.3rem 1.3rem 1.1rem;background:var(--paper);border-radius:1rem;border:1px solid var(--line)}
+.quote p{font-family:var(--serif);font-style:italic;font-weight:500;font-size:1.3rem;line-height:1.3;margin:0}
+.quote cite{display:block;margin-top:.8rem;font-style:normal;font-size:.875rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+.revlinks{display:flex;flex-wrap:wrap;gap:.6rem 1.4rem;align-items:center;margin-top:1.4rem}
+.revlinks .btn{margin-top:0}
+.revlinks .link{font-weight:500;margin-top:0;color:var(--ink);min-height:2.75rem;display:inline-flex;align-items:center}
+/* social */
+.social{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.7rem;margin-top:1.6rem}
+@media (max-width:23.75rem){.social{grid-template-columns:1fr}}
+.soc{display:flex;flex-direction:column;gap:.5rem;padding:1.1rem;border-radius:1rem;background:var(--green);color:var(--on-green);text-decoration:none;min-height:7rem}
+.soc svg{width:1.7rem;height:1.7rem;color:var(--blush)}
+.soc b{font-family:var(--serif);font-weight:500;font-size:1.5rem;line-height:1}
+.soc small{overflow-wrap:anywhere;opacity:.85;font-size:.875rem;letter-spacing:-.01em}
+/* mappa */
+.map{width:100%;margin-top:1.4rem}
+.mapimg{position:relative;display:block;border-radius:1rem;overflow:hidden;aspect-ratio:3/2;border:1px solid var(--line)}
+.mapimg img{width:100%;height:100%;object-fit:cover;filter:sepia(.35) saturate(.75) contrast(.95)}
+.pin{position:absolute;left:50%;top:50%;width:2.6rem;height:2.6rem;margin:-2.6rem 0 0 -1.3rem;display:grid;place-items:center;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:var(--red);color:#fff;box-shadow:0 .3rem .8rem rgba(0,0,0,.35)}
+.pin svg{width:1.2rem;height:1.2rem;transform:rotate(45deg)}
+.mapbtns{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-top:.6rem}
+.mapbtns a{display:flex;align-items:center;justify-content:center;gap:.5rem;min-height:2.75rem;border:1.5px solid var(--ink);border-radius:99px;text-decoration:none;font-weight:500;font-size:.95rem}
+.mapbtns svg{width:1.1rem;height:1.1rem}
+.map small{display:block;margin-top:.5rem;color:var(--ink-soft);font-size:.875rem}
+
 /* negozio */
 .shop{background:var(--green);color:var(--on-green)}
 .shop img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:50% 45%;border-radius:1rem;margin-bottom:1.6rem}
@@ -236,6 +261,17 @@ footer small{display:block;margin-top:1.6rem;opacity:.7;font-size:.875rem;letter
   .rev-r{max-width:26.25rem}
   .rev-r .lead{margin-top:0!important;font-family:var(--serif);font-style:italic;font-size:2.125rem;line-height:1.15;color:var(--ink)}
   .rev-r .btn{margin-top:1.5rem;padding:1rem 1.625rem}
+  .quotes{grid-template-columns:repeat(3,minmax(0,1fr));gap:1.25rem;margin-top:3.5rem;width:100%}
+  .quote{padding:1.75rem 1.75rem 1.5rem;background:var(--paper)}
+  .quote p{font-size:1.5625rem}
+  .revlinks{margin-top:1.5rem}
+  .revlinks .btn{padding:1rem 1.625rem}
+  .social{grid-template-columns:repeat(2,minmax(0,22.5rem));gap:1rem;margin-top:2.25rem}
+  .soc{padding:1.625rem;gap:.5rem;min-height:0}
+  .soc svg{width:1.75rem;height:1.75rem}
+  .soc b{font-size:2rem}
+  .map{margin-top:1.375rem}
+  .mapbtns{gap:.625rem;margin-top:.625rem}
   /* negozio */
   .shop .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:5rem;align-items:center}
   .shop img{grid-row:1 / span 4;height:27.5rem;aspect-ratio:auto;margin:0;border-radius:1.25rem}
@@ -253,8 +289,8 @@ footer small{display:block;margin-top:1.6rem;opacity:.7;font-size:.875rem;letter
   .grid img:nth-child(6){grid-column:4;grid-row:3}
   #galleria .btn{margin-top:2rem}
   /* dove */
-  #dove .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:6rem;align-items:center}
-  .sign{aspect-ratio:auto;height:43.75rem;margin:0;border-radius:1.25rem}
+  #dove .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:6rem;align-items:start}
+  .sign{aspect-ratio:auto;height:43.75rem;margin:0;border-radius:1.25rem;position:sticky;top:7rem}
   .hours{margin-top:0;font-size:1.125rem}
   .hours li{padding:.75rem 0}
   .addr{font-size:2.375rem;margin:2rem 0 .375rem}
@@ -286,7 +322,7 @@ footer small{display:block;margin-top:1.6rem;opacity:.7;font-size:.875rem;letter
   <symbol id="i-wifi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9a15 15 0 0 1 20 0M5 12.500a10 10 0 0 1 14 0M8.500 16a5 5 0 0 1 7 0"/><circle cx="12" cy="19" r=".8"/></symbol>
   <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
   <symbol id="i-star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.500l2.900 6 6.600.9-4.800 4.600 1.200 6.500L12 17.300 6.100 20.500l1.200-6.500L2.500 9.400l6.600-.9z"/></symbol>
-  <symbol id="i-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.200" cy="6.800" r=".8" fill="currentColor"/></symbol>
+  <symbol id="i-fb" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8.5A.5.5 0 0 1 14 8z"/></symbol><symbol id="i-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.200" cy="6.800" r=".8" fill="currentColor"/></symbol>
   <symbol id="i-logo" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.200"><rect x="3" y="3" width="26" height="26"/><path d="M16 3v26M3 16h26"/><path d="M7 29v-7a4 4 0 0 1 8 0v7" fill="currentColor"/><path d="M16 3l9 6.500H16" fill="currentColor"/></symbol>
 </svg>
 
@@ -303,7 +339,7 @@ footer small{display:block;margin-top:1.6rem;opacity:.7;font-size:.875rem;letter
         <a id="l-it" href="/" hreflang="it" lang="it" aria-current="page">IT</a>
         <a id="l-en" href="/en/" hreflang="en" lang="en">EN</a>
       </div>
-      <a class="cta-top" href="https://maps.google.com/?q=Via+XVI+Settembre+4+Civitavecchia" target="_blank" rel="noopener" data-evento="indicazioni"><svg aria-hidden="true"><use href="#i-pin"/></svg><span data-it="Indicazioni" data-en="Directions">Indicazioni</span></a>
+      <a class="cta-top" href="https://www.google.com/maps/search/?api=1&amp;query=A+casa+mia+Via+XVI+Settembre+4+Civitavecchia&amp;query_place_id=ChIJe4oLuT-jKBMRC1LSgftPCaM" target="_blank" rel="noopener" data-evento="indicazioni"><svg aria-hidden="true"><use href="#i-pin"/></svg><span data-it="Indicazioni" data-en="Directions">Indicazioni</span></a>
     </div>
   </div>
 </header>
@@ -319,7 +355,7 @@ footer small{display:block;margin-top:1.6rem;opacity:.7;font-size:.875rem;letter
       <p class="tag" data-it="Il punto di riferimento&nbsp;per una pausa di&nbsp;gusto." data-en="The go-to place for a break worth&nbsp;savouring.">Il punto di riferimento&nbsp;per una pausa di&nbsp;gusto.</p>
       <p class="where" data-it="Nel cuore di Civitavecchia, a pochi passi dal&nbsp;porto." data-en="In the heart of Civitavecchia, a few steps from the&nbsp;port.">Nel cuore di Civitavecchia, a pochi passi dal&nbsp;porto.</p>
       <div class="hero-cta">
-        <a class="b-red" href="https://maps.google.com/?q=Via+XVI+Settembre+4+Civitavecchia" target="_blank" rel="noopener" data-evento="indicazioni"><svg aria-hidden="true"><use href="#i-pin"/></svg><span data-it="Indicazioni" data-en="Directions">Indicazioni</span></a>
+        <a class="b-red" href="https://www.google.com/maps/search/?api=1&amp;query=A+casa+mia+Via+XVI+Settembre+4+Civitavecchia&amp;query_place_id=ChIJe4oLuT-jKBMRC1LSgftPCaM" target="_blank" rel="noopener" data-evento="indicazioni"><svg aria-hidden="true"><use href="#i-pin"/></svg><span data-it="Indicazioni" data-en="Directions">Indicazioni</span></a>
         <a class="b-out" href="tel:+390766526232" data-evento="telefono"><svg aria-hidden="true"><use href="#i-phone"/></svg><span>0766 526232</span></a>
         <a class="b-out" href="https://wa.me/393481897496" data-evento="whatsapp"><svg aria-hidden="true"><use href="#i-wa"/></svg><span>WhatsApp</span></a>
       </div>
@@ -360,14 +396,15 @@ footer small{display:block;margin-top:1.6rem;opacity:.7;font-size:.875rem;letter
       <p class="eyebrow" data-it="Recensioni" data-en="Reviews">Recensioni</p>
       <div class="rating">
         <div class="big">4,7</div>
-        <div><div class="stars" aria-hidden="true"><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg></div><small data-it="su Google · 42 recensioni" data-en="on Google · 42 reviews">su Google · 42 recensioni</small></div>
+        <div><div class="stars" aria-hidden="true"><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg></div><small data-it="su Google · 43 recensioni" data-en="on Google · 43 reviews">su Google · 43 recensioni</small></div>
       </div>
       </div>
       <div class="rev-r">
-      <p class="lead" style="margin-top:1.2rem" data-it="Se sei stato da noi, raccontaci la tua&nbsp;esperienza." data-en="If you've visited us, tell us about your&nbsp;experience.">Se sei stato da noi, raccontaci la tua&nbsp;esperienza.</p>
-      <a class="btn" href="https://www.google.com/maps/place/A+casa+mia/@42.0951638,11.7896898,17z/data=!4m6!3m5!1s0x1328a33fb90b8a7b:0xa3094ffb81d2520b!8m2!3d42.0951638!4d11.7896898!16s%2Fg%2F11yksnb6fd" target="_blank" rel="noopener" data-evento="recensione"><svg aria-hidden="true"><use href="#i-star"/></svg><span data-it="Lascia una recensione" data-en="Leave a review">Lascia una recensione</span></a>
+      <p class="lead" style="margin-top:1.2rem" data-it="Parole di chi è passato da noi, prese da&nbsp;Google." data-en="Words from people who stopped by, taken from&nbsp;Google.">Parole di chi è passato da noi, prese da&nbsp;Google.</p>
+      <div class="revlinks"><a class="btn" href="https://search.google.com/local/writereview?placeid=ChIJe4oLuT-jKBMRC1LSgftPCaM" target="_blank" rel="noopener" data-evento="recensione"><svg aria-hidden="true"><use href="#i-star"/></svg><span data-it="Lascia una recensione" data-en="Leave a review">Lascia una recensione</span></a><a class="link" href="https://search.google.com/local/reviews?placeid=ChIJe4oLuT-jKBMRC1LSgftPCaM" target="_blank" rel="noopener" data-it="Leggile tutte su&nbsp;Google" data-en="Read them all on&nbsp;Google">Leggile tutte su&nbsp;Google</a></div>
       </div>
       </div>
+      <div class="quotes"><figure class="quote"><p lang="en">“What a great place! Manager is really welcoming and the whole team is very service oriented. Great selection of drinks and high quality food. Extremely good pasta carbonara!”</p><cite data-it="Recensione Google · originale" data-en="Google review · original">Recensione Google · originale</cite></figure><figure class="quote"><p lang="en">“Very cozy and beautiful restaurant! The food was delicious. […] The cafe also sells a variety of products from local producers.”</p><cite data-it="Recensione Google · originale" data-en="Google review · original">Recensione Google · originale</cite></figure><figure class="quote"><p lang="en">“I tried at least 10 tiramissu and suppli in Rome, and the best of both for me was on A casa mia.”</p><cite data-it="Recensione Google · originale" data-en="Google review · original">Recensione Google · originale</cite></figure></div>
     </div>
   </section>
 
@@ -377,7 +414,7 @@ footer small{display:block;margin-top:1.6rem;opacity:.7;font-size:.875rem;letter
       <p class="eyebrow" data-it="Il piccolo negozio" data-en="The little shop">Il piccolo negozio</p>
       <h2 data-it="Da noi... a casa&nbsp;tua." data-en="From us... to your&nbsp;home.">Da noi... a casa&nbsp;tua.</h2>
       <p class="lead" data-it="Una selezione accurata di specialità dei nostri piccoli produttori, da acquistare e portare direttamente a casa&nbsp;tua." data-en="A carefully chosen selection of specialities from our small producers, to buy and take straight home with&nbsp;you.">Una selezione accurata di specialità dei nostri piccoli produttori, da acquistare e portare direttamente a casa&nbsp;tua.</p>
-      <a class="link" href="https://maps.google.com/?q=Via+XVI+Settembre+4+Civitavecchia" target="_blank" rel="noopener" data-evento="indicazioni" data-it="Vieni a vederli in&nbsp;negozio" data-en="Come and see them in the&nbsp;shop">Vieni a vederli in&nbsp;negozio</a>
+      <a class="link" href="https://www.google.com/maps/search/?api=1&amp;query=A+casa+mia+Via+XVI+Settembre+4+Civitavecchia&amp;query_place_id=ChIJe4oLuT-jKBMRC1LSgftPCaM" target="_blank" rel="noopener" data-evento="indicazioni" data-it="Vieni a vederli in&nbsp;negozio" data-en="Come and see them in the&nbsp;shop">Vieni a vederli in&nbsp;negozio</a>
     </div>
   </section>
 
@@ -393,7 +430,10 @@ footer small{display:block;margin-top:1.6rem;opacity:.7;font-size:.875rem;letter
         <img src="public/img/cinnamon.webp" srcset="public/img/cinnamon-640.webp 640w, public/img/cinnamon-960.webp 960w, public/img/cinnamon.webp 1280w" sizes="(min-width:48rem) 340px, 50vw" width="1280" height="1600" alt="Cinnamon roll con crema versata a cucchiaio" loading="lazy">
         <img src="public/img/grembiule.webp" srcset="public/img/grembiule-640.webp 640w, public/img/grembiule-960.webp 960w, public/img/grembiule.webp 1280w" sizes="(min-width:48rem) 340px, 50vw" width="1280" height="1600" alt="Grembiule di A casa mia con un piatto di polpette" loading="lazy">
       </div>
-      <a class="btn ghost" href="https://www.instagram.com/acasamiacivitavecchia" target="_blank" rel="noopener" data-evento="instagram"><svg aria-hidden="true"><use href="#i-ig"/></svg>@acasamiacivitavecchia</a>
+      <div class="social">
+        <a class="soc" href="https://www.instagram.com/acasamiacivitavecchia" target="_blank" rel="noopener" data-evento="instagram"><svg aria-hidden="true"><use href="#i-ig"/></svg><b>Instagram</b><small>@acasamiacivitavecchia</small></a>
+        <a class="soc" href="https://www.facebook.com/acasamiacivitavecchia" target="_blank" rel="noopener" data-evento="facebook"><svg aria-hidden="true"><use href="#i-fb"/></svg><b>Facebook</b><small data-it="Novità e eventi" data-en="News and events">Novità e eventi</small></a>
+      </div>
     </div>
   </section>
 
@@ -412,11 +452,16 @@ footer small{display:block;margin-top:1.6rem;opacity:.7;font-size:.875rem;letter
         <li><svg aria-hidden="true"><use href="#i-sun"/></svg><span data-it="<b>Terrazza</b> all'aperto" data-en="Outdoor <b>terrace</b>"><b>Terrazza</b> all'aperto</span></li>
         <li><svg aria-hidden="true"><use href="#i-wifi"/></svg><span data-it="<b>Wi&#8209;Fi</b> gratuito" data-en="Free <b>Wi&#8209;Fi</b>"><b>Wi&#8209;Fi</b> gratuito</span></li>
       </ul>
+      <div class="map">
+        <a class="mapimg" href="https://www.google.com/maps/search/?api=1&amp;query=A+casa+mia+Via+XVI+Settembre+4+Civitavecchia&amp;query_place_id=ChIJe4oLuT-jKBMRC1LSgftPCaM" target="_blank" rel="noopener" data-evento="indicazioni" aria-label="Apri la mappa in Google Maps"><img src="public/img/mappa.webp" srcset="public/img/mappa-640.webp 640w, public/img/mappa.webp 720w" sizes="(min-width:68.75rem) 520px, 100vw" width="720" height="480" alt="Mappa: A casa mia in Via XVI Settembre, vicino al porto di Civitavecchia" loading="lazy"><span class="pin" aria-hidden="true"><svg aria-hidden="true"><use href="#i-pin"/></svg></span></a>
+        <div class="mapbtns"><a href="https://www.google.com/maps/search/?api=1&amp;query=A+casa+mia+Via+XVI+Settembre+4+Civitavecchia&amp;query_place_id=ChIJe4oLuT-jKBMRC1LSgftPCaM" target="_blank" rel="noopener" data-evento="indicazioni"><svg aria-hidden="true"><use href="#i-pin"/></svg>Google Maps</a><a href="https://maps.apple.com/?q=A%20casa%20mia&amp;ll=42.0951638,11.7896898" target="_blank" rel="noopener" data-evento="indicazioni"><svg aria-hidden="true"><use href="#i-pin"/></svg>Apple Maps</a></div>
+        <small>Mappa © OpenStreetMap contributors</small>
+      </div>
       <div class="contacts">
         <a href="tel:+390766526232" data-evento="telefono"><svg aria-hidden="true"><use href="#i-phone"/></svg>0766 526232</a>
         <a href="https://wa.me/393481897496" data-evento="whatsapp"><svg aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp +39 348 189 7496</a>
       </div>
-      <a class="btn" href="https://maps.google.com/?q=Via+XVI+Settembre+4+Civitavecchia" target="_blank" rel="noopener" data-evento="indicazioni"><svg aria-hidden="true"><use href="#i-pin"/></svg><span data-it="Come arrivare" data-en="Get directions">Come arrivare</span></a>
+      <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=A+casa+mia+Via+XVI+Settembre+4+Civitavecchia&amp;query_place_id=ChIJe4oLuT-jKBMRC1LSgftPCaM" target="_blank" rel="noopener" data-evento="indicazioni"><svg aria-hidden="true"><use href="#i-pin"/></svg><span data-it="Come arrivare" data-en="Get directions">Come arrivare</span></a>
       </div>
     </div>
   </section>
@@ -444,7 +489,7 @@ footer small{display:block;margin-top:1.6rem;opacity:.7;font-size:.875rem;letter
   <div>
     <a href="tel:+390766526232" data-evento="telefono"><svg aria-hidden="true"><use href="#i-phone"/></svg><span data-it="Chiama" data-en="Call">Chiama</span></a>
     <a href="https://wa.me/393481897496" data-evento="whatsapp"><svg aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
-    <a class="main" href="https://maps.google.com/?q=Via+XVI+Settembre+4+Civitavecchia" target="_blank" rel="noopener" data-evento="indicazioni"><svg aria-hidden="true"><use href="#i-pin"/></svg><span data-it="Indicazioni" data-en="Directions">Indicazioni</span></a>
+    <a class="main" href="https://www.google.com/maps/search/?api=1&amp;query=A+casa+mia+Via+XVI+Settembre+4+Civitavecchia&amp;query_place_id=ChIJe4oLuT-jKBMRC1LSgftPCaM" target="_blank" rel="noopener" data-evento="indicazioni"><svg aria-hidden="true"><use href="#i-pin"/></svg><span data-it="Indicazioni" data-en="Directions">Indicazioni</span></a>
   </div>
 </nav>
 

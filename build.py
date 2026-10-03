@@ -137,7 +137,9 @@ ALT_EN.update({
     "Cinnamon roll con crema versata a cucchiaio": "Cinnamon roll with cream poured from a spoon",
     "Grembiule di A casa mia con un piatto di polpette": "An A casa mia apron beside a plate of meatballs",
 })
+ALT_EN["Mappa: A casa mia in Via XVI Settembre, vicino al porto di Civitavecchia"] = "Map: A casa mia on Via XVI Settembre, near the port of Civitavecchia"
 ARIA_EN = {
+    "Apri la mappa in Google Maps": "Open the map in Google Maps",
     "Colazioni dolci, brunch, pranzo, aperitivo": "Sweet breakfasts, brunch, lunch, aperitivo",
 }
 EN_TITLE = "A casa mia · Café, brunch and aperitivo in Civitavecchia"
@@ -234,6 +236,8 @@ def build_vestito():
         im = Image.open(os.path.join(SRC_IMG, f)).convert("RGB")
         im.save(os.path.join(OUT_IMG, name + ".webp"), "WEBP", quality=80, method=6)
         for w in (640, 960):
+            if w >= im.width:
+                continue
             small = im.resize((w, round(im.height * w / im.width)), Image.LANCZOS)
             small.save(os.path.join(OUT_IMG, "%s-%d.webp" % (name, w)), "WEBP", quality=78, method=6)
         print(f"  {name}: {im.width}x{im.height}")
