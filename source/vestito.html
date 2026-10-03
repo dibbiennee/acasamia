@@ -176,6 +176,102 @@ footer small{display:block;margin-top:1.6rem;opacity:.7;font-size:.875rem;letter
   .grid{grid-auto-rows:12rem}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* desktop (riferimento 1440 px): header con menu, hero diviso, griglie a piu' colonne */
+.menu,.cta-top,.hero-cta{display:none}
+.top-r{display:flex;align-items:center;gap:1rem}
+@media (min-width:68.75rem){
+  body{padding-bottom:0}
+  .bar{display:none}
+  .wrap{max-width:75rem;padding-inline:2.5rem}
+  section{padding-block:7rem}
+  #servizi{padding-block:6.5rem}
+  #recensioni{padding-block:5.5rem}
+  h2{font-size:4rem;line-height:1.02;margin-bottom:1.5rem}
+  .eyebrow{font-size:.875rem;margin-bottom:1rem}
+  .lead{font-size:1.1875rem}
+  .top .wrap{height:4.75rem;gap:1.5rem}
+  .brand{font-size:1.875rem;gap:.75rem}
+  .brand svg{width:2rem;height:2rem}
+  .menu{display:flex;gap:2.25rem;font-size:1rem;font-weight:500}
+  .menu a{text-decoration:none;display:inline-flex;align-items:center;min-height:2.75rem}
+  .cta-top{display:inline-flex;align-items:center;gap:.5rem;padding:.6875rem 1.25rem;border-radius:99px;background:var(--red);color:#fff;font-weight:500;font-size:.9375rem;text-decoration:none;min-height:2.75rem}
+  .cta-top svg{width:1.125rem;height:1.125rem}
+  /* hero diviso */
+  .hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);min-height:43.75rem}
+  .hero-panel{order:1;margin-top:0;border-radius:0;display:flex;flex-direction:column;justify-content:center;padding:6rem 4.5rem 6rem max(2.5rem,calc((100vw - 75rem) / 2 + 2.5rem))}
+  .hero-panel .wrap{max-width:none;padding:0}
+  .hero-photo{order:2;aspect-ratio:auto;max-height:none;height:100%;min-height:43.75rem}
+  .hero-panel h1{font-size:7.75rem;line-height:.98}
+  .sub{font-size:.875rem;margin:1.125rem 0 1.75rem}
+  .status{padding:.5625rem 1.125rem;font-size:1rem}
+  .tag{margin-top:1.75rem;font-size:2.25rem;line-height:1.15;max-width:32.5rem}
+  .where{margin-top:1rem;font-size:1.0625rem;max-width:30rem}
+  .hero-cta{display:flex;gap:.75rem;margin-top:2.25rem;flex-wrap:wrap}
+  .hero-cta a{display:inline-flex;align-items:center;gap:.625rem;padding:.9375rem 1.625rem;border-radius:99px;font-weight:500;text-decoration:none;min-height:3rem}
+  .hero-cta svg{width:1.25rem;height:1.25rem}
+  .hero-cta .b-red{background:var(--red);color:#fff}
+  .hero-cta .b-out{border:1.5px solid color-mix(in srgb,var(--on-green) 40%,transparent);color:var(--on-green)}
+  /* giornata */
+  .day h2{max-width:47.5rem}
+  .day .lead{font-size:1.1875rem;max-width:35rem;margin-top:1.25rem}
+  .rail{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.5rem;margin-top:3.5rem;padding:0;overflow:visible}
+  .card{max-width:none}
+  .card img{aspect-ratio:auto;height:21.25rem}
+  .card h3{font-size:2.125rem;margin:1.125rem 0 .375rem}
+  .card p{font-size:1.03rem}
+  .hint{display:none}
+  /* servizi */
+  .services{grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5rem;margin-top:2.5rem}
+  .svc{padding:2.25rem;border-radius:1.375rem}
+  .svc h3{font-size:2.375rem;margin-bottom:.375rem}
+  .svc p{font-size:1.0625rem}
+  .svc svg{width:2rem;height:2rem}
+  /* recensioni */
+  .rev-in{display:flex;align-items:center;justify-content:space-between;gap:3rem;flex-wrap:wrap}
+  .big{font-size:8rem;line-height:.82}
+  .rating{gap:1.375rem}
+  .stars svg{width:1.625rem;height:1.625rem}
+  .rating small{font-size:1.0625rem}
+  .rev-r{max-width:26.25rem}
+  .rev-r .lead{margin-top:0!important;font-family:var(--serif);font-style:italic;font-size:2.125rem;line-height:1.15;color:var(--ink)}
+  .rev-r .btn{margin-top:1.5rem;padding:1rem 1.625rem}
+  /* negozio */
+  .shop .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:5rem;align-items:center}
+  .shop img{grid-row:1 / span 4;height:27.5rem;aspect-ratio:auto;margin:0;border-radius:1.25rem}
+  .shop .eyebrow,.shop h2,.shop .lead,.shop .link{grid-column:2}
+  .shop .lead{font-size:1.1875rem;max-width:31rem}
+  .shop .link{justify-self:start;margin-top:1.625rem}
+  /* galleria */
+  .grid{grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:repeat(3,13.125rem);grid-auto-rows:auto;gap:.75rem;margin-top:2.5rem}
+  .grid img{border-radius:1rem}
+  .grid img:nth-child(1){grid-column:1 / span 2;grid-row:1 / span 3}
+  .grid img:nth-child(2){grid-column:3;grid-row:1}
+  .grid img:nth-child(3){grid-column:4;grid-row:1}
+  .grid img:nth-child(4){grid-column:3;grid-row:2 / span 2}
+  .grid img:nth-child(5){grid-column:4;grid-row:2}
+  .grid img:nth-child(6){grid-column:4;grid-row:3}
+  #galleria .btn{margin-top:2rem}
+  /* dove */
+  #dove .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:6rem;align-items:center}
+  .sign{aspect-ratio:auto;height:43.75rem;margin:0;border-radius:1.25rem}
+  .hours{margin-top:0;font-size:1.125rem}
+  .hours li{padding:.75rem 0}
+  .addr{font-size:2.375rem;margin:2rem 0 .375rem}
+  .facts{margin-top:1.125rem;font-size:1.125rem}
+  .facts li{padding:.8125rem 0;gap:1rem}
+  .facts svg{width:1.5rem;height:1.5rem}
+  .contacts{display:flex;flex-wrap:wrap;gap:0 1.75rem;margin-top:1.25rem}
+  #dove .btn{margin-top:1.875rem;padding:1rem 1.625rem}
+  /* footer */
+  footer{text-align:left;padding-block:3.5rem 2.25rem}
+  .foot-top{display:flex;justify-content:space-between;align-items:center;gap:2rem;flex-wrap:wrap}
+  footer .brand{justify-content:flex-start;font-size:2rem;margin-bottom:.625rem}
+  footer nav{margin-top:0;gap:1.75rem;font-size:1rem}
+  footer p{font-size:1rem;opacity:.85}
+  footer small{margin-top:2.25rem;padding-top:1.25rem;border-top:1px solid color-mix(in srgb,var(--on-green) 18%,transparent)}
+}
+@media (max-width:68.7rem){.foot-top{display:block}}
 </style>
 </head>
 <body>
@@ -197,15 +293,24 @@ footer small{display:block;margin-top:1.6rem;opacity:.7;font-size:.875rem;letter
 <header class="top">
   <div class="wrap">
     <a class="brand" href="#top" aria-label="A casa mia"><svg aria-hidden="true"><use href="#i-logo"/></svg>A casa mia</a>
-    <div class="lang" role="group" aria-label="Lingua / Language">
-      <a id="l-it" href="/" hreflang="it" lang="it" aria-current="page">IT</a>
-      <a id="l-en" href="/en/" hreflang="en" lang="en">EN</a>
+    <nav class="menu" aria-label="Menu">
+      <a href="#giornata" data-it="La giornata" data-en="Your day">La giornata</a>
+      <a href="#recensioni" data-it="Recensioni" data-en="Reviews">Recensioni</a>
+      <a href="#dove" data-it="Dove siamo" data-en="Find us">Dove siamo</a>
+    </nav>
+    <div class="top-r">
+      <div class="lang" role="group" aria-label="Lingua / Language">
+        <a id="l-it" href="/" hreflang="it" lang="it" aria-current="page">IT</a>
+        <a id="l-en" href="/en/" hreflang="en" lang="en">EN</a>
+      </div>
+      <a class="cta-top" href="https://maps.google.com/?q=Via+XVI+Settembre+4+Civitavecchia" target="_blank" rel="noopener" data-evento="indicazioni"><svg aria-hidden="true"><use href="#i-pin"/></svg><span data-it="Indicazioni" data-en="Directions">Indicazioni</span></a>
     </div>
   </div>
 </header>
 
 <main id="top">
-  <img class="hero-photo" src="public/img/hero.webp" srcset="public/img/hero-640.webp 640w, public/img/hero-960.webp 960w, public/img/hero.webp 1280w" sizes="100vw" width="1280" height="1600" alt="Cappuccino e cornetto sul tovagliolo con il logo di A casa mia" fetchpriority="high">
+  <div class="hero">
+  <img class="hero-photo" src="public/img/hero.webp" srcset="public/img/hero-640.webp 640w, public/img/hero-960.webp 960w, public/img/hero.webp 1280w" sizes="(min-width:68.75rem) 50vw, 100vw" width="1280" height="1600" alt="Cappuccino e cornetto sul tovagliolo con il logo di A casa mia" fetchpriority="high">
   <div class="hero-panel">
     <div class="wrap">
       <h1>A casa mia</h1>
@@ -213,7 +318,13 @@ footer small{display:block;margin-top:1.6rem;opacity:.7;font-size:.875rem;letter
       <div class="status" id="status" data-open="true" role="status"><span class="dot"></span><span id="status-text"></span></div>
       <p class="tag" data-it="Il punto di riferimento&nbsp;per una pausa di&nbsp;gusto." data-en="The go-to place for a break worth&nbsp;savouring.">Il punto di riferimento&nbsp;per una pausa di&nbsp;gusto.</p>
       <p class="where" data-it="Nel cuore di Civitavecchia, a pochi passi dal&nbsp;porto." data-en="In the heart of Civitavecchia, a few steps from the&nbsp;port.">Nel cuore di Civitavecchia, a pochi passi dal&nbsp;porto.</p>
+      <div class="hero-cta">
+        <a class="b-red" href="https://maps.google.com/?q=Via+XVI+Settembre+4+Civitavecchia" target="_blank" rel="noopener" data-evento="indicazioni"><svg aria-hidden="true"><use href="#i-pin"/></svg><span data-it="Indicazioni" data-en="Directions">Indicazioni</span></a>
+        <a class="b-out" href="tel:+390766526232" data-evento="telefono"><svg aria-hidden="true"><use href="#i-phone"/></svg><span>0766 526232</span></a>
+        <a class="b-out" href="https://wa.me/393481897496" data-evento="whatsapp"><svg aria-hidden="true"><use href="#i-wa"/></svg><span>WhatsApp</span></a>
+      </div>
     </div>
+  </div>
   </div>
 
   <section class="day" id="giornata">
@@ -222,10 +333,10 @@ footer small{display:block;margin-top:1.6rem;opacity:.7;font-size:.875rem;letter
       <h2 data-it="Dal primo cappuccino al brindisi della&nbsp;sera." data-en="From the first cappuccino to the evening&nbsp;toast.">Dal primo cappuccino al brindisi della&nbsp;sera.</h2>
       <p class="lead" data-it="Ricette fatte a&nbsp;mano, ingredienti di&nbsp;stagione e il lavoro di piccoli produttori." data-en="Handmade recipes, seasonal ingredients and the work of small&nbsp;producers.">Ricette fatte a&nbsp;mano, ingredienti di&nbsp;stagione e il lavoro di piccoli produttori.</p>
       <div class="rail" tabindex="0" role="group" aria-label="Colazioni dolci, brunch, pranzo, aperitivo">
-        <article class="card"><img src="public/img/colazione.webp" srcset="public/img/colazione-640.webp 640w, public/img/colazione-960.webp 960w, public/img/colazione.webp 1280w" sizes="(min-width:48rem) 320px, 78vw" width="1280" height="1600" alt="Cornetto con crema al pistacchio" loading="lazy"><h3 data-it="Colazioni dolci" data-en="Sweet breakfasts">Colazioni dolci</h3><p data-it="Cornetti e cappuccino per cominciare la giornata con&nbsp;calma." data-en="Croissants and cappuccino, for a gentle start to the&nbsp;day.">Cornetti e cappuccino per cominciare la giornata con&nbsp;calma.</p></article>
-        <article class="card"><img src="public/img/brunch.webp" srcset="public/img/brunch-640.webp 640w, public/img/brunch-960.webp 960w, public/img/brunch.webp 1280w" sizes="(min-width:48rem) 320px, 78vw" width="1280" height="1600" alt="Tramezzino e succo d'arancia" loading="lazy"><h3 data-it="Brunch" data-en="Brunch">Brunch</h3><p data-it="Un tavolo, un tramezzino, un succo d'arancia: il brunch a ritmo&nbsp;lento." data-en="A table, a sandwich, a glass of orange juice: brunch at a slower&nbsp;pace.">Un tavolo, un tramezzino, un succo d'arancia: il brunch a ritmo&nbsp;lento.</p></article>
-        <article class="card"><img src="public/img/pranzo.webp" srcset="public/img/pranzo-640.webp 640w, public/img/pranzo-960.webp 960w, public/img/pranzo.webp 1280w" sizes="(min-width:48rem) 320px, 78vw" width="1280" height="1600" alt="Pasta servita sul tovagliolo a righe" loading="lazy"><h3 data-it="Pranzo" data-en="Lunch">Pranzo</h3><p data-it="Il menu del giorno, con ricette fatte a&nbsp;mano e ingredienti di&nbsp;stagione." data-en="The daily menu, with handmade recipes and seasonal&nbsp;ingredients.">Il menu del giorno, con ricette fatte a&nbsp;mano e ingredienti di&nbsp;stagione.</p></article>
-        <article class="card"><img src="public/img/aperitivo.webp" srcset="public/img/aperitivo-640.webp 640w, public/img/aperitivo-960.webp 960w, public/img/aperitivo.webp 1280w" sizes="(min-width:48rem) 320px, 78vw" width="1280" height="1600" alt="Brindisi con due calici di vino e tagliere di salumi e formaggi" loading="lazy"><h3 data-it="Aperitivo" data-en="Aperitivo">Aperitivo</h3><p data-it="Calici, sapori del territorio e buona compagnia per chiudere la&nbsp;giornata." data-en="Raise a glass to the end of the&nbsp;day, with flavours of the area and good&nbsp;company.">Calici, sapori del territorio e buona compagnia per chiudere la&nbsp;giornata.</p></article>
+        <article class="card"><img src="public/img/colazione.webp" srcset="public/img/colazione-640.webp 640w, public/img/colazione-960.webp 960w, public/img/colazione.webp 1280w" sizes="(min-width:68.75rem) 280px, (min-width:48rem) 320px, 78vw" width="1280" height="1600" alt="Cornetto con crema al pistacchio" loading="lazy"><h3 data-it="Colazioni dolci" data-en="Sweet breakfasts">Colazioni dolci</h3><p data-it="Cornetti e cappuccino per cominciare la giornata con&nbsp;calma." data-en="Croissants and cappuccino, for a gentle start to the&nbsp;day.">Cornetti e cappuccino per cominciare la giornata con&nbsp;calma.</p></article>
+        <article class="card"><img src="public/img/brunch.webp" srcset="public/img/brunch-640.webp 640w, public/img/brunch-960.webp 960w, public/img/brunch.webp 1280w" sizes="(min-width:68.75rem) 280px, (min-width:48rem) 320px, 78vw" width="1280" height="1600" alt="Tramezzino e succo d'arancia" loading="lazy"><h3 data-it="Brunch" data-en="Brunch">Brunch</h3><p data-it="Un tavolo, un tramezzino, un succo d'arancia: il brunch a ritmo&nbsp;lento." data-en="A table, a sandwich, a glass of orange juice: brunch at a slower&nbsp;pace.">Un tavolo, un tramezzino, un succo d'arancia: il brunch a ritmo&nbsp;lento.</p></article>
+        <article class="card"><img src="public/img/pranzo.webp" srcset="public/img/pranzo-640.webp 640w, public/img/pranzo-960.webp 960w, public/img/pranzo.webp 1280w" sizes="(min-width:68.75rem) 280px, (min-width:48rem) 320px, 78vw" width="1280" height="1600" alt="Pasta servita sul tovagliolo a righe" loading="lazy"><h3 data-it="Pranzo" data-en="Lunch">Pranzo</h3><p data-it="Il menu del giorno, con ricette fatte a&nbsp;mano e ingredienti di&nbsp;stagione." data-en="The daily menu, with handmade recipes and seasonal&nbsp;ingredients.">Il menu del giorno, con ricette fatte a&nbsp;mano e ingredienti di&nbsp;stagione.</p></article>
+        <article class="card"><img src="public/img/aperitivo.webp" srcset="public/img/aperitivo-640.webp 640w, public/img/aperitivo-960.webp 960w, public/img/aperitivo.webp 1280w" sizes="(min-width:68.75rem) 280px, (min-width:48rem) 320px, 78vw" width="1280" height="1600" alt="Brindisi con due calici di vino e tagliere di salumi e formaggi" loading="lazy"><h3 data-it="Aperitivo" data-en="Aperitivo">Aperitivo</h3><p data-it="Calici, sapori del territorio e buona compagnia per chiudere la&nbsp;giornata." data-en="Raise a glass to the end of the&nbsp;day, with flavours of the area and good&nbsp;company.">Calici, sapori del territorio e buona compagnia per chiudere la&nbsp;giornata.</p></article>
       </div>
       <p class="hint" data-it="Scorri per vedere tutto →" data-en="Swipe to see more →">Scorri per vedere tutto →</p>
     </div>
@@ -244,13 +355,19 @@ footer small{display:block;margin-top:1.6rem;opacity:.7;font-size:.875rem;letter
 
   <section id="recensioni" style="background:var(--paper-2)">
     <div class="wrap">
+      <div class="rev-in">
+      <div class="rev-l">
       <p class="eyebrow" data-it="Recensioni" data-en="Reviews">Recensioni</p>
       <div class="rating">
         <div class="big">4,7</div>
         <div><div class="stars" aria-hidden="true"><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg></div><small data-it="su Google · 42 recensioni" data-en="on Google · 42 reviews">su Google · 42 recensioni</small></div>
       </div>
+      </div>
+      <div class="rev-r">
       <p class="lead" style="margin-top:1.2rem" data-it="Se sei stato da noi, raccontaci la tua&nbsp;esperienza." data-en="If you've visited us, tell us about your&nbsp;experience.">Se sei stato da noi, raccontaci la tua&nbsp;esperienza.</p>
       <a class="btn" href="https://www.google.com/maps/place/A+casa+mia/@42.0951638,11.7896898,17z/data=!4m6!3m5!1s0x1328a33fb90b8a7b:0xa3094ffb81d2520b!8m2!3d42.0951638!4d11.7896898!16s%2Fg%2F11yksnb6fd" target="_blank" rel="noopener" data-evento="recensione"><svg aria-hidden="true"><use href="#i-star"/></svg><span data-it="Lascia una recensione" data-en="Leave a review">Lascia una recensione</span></a>
+      </div>
+      </div>
     </div>
   </section>
 
@@ -283,6 +400,7 @@ footer small{display:block;margin-top:1.6rem;opacity:.7;font-size:.875rem;letter
   <section id="dove" style="background:var(--paper-2)">
     <div class="wrap">
       <img class="sign" src="public/img/insegna.webp" srcset="public/img/insegna-640.webp 640w, public/img/insegna-960.webp 960w, public/img/insegna.webp 1280w" sizes="(min-width:48rem) 704px, 100vw" width="1280" height="1600" alt="La facciata di A casa mia con insegna e tenda" loading="lazy">
+      <div class="dove-testo">
       <p class="eyebrow" data-it="Orari e dove siamo" data-en="Hours and location">Orari e dove siamo</p>
       <h2 data-it="Nel cuore di&nbsp;Civitavecchia." data-en="In the heart of&nbsp;Civitavecchia.">Nel cuore di&nbsp;Civitavecchia.</h2>
       <ul class="hours" id="hours"><li data-d="1"><span data-it="Lunedì" data-en="Monday">Lunedì</span><span>7:00 – 17:00</span></li><li data-d="2"><span data-it="Martedì" data-en="Tuesday">Martedì</span><span>7:00 – 17:00</span></li><li data-d="3"><span data-it="Mercoledì" data-en="Wednesday">Mercoledì</span><span>7:00 – 17:00</span></li><li data-d="4"><span data-it="Giovedì" data-en="Thursday">Giovedì</span><span>7:00 – 17:00</span></li><li data-d="5"><span data-it="Venerdì" data-en="Friday">Venerdì</span><span>7:00 – 17:00</span></li><li data-d="6"><span data-it="Sabato" data-en="Saturday">Sabato</span><span>8:00 – 15:00</span></li><li data-d="0"><span data-it="Domenica" data-en="Sunday">Domenica</span><span>8:00 – 15:00</span></li></ul>
@@ -299,19 +417,25 @@ footer small{display:block;margin-top:1.6rem;opacity:.7;font-size:.875rem;letter
         <a href="https://wa.me/393481897496" data-evento="whatsapp"><svg aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp +39 348 189 7496</a>
       </div>
       <a class="btn" href="https://maps.google.com/?q=Via+XVI+Settembre+4+Civitavecchia" target="_blank" rel="noopener" data-evento="indicazioni"><svg aria-hidden="true"><use href="#i-pin"/></svg><span data-it="Come arrivare" data-en="Get directions">Come arrivare</span></a>
+      </div>
     </div>
   </section>
 </main>
 
 <footer>
   <div class="wrap">
-    <div class="brand"><svg aria-hidden="true"><use href="#i-logo"/></svg>A casa mia</div>
-    <p>Via XVI Settembre, 4 · 00053 Civitavecchia (RM)</p>
-    <nav>
-      <a href="https://www.instagram.com/acasamiacivitavecchia" target="_blank" rel="noopener" data-evento="instagram">Instagram</a>
-      <a href="https://www.facebook.com/acasamiacivitavecchia" target="_blank" rel="noopener" data-evento="facebook">Facebook</a>
-      <a href="https://wa.me/393481897496" data-evento="whatsapp">WhatsApp</a>
-    </nav>
+    <div class="foot-top">
+      <div class="foot-l">
+        <div class="brand"><svg aria-hidden="true"><use href="#i-logo"/></svg>A casa mia</div>
+        <p>Via XVI Settembre, 4 · 00053 Civitavecchia (RM)</p>
+      </div>
+      <nav>
+        <a href="https://www.instagram.com/acasamiacivitavecchia" target="_blank" rel="noopener" data-evento="instagram">Instagram</a>
+        <a href="https://www.facebook.com/acasamiacivitavecchia" target="_blank" rel="noopener" data-evento="facebook">Facebook</a>
+        <a href="https://wa.me/393481897496" data-evento="whatsapp">WhatsApp</a>
+        <a href="tel:+390766526232" data-evento="telefono">0766 526232</a>
+      </nav>
+    </div>
     <small>Satoshi Web</small>
   </div>
 </footer>
