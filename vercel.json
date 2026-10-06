@@ -1,5 +1,8 @@
 {
   "outputDirectory": ".",
+  "regions": [
+    "fra1"
+  ],
   "headers": [
     {
       "source": "/(.*)",
