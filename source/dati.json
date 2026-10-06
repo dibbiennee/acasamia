@@ -68,5 +68,15 @@
         15
       ]
     ]
+  },
+  "azienda": {
+    "ragione_sociale": "Le 3 lettere S.R.L.",
+    "partita_iva": "18241231002",
+    "codice_fiscale": "18241231002",
+    "sdi": "SUBM70N",
+    "sede_legale": "Via XVI Settembre 2-4, 00053 Civitavecchia (RM)",
+    "email": "info@acasamiacivitavecchia.it",
+    "pec": "le3lettere@pec.it",
+    "nota": "Dati ricevuti dal cliente il 6 ottobre 2026. Mancano numero di iscrizione al Registro Imprese (REA) e capitale sociale, richiesti dall'art. 2250 del Codice civile per le societa'."
   }
 }

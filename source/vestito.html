@@ -34,6 +34,10 @@
   "@context": "https://schema.org",
   "@type": ["CafeOrCoffeeShop", "Restaurant"],
   "name": "A casa mia",
+  "legalName": "Le 3 lettere S.R.L.",
+  "vatID": "IT18241231002",
+  "taxID": "18241231002",
+  "email": "info@acasamiacivitavecchia.it",
   "url": "__SITE_URL__/",
   "image": "__SITE_URL__/public/img/og-image.jpg",
   "description": "Bistrot nel cuore di Civitavecchia, a pochi passi dal porto.",
@@ -214,6 +218,10 @@ footer{background:var(--green);color:var(--on-green);padding-block:2.5rem 2rem;t
 footer .brand{--mk:var(--blush);--wm:var(--on-green);justify-content:center;margin-bottom:.8rem}
 footer nav{display:flex;justify-content:center;gap:1.4rem;flex-wrap:wrap;margin-top:1rem}
 footer nav a{display:inline-flex;align-items:center;min-height:2.75rem}
+footer .legale{margin-top:1.75rem;padding-top:1.25rem;border-top:1px solid color-mix(in srgb,var(--on-green) 18%,transparent);font-size:.875rem;line-height:1.6;color:color-mix(in srgb,var(--on-green) 82%,transparent)}
+footer .legale p{margin:0}
+footer .legale b{font-weight:500;color:var(--on-green)}
+footer .legale a{display:inline-flex;align-items:center;min-height:2.75rem}
 footer small{display:block;margin-top:1.6rem;opacity:.7;font-size:.875rem;letter-spacing:.06em}
 /* barra fissa in basso */
 .bar{position:fixed;left:0;right:0;bottom:0;z-index:30;padding:.6rem 1rem calc(.6rem + env(safe-area-inset-bottom,0px));pointer-events:none}
@@ -518,6 +526,12 @@ footer small{display:block;margin-top:1.6rem;opacity:.7;font-size:.875rem;letter
         <a href="https://wa.me/393481897496" data-evento="whatsapp">WhatsApp</a>
         <a href="tel:+390766526232" data-evento="telefono">0766 526232</a>
       </nav>
+    </div>
+    <div class="legale">
+      <p><b>Le 3 lettere S.R.L.</b></p>
+      <p data-it="P.IVA 18241231002 · C.F. 18241231002" data-en="VAT no. 18241231002 · Tax code 18241231002">P.IVA 18241231002 · C.F. 18241231002</p>
+      <p data-it="Sede legale: Via XVI Settembre 2-4, 00053&nbsp;Civitavecchia&nbsp;(RM)" data-en="Registered office: Via XVI Settembre 2-4, 00053&nbsp;Civitavecchia&nbsp;(RM)">Sede legale: Via XVI Settembre 2-4, 00053&nbsp;Civitavecchia&nbsp;(RM)</p>
+      <p><a href="mailto:info@acasamiacivitavecchia.it">info@acasamiacivitavecchia.it</a></p>
     </div>
     <small>Satoshi Web</small>
   </div>
