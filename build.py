@@ -38,7 +38,7 @@ VESTITO = os.path.join(ROOT, "source", "vestito.html")  # nuovo vestito grafico 
 # __SITE_URL__ in canonical/og:url/og:image. Quando acasamiacivitavecchia.it
 # serve il sito, portalo a "https://acasamiacivitavecchia.it" e aggiungi il
 # redirect 301 da acasamia.satoshiweb.it verso il nuovo dominio.
-SITE_URL = "https://acasamia.satoshiweb.it"
+SITE_URL = "https://acasamiacivitavecchia.it"
 
 # (alt text che identifica univocamente il tag, nome file, eager?, sizes per
 # il srcset — None per l'hero, che ha la sua gestione a parte)
@@ -256,6 +256,26 @@ def build_vestito():
     open(OUT_HTML, "w", encoding="utf-8").write(strip_lang_attrs(page))
     print(f"scritto {OUT_HTML} e {OUT_EN}")
     build_pannello()
+    build_sitemap()
+
+
+def build_sitemap():
+    """sitemap.xml e robots.txt con l'indirizzo definitivo (SITE_URL), pagine IT ed EN con hreflang reciproci"""
+    import datetime
+    oggi = datetime.date.today().isoformat()
+    voci = []
+    for loc in (SITE_URL + "/", SITE_URL + "/en/"):
+        voci.append(
+            "  <url>\n    <loc>%s</loc>\n    <lastmod>%s</lastmod>\n"
+            '    <xhtml:link rel="alternate" hreflang="it-IT" href="%s/"/>\n'
+            '    <xhtml:link rel="alternate" hreflang="en" href="%s/en/"/>\n'
+            '    <xhtml:link rel="alternate" hreflang="x-default" href="%s/"/>\n  </url>' % (loc, oggi, SITE_URL, SITE_URL, SITE_URL))
+    xml = ('<?xml version="1.0" encoding="UTF-8"?>\n'
+           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'
+           + "\n".join(voci) + "\n</urlset>\n")
+    open(os.path.join(ROOT, "sitemap.xml"), "w", encoding="utf-8").write(xml)
+    open(os.path.join(ROOT, "robots.txt"), "w", encoding="utf-8").write("User-agent: *\nAllow: /\n\nSitemap: %s/sitemap.xml\n" % SITE_URL)
+    print("scritto sitemap.xml e robots.txt (%s)" % SITE_URL)
 
 
 def build_pannello():

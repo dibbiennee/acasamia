@@ -40,5 +40,18 @@
         }
       ]
     }
+  ],
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "acasamia.satoshiweb.it"
+        }
+      ],
+      "destination": "https://acasamiacivitavecchia.it/$1",
+      "permanent": true
+    }
   ]
 }
