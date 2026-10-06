@@ -221,6 +221,7 @@ def make_en(it_page):
     _d = json.load(open(os.path.join(ROOT, 'source', 'dati.json'), encoding='utf-8'))['whatsapp_festa']
     page = page.replace(urllib.parse.quote(_d['it'], safe=''), urllib.parse.quote(_d['en'], safe=''))
     page = page.replace("var LANG = 'it';", "var LANG = 'en';").replace("var lang='it';", "var lang='en';")
+    page = page.replace('<a href="/privacy/"', '<a href="/en/privacy/"')
     page = seed_orari(page, GIORNI_EN)
     # percorsi assoluti: la pagina vive in /en/
     page = re.sub(r'(?<=["(, ])public/', '/public/', page)
@@ -258,8 +259,50 @@ def build_vestito():
     open(OUT_EN, "w", encoding="utf-8").write(en_page)
     open(OUT_HTML, "w", encoding="utf-8").write(strip_lang_attrs(page))
     print(f"scritto {OUT_HTML} e {OUT_EN}")
+    build_privacy(page)
     build_pannello()
     build_sitemap()
+
+
+def build_privacy(page):
+    """/privacy/ e /en/privacy/: stessa testata e stesso footer del sito, contenuto da source/privacy_*.html"""
+    def pagina(base, lingua):
+        it = lingua == "it"
+        main = open(os.path.join(ROOT, "source", "privacy_%s.html" % lingua), encoding="utf-8").read().strip()
+        pre = "" if it else "/en"
+        p = re.sub(r"<main id=\"top\">.*?</main>", lambda m: main, base, count=1, flags=re.S)
+        p = re.sub(r'<script type="application/ld\+json">.*?</script>\n?', "", p, count=1, flags=re.S)
+        p = re.sub(r'<link rel="preload" as="image"[^>]*>\n?', "", p, count=1)
+        p = re.sub(r"<script>\n\(function\(\)\{\n  var lang=.*?</script>\n", "", p, count=1, flags=re.S)
+        titolo = "Informativa privacy · A casa mia" if it else "Privacy policy · A casa mia"
+        desc = ("Quali dati tratta il sito di A casa mia, Civitavecchia: nessun cookie, statistiche solo aggregate, fornitori e diritti."
+                if it else "What data the A casa mia (Civitavecchia) website processes: no cookies, aggregated statistics only, providers and rights.")
+        p = re.sub(r"<title>.*?</title>", "<title>%s</title>" % titolo, p, count=1)
+        p = re.sub(r'(<meta (?:name|property)="(?:description|og:description|twitter:description)" content=")[^"]*"', lambda m: m.group(1) + desc + '"', p)
+        p = re.sub(r'(<meta (?:property="og:title"|name="twitter:title") content=")[^"]*"', lambda m: m.group(1) + titolo + '"', p)
+        p = re.sub(r'<link rel="canonical" href="[^"]*">', '<link rel="canonical" href="%s%s/privacy/">' % (SITE_URL, pre), p, count=1)
+        p = re.sub(r'<meta property="og:url" content="[^"]*">', '<meta property="og:url" content="%s%s/privacy/">' % (SITE_URL, pre), p, count=1)
+        p = re.sub(r'<link rel="alternate" hreflang="it-IT" href="[^"]*">', '<link rel="alternate" hreflang="it-IT" href="%s/privacy/">' % SITE_URL, p)
+        p = re.sub(r'<link rel="alternate" hreflang="en" href="[^"]*">', '<link rel="alternate" hreflang="en" href="%s/en/privacy/">' % SITE_URL, p)
+        p = re.sub(r'<link rel="alternate" hreflang="x-default" href="[^"]*">', '<link rel="alternate" hreflang="x-default" href="%s/privacy/">' % SITE_URL, p)
+        # menu e logo tornano alla pagina principale
+        p = p.replace('<a class="brand" href="#top"', '<a class="brand" href="%s/"' % pre, 1)
+        for ancora in ("giornata", "recensioni", "dove"):
+            p = p.replace('<a href="#%s"' % ancora, '<a href="%s/#%s"' % (pre, ancora))
+        p = re.sub(r'<a id="l-it" href="/" hreflang="it" lang="it"( aria-current="page")?', '<a id="l-it" href="/privacy/" hreflang="it" lang="it"%s' % (' aria-current="page"' if it else ""), p)
+        p = re.sub(r'<a id="l-en" href="/en/" hreflang="en" lang="en"( aria-current="page")?', '<a id="l-en" href="/en/privacy/" hreflang="en" lang="en"%s' % ("" if it else ' aria-current="page"'), p)
+        p = re.sub(r'(?<=["(, ])public/', '/public/', p)
+        p = p.replace('src="a-capo.js"', 'src="/a-capo.js"')
+        return p
+    base_it = pagina(page, "it")
+    en_src = make_en(page)
+    base_en = pagina(en_src, "en")
+    # make_en ha gia' tradotto e tolto gli attributi: ripristina href della pagina inglese
+    for pre, html in (("privacy", base_it), ("en/privacy", base_en)):
+        os.makedirs(os.path.join(ROOT, pre), exist_ok=True)
+    open(os.path.join(ROOT, "privacy", "index.html"), "w", encoding="utf-8").write(strip_lang_attrs(base_it))
+    open(os.path.join(ROOT, "en", "privacy", "index.html"), "w", encoding="utf-8").write(strip_lang_attrs(base_en))
+    print("scritto privacy/index.html e en/privacy/index.html")
 
 
 def build_sitemap():
@@ -267,12 +310,12 @@ def build_sitemap():
     import datetime
     oggi = datetime.date.today().isoformat()
     voci = []
-    for loc in (SITE_URL + "/", SITE_URL + "/en/"):
+    for loc, it_u, en_u in ((SITE_URL + "/", "/", "/en/"), (SITE_URL + "/en/", "/", "/en/"), (SITE_URL + "/privacy/", "/privacy/", "/en/privacy/"), (SITE_URL + "/en/privacy/", "/privacy/", "/en/privacy/")):
         voci.append(
             "  <url>\n    <loc>%s</loc>\n    <lastmod>%s</lastmod>\n"
-            '    <xhtml:link rel="alternate" hreflang="it-IT" href="%s/"/>\n'
-            '    <xhtml:link rel="alternate" hreflang="en" href="%s/en/"/>\n'
-            '    <xhtml:link rel="alternate" hreflang="x-default" href="%s/"/>\n  </url>' % (loc, oggi, SITE_URL, SITE_URL, SITE_URL))
+            '    <xhtml:link rel="alternate" hreflang="it-IT" href="%s%s"/>\n'
+            '    <xhtml:link rel="alternate" hreflang="en" href="%s%s"/>\n'
+            '    <xhtml:link rel="alternate" hreflang="x-default" href="%s%s"/>\n  </url>' % (loc, oggi, SITE_URL, it_u, SITE_URL, en_u, SITE_URL, it_u))
     xml = ('<?xml version="1.0" encoding="UTF-8"?>\n'
            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'
            + "\n".join(voci) + "\n</urlset>\n")

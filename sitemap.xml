@@ -14,4 +14,18 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://acasamiacivitavecchia.it/en/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://acasamiacivitavecchia.it/"/>
   </url>
+  <url>
+    <loc>https://acasamiacivitavecchia.it/privacy/</loc>
+    <lastmod>2026-10-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://acasamiacivitavecchia.it/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://acasamiacivitavecchia.it/en/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://acasamiacivitavecchia.it/privacy/"/>
+  </url>
+  <url>
+    <loc>https://acasamiacivitavecchia.it/en/privacy/</loc>
+    <lastmod>2026-10-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="it-IT" href="https://acasamiacivitavecchia.it/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://acasamiacivitavecchia.it/en/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://acasamiacivitavecchia.it/privacy/"/>
+  </url>
 </urlset>
