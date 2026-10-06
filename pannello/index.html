@@ -241,23 +241,23 @@ function disegna(d){ULT=ULT||{};ULT.d=d;LARG=$('corpo').clientWidth;
   var fr;
   if(vuoto)fr='Negli ultimi '+G+' giorni non è ancora arrivato nessuno. Appena arriva qualcuno lo vedrai qui.';
   else{
-    fr='Negli ultimi '+G+' giorni '+(t.visitatori===1?'1 persona ha visitato':n(t.visitatori)+' persone hanno visitato')+' il sito e '+(t.clic?(t.clic===1?'1 ha toccato':n(t.clic)+' hanno toccato')+' un contatto':'nessuno ha ancora toccato un contatto')+'.';
+    fr='Negli ultimi '+G+' giorni il sito è stato aperto '+(t.visite===1?'1 volta':n(t.visite)+' volte')+' e '+(t.clic?(t.clic===1?'1 volta':n(t.clic)+' volte')+' qualcuno ha toccato un contatto':'nessuno ha ancora toccato un contatto')+'.';
     if(top)fr+=' Il bottone più usato è '+NOMI[top]+'.';
     if(ho>=0&&ore[ho])fr+=' L’ora più attiva è quella delle '+(ho===0?'mezzanotte':ho)+'.';
   }
   h+='<div class="sintesi"><h1>'+esc(fr)+'</h1><p class="nota">Dal '+giorno(d.periodo?d.periodo.da:'')+' al '+giorno(d.periodo?d.periodo.a:'')+'.</p></div>';
   /* 2 cifre */
   h+='<div class="cifre"><div><b>'+n(t.visite)+'</b><span>Visite</span><small>'+varz(t.visite,t.visite_precedenti)+'</small></div>'
-   +'<div><b>'+n(t.visitatori)+'</b><span>Visitatori</span><small>'+varz(t.visitatori,t.visitatori_precedenti)+'</small></div>'
    +'<div><b>'+n(t.clic)+'</b><span>Clic sui contatti</span><small>'+varz(t.clic,t.clic_precedenti)+'</small></div>'
-   +'<div><b>'+PF.format(tasso)+'</b><span>Clic ogni 100 visite</span><small>'+varz(tasso,tassoP)+'</small></div></div>'
-   +'<p class="nota" style="padding-bottom:1.25rem">Visitatori sono persone diverse. Chi torna dopo qualche giorno viene contato di nuovo.</p>';
+   +'<div><b>'+PF.format(tasso)+'</b><span>Clic ogni 100 visite</span><small>'+varz(tasso,tassoP)+'</small></div>'
+   +'<div><b>'+Math.round(Math.min(100,((d.sezioni||{}).dove||0)/(t.visite||1)*100))+'%</b><span>Arrivano fino agli orari</span><small>delle visite</small></div></div>'
+   +'<p class="nota" style="padding-bottom:1.25rem">Una visita è un’apertura del sito: chi lo riapre conta più volte. Le persone non vengono identificate.</p>';
   h+='<div class="fascia" aria-hidden="true"></div>';
   if(vuoto){h+='<section><div class="vuoto">Ancora nessun dato. Appena arriva qualcuno lo vedrai qui.</div></section>';$('corpo').innerHTML=h;return}
   /* 3 giorno per giorno */
   var sg=gg.map(function(x){return{v:x.visite,c:x.clic}}),eg=[],pas=G>30?10:G>7?5:1;
   gg.forEach(function(x,i){if(i%pas===0)eg.push([i,giorno(x.giorno).replace(' ',' ')])});
-  h+='<section><div class="wrap" style="padding:0"><h2>Giorno per giorno</h2><p class="intro">Quante persone sono arrivate ogni giorno, e quanti contatti hanno toccato.</p><div id="g1">'+colonne(sg,eg,{alt:'Visite e clic giorno per giorno'})+'</div><p class="punto-info" aria-live="polite">Tocca un giorno per leggere i numeri.</p>'+legendaGrafico()
+  h+='<section><div class="wrap" style="padding:0"><h2>Giorno per giorno</h2><p class="intro">Quante volte è stato aperto il sito ogni giorno, e quanti contatti sono stati toccati.</p><div id="g1">'+colonne(sg,eg,{alt:'Visite e clic giorno per giorno'})+'</div><p class="punto-info" aria-live="polite">Tocca un giorno per leggere i numeri.</p>'+legendaGrafico()
    +tabella('Visite e clic per giorno',gg.map(function(x){return[giorno(x.giorno),n(x.visite)+' visite',n(x.clic)+' clic']}))+'</div></section>';
   /* 4 clic */
   h+='<section><div class="wrap" style="padding:0"><h2>Cosa fanno le persone</h2><p class="intro">I bottoni toccati, dal più usato. Tocca una voce per vedere da dove è partito il clic.</p><ul class="lista">';
@@ -278,8 +278,8 @@ function disegna(d){ULT=ULT||{};ULT.d=d;LARG=$('corpo').clientWidth;
    +((d.scorrimenti&&(d.scorrimenti.giornata||d.scorrimenti.recensioni))?'<p class="nota" style="margin-top:.7rem">Hanno fatto scorrere le card della giornata '+n(d.scorrimenti.giornata)+' volte e le recensioni '+n(d.scorrimenti.recensioni)+' volte.</p>':'')+'</div></section>';
   /* 6 quando */
   var so=ore.map(function(v,i){return{v:v,c:(d.ore_clic||[])[i]||0}}),eo=[0,3,6,9,12,15,18,21].map(function(i){return[i,String(i)]});
-  h+='<section><div class="wrap" style="padding:0"><h2>Quando</h2><p class="intro">Le ore del giorno in cui arrivano le persone (ora italiana).</p><div id="g2">'+colonne(so,eo,{alt:'Visite e clic per ora del giorno',evid:ho})+'</div><p class="punto-info" aria-live="polite">Tocca un’ora per leggere i numeri.</p>'+legendaGrafico()
-   +'<p class="lettura">'+(ore[ho]?'L’ora più forte è quella delle '+(ho===0?'mezzanotte':ho)+', con '+n(ore[ho])+' visite.':'')+'</p>'
+  h+='<section><div class="wrap" style="padding:0"><h2>Quando</h2><p class="intro">Le ore del giorno in cui il sito viene aperto (ora italiana).</p><div id="g2">'+colonne(so,eo,{alt:'Visite e clic per ora del giorno',evid:ho})+'</div><p class="punto-info" aria-live="polite">Tocca un’ora per leggere i numeri.</p>'+legendaGrafico()
+   +(t.visite_aperto+t.visite_chiuso?'<p class="nota" style="margin-top:.9rem">Il '+Math.round(t.visite_chiuso/(t.visite_aperto+t.visite_chiuso)*100)+' per cento delle visite arriva quando il locale è chiuso.</p>':'')+'<p class="lettura">'+(ore[ho]?'L’ora più forte è quella delle '+(ho===0?'mezzanotte':ho)+', con '+n(ore[ho])+' visite.':'')+'</p>'
    +tabella('Visite e clic per ora',so.map(function(x,i){return[i+':00',n(x.v)+' visite',n(x.c)+' clic']}))+'</div></section>';
   h+='</div>';
   /* 7 chi sono + 8 provenienza */

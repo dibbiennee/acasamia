@@ -1,7 +1,8 @@
 // Raccolta anonima: riceve da /index e /en/ le visite, i clic sui contatti e le sezioni raggiunte.
 // Risponde sempre 204 (anche se non salva) per non rallentare ne' rompere la pagina.
+// Conta solo aggregati: nessun IP, nessun codice, nessun identificativo, nessun visitatore unico.
 
-const { redis, adesso, indirizzo, crypto } = require('./_lib.js');
+const { redis, adesso } = require('./_lib.js');
 
 const EVENTI = new Set(['telefono', 'whatsapp', 'indicazioni', 'indicazioni-apple', 'recensione', 'glovo', 'instagram', 'facebook', 'lingua', 'cue', 'orari']);
 const SEZIONI = new Set(['giornata', 'servizi', 'recensioni', 'negozio', 'galleria', 'dove']);
@@ -45,7 +46,10 @@ module.exports = async function handler(req, res) {
   const fine = () => res.status(204).end();
   try {
     if (req.method !== 'POST') return fine();
-    if (BOT.test(req.headers['user-agent'] || '')) return fine();
+    // Do Not Track e Global Privacy Control: se il browser li manda, non si conta nulla
+    if (req.headers['dnt'] === '1' || req.headers['sec-gpc'] === '1') return fine();
+    const ua = String(req.headers['user-agent'] || '');
+    if (ua.length < 20 || BOT.test(ua)) return fine(); // senza user agent o con user agent di bot/anteprime: non si conta
     if (!ospitiAmmessi().includes(ospite(req))) return fine();
     const b = corpo(req);
     if (!b || !Array.isArray(b.e) || b.e.length === 0 || b.e.length > 12) return fine();
@@ -66,11 +70,7 @@ module.exports = async function handler(req, res) {
         if (ref !== 'interno') inc('ref:' + ref);
         const utm = String(x.u || '').replace(/[^a-z0-9_-]/g, '').slice(0, 20);
         if (utm) inc('utm:' + utm);
-        // visitatori unici del giorno: codice che cambia ogni giorno, mai salvato
-        const sale = (process.env.ANALYTICS_SALT || 'acasamia') + ':' + giorno;
-        const codice = crypto.createHash('sha256').update(sale + '|' + indirizzo(req) + '|' + (req.headers['user-agent'] || '')).digest('hex');
-        cmd.push(['PFADD', 'u:' + giorno, codice]);
-        cmd.push(['EXPIRE', 'u:' + giorno, TTL]);
+        inc('po:' + (x.o ? 'aperto' : 'chiuso'));
       } else if (x.t === 'c' && EVENTI.has(x.n)) {
         const pos = POSIZIONI.has(x.p) ? x.p : 'altro';
         inc('ev:' + x.n); inc('evp:' + x.n + ':' + pos); inc('evo:' + x.n + ':' + (x.o ? 'aperto' : 'chiuso')); inc('evl:' + x.n + ':' + lingua); inc('evh:' + ora);

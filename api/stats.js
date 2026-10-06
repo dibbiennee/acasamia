@@ -27,16 +27,12 @@ module.exports = async function handler(req, res) {
     const giorni = Math.min(90, Math.max(1, parseInt(req.query && req.query.days, 10) || 30));
     const elenco = giorniIndietro(giorni * 2); // il doppio: serve anche il periodo precedente per il confronto
     const cmd = [];
-    elenco.forEach((g) => { cmd.push(['HGETALL', 's:' + g]); cmd.push(['PFCOUNT', 'u:' + g]); });
-    cmd.push(['PFCOUNT', ...elenco.slice(giorni).map((g) => 'u:' + g)]);
-    cmd.push(['PFCOUNT', ...elenco.slice(0, giorni).map((g) => 'u:' + g)]);
+    elenco.forEach((g) => { cmd.push(['HGETALL', 's:' + g]); });
     const r = await redis(cmd);
 
-    const giornalieri = elenco.map((g, i) => ({ giorno: g, h: hashAObj(r[i * 2]), visitatori: Number(r[i * 2 + 1] || 0) }));
+    const giornalieri = elenco.map((g, i) => ({ giorno: g, h: hashAObj(r[i]) }));
     const corrente = giornalieri.slice(giorni);
     const precedente = giornalieri.slice(0, giorni);
-    const visCorr = Number(r[elenco.length * 2] || 0);
-    const visPrec = Number(r[elenco.length * 2 + 1] || 0);
 
     const totale = (periodo) => periodo.reduce((acc, d) => somma(acc, d.h), {});
     const T = totale(corrente);
@@ -68,11 +64,11 @@ module.exports = async function handler(req, res) {
       periodo: { giorni, da: corrente[0].giorno, a: corrente[corrente.length - 1].giorno },
       totali: {
         visite: T.pv || 0, visite_precedenti: P.pv || 0,
-        visitatori: visCorr, visitatori_precedenti: visPrec,
+        visite_aperto: T['po:aperto'] || 0, visite_chiuso: T['po:chiuso'] || 0,
         clic: clic(T), clic_precedenti: clic(P),
         tasso_clic: T.pv ? Math.round((clic(T) / T.pv) * 1000) / 10 : 0,
       },
-      giornaliero: corrente.map((d) => ({ giorno: d.giorno, visite: d.h.pv || 0, visitatori: d.visitatori, clic: clic(d.h) })),
+      giornaliero: corrente.map((d) => ({ giorno: d.giorno, visite: d.h.pv || 0, clic: clic(d.h) })),
       eventi,
       sezioni: per(T, 'sez:'),
       scorrimenti: per(T, 'sw:'),
