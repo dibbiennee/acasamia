@@ -190,7 +190,7 @@ h2{font-size:2.35rem;margin-bottom:.9rem}
 
 /* negozio */
 .shop{background:var(--green);color:var(--on-green)}
-.shop img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:50% 45%;border-radius:1rem;margin-bottom:1.6rem}
+.shop img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:50% 45%;border-radius:1rem;margin:.25rem 0 1.6rem}
 .shop .lead{color:color-mix(in srgb,var(--on-green) 78%,transparent)}
 .shop .eyebrow{color:var(--blush)}
 .link{display:inline-flex;align-items:center;min-height:2.75rem;margin-top:.8rem;color:var(--blush);font-weight:500;text-underline-offset:.3em}
@@ -318,7 +318,7 @@ footer small{display:block;margin-top:1.6rem;opacity:.7;font-size:.875rem;letter
   .mapbtns{gap:.625rem;margin-top:.625rem}
   /* negozio */
   .shop .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:5rem;align-items:center}
-  .shop img{grid-row:1 / span 4;height:27.5rem;aspect-ratio:auto;margin:0;border-radius:1.25rem}
+  .shop img{grid-column:1;grid-row:1 / span 4;height:27.5rem;aspect-ratio:auto;margin:0;border-radius:1.25rem}
   .shop .eyebrow,.shop h2,.shop .lead,.shop .link{grid-column:2}
   .shop .lead{font-size:1.1875rem;max-width:31rem}
   .shop .link{justify-self:start;margin-top:1.625rem}
@@ -470,8 +470,8 @@ main.legal a{color:var(--red-ink,var(--red));text-decoration:underline;text-unde
 
   <section class="shop" id="negozio">
     <div class="wrap">
+      <p class="eyebrow" data-it="I nostri prodotti" data-en="Our products">I nostri prodotti</p>
       <img src="public/img/negozio.webp" srcset="public/img/negozio-640.webp 640w, public/img/negozio-960.webp 960w, public/img/negozio.webp 1280w" sizes="(min-width:48rem) 704px, 100vw" width="1280" height="1600" alt="Pasta artigianale Martelli sullo scaffale" loading="lazy" fetchpriority="low">
-      <p class="eyebrow" data-it="Il piccolo negozio" data-en="The little shop">Il piccolo negozio</p>
       <h2 data-it="Da noi... a casa&nbsp;tua." data-en="From us... to your&nbsp;home.">Da noi... a casa&nbsp;tua.</h2>
       <p class="lead" data-it="Una selezione accurata di specialità dei nostri piccoli produttori, da acquistare e portare direttamente a casa&nbsp;tua." data-en="A carefully chosen selection of specialities from our small producers, to buy and take straight home with&nbsp;you.">Una selezione accurata di specialità dei nostri piccoli produttori, da acquistare e portare direttamente a casa&nbsp;tua.</p>
       <a class="link" href="https://www.google.com/maps/search/?api=1&amp;query=A+casa+mia+Via+XVI+Settembre+4+Civitavecchia&amp;query_place_id=ChIJe4oLuT-jKBMRC1LSgftPCaM" target="_blank" rel="noopener" data-evento="indicazioni" data-it="Vieni a vederli in&nbsp;negozio" data-en="Come and see them in the&nbsp;shop">Vieni a vederli in&nbsp;negozio</a>
