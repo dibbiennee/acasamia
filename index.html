@@ -202,6 +202,7 @@ h2{font-size:2.35rem;margin-bottom:.9rem}
 .grid .t{grid-row:span 2}
 
 /* orari + dove */
+#orari-dove{scroll-margin-top:4.75rem}
 .hours{scroll-margin-top:5.5rem;list-style:none;padding:0;margin:1.5rem 0 0;font-variant-numeric:tabular-nums}
 .hours-note{margin-top:.9rem;color:var(--ink-soft);font-size:1rem}
 .hours li{display:flex;justify-content:space-between;padding:.8rem 0;border-bottom:1px dotted var(--line)}
@@ -252,6 +253,7 @@ footer small{display:block;margin-top:1.6rem;opacity:.7;font-size:.875rem;letter
   .eyebrow{font-size:.875rem;margin-bottom:1rem}
   .lead{font-size:1.1875rem}
   .top .wrap{height:4.75rem;gap:1.5rem}
+  #orari-dove{scroll-margin-top:7rem}
   .brand{gap:.8rem}
   .brand .mk{width:2.125rem;height:2.125rem}
   .brand .wm{height:1.625rem}
@@ -409,7 +411,7 @@ main.legal a{color:var(--red-ink,var(--red));text-decoration:underline;text-unde
       <h1 class="sr">A casa mia</h1>
       <p class="tag">Il punto di riferimento<br>per una pausa di&nbsp;gusto.</p>
       <p class="sub">caffè · brunch · aperitivo</p>
-      <a class="status" id="status" href="#hours" data-open="true" aria-live="polite" data-evento="orari"><span class="dot"></span><span id="status-text"></span></a>
+      <a class="status" id="status" href="#orari-dove" data-open="true" aria-live="polite" data-evento="orari"><span class="dot"></span><span id="status-text"></span></a>
       <p class="where">Nel cuore di Civitavecchia, a pochi passi dal&nbsp;porto.</p>
       <div class="hero-cta">
         <a class="b-red" href="https://www.google.com/maps/search/?api=1&amp;query=A+casa+mia+Via+XVI+Settembre+4+Civitavecchia&amp;query_place_id=ChIJe4oLuT-jKBMRC1LSgftPCaM" target="_blank" rel="noopener" data-evento="indicazioni"><svg aria-hidden="true"><use href="#i-pin"/></svg><span>Indicazioni</span></a>
@@ -501,7 +503,7 @@ main.legal a{color:var(--red-ink,var(--red));text-decoration:underline;text-unde
     <div class="wrap">
       <img class="sign" src="public/img/insegna.webp" srcset="public/img/insegna-640.webp 640w, public/img/insegna-960.webp 960w, public/img/insegna.webp 1280w" sizes="(min-width:48rem) 704px, 100vw" width="1280" height="1600" alt="La facciata di A casa mia con insegna e tenda" loading="lazy" fetchpriority="low">
       <div class="dove-testo">
-      <p class="eyebrow">Orari e dove siamo</p>
+      <p class="eyebrow" id="orari-dove">Orari e dove siamo</p>
       <h2>Nel cuore di&nbsp;Civitavecchia.</h2>
       <ul class="hours" id="hours"><li data-d="1"><span>Lunedì</span><span>7:00 – 17:00</span></li><li data-d="2"><span>Martedì</span><span>7:00 – 17:00</span></li><li data-d="3"><span>Mercoledì</span><span>7:00 – 17:00</span></li><li data-d="4"><span>Giovedì</span><span>7:00 – 17:00</span></li><li data-d="5"><span>Venerdì</span><span>7:00 – 17:00</span></li><li data-d="6"><span>Sabato</span><span>8:00 – 15:00</span></li><li data-d="0"><span>Domenica</span><span>8:00 – 15:00</span></li></ul>
       <p class="hours-note">Non serve prenotare: ci si siede al&nbsp;volo.</p>
@@ -589,6 +591,24 @@ main.legal a{color:var(--red-ink,var(--red));text-decoration:underline;text-unde
   document.querySelector('.q-prev').onclick=function(){qmove(-1)};
   document.querySelector('.q-next').onclick=function(){qmove(1)};
 })();
+</script>
+<script>
+/* i salti verso un'ancora: le sezioni lontane si disegnano mentre si scorre e spostano l'arrivo.
+   A scorrimento finito si riallinea al punto giusto (rispettando il margine sotto la testata). */
+document.addEventListener('click',function(e){
+  var a=e.target.closest&&e.target.closest('a[href^="#"]');if(!a)return;
+  var id=a.getAttribute('href').slice(1),t=id&&document.getElementById(id);if(!t)return;
+  var last=-1,still=0,n=0;
+  (function chk(){
+    var y=window.scrollY;still=(y===last)?still+1:0;last=y;n++;
+    if(still>=3||n>50){
+      var m=parseFloat(getComputedStyle(t).scrollMarginTop)||0,d=t.getBoundingClientRect().top-m;
+      if(Math.abs(d)>3)window.scrollBy({top:d,behavior:'smooth'});
+      return;
+    }
+    setTimeout(chk,100);
+  })();
+},false);
 </script>
 <script>
 /* statistiche anonime, senza cookie e senza identificatori: conta visite, clic sui contatti e sezioni raggiunte.

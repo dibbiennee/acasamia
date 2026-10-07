@@ -160,7 +160,7 @@ h2{font-size:2.35rem;margin-bottom:.9rem}
 
 /* negozio */
 .shop{background:var(--green);color:var(--on-green)}
-.shop img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:50% 45%;border-radius:1rem;margin-bottom:1.6rem}
+.shop img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:50% 45%;border-radius:1rem;margin:.25rem 0 1.6rem}
 .shop .lead{color:color-mix(in srgb,var(--on-green) 78%,transparent)}
 .shop .eyebrow{color:var(--blush)}
 .link{display:inline-flex;align-items:center;min-height:2.75rem;margin-top:.8rem;color:var(--blush);font-weight:500;text-underline-offset:.3em}
@@ -172,6 +172,7 @@ h2{font-size:2.35rem;margin-bottom:.9rem}
 .grid .t{grid-row:span 2}
 
 /* orari + dove */
+#orari-dove{scroll-margin-top:4.75rem}
 .hours{scroll-margin-top:5.5rem;list-style:none;padding:0;margin:1.5rem 0 0;font-variant-numeric:tabular-nums}
 .hours-note{margin-top:.9rem;color:var(--ink-soft);font-size:1rem}
 .hours li{display:flex;justify-content:space-between;padding:.8rem 0;border-bottom:1px dotted var(--line)}
@@ -222,6 +223,7 @@ footer small{display:block;margin-top:1.6rem;opacity:.7;font-size:.875rem;letter
   .eyebrow{font-size:.875rem;margin-bottom:1rem}
   .lead{font-size:1.1875rem}
   .top .wrap{height:4.75rem;gap:1.5rem}
+  #orari-dove{scroll-margin-top:7rem}
   .brand{gap:.8rem}
   .brand .mk{width:2.125rem;height:2.125rem}
   .brand .wm{height:1.625rem}
@@ -288,7 +290,7 @@ footer small{display:block;margin-top:1.6rem;opacity:.7;font-size:.875rem;letter
   .mapbtns{gap:.625rem;margin-top:.625rem}
   /* negozio */
   .shop .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:5rem;align-items:center}
-  .shop img{grid-row:1 / span 4;height:27.5rem;aspect-ratio:auto;margin:0;border-radius:1.25rem}
+  .shop img{grid-column:1;grid-row:1 / span 4;height:27.5rem;aspect-ratio:auto;margin:0;border-radius:1.25rem}
   .shop .eyebrow,.shop h2,.shop .lead,.shop .link{grid-column:2}
   .shop .lead{font-size:1.1875rem;max-width:31rem}
   .shop .link{justify-self:start;margin-top:1.625rem}
@@ -454,6 +456,24 @@ main.legal a{color:var(--red-ink,var(--red));text-decoration:underline;text-unde
   </div>
 </nav>
 
+<script>
+/* i salti verso un'ancora: le sezioni lontane si disegnano mentre si scorre e spostano l'arrivo.
+   A scorrimento finito si riallinea al punto giusto (rispettando il margine sotto la testata). */
+document.addEventListener('click',function(e){
+  var a=e.target.closest&&e.target.closest('a[href^="#"]');if(!a)return;
+  var id=a.getAttribute('href').slice(1),t=id&&document.getElementById(id);if(!t)return;
+  var last=-1,still=0,n=0;
+  (function chk(){
+    var y=window.scrollY;still=(y===last)?still+1:0;last=y;n++;
+    if(still>=3||n>50){
+      var m=parseFloat(getComputedStyle(t).scrollMarginTop)||0,d=t.getBoundingClientRect().top-m;
+      if(Math.abs(d)>3)window.scrollBy({top:d,behavior:'smooth'});
+      return;
+    }
+    setTimeout(chk,100);
+  })();
+},false);
+</script>
 <script>
 /* statistiche anonime, senza cookie e senza identificatori: conta visite, clic sui contatti e sezioni raggiunte.
    Rispetta Do Not Track e Global Privacy Control. Niente viene scritto nel browser. */
