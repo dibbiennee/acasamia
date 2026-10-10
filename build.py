@@ -130,6 +130,7 @@ ALT_EN = {
 }
 ALT_EN.update({
     "Cappuccino e cornetto sul tovagliolo con il logo di A casa mia": "Cappuccino and cornetto on the placemat with the A casa mia logo",
+    "Cornetto alla crema e cappuccino su un tavolino di vetro": "Cream-filled cornetto and cappuccino on a glass table",
     "Cornetto con crema al pistacchio": "Cornetto with pistachio cream",
     "Tramezzino e succo d'arancia": "Tramezzino sandwich and orange juice",
     "Pasta servita sul tovagliolo a righe": "Pasta served on the striped placemat",
