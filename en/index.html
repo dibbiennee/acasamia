@@ -612,6 +612,19 @@ document.addEventListener('click',function(e){
 },false);
 </script>
 <script>
+/* statistiche di Ahrefs (senza cookie): si caricano solo sul dominio vero e solo se il browser
+   non chiede di non essere tracciato (Do Not Track o Global Privacy Control). */
+(function(){
+  var n=navigator;
+  if(n.doNotTrack==='1'||window.doNotTrack==='1'||n.msDoNotTrack==='1'||n.globalPrivacyControl)return;
+  if(!/^(www\.)?acasamiacivitavecchia\.it$/.test(location.hostname))return;
+  var a=document.createElement('script');
+  a.src='https://analytics.ahrefs.com/analytics.js';a.async=true;
+  a.setAttribute('data-key','hIzDm/FmR4SiCaal6/pKGA');
+  document.head.appendChild(a);
+})();
+</script>
+<script>
 /* statistiche anonime, senza cookie e senza identificatori: conta visite, clic sui contatti e sezioni raggiunte.
    Rispetta Do Not Track e Global Privacy Control. Niente viene scritto nel browser. */
 (function(){

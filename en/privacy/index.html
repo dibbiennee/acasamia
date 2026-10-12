@@ -376,7 +376,7 @@ main.legal a{color:var(--red-ink,var(--red));text-decoration:underline;text-unde
 <main id="top" class="legal">
   <div class="wrap">
     <h1>Privacy policy</h1>
-    <p class="nota">Last updated: 6 October 2026</p>
+    <p class="nota">Last updated: 12 October 2026</p>
     <p>This page explains what data the website acasamiacivitavecchia.it processes and how, under Article 13 of Regulation (EU) 2016/679 (GDPR).</p>
 
     <h2>Who is the controller</h2>
@@ -385,9 +385,9 @@ main.legal a{color:var(--red-ink,var(--red));text-decoration:underline;text-unde
     <h2>In short</h2>
     <ul>
       <li>The website <b>does not use cookies</b> and writes nothing to your browser (no <i>localStorage</i> or&nbsp;<i>sessionStorage</i>).</li>
-      <li>Statistics are <b>aggregated only</b>: we count how many times the site is opened, not who you are. There is no code or identifier for visitors.</li>
+      <li>Our own statistics are <b>aggregated only</b>: we count how many times the site is opened, not who you are, and we create no code or identifier for visitors. We also use the Ahrefs analytics service (see below).</li>
       <li>If your browser has <b>Do Not Track</b> or&nbsp;<b>Global Privacy Control</b> turned on, the site counts nothing.</li>
-      <li>Fonts, images and the map are hosted on the site itself: no requests to external services until you click a link.</li>
+      <li>Fonts, images and the map are hosted on the site itself. The only external service that loads on its own is the Ahrefs analytics script; other services are contacted only if you click a link.</li>
     </ul>
 
     <h2>What data is processed</h2>
@@ -397,6 +397,10 @@ main.legal a{color:var(--red-ink,var(--red));text-decoration:underline;text-unde
     <p>Everything ends up in daily counters that are not linked to a person. We do not store the IP address in the statistics, we do not create codes or device fingerprints, and we do not use cookies. The counters are kept for 400&nbsp;days.</p>
     <p><b>Purpose:</b> to understand how the site is used and to improve it. <b>Legal basis:</b> the controller’s legitimate interest (Article 6(1)(f) GDPR).</p>
 
+    <h3>Ahrefs analytics</h3>
+    <p>The site loads the Ahrefs analytics script (Ahrefs Web Analytics), which works without cookies. The script records technical data about the visit (page viewed, source, browser and device type, country derived from the IP address) and sends it to Ahrefs, which processes it on our behalf and shows us aggregated data only. The script does not load if your browser has <b>Do Not Track</b> or&nbsp;<b>Global Privacy Control</b> turned on.</p>
+    <p><b>Purpose:</b> to understand where visitors come from and how the site is found. <b>Legal basis:</b> the controller’s legitimate interest (Article 6(1)(f) GDPR). <b>Retention:</b> for the period set by Ahrefs.</p>
+
     <h3>Technical hosting data</h3>
     <p>To serve the site, the hosting provider (Vercel) records technical data about each request, including the IP address, date and time, the page requested and the browser type. Its protection system limits repeated requests: to do so it uses the IP address and may temporarily reject requests from an address that exceeds the limit.</p>
     <p><b>Purpose:</b> to run the site and protect it from abuse. <b>Legal basis:</b> legitimate interest (Article 6(1)(f) GDPR). <b>Retention:</b> for the period set by the provider.</p>
@@ -405,15 +409,16 @@ main.legal a{color:var(--red-ink,var(--red));text-decoration:underline;text-unde
     <p>If you call, write on WhatsApp or send an email, we process the data you give us (for example your phone number, name and message) to reply to you or to organise an event. <b>Legal basis:</b> your request and pre-contractual measures (Article 6(1)(b) GDPR). We keep it for as long as needed to handle the request and for legal obligations.</p>
 
     <h2>Third-party services</h2>
-    <p>The site contains links to Google Maps, Apple Maps, Google (reviews), Glovo, Instagram, Facebook and&nbsp;WhatsApp. Until you click, our site sends no data to these services. If you click, you leave the site and the privacy policy of the chosen service applies. The map on the page is an image hosted on the site (© OpenStreetMap&nbsp;contributors).</p>
+    <p>Besides Ahrefs (described above), the site contains links to Google Maps, Apple Maps, Google (reviews), Glovo, Instagram, Facebook and&nbsp;WhatsApp. Until you click, our site sends no data to these services. If you click, you leave the site and the privacy policy of the chosen service applies. The map on the page is an image hosted on the site (© OpenStreetMap&nbsp;contributors).</p>
 
     <h2>Who processes data on our behalf</h2>
     <ul>
       <li><b>Vercel Inc.</b>, based in the United States: hosting and content delivery network. The site’s functions run in the European Union (Frankfurt).</li>
       <li><b>Upstash, Inc.</b>, based in the United States: storage of the aggregated counters, on servers in Frankfurt (Germany).</li>
+      <li><b>Ahrefs Pte. Ltd.</b>, based in Singapore: website usage statistics.</li>
       <li><b>Aruba S.p.A.</b>, Italy: domain name and email.</li>
     </ul>
-    <p>Because two providers are US companies, technical data may also be processed in the United States, with the safeguards required by the GDPR (standard contractual clauses or an adequacy decision), as stated in the data processing agreements the providers publish. Data is not disclosed or sold.</p>
+    <p>Because two providers are US companies and one is based in Singapore, technical data may also be processed outside the European Union, with the safeguards required by the GDPR (standard contractual clauses or an adequacy decision), as stated in the data processing agreements the providers publish. Data is not disclosed or sold.</p>
 
     <h2>Your rights</h2>
     <p>You can ask for access, rectification, erasure, restriction or&nbsp;portability of your data, or object to&nbsp;processing (Articles 15-22 GDPR). Write to:<br><a href="mailto:info@acasamiacivitavecchia.it">info@acasamiacivitavecchia.it</a><br> You can also lodge a complaint with the Italian data protection authority, the Garante (www.garanteprivacy.it). The statistics counters are aggregated and cannot be traced back to a person.</p>
@@ -473,6 +478,19 @@ document.addEventListener('click',function(e){
     setTimeout(chk,100);
   })();
 },false);
+</script>
+<script>
+/* statistiche di Ahrefs (senza cookie): si caricano solo sul dominio vero e solo se il browser
+   non chiede di non essere tracciato (Do Not Track o Global Privacy Control). */
+(function(){
+  var n=navigator;
+  if(n.doNotTrack==='1'||window.doNotTrack==='1'||n.msDoNotTrack==='1'||n.globalPrivacyControl)return;
+  if(!/^(www\.)?acasamiacivitavecchia\.it$/.test(location.hostname))return;
+  var a=document.createElement('script');
+  a.src='https://analytics.ahrefs.com/analytics.js';a.async=true;
+  a.setAttribute('data-key','hIzDm/FmR4SiCaal6/pKGA');
+  document.head.appendChild(a);
+})();
 </script>
 <script>
 /* statistiche anonime, senza cookie e senza identificatori: conta visite, clic sui contatti e sezioni raggiunte.
