@@ -17,7 +17,7 @@ Stati usati: VERIFICATO TECNICAMENTE · CORRETTO · DA CONFERMARE CON IL TITOLAR
 | 1 | Ahrefs: la documentazione ufficiale descrive un **codice visitatore pseudonimo giornaliero** (hash di IP + user agent + valore che cambia ogni 24 ore), posizione a livello di **città**, URL **con parametri**, lingua, schermo, user agent. L'informativa non lo diceva e parlava di "paese" | CORRETTO nel testo; trattamento in sé **DA VALIDARE CON IL CONSULENTE** |
 | 2 | Ahrefs: durata di conservazione, luogo di trattamento, ruolo (responsabile o titolare), accordo sul trattamento dati e supporto a DNT non documentati dal fornitore | NON VERIFICABILE |
 | 3 | Ahrefs: lo script invia l'URL completo, quindi anche parametri come `?nome=...` | CORRETTO (all'estero va solo il percorso) |
-| 4 | **Bug dell'analytics proprio:** la visita non inviava lo stato aperto/chiuso, quindi tutte le visite erano contate "chiuso" (dal rilascio dell'11 ottobre) | CORRETTO (e coperto da test) |
+| 4 | **Bug dell'analytics proprio:** la visita non inviava lo stato aperto/chiuso, quindi tutte le visite erano contate "chiuso" (dal rilascio del 6 ottobre, commit `11a6f29`) | CORRETTO (e coperto da test) |
 | 5 | Commento in `api/_lib.js` ancora riferito a codici giornalieri e HyperLogLog, già rimossi | CORRETTO |
 | 6 | Informativa: ruoli (art. 28), garanzie di trasferimento e rete di distribuzione dichiarati in modo più sicuro del verificato | CORRETTO (testo attenuato; verifiche in sezione H) |
 
@@ -50,7 +50,7 @@ Verifica su pagine servite in locale con il dominio di produzione mappato su 127
 | `sessionStorage` nel pannello | `pw` | Mantenere l'accesso del titolare durante la sessione | Fino a chiusura della scheda | Dopo un login riuscito | Codice del sito, solo `/pannello/` | Sì (funzione richiesta dal titolare) | Non riguarda i visitatori; il test conferma che all'apertura non scrive nulla |
 | Ahrefs (se acceso) | nessuno | n.a. | n.a. | mai | n.a. | n.a. | Il codice dello script non usa cookie né storage; verificato anche con prova |
 
-**Risultato:** VERIFICATO TECNICAMENTE. 64 controlli del browser superati su 64 (Ahrefs spento) e 64 su 64 (Ahrefs acceso), comprese le pagine privacy.
+**Risultato:** VERIFICATO TECNICAMENTE. 64 controlli del browser superati su 64 (Ahrefs spento) e 64 su 64 (Ahrefs acceso) al momento dell'audit; dopo i test mirati della release candidate sono 68 e 70, comprese le pagine privacy.
 
 ## D. Ahrefs
 
@@ -135,8 +135,8 @@ Un DPA firmato non basta da solo a dimostrare la conformità complessiva.
 | Test | Comando | Esito |
 |---|---|---|
 | Analytics proprio e pannello (14 casi: visita, DNT, GPC, DNT+GPC, payload malformato, chiavi non ammesse, dati personali, IP/UA, origine, bot, GET, scadenza, 401, pannello pulito, 429) | `node tests/privacy/api.test.js` | 14/14 |
-| Cookie, storage, richieste esterne, payload, DNT/GPC, localhost, pannello, console, overflow (4 pagine × desktop/mobile) | `python3 tests/privacy/browser_test.py` | 64/64 con Ahrefs spento |
-| Come sopra con Ahrefs acceso (build con `AHREFS_ANALYTICS=1`) | `python3 tests/privacy/browser_test.py --ahrefs on` | 64/64 |
+| Cookie, storage, richieste esterne, payload, DNT/GPC, localhost, pannello, console, overflow (4 pagine × desktop/mobile) | `python3 tests/privacy/browser_test.py` | 68/68 con Ahrefs spento (64 all'audit, +4 mirati) |
+| Come sopra con Ahrefs acceso (build con `AHREFS_ANALYTICS=1`) | `python3 tests/privacy/browser_test.py --ahrefs on` | 70/70 |
 | Payload di Ahrefs (copia locale dello script, richiesta intercettata) | script una tantum, in questa sezione | Catturato; query esclusa dopo la modifica |
 | Tipografia dei testi (4 larghezze) | `controlla-testi.py` su `/`, `/en/`, `/privacy/`, `/en/privacy/` | Nessun problema |
 | Audit di design (390 e 1280 px) | `audit-design.py` | 0 errori (avvisi già noti) |
@@ -174,4 +174,4 @@ Un DPA firmato non basta da solo a dimostrare la conformità complessiva.
 
 ## File modificati nel branch
 
-`api/_lib.js` (commento), `build.py` (interruttore Ahrefs), `source/vestito.html` (stato aperto/chiuso sulla visita, blocco Ahrefs condizionato), `source/privacy_it.html` e `source/privacy_en.html`, pagine generate (`index.html`, `en/index.html`, `privacy/index.html`, `en/privacy/index.html`, `sitemap.xml`), nuovi: `tests/privacy/api.test.js`, `tests/privacy/browser_test.py`, `reports/privacy-cookie-audit.md`.
+`api/_lib.js` (commento), `build.py` (interruttore Ahrefs), `source/vestito.html` (stato aperto/chiuso sulla visita, blocco Ahrefs condizionato), `source/privacy_it.html` e `source/privacy_en.html`, pagine generate (`index.html`, `en/index.html`, `privacy/index.html`, `en/privacy/index.html`, `sitemap.xml`), nuovi: `tests/privacy/api.test.js`, `tests/privacy/browser_test.py`, `tests/privacy/release_check.py`, `reports/privacy-cookie-audit.md`.
