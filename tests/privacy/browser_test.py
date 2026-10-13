@@ -81,6 +81,8 @@ with sync_playwright() as p:
                 blob = json.dumps(log['beacon'])
                 check(tag + 'payload senza indirizzo, percorso, query, user agent', 'http' not in blob and 'iPhone' not in blob and '?' not in blob)
                 check(tag + 'invia visita, clic e sezioni', any(ev.get('t') == 'pv' for x in log['beacon'] for ev in x['e']) and any(ev.get('t') == 'c' for x in log['beacon'] for ev in x['e']))
+                pv = [ev for x in log['beacon'] for ev in x['e'] if ev.get('t') == 'pv']
+                check(tag + 'la visita invia lo stato aperto/chiuso (o=0|1)', bool(pv) and all(ev.get('o') in (0, 1) for ev in pv), str(pv))
                 if AHREFS == 'on': check(tag + 'script Ahrefs richiesto', len(log['ahrefs']) == 1)
                 else: check(tag + 'script Ahrefs assente', not log['ahrefs'] and 'ahrefs' not in pg.content().lower())
             ctx.close()
@@ -93,6 +95,13 @@ with sync_playwright() as p:
             pg.goto(f'http://{HOST}:{PORT}{path}', wait_until='networkidle'); pg.evaluate('scrollTo(0,2000)'); pg.wait_for_timeout(800)
             pg.evaluate("document.querySelector('a[data-evento=\"telefono\"]').addEventListener('click',e=>e.preventDefault(),true);document.querySelector('a[data-evento=\"telefono\"]').click()"); pg.wait_for_timeout(500)
             check(f'[{nome} {path}] nessuna statistica e nessun terzo', not log['beacon'] and not log['ahrefs'], str(log['beacon'])[:80])
+            ctx.close()
+    if AHREFS == 'on':  # riattivazione futura: ad Ahrefs deve andare il solo percorso, mai query o frammento
+        for path in ('/', '/en/'):
+            ctx, pg, log = apri(b, 'mobile')
+            pg.goto(f'http://{HOST}:{PORT}{path}?utm_source=instagram&nome=PROVA#giornata', wait_until='networkidle'); pg.wait_for_timeout(500)
+            attr = pg.evaluate("(document.querySelector('script[data-key]')||{getAttribute:()=>null}).getAttribute('data-page-location')")
+            check(f'[{path}] Ahrefs (se acceso): data-page-location e\' solo il percorso', attr == path, str(attr))
             ctx.close()
     # localhost: l'analytics non parte
     ctx, pg, log = apri(b, 'mobile')
