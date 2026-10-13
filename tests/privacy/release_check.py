@@ -41,6 +41,10 @@ check('informative: dichiarano assenza di cookie e di storage', 'non usa cookie'
 check('link informativa nel footer di / e /en/', 'href="/privacy/"' in pagine['it'] and 'href="/en/privacy/"' in pagine['en'])
 check('pagine privacy: canonical e hreflang reciproci', all(x in pagine['pit'] for x in ('rel="canonical" href="https://acasamiacivitavecchia.it/privacy/"', 'hreflang="en" href="https://acasamiacivitavecchia.it/en/privacy/"')) and 'rel="canonical" href="https://acasamiacivitavecchia.it/en/privacy/"' in pagine['pen'])
 
+# favicon: file veri e raggiungibili (Google non legge le icone incorporate come data URI)
+check('favicon: file presenti (ico, svg, png 48/96/192)', all(os.path.exists(f) for f in ('favicon.ico', 'public/favicon.svg', 'public/favicon-48.png', 'public/favicon-96.png', 'public/favicon-192.png')))
+check('favicon: link a file veri nelle 4 pagine, nessuna icona incorporata', all('href="/favicon.ico"' in pagine[k] and 'href="/public/favicon.svg"' in pagine[k] and not re.search(r'rel="icon"[^>]*data:', pagine[k]) for k in ('it', 'en', 'pit', 'pen')))
+
 # sitemap e robots
 sm, rb = leggi('sitemap.xml'), leggi('robots.txt')
 locs = re.findall(r'<loc>([^<]+)</loc>', sm)
