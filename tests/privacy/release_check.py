@@ -35,6 +35,7 @@ for chiave in ('Vercel', 'Upstash', 'Aruba', 'Meta', '400', 'Garante', 'Le 3 let
     check(f'informative: "{chiave}" presente in IT e EN', chiave in mi and chiave in me)
 check('informative: nessun segnaposto tra parentesi quadre ne\' trattino lungo', not re.search(r'\[[A-Za-z ]+\]|—', mi + me))
 check('informative: nessuna dichiarazione di "conforme" o "certificato"', not re.search(r'conform|certificat|compliant|certified', (mi + me).lower().replace('certified email', '')))
+check('informative: nessuna affermazione di anonimato (la qualifica e\' del consulente)', not re.search(r'anonim|anonymous', (mi + me).lower()))
 check('informative: nessun DPO inventato', 'DPO' not in mi and 'Responsabile della protezione' not in mi and 'Data Protection Officer' not in me)
 check('informative: dichiarano assenza di cookie e di storage', 'non usa cookie' in mi and 'does not use cookies' in me)
 check('link informativa nel footer di / e /en/', 'href="/privacy/"' in pagine['it'] and 'href="/en/privacy/"' in pagine['en'])
