@@ -39,6 +39,15 @@ VESTITO = os.path.join(ROOT, "source", "vestito.html")  # nuovo vestito grafico 
 # serve il sito, portalo a "https://acasamiacivitavecchia.it" e aggiungi il
 # redirect 301 da acasamia.satoshiweb.it verso il nuovo dominio.
 SITE_URL = "https://acasamiacivitavecchia.it"
+# Ahrefs Web Analytics: spento finche' il titolare e il consulente non lo validano. Per riaccenderlo: AHREFS_ANALYTICS=1 python3 build.py
+AHREFS_ATTIVO = os.environ.get("AHREFS_ANALYTICS") == "1"
+
+
+def blocchi_ahrefs(testo):
+    """toglie dal testo i blocchi <!--AHREFS:SI--> (se spento) o <!--AHREFS:NO--> (se acceso)"""
+    tieni, butta = ("SI", "NO") if AHREFS_ATTIVO else ("NO", "SI")
+    testo = re.sub(r"<!--AHREFS:%s-->.*?<!--/AHREFS:%s-->" % (butta, butta), "", testo, flags=re.S)
+    return re.sub(r"<!--/?AHREFS:%s-->" % tieni, "", testo)
 
 # (alt text che identifica univocamente il tag, nome file, eager?, sizes per
 # il srcset — None per l'hero, che ha la sua gestione a parte)
@@ -254,7 +263,7 @@ def build_vestito():
             small.save(os.path.join(OUT_IMG, "%s-%d.webp" % (name, w)), "WEBP", quality=q_small, method=6)
         print(f"  {name}: {im.width}x{im.height}")
     build_og_image(os.path.join(OUT_IMG, "hero.webp"), os.path.join(OUT_IMG, "og-image.jpg"))
-    page = open(VESTITO, encoding="utf-8").read().replace("__SITE_URL__", SITE_URL)
+    page = blocchi_ahrefs(open(VESTITO, encoding="utf-8").read().replace("__SITE_URL__", SITE_URL))
     en_page = make_en(page)
     os.makedirs(os.path.dirname(OUT_EN), exist_ok=True)
     open(OUT_EN, "w", encoding="utf-8").write(en_page)
@@ -269,7 +278,7 @@ def build_privacy(page):
     """/privacy/ e /en/privacy/: stessa testata e stesso footer del sito, contenuto da source/privacy_*.html"""
     def pagina(base, lingua):
         it = lingua == "it"
-        main = open(os.path.join(ROOT, "source", "privacy_%s.html" % lingua), encoding="utf-8").read().strip()
+        main = blocchi_ahrefs(open(os.path.join(ROOT, "source", "privacy_%s.html" % lingua), encoding="utf-8").read()).strip()
         pre = "" if it else "/en"
         p = re.sub(r"<main id=\"top\">.*?</main>", lambda m: main, base, count=1, flags=re.S)
         p = re.sub(r'<script type="application/ld\+json">.*?</script>\n?', "", p, count=1, flags=re.S)

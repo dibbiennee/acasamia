@@ -612,19 +612,6 @@ document.addEventListener('click',function(e){
 },false);
 </script>
 <script>
-/* statistiche di Ahrefs (senza cookie): si caricano solo sul dominio vero e solo se il browser
-   non chiede di non essere tracciato (Do Not Track o Global Privacy Control). */
-(function(){
-  var n=navigator;
-  if(n.doNotTrack==='1'||window.doNotTrack==='1'||n.msDoNotTrack==='1'||n.globalPrivacyControl)return;
-  if(!/^(www\.)?acasamiacivitavecchia\.it$/.test(location.hostname))return;
-  var a=document.createElement('script');
-  a.src='https://analytics.ahrefs.com/analytics.js';a.async=true;
-  a.setAttribute('data-key','hIzDm/FmR4SiCaal6/pKGA');
-  document.head.appendChild(a);
-})();
-</script>
-<script>
 /* statistiche anonime, senza cookie e senza identificatori: conta visite, clic sui contatti e sezioni raggiunte.
    Rispetta Do Not Track e Global Privacy Control. Niente viene scritto nel browser. */
 (function(){
@@ -637,7 +624,8 @@ document.addEventListener('click',function(e){
   }
   var ref='';try{ref=document.referrer?new URL(document.referrer).hostname:''}catch(x){}
   var u='';try{u=(new URLSearchParams(location.search).get('utm_source')||'').toLowerCase().replace(/[^a-z0-9_-]/g,'').slice(0,20)}catch(x){}
-  post([{t:'pv',r:ref.slice(0,60),u:u}]);
+  var st0=document.getElementById('status');
+  post([{t:'pv',r:ref.slice(0,60),u:u,o:st0&&st0.getAttribute('data-open')==='true'?1:0}]);
   function pos(el){
     if(el.closest('.bar'))return'barra';if(el.closest('.top'))return'header';if(el.closest('footer'))return'footer';if(el.closest('.hero'))return'hero';
     var s=el.closest('section[id]');return s?s.id:'altro';

@@ -1,7 +1,7 @@
 <main id="top" class="legal">
   <div class="wrap">
     <h1>Informativa privacy</h1>
-    <p class="nota">Ultimo aggiornamento: 12 ottobre 2026</p>
+    <p class="nota">Ultimo aggiornamento: 13 ottobre 2026</p>
     <p>Questa pagina spiega quali dati tratta il sito acasamiacivitavecchia.it e come, ai sensi dell’art. 13 del Regolamento UE 2016/679 (GDPR).</p>
 
     <h2>Chi è il titolare</h2>
@@ -10,9 +10,11 @@
     <h2>In sintesi</h2>
     <ul>
       <li>Il sito <b>non usa cookie</b> e non scrive nulla nel tuo browser (nessun <i>localStorage</i> o&nbsp;<i>sessionStorage</i>).</li>
-      <li>Le nostre statistiche sono <b>solo aggregate</b>: contiamo quante volte viene aperto il sito, non chi sei, e non creiamo alcun codice o identificativo per visitatore. In più usiamo il servizio di statistiche di Ahrefs (vedi sotto).</li>
+      <!--AHREFS:SI--><li>Le nostre statistiche sono <b>solo aggregate</b>: contiamo quante volte viene aperto il sito, non chi sei, e non creiamo alcun codice o identificativo per visitatore. In più il sito usa il servizio di statistiche di Ahrefs, che funziona in modo diverso (vedi sotto).</li><!--/AHREFS:SI-->
+      <!--AHREFS:NO--><li>Le statistiche sono <b>solo aggregate</b>: contiamo quante volte viene aperto il sito, non chi sei. Non esiste alcun codice o identificativo per visitatore.</li><!--/AHREFS:NO-->
       <li>Se il tuo browser ha attivo <b>Do Not Track</b> o&nbsp;<b>Global Privacy Control</b>, il sito non conta nulla.</li>
-      <li>Font, immagini e mappa sono ospitati sul sito. L’unico servizio esterno che si carica da solo è lo script di statistiche di Ahrefs; gli altri servizi si contattano solo se fai clic su un link.</li>
+      <!--AHREFS:SI--><li>Font, immagini e mappa sono ospitati sul sito. L’unico servizio esterno che si carica da solo è lo script di statistiche di Ahrefs; gli altri servizi si contattano solo se fai clic su un link.</li><!--/AHREFS:SI-->
+      <!--AHREFS:NO--><li>Font, immagini e mappa sono ospitati sul sito: nessuna richiesta a servizi esterni finché non fai clic su un link.</li><!--/AHREFS:NO-->
     </ul>
 
     <h2>Quali dati vengono trattati</h2>
@@ -22,31 +24,34 @@
     <p>Tutto finisce in contatori per giorno, non collegati a una persona. Non salviamo l’indirizzo IP nelle statistiche, non creiamo codici o impronte del dispositivo e non usiamo cookie. I contatori sono conservati per 400&nbsp;giorni.</p>
     <p><b>Finalità:</b> capire come viene usato il sito e migliorarlo. <b>Base giuridica:</b> legittimo interesse del titolare (art. 6.1.f GDPR).</p>
 
+    <!--AHREFS:SI-->
     <h3>Statistiche di Ahrefs</h3>
-    <p>Il sito carica lo script di statistiche di Ahrefs (Ahrefs Web Analytics), che funziona senza cookie. Lo&nbsp;script registra i dati tecnici della visita (pagina vista, provenienza, tipo di browser e di apparecchio, paese ricavato dall’indirizzo IP) e li invia ad Ahrefs, che li elabora per conto nostro e ci mostra solo dati aggregati. Lo script non si carica se il tuo browser ha attivo <b>Do Not Track</b> o&nbsp;<b>Global Privacy Control</b>.</p>
-    <p><b>Finalità:</b> capire da dove arrivano i visitatori e come viene trovato il sito. <b>Base giuridica:</b> legittimo interesse del titolare (art. 6.1.f GDPR). <b>Conservazione:</b> per il periodo stabilito da Ahrefs.</p>
+    <p>Il sito carica lo script di statistiche di Ahrefs (Ahrefs Web Analytics), che secondo Ahrefs non usa cookie. A ogni visita lo script invia ad Ahrefs la pagina visitata (solo il percorso, senza i parametri dell’indirizzo), la provenienza, la lingua del browser, le dimensioni dello schermo e alcuni eventi come i clic sui link. Ahrefs ricava dall’indirizzo IP una posizione approssimativa a livello di città e, dal browser, il tipo di browser, di apparecchio e di sistema operativo. Per contare i visitatori unici di un giorno, Ahrefs crea un codice pseudonimo dalla combinazione di indirizzo IP, browser e un valore che cambia ogni giorno: secondo Ahrefs, questo codice non permette di riconoscere lo stesso visitatore in giorni diversi e l’indirizzo IP non viene conservato.</p>
+    <p>Lo script non si carica se il tuo browser ha attivo <b>Do Not Track</b> o&nbsp;<b>Global Privacy Control</b>. Ahrefs non indica tempi di conservazione precisi per questi dati.</p>
+    <p><b>Finalità:</b> capire da dove arrivano i visitatori e come viene trovato il sito. <b>Base giuridica:</b> legittimo interesse del titolare (art. 6.1.f GDPR).</p>
+    <!--/AHREFS:SI-->
 
     <h3>Dati tecnici dell’hosting</h3>
-    <p>Per mostrare il sito, il fornitore di hosting (Vercel) registra i dati tecnici di ogni richiesta, tra cui l’indirizzo IP, la data e l’ora, la pagina richiesta e il tipo di browser. Il suo sistema di protezione limita le richieste ripetute: per farlo usa l’indirizzo IP e può respingere temporaneamente le richieste di un indirizzo che supera il limite.</p>
-    <p><b>Finalità:</b> far funzionare il sito e proteggerlo dagli abusi. <b>Base giuridica:</b> legittimo interesse (art. 6.1.f GDPR). <b>Conservazione:</b> per il periodo stabilito dal fornitore.</p>
+    <p>Per mostrare il sito, il fornitore di hosting (Vercel) registra i dati tecnici di ogni richiesta, tra cui l’indirizzo IP, la data e l’ora, la pagina richiesta e il tipo di browser. I contenuti sono distribuiti da una rete di server in più paesi, quindi la richiesta può passare dal server più vicino a te. Il sistema di protezione limita le richieste ripetute: per farlo usa l’indirizzo IP e può respingere temporaneamente le richieste di un indirizzo che supera il limite.</p>
+    <p>Le nostre statistiche non leggono né salvano questo indirizzo. <b>Finalità:</b> far funzionare il sito e proteggerlo dagli abusi. <b>Base giuridica:</b> legittimo interesse (art. 6.1.f GDPR). <b>Conservazione:</b> per il periodo stabilito dal fornitore.</p>
 
     <h3>Quando ci contatti</h3>
-    <p>Se chiami, scrivi su WhatsApp o mandi un’e-mail, trattiamo i dati che ci fornisci (per esempio numero di telefono, nome e contenuto del messaggio) per risponderti o organizzare un evento. <b>Base giuridica:</b> la tua richiesta e le misure precontrattuali (art. 6.1.b GDPR). Li conserviamo per il tempo necessario a gestire la richiesta e agli obblighi di legge.</p>
+    <p>Se chiami, scrivi su WhatsApp o mandi un’e-mail, trattiamo i dati che ci fornisci (per esempio numero di telefono, nome e contenuto del messaggio) per risponderti o organizzare un evento. <b>Base giuridica:</b> la tua richiesta e le misure precontrattuali (art. 6.1.b GDPR). Li conserviamo per il tempo necessario a gestire la richiesta e agli obblighi di legge. Se scrivi su WhatsApp, il servizio è gestito da Meta, che tratta i dati secondo la propria informativa.</p>
 
     <h2>Servizi di terzi</h2>
-    <p>Oltre ad Ahrefs (descritto sopra), il sito contiene collegamenti a Google Maps, Apple Maps, Google (recensioni), Glovo, Instagram, Facebook e&nbsp;WhatsApp. Finché non fai clic, il nostro sito non invia dati a questi servizi. Se fai clic, lasci il sito e si applica l’informativa del servizio scelto. La mappa nella pagina è un’immagine ospitata sul sito (© OpenStreetMap&nbsp;contributors).</p>
+    <p><!--AHREFS:SI-->Oltre ad Ahrefs (descritto sopra), il<!--/AHREFS:SI--><!--AHREFS:NO-->Il<!--/AHREFS:NO--> sito contiene collegamenti a Google Maps, Apple Maps, Google (recensioni), Glovo, Instagram, Facebook e&nbsp;WhatsApp. Finché non fai clic, il nostro sito non invia dati a questi servizi. Se fai clic, lasci il sito e si applica l’informativa del servizio scelto. La mappa nella pagina è un’immagine ospitata sul sito (© OpenStreetMap&nbsp;contributors).</p>
 
-    <h2>Chi tratta i dati per nostro conto</h2>
+    <h2>Fornitori coinvolti</h2>
     <ul>
       <li><b>Vercel Inc.</b>, con sede negli Stati Uniti: hosting e rete di distribuzione del sito. Le funzioni del sito girano nell’Unione Europea (Francoforte).</li>
       <li><b>Upstash, Inc.</b>, con sede negli Stati Uniti: archivio dei contatori aggregati, su server a Francoforte (Germania).</li>
-      <li><b>Ahrefs Pte. Ltd.</b>, con sede a Singapore: statistiche di utilizzo del sito.</li>
+      <!--AHREFS:SI--><li><b>Ahrefs Pte. Ltd.</b>, con sede a Singapore: statistiche di utilizzo del sito.</li><!--/AHREFS:SI-->
       <li><b>Aruba S.p.A.</b>, Italia: nome di dominio e posta elettronica.</li>
     </ul>
-    <p>Poiché due fornitori sono società statunitensi e uno ha sede a Singapore, i dati tecnici possono essere trattati anche fuori dall’Unione Europea, con le garanzie previste dal GDPR (clausole contrattuali standard o decisione di adeguatezza), come indicato negli accordi sul trattamento dei dati pubblicati dai fornitori. I dati non sono diffusi né venduti.</p>
+    <p>Il ruolo di ciascun fornitore (responsabile del trattamento per nostro conto o titolare autonomo per i propri dati di servizio) è definito nei rispettivi accordi sul trattamento dei dati. <!--AHREFS:SI-->Poiché due fornitori hanno sede negli Stati Uniti e uno a Singapore, i dati tecnici possono essere trattati anche fuori dall’Unione Europea.<!--/AHREFS:SI--><!--AHREFS:NO-->Poiché due fornitori hanno sede negli Stati Uniti, i dati tecnici possono essere trattati anche fuori dall’Unione Europea.<!--/AHREFS:NO--> Vercel indica come garanzia le clausole contrattuali standard della Commissione europea; per gli altri fornitori le garanzie sono quelle previste nei rispettivi accordi. I dati non sono diffusi né venduti.</p>
 
     <h2>I tuoi diritti</h2>
-    <p>Puoi chiedere accesso, rettifica, cancellazione, limitazione e&nbsp;portabilità dei tuoi dati, oppure opporti al&nbsp;trattamento (artt. 15-22 GDPR). Scrivi a:<br><a href="mailto:info@acasamiacivitavecchia.it">info@acasamiacivitavecchia.it</a><br> Puoi anche proporre reclamo al Garante per la protezione dei dati personali (www.garanteprivacy.it). I contatori delle statistiche sono aggregati e non permettono di risalire a una persona.</p>
+    <p>Puoi chiedere accesso, rettifica, cancellazione, limitazione e&nbsp;portabilità dei tuoi dati, oppure opporti al&nbsp;trattamento (artt. 15-22 GDPR). Scrivi a:<br><a href="mailto:info@acasamiacivitavecchia.it">info@acasamiacivitavecchia.it</a><br>Puoi anche proporre reclamo al Garante per la protezione dei dati personali (www.garanteprivacy.it). I contatori delle nostre statistiche sono aggregati e non permettono di risalire a una persona.</p>
 
     <h2>Altre informazioni</h2>
     <p>Non esistono processi decisionali automatizzati né profilazione. Navigare il sito non richiede di fornire dati personali. Possiamo aggiornare questa informativa: la data in alto indica l’ultima versione.</p>
