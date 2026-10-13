@@ -1,7 +1,8 @@
 // Funzioni condivise per le statistiche anonime di A casa mia.
-// Nessun cookie, nessun indirizzo IP salvato: l'IP serve solo a calcolare,
-// al momento, un codice che cambia ogni giorno e finisce in un contatore
-// (HyperLogLog) da cui non si puo' risalire a nessuno.
+// Le statistiche NON leggono ne' salvano l'indirizzo IP e non creano identificativi di visitatori:
+// archiviano solo contatori per giorno (Upstash Redis, scadenza 400 giorni).
+// L'unico uso dell'IP qui dentro e' il blocco dei tentativi sbagliati sulla password del pannello,
+// tenuto in memoria della funzione per pochi minuti e mai scritto su disco ne' nell'archivio.
 
 const crypto = require('crypto');
 
