@@ -85,7 +85,6 @@ p{margin:0}
 :focus-visible{outline:3px solid var(--blush);outline-offset:3px;border-radius:6px}
 .wrap{padding-inline:1.25rem;max-width:44rem;margin-inline:auto}
 section{padding-block:3.25rem;scroll-margin-top:4rem}
-.eyebrow{font-size:.875rem;letter-spacing:.16em;text-transform:uppercase;color:var(--red-ink);font-weight:500;margin-bottom:.75rem}
 h2{font-size:2.35rem;margin-bottom:.9rem}
 .lead{color:var(--ink-soft);max-width:34rem}
 
@@ -110,12 +109,9 @@ h2{font-size:2.35rem;margin-bottom:.9rem}
 .hero-panel{background:var(--green);color:var(--on-green);margin-top:-1.75rem;border-radius:1.75rem 1.75rem 0 0;position:relative;padding-block:1.5rem 1.75rem}
 .hero-panel h1{font-size:clamp(3.4rem,17vw,5.5rem);font-weight:500;letter-spacing:-.01em}
 .sub{font-size:.875rem;letter-spacing:.28em;text-transform:uppercase;margin:.9rem 0 1.1rem;color:var(--blush)}
-.status{text-decoration:none;color:inherit;display:inline-flex;align-items:center;gap:.6rem;border:1px solid color-mix(in srgb,var(--on-green) 28%,transparent);border-radius:99px;padding:.5rem 1rem;font-size:.95rem;min-height:2.5rem}
-.dot{width:.6rem;height:.6rem;border-radius:50%;background:var(--closed)}
-.status::after{content:"›";font-size:1.25rem;line-height:1;opacity:.7;margin-left:.1rem}
-.status[data-open="true"] .dot{background:var(--open);box-shadow:0 0 0 .3rem color-mix(in srgb,var(--open) 25%,transparent)}
+.status{color:inherit;display:inline-flex;align-items:center;font-size:.95rem;min-height:2.75rem;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.28em;text-decoration-color:color-mix(in srgb,var(--on-green) 45%,transparent)}
 .sr{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
-.tag{margin:0;font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(1.9rem,8.2vw,2.2rem);line-height:1.12;max-width:none}
+.tag{margin:0;font-family:var(--serif);font-weight:500;font-size:clamp(1.9rem,8.2vw,2.2rem);line-height:1.12;max-width:none}
 .where{margin-top:1rem;color:color-mix(in srgb,var(--on-green) 75%,transparent);font-size:.95rem}
 
 /* invito a scorrere */
@@ -195,8 +191,7 @@ h2{font-size:2.35rem;margin-bottom:.9rem}
 .shop{background:var(--green);color:var(--on-green)}
 .shop img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:50% 45%;border-radius:1rem;margin:.25rem 0 1.6rem}
 .shop .lead{color:color-mix(in srgb,var(--on-green) 78%,transparent)}
-.shop .eyebrow{color:var(--blush)}
-.link{display:inline-flex;align-items:center;min-height:2.75rem;margin-top:.8rem;color:var(--blush);font-weight:500;text-underline-offset:.3em}
+.shop .link{display:inline-flex;align-items:center;min-height:2.75rem;margin-top:.8rem;color:var(--blush);font-weight:500;text-underline-offset:.3em}
 
 /* galleria */
 .grid{display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:9.5rem;gap:.5rem;margin-top:1.5rem}
@@ -253,8 +248,7 @@ footer small{display:block;margin-top:1.6rem;opacity:.7;font-size:.875rem;letter
   #recensioni{padding-block:3rem}
   #recensioni .rev-r .lead{display:block}
   h2{font-size:4rem;line-height:1.02;margin-bottom:1.5rem}
-  .eyebrow{font-size:.875rem;margin-bottom:1rem}
-  .lead{font-size:1.1875rem}
+    .lead{font-size:1.1875rem}
   .top .wrap{height:4.75rem;gap:1.5rem}
   #orari-dove{scroll-margin-top:7rem}
   .brand{gap:.8rem}
@@ -270,7 +264,7 @@ footer small{display:block;margin-top:1.6rem;opacity:.7;font-size:.875rem;letter
   .hero-panel .wrap{max-width:none;padding:0;margin:0}
   .hero-photo{order:2;aspect-ratio:auto;max-height:none;width:100%;height:100%;min-height:0}
   .sub{font-size:.9375rem;margin:1.375rem 0 1.5rem}
-  .status{padding:.5625rem 1.125rem;font-size:1rem}
+  .status{font-size:1rem}
   .tag{font-size:3.5rem;line-height:1.08;max-width:none}
   .where{margin-top:1rem;font-size:1.0625rem;max-width:30rem}
   .hero-cta{display:flex;gap:.625rem;margin-top:1.5rem;flex-wrap:wrap}
@@ -322,9 +316,10 @@ footer small{display:block;margin-top:1.6rem;opacity:.7;font-size:.875rem;letter
   .map{margin-top:1.375rem}
   .mapbtns{gap:.625rem;margin-top:.625rem}
   /* negozio */
-  .shop .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:5rem;align-items:center}
-  .shop img{grid-column:1;grid-row:1 / span 4;height:27.5rem;aspect-ratio:auto;margin:0;border-radius:1.25rem}
-  .shop .eyebrow,.shop h2,.shop .lead,.shop .link{grid-column:2}
+  .shop .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:1fr auto auto auto 1fr;column-gap:5rem;align-items:center}
+  .shop img{grid-column:1;grid-row:1 / span 5;height:27.5rem;aspect-ratio:auto;margin:0;border-radius:1.25rem}
+  .shop h2,.shop .lead,.shop .link{grid-column:2}
+  .shop h2{grid-row:2}.shop .lead{grid-row:3}.shop .link{grid-row:4}
   .shop .lead{font-size:1.1875rem;max-width:31rem}
   .shop .link{justify-self:start;margin-top:1.625rem}
   /* galleria */
@@ -414,7 +409,7 @@ main.legal a{color:var(--red-ink,var(--red));text-decoration:underline;text-unde
       <h1 class="sr">A casa mia</h1>
       <p class="tag">The go-to place<br>for a break worth&nbsp;savouring.</p>
       <p class="sub">caffè · brunch · aperitivo</p>
-      <a class="status" id="status" href="#orari-dove" data-open="true" aria-live="polite" data-evento="orari"><span class="dot"></span><span id="status-text"></span></a>
+      <a class="status" id="status" href="#orari-dove" data-open="true" aria-live="polite" data-evento="orari"><span id="status-text"></span></a>
       <p class="where">In the heart of Civitavecchia, a few steps from the&nbsp;port.</p>
       <div class="hero-cta">
         <a class="b-red" href="https://www.google.com/maps/search/?api=1&amp;query=A+casa+mia+Via+XVI+Settembre+4+Civitavecchia&amp;query_place_id=ChIJe4oLuT-jKBMRC1LSgftPCaM" target="_blank" rel="noopener" data-evento="indicazioni"><svg aria-hidden="true"><use href="#i-pin"/></svg><span>Directions</span></a>
@@ -428,7 +423,6 @@ main.legal a{color:var(--red-ink,var(--red));text-decoration:underline;text-unde
 
   <section class="day" id="giornata">
     <div class="wrap">
-      <p class="eyebrow">A day at A casa mia</p>
       <h2>From the first coffee to the&nbsp;aperitivo.</h2>
       <p class="lead">Handmade recipes, seasonal ingredients and the work of small&nbsp;producers.</p>
       <div class="rail" tabindex="0" role="group" aria-label="Sweet breakfasts, brunch, lunch, aperitivo">
@@ -443,7 +437,6 @@ main.legal a{color:var(--red-ink,var(--red));text-decoration:underline;text-unde
 
   <section id="servizi">
     <div class="wrap">
-      <p class="eyebrow">Beyond the café</p>
       <h2>Order or celebrate with&nbsp;us.</h2>
       <div class="services">
         <a class="svc" href="https://glovoapp.com/it/it/civitavecchia/stores/a-casa-mia-cvt" target="_blank" rel="noopener" data-evento="glovo"><div><h3>Order with Glovo</h3><p>Home delivery in Civitavecchia.</p></div><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
@@ -456,7 +449,6 @@ main.legal a{color:var(--red-ink,var(--red));text-decoration:underline;text-unde
     <div class="wrap">
       <div class="rev-in">
       <div class="rev-l">
-      <p class="eyebrow">Reviews</p>
       <div class="rating">
         <div class="big">4,7</div>
         <div><div class="stars" aria-hidden="true"><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg></div><small>on Google · 43 reviews</small></div>
@@ -475,7 +467,6 @@ main.legal a{color:var(--red-ink,var(--red));text-decoration:underline;text-unde
 
   <section class="shop" id="negozio">
     <div class="wrap">
-      <p class="eyebrow">Our products</p>
       <img src="/public/img/negozio.webp" srcset="/public/img/negozio-640.webp 640w, /public/img/negozio-960.webp 960w, /public/img/negozio.webp 1280w" sizes="(min-width:48rem) 704px, 100vw" width="1280" height="1600" alt="Martelli artisan pasta on the shelf" loading="lazy" fetchpriority="low">
       <h2>From us... to your&nbsp;home.</h2>
       <p class="lead">A carefully chosen selection of specialities from our small producers, to buy and take straight home with&nbsp;you.</p>
@@ -485,7 +476,6 @@ main.legal a{color:var(--red-ink,var(--red));text-decoration:underline;text-unde
 
   <section id="galleria">
     <div class="wrap">
-      <p class="eyebrow">Gallery</p>
       <h2>A look&nbsp;inside.</h2>
       <div class="grid">
         <img class="w" src="/public/img/interno.webp" srcset="/public/img/interno-640.webp 640w, /public/img/interno-960.webp 960w, /public/img/interno.webp 1280w" sizes="(min-width:48rem) 704px, 100vw" width="1280" height="1600" alt="The travertine counter and the tables" loading="lazy" fetchpriority="low">
@@ -506,8 +496,7 @@ main.legal a{color:var(--red-ink,var(--red));text-decoration:underline;text-unde
     <div class="wrap">
       <img class="sign" src="/public/img/insegna.webp" srcset="/public/img/insegna-640.webp 640w, /public/img/insegna-960.webp 960w, /public/img/insegna.webp 1280w" sizes="(min-width:48rem) 704px, 100vw" width="1280" height="1600" alt="The A casa mia front with its sign and awning" loading="lazy" fetchpriority="low">
       <div class="dove-testo">
-      <p class="eyebrow" id="orari-dove">Hours and location</p>
-      <h2>In the heart of&nbsp;Civitavecchia.</h2>
+      <h2 id="orari-dove">In the heart of&nbsp;Civitavecchia.</h2>
       <ul class="hours" id="hours"><li data-d="1"><span>Monday</span><span>7:00 – 17:00</span></li><li data-d="2"><span>Tuesday</span><span>7:00 – 17:00</span></li><li data-d="3"><span>Wednesday</span><span>7:00 – 17:00</span></li><li data-d="4"><span>Thursday</span><span>7:00 – 17:00</span></li><li data-d="5"><span>Friday</span><span>7:00 – 17:00</span></li><li data-d="6"><span>Saturday</span><span>8:00 – 15:00</span></li><li data-d="0"><span>Sunday</span><span>8:00 – 15:00</span></li></ul>
       <p class="hours-note">No booking needed: just walk in and take a&nbsp;seat.</p>
       <div class="map">
