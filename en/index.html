@@ -413,15 +413,21 @@ html.hw-open .hw-pan{transform:none;visibility:visible}
 .hw-pan .hw-btn.sec{color:var(--ink)}
 .hw-priv{margin:.9rem 0 0;font-size:.875rem;color:var(--ink-soft);text-align:center}
 /* striscia: sottile, il pulsante non tocca i bordi (area di tocco allargata senza ingrandirlo) */
-.hw-strip{display:flex;align-items:center;justify-content:center;gap:.625rem;background:var(--notte);color:#F7F1E3;min-height:2.75rem;padding:0 .25rem 0 .75rem;font-size:.9375rem}
+.hw-strip{display:flex;align-items:center;justify-content:center;gap:.5rem;background:var(--notte);color:#F7F1E3;min-height:2.75rem;padding:0 .125rem 0 .625rem;font-size:.875rem}
 .hw-strip .hw-mini{width:1.5rem;height:1.5rem;flex:none;border-radius:.25rem}
-.hw-strip a{color:inherit;text-decoration:none;padding-block:.75rem;line-height:1.2}
+.hw-strip a{color:inherit;text-decoration:none;padding-block:.75rem;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
 .hw-strip b{font-weight:500;color:var(--gold)}
 .hw-strip .hw-go{position:relative;background:var(--red);color:#fff;border:0;border-radius:99px;font:500 .875rem/1 var(--sans);padding:.5rem .875rem;cursor:pointer;flex:none}
 .hw-strip .hw-go::before{content:"";position:absolute;inset:-.4375rem 0}
-.hw-strip .hw-x{width:2.75rem;height:2.75rem;font-size:1.25rem;flex:none}
+.hw-strip .hw-x{width:2.5rem;height:2.75rem;font-size:1.25rem;flex:none}
+@media (min-width:48rem){.hw-strip{font-size:.9375rem;gap:.75rem}}
 /* sezione: compatta, prenotazione subito in vista */
-.hw-sezione{position:relative;overflow:hidden;color:#F7F1E3;padding:2.5rem 1.25rem 2.75rem;background:radial-gradient(60% 45% at 22% 18%,rgba(120,125,70,.4),transparent 72%),linear-gradient(#173a34,#10231f)}
+.hw-sezione{position:relative;overflow:hidden;color:#F7F1E3;padding:3.25rem 1.25rem 2.75rem;background:radial-gradient(60% 45% at 22% 30%,rgba(120,125,70,.38),transparent 72%),linear-gradient(var(--green) 0,#173a34 35%,#10231f)}
+/* divisorio tra hero e evento: filo chiaro con un pipistrello al centro */
+.hw-div{position:absolute;left:1.25rem;right:1.25rem;top:1.25rem;display:flex;align-items:center;gap:.875rem;color:#F7F1E3;pointer-events:none}
+.hw-div::before,.hw-div::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,color-mix(in srgb,#F7F1E3 55%,transparent) 30%,color-mix(in srgb,#F7F1E3 55%,transparent))}
+.hw-div::after{background:linear-gradient(270deg,transparent,color-mix(in srgb,#F7F1E3 55%,transparent) 30%,color-mix(in srgb,#F7F1E3 55%,transparent))}
+.hw-div svg{width:1.75rem;height:auto;opacity:.9}
 .hw-sezione:before{content:"";position:absolute;inset:0;background-image:radial-gradient(1.5px 1.5px at 12% 70%,#fff9 50%,transparent 51%),radial-gradient(1.5px 1.5px at 78% 12%,#fff8 50%,transparent 51%),radial-gradient(1px 1px at 63% 42%,#fff7 50%,transparent 51%),radial-gradient(1.5px 1.5px at 90% 75%,#fff7 50%,transparent 51%),radial-gradient(1px 1px at 40% 92%,#fff6 50%,transparent 51%);pointer-events:none}
 .hw-wrap{position:relative;max-width:44rem;margin:0 auto}
 .hw-top{display:grid;grid-template-columns:6.5rem minmax(0,1fr);gap:1.125rem;align-items:center}
@@ -437,10 +443,11 @@ html.hw-open .hw-pan{transform:none;visibility:visible}
 .hw-alt{margin:.75rem 0 0;text-align:center;font-size:.9375rem;color:color-mix(in srgb,#F7F1E3 75%,transparent)}
 .hw-alt a{color:#F7F1E3;text-underline-offset:.25em;display:inline-block;padding-block:.75rem;margin-block:-.75rem}
 .hw-bat{position:absolute;color:#F7F1E3;opacity:.85;width:2rem}
-.hw-bat.b1{right:.25rem;top:-1.5rem;transform:rotate(8deg)}
+.hw-bat.b1{display:none}
 .hw-bat.b2{display:none}
 @media (min-width:48rem){
-  .hw-sezione{padding:3.5rem 2.5rem}
+  .hw-sezione{padding:4.5rem 2.5rem 3.5rem}
+  .hw-div{left:2.5rem;right:2.5rem;top:1.75rem;max-width:72rem;margin:0 auto}
   .hw-wrap{max-width:62rem;display:grid;grid-template-columns:15rem minmax(0,1fr);column-gap:3.5rem;align-items:center}
   .hw-top{display:contents}
   .hw-ill{grid-row:1 / span 5;width:15rem}
@@ -451,7 +458,7 @@ html.hw-open .hw-pan{transform:none;visibility:visible}
   .hw-cta-box{display:flex;align-items:center;gap:1.25rem}
   .hw-sezione .hw-btn.pri{width:auto;padding-inline:1.75rem}
   .hw-alt{margin:0}
-  .hw-bat.b1{right:2rem;top:1.5rem;width:3rem}.hw-bat.b2{display:block;right:7rem;top:3.5rem;width:2rem;transform:rotate(-10deg)}
+  .hw-bat.b1{display:block;right:2rem;top:1.5rem;width:3rem;transform:rotate(8deg)}.hw-bat.b2{display:block;right:7rem;top:3.5rem;width:2rem;transform:rotate(-10deg)}
 }
 
 </style>
@@ -499,7 +506,7 @@ html.hw-open .hw-pan{transform:none;visibility:visible}
 <path d="M300 289C282 300 282 370 300 381M300 289C318 300 318 370 300 381M262 301C256 318 256 352 266 369M338 301C344 318 344 352 334 369" stroke="#B2501A" stroke-width="3" fill="none" opacity=".7"/>
 <path d="M273 322L291 322L282 337ZM309 322L327 322L318 337Z" fill="#12302B"/>
 <path d="M272 349C282 366 291 358 300 366C309 358 318 366 328 349C318 354 309 349 300 355C291 349 282 354 272 349Z" fill="#12302B"/>
-</svg><a href="#halloween">Halloween DJ night, <b>Saturday 31</b></a><button class="hw-go" data-hw-open type="button">Book</button><button class="hw-x" type="button" aria-label="Close" data-hw-strip-x>&times;</button></div>
+</svg><a href="#halloween">Halloween night <b>is at our place</b></a><button class="hw-go" data-hw-open type="button">Book</button><button class="hw-x" type="button" aria-label="Close" data-hw-strip-x>&times;</button></div>
 <header class="top">
   <div class="wrap">
     <a class="brand" href="#top" aria-label="A casa mia"><svg class="mk" aria-hidden="true"><use href="#i-logo"/></svg><svg class="wm" aria-hidden="true"><use href="#i-word"/></svg></a>
@@ -541,7 +548,7 @@ html.hw-open .hw-pan{transform:none;visibility:visible}
   </div>
   </div>
 
-  <section class="hw hw-sezione" id="halloween" aria-labelledby="hw-t"><div class="hw-wrap"><svg class="hw-bat b1" viewBox="0 0 60 26" aria-hidden="true"><path fill="currentColor" d="M0 14C9 2 19 8 30 20C41 8 51 2 60 14C52 10 46 13 42 18C38 14 34 12 30 16C26 12 22 14 18 18C14 13 8 10 0 14Z"/></svg><svg class="hw-bat b2" viewBox="0 0 60 26" aria-hidden="true"><path fill="currentColor" d="M0 14C9 2 19 8 30 20C41 8 51 2 60 14C52 10 46 13 42 18C38 14 34 12 30 16C26 12 22 14 18 18C14 13 8 10 0 14Z"/></svg>
+  <section class="hw hw-sezione" id="halloween" aria-labelledby="hw-t"><div class="hw-div" aria-hidden="true"><svg  viewBox="0 0 60 26" aria-hidden="true"><path fill="currentColor" d="M0 14C9 2 19 8 30 20C41 8 51 2 60 14C52 10 46 13 42 18C38 14 34 12 30 16C26 12 22 14 18 18C14 13 8 10 0 14Z"/></svg></div><div class="hw-wrap"><svg class="hw-bat b1" viewBox="0 0 60 26" aria-hidden="true"><path fill="currentColor" d="M0 14C9 2 19 8 30 20C41 8 51 2 60 14C52 10 46 13 42 18C38 14 34 12 30 16C26 12 22 14 18 18C14 13 8 10 0 14Z"/></svg><svg class="hw-bat b2" viewBox="0 0 60 26" aria-hidden="true"><path fill="currentColor" d="M0 14C9 2 19 8 30 20C41 8 51 2 60 14C52 10 46 13 42 18C38 14 34 12 30 16C26 12 22 14 18 18C14 13 8 10 0 14Z"/></svg>
 <div class="hw-top"><svg class="hw-ill" viewBox="0 0 400 400" role="img" aria-label="A lit window with a ghost, a spider, a black cat and a pumpkin">
 <defs><linearGradient id="hwgs" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F8DC9B"/><stop offset="1" stop-color="#E9B85A"/></linearGradient>
 <radialGradient id="hwps" cx=".5" cy=".4" r=".7"><stop offset="0" stop-color="#F0903A"/><stop offset="1" stop-color="#CC6420"/></radialGradient></defs>
