@@ -167,6 +167,8 @@ ARIA_EN = {
     "Recensioni di Google": "Google reviews",
     "Colazioni dolci, brunch, pranzo, aperitivo": "Sweet breakfasts, brunch, lunch, aperitivo",
     "Chiudi": "Close",
+    "Il locale": "The café",
+    "Contatti": "Contact",
     "Una finestra illuminata con un fantasma, un ragno, un gatto nero e una zucca": "A lit window with a ghost, a spider, a black cat and a pumpkin",
 }
 EN_TITLE = "A casa mia · Café, brunch and aperitivo in Civitavecchia"
@@ -313,7 +315,7 @@ def build_privacy(page):
         p = re.sub(r'<link rel="alternate" hreflang="x-default" href="[^"]*">', '<link rel="alternate" hreflang="x-default" href="%s/privacy/">' % SITE_URL, p)
         # menu e logo tornano alla pagina principale
         p = p.replace('<a class="brand" href="#top"', '<a class="brand" href="%s/"' % pre, 1)
-        for ancora in ("giornata", "recensioni", "dove"):
+        for ancora in ("giornata", "servizi", "negozio", "galleria", "recensioni", "dove"):
             p = p.replace('<a href="#%s"' % ancora, '<a href="%s/#%s"' % (pre, ancora))
         p = re.sub(r'<a id="l-it" href="/" hreflang="it" lang="it"( aria-current="page")?', '<a id="l-it" href="/privacy/" hreflang="it" lang="it"%s' % (' aria-current="page"' if it else ""), p)
         p = re.sub(r'<a id="l-en" href="/en/" hreflang="en" lang="en"( aria-current="page")?', '<a id="l-en" href="/en/privacy/" hreflang="en" lang="en"%s' % ("" if it else ' aria-current="page"'), p)

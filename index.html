@@ -227,15 +227,20 @@ html[lang="en"] .hours li.today span:first-child::after{content:" · today"}
 .contacts a{display:flex;align-items:center;gap:.8rem;padding:.55rem 0;text-decoration:none;min-height:2.75rem}
 .contacts svg{width:1.3rem;height:1.3rem;color:var(--red-ink);flex:none}
 
-footer{background:var(--green);color:var(--on-green);padding-block:2.5rem 2rem;text-align:center;font-size:.95rem}
-footer .brand{--mk:var(--blush);--wm:var(--on-green);justify-content:center;margin-bottom:.8rem}
-footer nav{display:flex;justify-content:center;gap:1.4rem;flex-wrap:wrap;margin-top:1rem}
-footer nav a{display:inline-flex;align-items:center;min-height:2.75rem}
+footer{background:var(--green);color:var(--on-green);padding-block:2.5rem 2rem;font-size:.95rem}
+footer .brand{--mk:var(--blush);--wm:var(--on-green);justify-content:flex-start;margin-bottom:.8rem}
+.foot-grid{display:grid;gap:2rem}
+.foot-l p{margin:0 0 .25rem;color:color-mix(in srgb,var(--on-green) 85%,transparent)}
+.foot-col{display:flex;flex-direction:column;align-items:flex-start}
+.foot-col a{display:inline-flex;align-items:center;min-height:2.75rem;color:var(--on-green);text-decoration:none}
+.foot-col a:hover{text-decoration:underline;text-underline-offset:.25em}
+.foot-h{font-family:var(--serif);font-size:1.375rem;font-weight:500;margin:0 0 .25rem;color:var(--blush)}
+.foot-firma{margin:1.5rem 0 0;padding-top:1.25rem;border-top:1px solid color-mix(in srgb,var(--on-green) 18%,transparent);font-size:.875rem}
+.foot-firma a{color:color-mix(in srgb,var(--on-green) 75%,transparent);display:inline-flex;align-items:center;min-height:2.75rem}
 footer .legale{margin-top:1.75rem;padding-top:1.25rem;border-top:1px solid color-mix(in srgb,var(--on-green) 18%,transparent);font-size:.875rem;line-height:1.6;color:color-mix(in srgb,var(--on-green) 82%,transparent)}
 footer .legale p{margin:0}
 footer .legale b{font-weight:500;color:var(--on-green)}
 footer .legale a{display:inline-flex;align-items:center;min-height:2.75rem}
-footer small{display:block;margin-top:1.6rem;opacity:.7;font-size:.875rem;letter-spacing:.06em}
 /* barra fissa in basso */
 .bar{position:fixed;left:0;right:0;bottom:0;z-index:30;padding:.6rem 1rem calc(.6rem + env(safe-area-inset-bottom,0px));pointer-events:none}
 .bar div{pointer-events:auto;max-width:28rem;margin-inline:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:.4rem;background:var(--green);border-radius:99px;padding:.35rem;box-shadow:0 .5rem 1.5rem rgb(0 0 0/.25)}
@@ -268,7 +273,7 @@ footer small{display:block;margin-top:1.6rem;opacity:.7;font-size:.875rem;letter
   .brand{gap:.8rem}
   .brand .mk{width:2.125rem;height:2.125rem}
   .brand .wm{height:1.625rem}
-  .menu{display:flex;gap:2.25rem;font-size:1rem;font-weight:500}
+  .menu{display:flex;gap:1.5rem;font-size:1rem;font-weight:500}
   .menu a{text-decoration:none;display:inline-flex;align-items:center;min-height:2.75rem}
   .cta-top{display:inline-flex;align-items:center;gap:.5rem;padding:.6875rem 1.25rem;border-radius:99px;background:var(--red);color:#fff;font-weight:500;font-size:.9375rem;text-decoration:none;min-height:2.75rem}
   .cta-top svg{width:1.125rem;height:1.125rem}
@@ -359,13 +364,10 @@ footer small{display:block;margin-top:1.6rem;opacity:.7;font-size:.875rem;letter
   #dove .btn{margin-top:1.875rem;padding:1rem 1.625rem}
   /* footer */
   footer{text-align:left;padding-block:3.5rem 2.25rem}
-  .foot-top{display:flex;justify-content:space-between;align-items:center;gap:2rem;flex-wrap:wrap}
   footer .brand{justify-content:flex-start;margin-bottom:.625rem}
-  footer nav{margin-top:0;gap:1.75rem;font-size:1rem}
+  .foot-grid{grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr);gap:3rem}
   footer p{font-size:1rem;opacity:.85}
-  footer small{margin-top:2.25rem;padding-top:1.25rem;border-top:1px solid color-mix(in srgb,var(--on-green) 18%,transparent)}
 }
-@media (max-width:68.7rem){.foot-top{display:block}}
 /* pagine privacy */
 main.legal{padding-block:2.5rem 3.5rem}
 main.legal h1{font-size:2.75rem;margin-bottom:.5rem}
@@ -405,7 +407,7 @@ html.hw-open .hw-pan{transform:none;visibility:visible}
 .hw-chip input:focus-visible+span{outline:2px solid var(--red);outline-offset:2px}
 .hw-msg{background:var(--paper-2);border-radius:.75rem;padding:.75rem .9rem;font-size:.9375rem;color:var(--ink-soft);margin:0 0 1rem;line-height:1.45}
 .hw-msg b{color:var(--ink);font-weight:500}
-.hw-pan .hw-cta{flex-direction:column}
+.hw-pan .hw-cta{display:flex;flex-direction:column;gap:.75rem}
 .hw-pan .hw-btn{width:100%}
 .hw-pan .hw-btn.sec{color:var(--ink)}
 .hw-priv{margin:.9rem 0 0;font-size:.875rem;color:var(--ink-soft);text-align:center}
@@ -502,6 +504,9 @@ html.hw-open .hw-pan{transform:none;visibility:visible}
     <a class="brand" href="#top" aria-label="A casa mia"><svg class="mk" aria-hidden="true"><use href="#i-logo"/></svg><svg class="wm" aria-hidden="true"><use href="#i-word"/></svg></a>
     <nav class="menu" aria-label="Menu">
       <a href="#giornata">La giornata</a>
+      <a href="#servizi">Ordina</a>
+      <a href="#negozio">Prodotti</a>
+      <a href="#galleria">Galleria</a>
       <a href="#recensioni">Recensioni</a>
       <a href="#dove">Dove siamo</a>
     </nav>
@@ -671,26 +676,38 @@ html.hw-open .hw-pan{transform:none;visibility:visible}
 
 <footer>
   <div class="wrap">
-    <div class="foot-top">
+    <div class="foot-grid">
       <div class="foot-l">
         <div class="brand" role="img" aria-label="A casa mia"><svg class="mk" aria-hidden="true"><use href="#i-logo"/></svg><svg class="wm" aria-hidden="true"><use href="#i-word"/></svg></div>
         <p>Via XVI Settembre, 4 · 00053 Civitavecchia (RM)</p>
+        <p>Lun-ven 7:00-17:00 · Sab e dom 8:00-15:00</p>
       </div>
-      <nav>
+      <nav class="foot-col" aria-label="Il locale">
+        <p class="foot-h">Il locale</p>
+        <a href="#giornata">La giornata</a>
+        <a href="#servizi">Ordina o festeggia</a>
+        <a href="#negozio">Prodotti</a>
+        <a href="#galleria">Galleria</a>
+        <a href="#recensioni">Recensioni</a>
+        <a href="#dove">Orari e dove siamo</a>
+      </nav>
+      <nav class="foot-col" aria-label="Contatti">
+        <p class="foot-h">Contatti</p>
+        <a href="tel:+390766526232" data-evento="telefono">0766 526232</a>
+        <a href="https://wa.me/393481897496" data-evento="whatsapp">WhatsApp +39 348 189 7496</a>
+        <a href="mailto:info@acasamiacivitavecchia.it">info@acasamiacivitavecchia.it</a>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=A+casa+mia+Via+XVI+Settembre+4+Civitavecchia&amp;query_place_id=ChIJe4oLuT-jKBMRC1LSgftPCaM" target="_blank" rel="noopener" data-evento="indicazioni">Indicazioni stradali</a>
         <a href="https://www.instagram.com/acasamiacivitavecchia" target="_blank" rel="noopener" data-evento="instagram">Instagram</a>
         <a href="https://www.facebook.com/acasamiacivitavecchia" target="_blank" rel="noopener" data-evento="facebook">Facebook</a>
-        <a href="https://wa.me/393481897496" data-evento="whatsapp">WhatsApp</a>
-        <a href="tel:+390766526232" data-evento="telefono">0766 526232</a>
       </nav>
     </div>
     <div class="legale">
       <p><b>Le 3 lettere S.R.L.</b></p>
       <p>P.IVA 18241231002 · C.F. 18241231002</p>
       <p>Sede legale: Via XVI Settembre 2-4, 00053&nbsp;Civitavecchia&nbsp;(RM)</p>
-      <p><a href="mailto:info@acasamiacivitavecchia.it">info@acasamiacivitavecchia.it</a></p>
       <p><a href="/privacy/">Informativa privacy</a></p>
     </div>
-    <small>Satoshi Web</small>
+    <p class="foot-firma"><a href="https://satoshiweb.it" target="_blank" rel="noopener">by satoshiweb.it</a></p>
   </div>
 </footer>
 
