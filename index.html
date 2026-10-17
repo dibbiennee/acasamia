@@ -433,6 +433,14 @@ html.hw-open .hw-pan{transform:none;visibility:visible}
 .hw-card .hw-x{color:#F7F1E3;width:2.5rem;height:2.75rem;font-size:1.25rem;flex:none}
 @media (min-width:68.75rem){.hw-card{left:auto;right:1.5rem;bottom:1.5rem;width:24rem}}
 @media (prefers-reduced-motion:reduce){.hw-card,.hw-card.su{transition:none}}
+/* la finestra si accende quando arriva la sezione (solo con JavaScript e senza "riduci movimento") */
+.hw-ill .buio{fill:#13241f;transition:opacity .5s ease}
+.hw-ill.accesa .buio{opacity:0}
+.hw-ill.accesa .buio.v2{transition-delay:.35s}.hw-ill.accesa .buio.v3{transition-delay:.7s}.hw-ill.accesa .buio.v4{transition-delay:1.05s}
+.hw-ill.anima .fantasma{animation:hw-fluttua 3.2s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.hw-ill.anima.accesa .ragno{animation:hw-scende 1.6s 1.3s cubic-bezier(.3,1.4,.5,1) both}
+@keyframes hw-fluttua{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes hw-scende{from{transform:translateY(-42px)}to{transform:none}}
 .hw-sezione{position:relative;overflow:hidden;color:#F7F1E3;padding:3.25rem 1.25rem 2.75rem;background:radial-gradient(60% 45% at 22% 30%,rgba(120,125,70,.38),transparent 72%),linear-gradient(var(--green) 0,#173a34 35%,#10231f)}
 /* divisorio tra hero e evento: filo chiaro con un pipistrello al centro */
 .hw-div{position:absolute;left:1.25rem;right:1.25rem;top:1.25rem;display:flex;align-items:center;gap:.875rem;color:#F7F1E3;pointer-events:none}
@@ -569,14 +577,14 @@ html.hw-open .hw-pan{transform:none;visibility:visible}
 <polygon points="214,14 386,86 386,186 214,186" fill="url(#hwgs)"/>
 <path d="M14 386V300A86 86 0 0 1 186 300V386Z" fill="url(#hwgs)"/>
 <rect x="214" y="214" width="172" height="172" fill="url(#hwgs)"/>
-<!-- fantasma -->
+<g class="fantasma"><!-- fantasma -->
 <path d="M68 152V107A32 32 0 0 1 132 107V152L121 143L110 152L100 143L90 152L79 143Z" fill="#F7F1E3" stroke="#12302B" stroke-width="4" stroke-linejoin="round"/>
 <circle cx="89" cy="109" r="5" fill="#12302B"/><circle cx="111" cy="109" r="5" fill="#12302B"/><ellipse cx="100" cy="125" rx="4.5" ry="6" fill="#12302B"/>
-<!-- ragno -->
+</g><g class="ragno"><!-- ragno -->
 <path d="M300 50V108" stroke="#12302B" stroke-width="3"/>
 <g stroke="#12302B" stroke-width="3.5" stroke-linecap="round" fill="none"><path d="M293 118L272 106M293 124L270 126M294 130L274 146M296 135L282 156M307 118L328 106M307 124L330 126M306 130L326 146M304 135L318 156"/></g>
 <circle cx="300" cy="124" r="12" fill="#12302B"/><circle cx="300" cy="111" r="7.5" fill="#12302B"/>
-<!-- gatto -->
+</g><!-- gatto -->
 <path d="M60 386C60 342 73 324 100 324C127 324 140 342 140 386Z" fill="#12302B"/>
 <circle cx="100" cy="308" r="23" fill="#12302B"/>
 <path d="M80 296L78 266L99 285ZM120 296L122 266L101 285Z" fill="#12302B"/>
@@ -861,6 +869,17 @@ document.addEventListener('click',function(e){
   if(sez&&'IntersectionObserver' in window)new IntersectionObserver(function(en){en.forEach(function(x){sezVista=x.isIntersecting;scheda()})}).observe(sez);
   addEventListener('scroll',scheda,{passive:true});
   new MutationObserver(scheda).observe(H,{attributes:true,attributeFilter:['class']});
+  // finestra: vetri al buio che si accendono uno alla volta quando la finestra e' tutta nella parte alta dello schermo
+  // (su telefono la sezione si intravede gia' sotto la hero: senza questo margine si accenderebbe prima di arrivarci)
+  var ill=sez&&sez.querySelector('.hw-ill');
+  if(ill&&'IntersectionObserver' in window&&!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)){
+    var NS='http://www.w3.org/2000/svg',n=0;
+    function vetro(tag,att){var e=document.createElementNS(NS,tag);for(var k in att)e.setAttribute(k,att[k]);e.setAttribute('class','buio v'+(++n));ill.appendChild(e)}
+    vetro('rect',{x:14,y:14,width:172,height:172});vetro('polygon',{points:'214,14 386,86 386,186 214,186'});vetro('path',{d:'M14 386V300A86 86 0 0 1 186 300V386Z'});vetro('rect',{x:214,y:214,width:172,height:172});
+    ill.classList.add('anima');
+    var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){ill.classList.add('accesa');io.disconnect()}})},{threshold:1,rootMargin:'0px 0px -30% 0px'});
+    io.observe(ill);
+  }
 
 })();
 </script>
