@@ -54,6 +54,10 @@ prova('chiavi non ammesse: ignorate o ricondotte a "altro"', async () => {
   assert(!c.some((k) => /spia|admin|posizione-inventata|altro$/.test(k) && !k.endsWith(':altro')), 'nessuna chiave inventata');
   assert(c.includes('ev:telefono') && c.includes('evp:telefono:altro'));
 });
+prova('clic dentro l\'evento Halloween: posizione "halloween" ammessa', async () => {
+  const c = await invia({ l: 'it', w: 390, e: [{ t: 'c', n: 'whatsapp', p: 'halloween', o: 0 }] });
+  assert(c.includes('ev:whatsapp') && c.includes('evp:whatsapp:halloween'), c.join(','));
+});
 prova('dati personali nel payload: non finiscono nell\'archivio', async () => {
   const c = await invia({ l: 'it', w: 390, nome: 'Mario Rossi', email: 'mario@example.com', tel: '3331234567', ip: '198.51.100.9', e: [{ t: 'pv', r: 'https://sito.it/?email=mario@example.com', nome: 'Mario', testo: 'ciao' }, { t: 'c', n: 'telefono', numero: '3331234567', p: 'hero' }] });
   const tutto = JSON.stringify(comandi);

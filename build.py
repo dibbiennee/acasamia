@@ -41,6 +41,9 @@ VESTITO = os.path.join(ROOT, "source", "vestito.html")  # nuovo vestito grafico 
 SITE_URL = "https://acasamiacivitavecchia.it"
 # Ahrefs Web Analytics: spento finche' il titolare e il consulente non lo validano. Per riaccenderlo: AHREFS_ANALYTICS=1 python3 build.py
 AHREFS_ATTIVO = os.environ.get("AHREFS_ANALYTICS") == "1"
+# Evento Halloween: attivo fino al 31 ottobre 2026; dopo quella data una nuova build lo toglie dalle pagine
+import datetime as _dt
+HW_ATTIVO = _dt.date.today() <= _dt.date(2026, 10, 31)
 
 
 def blocchi_ahrefs(testo):
@@ -48,6 +51,13 @@ def blocchi_ahrefs(testo):
     tieni, butta = ("SI", "NO") if AHREFS_ATTIVO else ("NO", "SI")
     testo = re.sub(r"<!--AHREFS:%s-->.*?<!--/AHREFS:%s-->" % (butta, butta), "", testo, flags=re.S)
     return re.sub(r"<!--/?AHREFS:%s-->" % tieni, "", testo)
+
+
+def blocchi_hw(testo, tieni=True):
+    """evento Halloween: tiene i blocchi <!--HW:...--> (se attivo e richiesto) o li toglie del tutto"""
+    if tieni and HW_ATTIVO:
+        return testo.replace("<!--HW:INIZIO-->", "").replace("<!--HW:FINE-->", "")
+    return re.sub(r"<!--HW:INIZIO-->.*?<!--HW:FINE-->", "", testo, flags=re.S)
 
 # (alt text che identifica univocamente il tag, nome file, eager?, sizes per
 # il srcset — None per l'hero, che ha la sua gestione a parte)
@@ -156,6 +166,8 @@ ARIA_EN = {
     "Recensione successiva": "Next review",
     "Recensioni di Google": "Google reviews",
     "Colazioni dolci, brunch, pranzo, aperitivo": "Sweet breakfasts, brunch, lunch, aperitivo",
+    "Chiudi": "Close",
+    "Una finestra illuminata con un fantasma, un ragno, un gatto nero e una zucca": "A lit window with a ghost, a spider, a black cat and a pumpkin",
 }
 EN_TITLE = "A casa mia · Café, brunch and aperitivo in Civitavecchia"
 EN_DESC = ("A bistrot in the heart of Civitavecchia, a few steps from the port. "
@@ -221,6 +233,7 @@ def make_en(it_page):
     # json-ld
     page = page.replace('"description": "Bistrot nel cuore di Civitavecchia, a pochi passi dal porto."',
                         '"description": "A bistrot in the heart of Civitavecchia, a few steps from the port."')
+    page = page.replace('"description": "Serata di Halloween con DJ set di Nunzio Fanni e menù à la carte. Prenotazione obbligatoria."', '"description": "Halloween night with a DJ set by Nunzio Fanni and an à la carte menu. Booking required."')
     page = page.replace('"servesCuisine": ["Italiana", "Brunch", "Caffetteria"]', '"servesCuisine": ["Italian", "Brunch", "Coffee"]')
     page = page.replace('"url": "%s/"' % SITE_URL, '"url": "%s/en/"' % SITE_URL)
     # toggle: l'inglese e' la pagina corrente
@@ -264,12 +277,14 @@ def build_vestito():
         print(f"  {name}: {im.width}x{im.height}")
     build_og_image(os.path.join(OUT_IMG, "hero.webp"), os.path.join(OUT_IMG, "og-image.jpg"))
     page = blocchi_ahrefs(open(VESTITO, encoding="utf-8").read().replace("__SITE_URL__", SITE_URL))
+    page_privacy = page  # le pagine privacy non portano l'evento
+    page = blocchi_hw(page)
     en_page = make_en(page)
     os.makedirs(os.path.dirname(OUT_EN), exist_ok=True)
     open(OUT_EN, "w", encoding="utf-8").write(en_page)
     open(OUT_HTML, "w", encoding="utf-8").write(strip_lang_attrs(page))
     print(f"scritto {OUT_HTML} e {OUT_EN}")
-    build_privacy(page)
+    build_privacy(page_privacy)
     build_pannello()
     build_sitemap()
 
@@ -278,6 +293,7 @@ def build_privacy(page):
     """/privacy/ e /en/privacy/: stessa testata e stesso footer del sito, contenuto da source/privacy_*.html"""
     def pagina(base, lingua):
         it = lingua == "it"
+        base = blocchi_hw(base, tieni=False)
         main = blocchi_ahrefs(open(os.path.join(ROOT, "source", "privacy_%s.html" % lingua), encoding="utf-8").read()).strip()
         pre = "" if it else "/en"
         p = re.sub(r"<main id=\"top\">.*?</main>", lambda m: main, base, count=1, flags=re.S)

@@ -63,7 +63,7 @@ check('vercel.json: regione fra1 e noindex su /api/ e /pannello', '"regions":["f
 base = subprocess.run(['git', 'merge-base', 'HEAD', 'main'], capture_output=True, text=True).stdout.strip()
 d = subprocess.run(['git', 'diff', '-U0', base, '--', 'api'], capture_output=True, text=True).stdout.splitlines()
 righe = [l for l in d if l[:1] in '+-' and not l.startswith(('+++', '---'))]
-check(f'api/: rispetto a main cambiano solo commenti ({len(righe)} righe)', all(re.match(r'^[+-]\s*(//|$)', l) for l in righe), [l for l in righe if not re.match(r'^[+-]\s*(//|$)', l)][:3])
+check(f'api/: rispetto a main cambiano solo commenti e la posizione "halloween" ({len(righe)} righe)', all(re.match(r'^[+-]\s*(//|$)', l) or 'const POSIZIONI' in l for l in righe), [l for l in righe if not re.match(r'^[+-]\s*(//|$)', l) and 'const POSIZIONI' not in l][:3])
 t = leggi('api/t.js')
 check('api/t.js: nessuna scrittura distruttiva (solo HINCRBY ed EXPIRE)', set(re.findall(r"\['([A-Z]+)'", t)) == {'HINCRBY', 'EXPIRE'}, set(re.findall(r"\['([A-Z]+)'", t)))
 check('api/stats.js: solo lettura', not re.search(r"'(HINCRBY|HSET|DEL|EXPIRE|SET|FLUSH\w*)'", leggi('api/stats.js')))

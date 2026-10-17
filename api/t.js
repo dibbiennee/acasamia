@@ -6,7 +6,7 @@ const { redis, adesso } = require('./_lib.js');
 
 const EVENTI = new Set(['telefono', 'whatsapp', 'indicazioni', 'indicazioni-apple', 'recensione', 'glovo', 'instagram', 'facebook', 'lingua', 'cue', 'orari']);
 const SEZIONI = new Set(['giornata', 'servizi', 'recensioni', 'negozio', 'galleria', 'dove']);
-const POSIZIONI = new Set(['barra', 'header', 'footer', 'hero', 'altro', ...SEZIONI]);
+const POSIZIONI = new Set(['barra', 'header', 'footer', 'hero', 'altro', 'halloween', ...SEZIONI]);
 const SCORRI = new Set(['giornata', 'recensioni']);
 const BOT = /bot|crawl|spider|slurp|headless|lighthouse|pagespeed|preview|facebookexternalhit|whatsapp|curl|wget|python|node-fetch|axios|go-http|java\//i;
 const TTL = 60 * 60 * 24 * 400;
