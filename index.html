@@ -421,6 +421,18 @@ html.hw-open .hw-pan{transform:none;visibility:visible}
 .hw-strip .hw-x{width:2.5rem;height:2.75rem;font-size:1.25rem;flex:none}
 @media (min-width:48rem){.hw-strip{font-size:.9375rem;gap:.75rem}}
 /* sezione: compatta, prenotazione subito in vista */
+/* schedina che sale dal basso dopo la hero */
+.hw-card{position:fixed;left:.5rem;right:.5rem;bottom:calc(5.75rem + env(safe-area-inset-bottom));z-index:60;display:flex;align-items:center;gap:.75rem;background:var(--notte);color:#F7F1E3;border:1px solid color-mix(in srgb,var(--gold) 55%,transparent);border-radius:1rem;padding:.5rem .25rem .5rem .625rem;box-shadow:0 12px 30px rgba(0,0,0,.35);transform:translateY(160%);opacity:0;visibility:hidden;transition:transform .45s cubic-bezier(.2,.9,.2,1),opacity .3s,visibility 0s .45s}
+.hw-card.su{transform:none;opacity:1;visibility:visible;transition:transform .45s cubic-bezier(.2,.9,.2,1),opacity .3s}
+.hw-card svg{width:2.75rem;height:2.75rem;flex:none;border-radius:.375rem}
+.hw-card p{margin:0;flex:1;min-width:0;font-size:.875rem;line-height:1.25}
+.hw-card p span{display:block;text-wrap:balance}
+.hw-card .hw-go{padding-inline:.75rem}
+.hw-card p b{display:block;font-family:var(--serif);font-weight:500;font-size:1.25rem;color:var(--gold)}
+.hw-card .hw-go{position:relative;background:var(--red);color:#fff;border:0;border-radius:99px;font:500 .875rem/1 var(--sans);padding:.75rem .9rem;cursor:pointer;flex:none}
+.hw-card .hw-x{color:#F7F1E3;width:2.5rem;height:2.75rem;font-size:1.25rem;flex:none}
+@media (min-width:68.75rem){.hw-card{left:auto;right:1.5rem;bottom:1.5rem;width:24rem}}
+@media (prefers-reduced-motion:reduce){.hw-card,.hw-card.su{transition:none}}
 .hw-sezione{position:relative;overflow:hidden;color:#F7F1E3;padding:3.25rem 1.25rem 2.75rem;background:radial-gradient(60% 45% at 22% 30%,rgba(120,125,70,.38),transparent 72%),linear-gradient(var(--green) 0,#173a34 35%,#10231f)}
 /* divisorio tra hero e evento: filo chiaro con un pipistrello al centro */
 .hw-div{position:absolute;left:1.25rem;right:1.25rem;top:1.25rem;display:flex;align-items:center;gap:.875rem;color:#F7F1E3;pointer-events:none}
@@ -577,8 +589,8 @@ html.hw-open .hw-pan{transform:none;visibility:visible}
 <path d="M273 322L291 322L282 337ZM309 322L327 322L318 337Z" fill="#12302B"/>
 <path d="M272 349C282 366 291 358 300 366C309 358 318 366 328 349C318 354 309 349 300 355C291 349 282 354 272 349Z" fill="#12302B"/>
 </svg><div><p class="hw-data">Sabato 31 ottobre · dalle 18:00</p><h2 id="hw-t">Halloween</h2></div></div>
-<p class="hw-lead">Posti solo su prenotazione, <em>non restare&nbsp;fuori.</em></p>
-<ul class="hw-punti"><li><span>DJ set di <b>Nunzio Fanni</b></span></li><li><span>Menù à la carte</span></li></ul>
+<p class="hw-lead">Le luci restano accese per una serata da&nbsp;brividi.</p>
+<ul class="hw-punti"><li><span>DJ set di <b>Nunzio Fanni</b></span></li><li><span>Menù à la carte</span></li><li><span>Solo su prenotazione</span></li></ul>
 <div class="hw-cta-box"><button class="hw-btn pri" data-hw-open type="button">Prenota il tuo tavolo</button><p class="hw-alt"><span>oppure</span> <a href="tel:+390766526232" data-evento="telefono">chiama lo 0766 526232</a></p></div>
 </div></section>
 <section class="day" id="giornata">
@@ -729,6 +741,34 @@ html.hw-open .hw-pan{transform:none;visibility:visible}
 <div class="hw-cta"><a class="hw-btn pri" id="hw-wa" href="https://wa.me/393481897496" target="_blank" rel="noopener" data-evento="whatsapp"><svg viewBox="-1.6 -1.6 27.2 27.2" fill="currentColor" aria-hidden="true"><use href="#i-wa"/></svg><span>Scrivi su WhatsApp</span></a><a class="hw-btn sec" href="tel:+390766526232" data-evento="telefono"><svg aria-hidden="true"><use href="#i-phone"/></svg><span>Chiama 0766 526232</span></a></div>
 <p class="hw-priv">Si apre WhatsApp con il messaggio già pronto. Non salviamo i tuoi dati.</p>
 </div>
+<div class="hw hw-card" id="hw-card" role="region" aria-label="Halloween"><svg class="hw-mini" viewBox="0 0 400 400" aria-hidden="true">
+<defs><linearGradient id="hwgc" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F8DC9B"/><stop offset="1" stop-color="#E9B85A"/></linearGradient>
+<radialGradient id="hwpc" cx=".5" cy=".4" r=".7"><stop offset="0" stop-color="#F0903A"/><stop offset="1" stop-color="#CC6420"/></radialGradient></defs>
+<rect width="400" height="400" fill="#12302B"/>
+<rect x="14" y="14" width="172" height="172" fill="url(#hwgc)"/>
+<polygon points="214,14 386,86 386,186 214,186" fill="url(#hwgc)"/>
+<path d="M14 386V300A86 86 0 0 1 186 300V386Z" fill="url(#hwgc)"/>
+<rect x="214" y="214" width="172" height="172" fill="url(#hwgc)"/>
+<!-- fantasma -->
+<path d="M68 152V107A32 32 0 0 1 132 107V152L121 143L110 152L100 143L90 152L79 143Z" fill="#F7F1E3" stroke="#12302B" stroke-width="4" stroke-linejoin="round"/>
+<circle cx="89" cy="109" r="5" fill="#12302B"/><circle cx="111" cy="109" r="5" fill="#12302B"/><ellipse cx="100" cy="125" rx="4.5" ry="6" fill="#12302B"/>
+<!-- ragno -->
+<path d="M300 50V108" stroke="#12302B" stroke-width="3"/>
+<g stroke="#12302B" stroke-width="3.5" stroke-linecap="round" fill="none"><path d="M293 118L272 106M293 124L270 126M294 130L274 146M296 135L282 156M307 118L328 106M307 124L330 126M306 130L326 146M304 135L318 156"/></g>
+<circle cx="300" cy="124" r="12" fill="#12302B"/><circle cx="300" cy="111" r="7.5" fill="#12302B"/>
+<!-- gatto -->
+<path d="M60 386C60 342 73 324 100 324C127 324 140 342 140 386Z" fill="#12302B"/>
+<circle cx="100" cy="308" r="23" fill="#12302B"/>
+<path d="M80 296L78 266L99 285ZM120 296L122 266L101 285Z" fill="#12302B"/>
+<path d="M139 378C168 376 170 346 156 338" stroke="#12302B" stroke-width="9" stroke-linecap="round" fill="none"/>
+<ellipse cx="91" cy="308" rx="4.6" ry="5.6" fill="#F2C879"/><ellipse cx="109" cy="308" rx="4.6" ry="5.6" fill="#F2C879"/>
+<!-- zucca -->
+<path d="M298 292C296 278 306 270 318 272" stroke="#12302B" stroke-width="7" stroke-linecap="round" fill="none"/>
+<ellipse cx="300" cy="335" rx="58" ry="46" fill="url(#hwpc)"/>
+<path d="M300 289C282 300 282 370 300 381M300 289C318 300 318 370 300 381M262 301C256 318 256 352 266 369M338 301C344 318 344 352 334 369" stroke="#B2501A" stroke-width="3" fill="none" opacity=".7"/>
+<path d="M273 322L291 322L282 337ZM309 322L327 322L318 337Z" fill="#12302B"/>
+<path d="M272 349C282 366 291 358 300 366C309 358 318 366 328 349C318 354 309 349 300 355C291 349 282 354 272 349Z" fill="#12302B"/>
+</svg><p><b>Sabato 31 ottobre</b><span>Posti solo su prenotazione, non restare&nbsp;fuori</span></p><button class="hw-go" data-hw-open type="button">Prenota</button><button class="hw-x" type="button" aria-label="Chiudi" data-hw-card-x>&times;</button></div>
 <nav class="bar" aria-label="Contatti rapidi">
   <div>
     <a href="tel:+390766526232" data-evento="telefono"><svg aria-hidden="true"><use href="#i-phone"/></svg><span>Chiama</span></a>
@@ -811,9 +851,17 @@ document.addEventListener('click',function(e){
     if(e.target.closest('[data-hw-open]')){e.preventDefault();apri()}
     else if(e.target.closest('[data-hw-close]'))chiudi();
     else if(e.target.closest('[data-hw-strip-x]')){var s=document.getElementById('hw-strip');if(s)s.remove()}
+    else if(e.target.closest('[data-hw-card-x]')){chiusa=true;scheda()}
   });
   document.addEventListener('keydown',function(e){if(e.key==='Escape'&&H.classList.contains('hw-open'))chiudi()});
   pan.addEventListener('change',msg);
+  // schedina: compare dopo la hero, sparisce se si vede la sezione Halloween o si apre il pannello
+  var card=document.getElementById('hw-card'),sez=document.getElementById('halloween'),hero=document.querySelector('.hero'),chiusa=false,sezVista=false;
+  function scheda(){if(!card)return;var dopo=hero&&scrollY>hero.offsetHeight*0.8;card.classList.toggle('su',!chiusa&&dopo&&!sezVista&&!H.classList.contains('hw-open'))}
+  if(sez&&'IntersectionObserver' in window)new IntersectionObserver(function(en){en.forEach(function(x){sezVista=x.isIntersecting;scheda()})}).observe(sez);
+  addEventListener('scroll',scheda,{passive:true});
+  new MutationObserver(scheda).observe(H,{attributes:true,attributeFilter:['class']});
+
 })();
 </script>
 <script>
